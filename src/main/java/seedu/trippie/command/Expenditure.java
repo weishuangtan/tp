@@ -3,9 +3,9 @@ package seedu.trippie.command;
 import java.util.ArrayList;
 
 public class Expenditure {
-    private String itemName;
-    private String itemCost;
-    private String dayBought;
+    private final String itemName;
+    private final String itemCost;
+    private final String dayBought;
 
     public Expenditure(String itemName, String itemCost, String dayBought) {
         this.itemName = itemName;
@@ -26,7 +26,7 @@ public class Expenditure {
     }
 
     public static void buyItem(String userInput, ArrayList<Expenditure> expenditureList) {
-        Expenditure itemEntry = null;
+        Expenditure itemEntry;
         String itemName = extractItemName(userInput);
         String itemCost = extractItemCost(userInput);
         String dayBought = extractDayBought(userInput);
@@ -39,7 +39,7 @@ public class Expenditure {
     public static void deleteItem(String userInput, ArrayList<Expenditure> expenditureList) {
         String[] segments = userInput.split("-e ");
         int expenseIndex = Integer.parseInt(segments[1]) - 1;
-        if(expenseIndex < expenditureList.size()) {
+        if (expenseIndex < expenditureList.size()) {
             System.out.println("Noted. I've removed this item from the expenditure list.");
             System.out.println(expenditureList.get(expenseIndex).toString());
             expenditureList.remove(expenseIndex);
@@ -49,7 +49,7 @@ public class Expenditure {
         }
     }
 
-    public static void displayExpenditureList(String userInput, ArrayList<Expenditure> expenditureList) {
+    public static void displayExpenditureList(ArrayList<Expenditure> expenditureList) {
         if (expenditureList.isEmpty()) {
             System.out.println("There is currently nothing in your expenditure list.");
         } else {
@@ -67,15 +67,18 @@ public class Expenditure {
         int endIndex = userInput.indexOf("-c") - 1;
         return userInput.substring(startIndex,endIndex).trim();
     }
+
     public static String extractItemCost(String userInput) {
         int startIndex = userInput.indexOf("-c") + 2;
         int endIndex = userInput.indexOf("-d") - 1;
         return userInput.substring(startIndex,endIndex).trim();
     }
+
     public static String extractDayBought(String userInput) {
         int startIndex = userInput.indexOf("-d") + 2;
         return userInput.substring(startIndex).trim();
     }
+
     public static void numberOfItemsTracker(ArrayList<Expenditure> expenditureList) {
         int numberOfItems = expenditureList.size();
         System.out.println("Now you have " + numberOfItems + " item(s).");
