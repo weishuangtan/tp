@@ -13,6 +13,10 @@ public class CommandList {
         return userInput.toLowerCase().startsWith("list -e");
     }
 
+    public static boolean userInputExpenditureSpending(String userInput) {
+        return userInput.toLowerCase().startsWith("spending");
+    }
+
     public static boolean userInputBye(String userInput) {
         return userInput.toLowerCase().contains("bye");
     }

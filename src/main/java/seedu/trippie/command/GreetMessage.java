@@ -1,8 +1,12 @@
 package seedu.trippie.command;
 
 public class GreetMessage {
+    private static final String SECTION_BREAK = "_______________________________________________";
+
     public static void greetUser() {
         logo();
+        System.out.println("How can I help you?");
+        System.out.println(SECTION_BREAK);
     }
 
     public static void logo() {
@@ -13,5 +17,6 @@ public class GreetMessage {
                 + "  | |/ || |   | | | |    | |    | | | \\____  \\  \\WWW/  /\n"
                 + "   \\__/ |_|   |_| |_|    |_|    |_|  \\____/   \\_______/\n";
         System.out.println("Welcome to\n" + logo + "\n\t\t\t\t\t\t\tyour number one trip planner");
+        System.out.println(SECTION_BREAK);
     }
 }
