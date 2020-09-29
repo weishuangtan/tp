@@ -78,7 +78,7 @@ public class Expenditure {
         try {
             double amount = 0.00;
             NumberFormat formatter = NumberFormat.getCurrencyInstance();
-            String finalTotalExpenditure = "";
+            String finalTotalExpenditure;
             for (Expenditure spending : expenditureList) {
                 amount += Double.parseDouble(extractCostFromList(spending));
             }

@@ -18,6 +18,7 @@ import static seedu.trippie.command.GreetMessage.greetUser;
 
 public class Trippie {
     private static final String SECTION_BREAK = "_______________________________________________";
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         ArrayList<Expenditure> expenditureList = new ArrayList<>();
