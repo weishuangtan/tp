@@ -1,6 +1,7 @@
-package seedu.trippie.command;
+package seedu.trippie;
 
-public class GreetMessage {
+public class Ui {
+
     private static final String SECTION_BREAK = "_______________________________________________";
 
     public static void greetUser() {
@@ -19,4 +20,5 @@ public class GreetMessage {
         System.out.println("Welcome to\n" + logo + "\n\t\t\t\t\t\t\tyour number one trip planner");
         System.out.println(SECTION_BREAK);
     }
+
 }

@@ -1,4 +1,4 @@
-package seedu.trippie.command;
+package seedu.trippie;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -15,16 +15,20 @@ public class Expenditure {
         this.dayBought = dayBought;
     }
 
-    public String getItemName() {
-        return itemName;
-    }
+    public static void deleteItem(String userInput, ArrayList<Expenditure> expenditureList) {
+        String[] segments = userInput.split("-e ");
+        int expenseIndex = Integer.parseInt(segments[1]) - 1;
+        if (expenseIndex < expenditureList.size()) {
+            System.out.println(SECTION_BREAK);
+            System.out.println("Noted. I've removed this item from the expenditure list.");
+            System.out.println(expenditureList.get(expenseIndex).toString());
+            expenditureList.remove(expenseIndex);
+            numberOfItemsTracker(expenditureList);
+        } else {
+            System.out.println(SECTION_BREAK);
+            System.out.println("Item has not been created yet. Enter a valid index.");
 
-    public String getItemCost() {
-        return itemCost;
-    }
-
-    public String getDayBought() {
-        return dayBought;
+        }
     }
 
     public static void buyItem(String userInput, ArrayList<Expenditure> expenditureList) {
@@ -40,20 +44,16 @@ public class Expenditure {
         System.out.println(SECTION_BREAK);
     }
 
-    public static void deleteItem(String userInput, ArrayList<Expenditure> expenditureList) {
-        String[] segments = userInput.split("-e ");
-        int expenseIndex = Integer.parseInt(segments[1]) - 1;
-        if (expenseIndex < expenditureList.size()) {
-            System.out.println(SECTION_BREAK);
-            System.out.println("Noted. I've removed this item from the expenditure list.");
-            System.out.println(expenditureList.get(expenseIndex).toString());
-            expenditureList.remove(expenseIndex);
-            numberOfItemsTracker(expenditureList);
-        } else {
-            System.out.println(SECTION_BREAK);
-            System.out.println("Item has not been created yet. Enter a valid index.");
+    public String getItemName() {
+        return itemName;
+    }
 
-        }
+    public String getItemCost() {
+        return itemCost;
+    }
+
+    public String getDayBought() {
+        return dayBought;
     }
 
     public static void displayExpenditureList(ArrayList<Expenditure> expenditureList) {
