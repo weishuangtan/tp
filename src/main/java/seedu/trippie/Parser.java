@@ -1,14 +1,14 @@
 package seedu.trippie;
 
-import seedu.trippie.command.Command;
+import seedu.trippie.command.*;
+
+import java.util.ArrayList;
 
 public class Parser {
 
-    private static final String SECTION_BREAK = "_______________________________________________";
-
     /*
     public static void pa {
-        Scanner in = new Scanner(System.in);
+
         ArrayList<Expenditure> expenditureList = new ArrayList<>();
         String userInput;
         Ui.greetUser();
@@ -38,13 +38,20 @@ public class Parser {
      */
 
 
-    public static Command parse(String command) {
+    public static Command parse(ArrayList<Product> expenditureList, String command) {
         //try here rmb
         if (command.equals("bye")) {
             //return new ExitCommand();
-        } else {
-            //return new AddCommand(command);
+        } else if (command.equals("buy")) {
+            return new AddExpenditureCommand(expenditureList, command);
+        } else if (command.equals("delete -e")) {
+            return new DeleteExpenditureCommand(expenditureList, command);
+        } else if (command.equals("list -e")) {
+            return new ListExpenditureCommand(expenditureList);
+        } else if (command.equals("spending")) {
+            return new DisplayTotalExpenditureCommand(expenditureList);
         }
+            //return new AddCommand(command);
         return null;
     }
 }

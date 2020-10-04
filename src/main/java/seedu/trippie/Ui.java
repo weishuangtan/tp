@@ -1,13 +1,16 @@
 package seedu.trippie;
 
+import java.util.Scanner;
+
 public class Ui {
 
-    private static final String SECTION_BREAK = "_______________________________________________";
+    Scanner in = new Scanner(System.in);
 
-    public static void greetUser() {
+    public void greetUser() {
         logo();
+        printLine();
         System.out.println("How can I help you?");
-        System.out.println(SECTION_BREAK);
+        printLine();
     }
 
     public static void logo() {
@@ -17,8 +20,16 @@ public class Ui {
                 + "  | | _ | |   | | |  __/ |  __/ | | | |__|_||    ___    |\n"
                 + "  | |/ || |   | | | |    | |    | | | \\____  \\  \\WWW/  /\n"
                 + "   \\__/ |_|   |_| |_|    |_|    |_|  \\____/   \\_______/\n";
-        System.out.println("Welcome to\n" + logo + "\n\t\t\t\t\t\t\tyour number one trip planner");
-        System.out.println(SECTION_BREAK);
+        System.out.println("Welcome to\n" + logo +
+                "\n\t\t\t\t\t\t\t" + "your number one trip planner");
     }
 
+    public static void printLine() {
+        System.out.println("____________________________________________________");
+    }
+
+    public String readCommand() {
+        System.out.print(">> ");
+        return in.nextLine();
+    }
 }

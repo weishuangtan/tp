@@ -1,8 +1,11 @@
 package seedu.trippie;
 
+import static seedu.trippie.ExpenditureList.expenditureList;
+
 public class Trippie {
     //private final Storage storage;
     private final Ui ui;
+    private ExpenditureList expenses;
 
     public Trippie(String filePath) {
         ui = new Ui();
@@ -15,8 +18,11 @@ public class Trippie {
     public void run() {
         ui.greetUser();
         boolean isExit = false;
-        //String fullCommand = ui.readCommand();
-        //Parser.parse(fullCommand);
+        while (true) {
+            String fullCommand = ui.readCommand();
+            ui.printLine();
+            Parser.parse(expenditureList, fullCommand);
+        }
         /*
         while (!isExit) {
             try {
