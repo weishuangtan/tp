@@ -25,7 +25,7 @@ public class Ui {
         System.out.println(SECTION_BREAK);
     }
 
-    public void FarewellMessage() {
+    public void farewellMessage() {
         System.out.println("Bye! See you again soon!");
     }
 
