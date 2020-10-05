@@ -13,7 +13,7 @@ public class Trippie {
     }
 
     public void run() {
-        ui.greetUser();
+        ui.welcomeMessage();
         boolean isExit = false;
         //String fullCommand = ui.readCommand();
         //Parser.parse(fullCommand);
