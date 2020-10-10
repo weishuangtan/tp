@@ -11,15 +11,15 @@ import static seedu.trippie.Product.extractItemName;
 public class AddExpenditureCommand extends Command {
     Product itemEntry;
 
-    public AddExpenditureCommand(ArrayList<Product> expenditureList, String command) {
+    public AddExpenditureCommand(ArrayList<Product> expenditureList, String userInput) {
 
-        String itemName = extractItemName(command);
-        String itemCost = Product.extractItemCost(command);
-        String dayBought = Product.extractDayBought(command);
+        String itemName = extractItemName(userInput);
+        String itemCost = Product.extractItemCost(userInput);
+        String dayBought = Product.extractDayBought(userInput);
         itemEntry = new Product(itemName, itemCost, dayBought);
         Ui.printLine();
         System.out.println("Got it! I've added the following item: " + itemEntry.toString());
-        expenditureList.add(itemEntry);
+        ExpenditureList.addToExpenditureList(itemEntry);
         ExpenditureList.numberOfItemsTracker(expenditureList);
         Ui.printLine();
     }

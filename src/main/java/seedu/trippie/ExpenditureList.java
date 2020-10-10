@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExpenditureList {
-    protected static ArrayList<Product> expenditureList;
+    protected static ArrayList<Product> expenditureList = new ArrayList<>();
 
-    public ExpenditureList() {
-        expenditureList = new ArrayList<>();
-    }
+//    public ExpenditureList() {
+//        expenditureList = new ArrayList<Product>();
+//    }
 
     public ExpenditureList(List<Product> expenditureList) {
-        this.expenditureList = new ArrayList<>(expenditureList);
+        expenditureList = new ArrayList<>(expenditureList);
     }
 
     public static ArrayList<Product> getExpenditureList() {
         return expenditureList;
     }
 
-    public void setExpenditureList(ArrayList<Product> expenditureList) {
-        this.expenditureList = expenditureList;
+    public static void addToExpenditureList(Product product) {
+        expenditureList.add(product);
     }
 
     public static void numberOfItemsTracker(ArrayList<Product> expenditureList) {

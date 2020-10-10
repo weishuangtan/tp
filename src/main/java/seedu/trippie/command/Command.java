@@ -1,5 +1,4 @@
 package seedu.trippie.command;
 
-public class Command {
-
+public abstract class Command {
 }

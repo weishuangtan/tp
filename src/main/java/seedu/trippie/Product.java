@@ -5,8 +5,8 @@ public class Product {
     private String productCost;
     private String productDayBought;
 
-    public Product(String productItem, String productCost, String productDayBought) {
-        this.productName = productItem;
+    public Product(String productName, String productCost, String productDayBought) {
+        this.productName = productName;
         this.productCost = productCost;
         this.productDayBought = productDayBought;
     }
@@ -37,7 +37,7 @@ public class Product {
         return spending.toString().substring(startIndex);
     }
 
-    public String getProductItem() {
+    public String getProductName() {
         return productName;
     }
 
@@ -51,6 +51,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Day " + getProductDayBought() + ": " + getProductItem() + " - $" + getProductCost();
+        return "Day " + getProductDayBought() + ": " + getProductName() + " - $" + getProductCost();
     }
 }

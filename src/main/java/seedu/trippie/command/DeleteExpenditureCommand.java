@@ -9,8 +9,8 @@ import static seedu.trippie.ExpenditureList.numberOfItemsTracker;
 
 public class DeleteExpenditureCommand extends Command {
 
-    public DeleteExpenditureCommand(ArrayList<Product> expenditureList, String command) {
-        String[] segments = command.split("-e ");
+    public DeleteExpenditureCommand(ArrayList<Product> expenditureList, String userInput) {
+        String[] segments = userInput.split("-e ");
         int expenseIndex = Integer.parseInt(segments[1]) - 1;
         if (expenseIndex < expenditureList.size()) {
             Ui.printLine();

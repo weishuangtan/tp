@@ -1,6 +1,5 @@
 package seedu.trippie.command;
 
-import seedu.trippie.ExpenditureList;
 import seedu.trippie.Product;
 import seedu.trippie.Ui;
 
