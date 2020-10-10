@@ -1,25 +1,35 @@
 package seedu.trippie.command;
 
-import seedu.trippie.Product;
-import seedu.trippie.Ui;
+import seedu.trippie.Expense;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
+import java.util.List;
 
 public class DisplayTotalExpenditureCommand extends Command {
 
-    public DisplayTotalExpenditureCommand(ArrayList<Product> expenditureList) throws NumberFormatException {
+    public DisplayTotalExpenditureCommand() throws NumberFormatException {
+
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
+    }
+
+    @Override
+    public void execute() {
+        List<Expense> expenses = expense.getExpenseList();
         try {
             double amount = 0.00;
             NumberFormat formatter = NumberFormat.getCurrencyInstance();
             String finalTotalExpenditure;
-            for (Product spending : expenditureList) {
-                amount += Double.parseDouble(Product.extractCostFromList(spending));
+            for (Expense spending : expenses) {
+                amount += Double.parseDouble(Expense.extractCostFromList(spending));
             }
             finalTotalExpenditure = formatter.format(amount);
-            Ui.printLine();
+            ui.printLine();
             System.out.println("Your current total spending is " + finalTotalExpenditure + ".");
-            Ui.printLine();
+            ui.printLine();
         } catch (NumberFormatException e) {
             System.out.println("Error! Incorrect number format.");
         }

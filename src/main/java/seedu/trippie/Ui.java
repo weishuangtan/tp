@@ -7,13 +7,13 @@ public class Ui {
     Scanner in = new Scanner(System.in);
 
     public void greetUser() {
-        logo();
+        printLogo();
         printLine();
         System.out.println("How can I help you?");
         printLine();
     }
 
-    public static void logo() {
+    private void printLogo() {
         String logo = "  _            _   ____   ____   _            __T___T__   \n"
                 + " _| |_   ____ |_| | __ \\ | __ \\ |_|   ____   /         \\ \n"
                 + "|_   _| /  __\\ _  | |_| || |_| | _   / __ \\ | |_|   |_| |  \n"
@@ -21,10 +21,10 @@ public class Ui {
                 + "  | |/ || |   | | | |    | |    | | | \\____  \\  \\WWW/  /\n"
                 + "   \\__/ |_|   |_| |_|    |_|    |_|  \\____/   \\_______/\n";
         System.out.println("Welcome to\n" + logo +
-                "\n\t\t\t\t\t\t\t" + "your number one trip planner");
+                "\n\t\t\t\t\t\t\t" + "Travel made easy");
     }
 
-    public static void printLine() {
+    public void printLine() {
         System.out.println("____________________________________________________");
     }
 

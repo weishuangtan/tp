@@ -1,26 +1,34 @@
 package seedu.trippie.command;
 
-import seedu.trippie.Product;
-import seedu.trippie.Ui;
+import seedu.trippie.Expense;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ListExpenditureCommand extends Command {
+    public ListExpenditureCommand() {
+    }
 
-    public ListExpenditureCommand(ArrayList<Product> expenditureList) {
-        if (expenditureList.isEmpty()) {
-            Ui.printLine();
+    @Override
+    public boolean isExit() {
+        return false;
+    }
+
+    @Override
+    public void execute() {
+        List<Expense> expenses = expense.getExpenseList();
+        if (expenses.isEmpty()) {
+            ui.printLine();
             System.out.println("There is currently nothing in your expenditure list.");
         } else {
             int listIndex = 1;
-            Ui.printLine();
+            ui.printLine();
             System.out.println("Expenditure List:");
-            Ui.printLine();
-            for (Product product: expenditureList) {
+            ui.printLine();
+            for (Expense product: expenses) {
                 System.out.println("[" + listIndex + "] " + product.toString());
                 listIndex++;
             }
         }
-        Ui.printLine();
+        ui.printLine();
     }
 }

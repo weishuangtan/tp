@@ -1,27 +1,39 @@
 package seedu.trippie;
 
-import static seedu.trippie.ExpenditureList.expenditureList;
+import seedu.trippie.command.Command;
 
 public class Trippie {
     //private final Storage storage;
     private final Ui ui;
-    private ExpenditureList expenses;
+    private ExpenseList expenseList;
 
     public Trippie(String filePath) {
         ui = new Ui();
+        try {
+            expenseList = new ExpenseList();
+            // expenseList = new ExpenseList(storage.load());
+        } catch (NullPointerException e) {
+            System.out.println("No file detected");
+            expenseList = new ExpenseList();
+        }
     }
 
     public static void main(String[] args) {
-        new Trippie("data/duke.txt").run();
+        new Trippie("data/trippie.txt").run();
     }
 
     public void run() {
         ui.greetUser();
         boolean isExit = false;
-        while (true) {
+        while (!isExit) {
             String fullCommand = ui.readCommand();
             ui.printLine();
-            Parser.parse(expenditureList, fullCommand);
+            Command c = Parser.parse(fullCommand);
+            if (c != null) {
+                c.execute();
+                isExit = c.isExit();
+            }
+            ui.printLine();
         }
         /*
         while (!isExit) {
