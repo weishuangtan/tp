@@ -30,6 +30,7 @@ public class Place {
     }
 
     public String getPlace() {
-        return getPlaceStartTime() + " - " + getPlaceEndTime() + " " + getPlaceName();
+        return String.format("%04d",getPlaceStartTime()) + " - " + String.format("%04d", getPlaceEndTime())
+                + " " + getPlaceName();
     }
 }
