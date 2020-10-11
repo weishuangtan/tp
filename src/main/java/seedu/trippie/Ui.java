@@ -29,7 +29,7 @@ public class Ui {
     }
 
     public void printLine() {
-        System.out.println("____________________________________________________");
+        System.out.println("_________________________________________________________________________");
     }
 
     public String readCommand() {
