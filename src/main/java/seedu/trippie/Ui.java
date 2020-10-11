@@ -9,14 +9,12 @@ public class Ui {
     public void greetUser() {
         printLogo();
         printLine();
-        System.out.println("How can I help you?");
-        printLine();
     }
 
     public void showFarewells() {
         System.out.println("Bye. Hope to see you again soon!");
     }
-
+    
     private void printLogo() {
         String logo = "  _            _   ____   ____   _            __T___T__   \n"
                 + " _| |_   ____ |_| | __ \\ | __ \\ |_|   ____   /         \\ \n"
@@ -27,7 +25,6 @@ public class Ui {
         System.out.println("Welcome to\n" + logo
                 + "\n\t\t\t\t\t\t\t" + "Travel made easy");
     }
-
 
     public void printLine() {
         System.out.println("_________________________________________________________________________");
@@ -41,4 +38,6 @@ public class Ui {
         System.out.print(">> ");
         return in.nextLine();
     }
+
+
 }
