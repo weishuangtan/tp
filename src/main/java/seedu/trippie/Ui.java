@@ -28,8 +28,13 @@ public class Ui {
                 + "\n\t\t\t\t\t\t\t" + "Travel made easy");
     }
 
+
     public void printLine() {
         System.out.println("_________________________________________________________________________");
+    }
+
+    public void farewellMessage() {
+        System.out.println("Bye! See you again soon!");
     }
 
     public String readCommand() {

@@ -28,7 +28,7 @@ public class Trippie {
     }
 
     public void run() {
-        ui.welcomeMessage();
+        ui.greetUser();
         boolean isExit = false;
         while (!isExit) {
             String fullCommand = ui.readCommand();
