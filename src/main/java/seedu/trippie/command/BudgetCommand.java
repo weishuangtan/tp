@@ -7,8 +7,14 @@ import seedu.trippie.Ui;
 public class BudgetCommand extends Command {
     private final Float budgetValue;
 
-    public BudgetCommand(String userInput) throws NullPointerException, NumberFormatException {
-        this.budgetValue = extractBudgetValue(userInput);
+    public BudgetCommand(String userInput) {
+        try {
+            this.budgetValue = extractBudgetValue(userInput);
+        } catch (NullPointerException e) {
+            System.out.println("You need to state a valid value for your budget!");
+        } catch (NumberFormatException e) {
+            System.out.println("Budget needs to be input in decimals.");
+        }
     }
 
     private Float extractBudgetValue(String userInput) throws NullPointerException, NumberFormatException {
@@ -23,6 +29,10 @@ public class BudgetCommand extends Command {
 
     @Override
     public void execute(Ui ui, PlaceList place, ExpenseList expense) {
+        if(budgetValue == null) {
+            System.out.println("Budget was not set successfully.");
+            return;
+        }
         expense.setBudgetValue(budgetValue);
         System.out.println("Successfully set your total budget to " + budgetValue.toString());
     }
