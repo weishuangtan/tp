@@ -2,28 +2,34 @@ package seedu.trippie;
 
 public class Place {
     private final String name;
-    private final String day;
-    private final String time;
+    private final int day;
+    private final int start;
+    private final int end;
 
-    public Place(String name, String day, String time) {
+    public Place(String name, int day, int start, int end) {
         this.name = name;
         this.day = day;
-        this.time = time;
+        this.start = start;
+        this.end = end;
     }
 
     public String getPlaceName() {
         return name;
     }
 
-    public String getPlaceDay() {
+    public int getPlaceDay() {
         return day;
     }
 
-    public String getPlaceTime() {
-        return time;
+    public int getPlaceStartTime() {
+        return start;
+    }
+
+    public int getPlaceEndTime() {
+        return end;
     }
 
     public String getPlace() {
-        return getPlaceTime() + " " + getPlaceName();
+        return getPlaceStartTime() + " - " + getPlaceEndTime() + " " + getPlaceName();
     }
 }

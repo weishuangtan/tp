@@ -1,14 +1,6 @@
 package seedu.trippie;
 
-import seedu.trippie.command.AddExpenseCommand;
-import seedu.trippie.command.AddPlaceCommand;
-import seedu.trippie.command.Command;
-import seedu.trippie.command.DeleteExpenditureCommand;
-import seedu.trippie.command.DeletePlaceCommand;
-import seedu.trippie.command.DisplayTotalExpenditureCommand;
-import seedu.trippie.command.ExitCommand;
-import seedu.trippie.command.HelpCommand;
-import seedu.trippie.command.ListExpenditureCommand;
+import seedu.trippie.command.*;
 
 
 import java.util.IllegalFormatException;
@@ -33,6 +25,8 @@ public class Parser {
                 return new DeletePlaceCommand(command);
             } else if (command.startsWith("help")) {
                 return new HelpCommand();
+            } else if (command.startsWith("list /p")) {
+                return new ListPlacesCommand();
             } else {
                 System.out.println("Invalid Command! Type \"help\" to view the list of available commands!");
             }
