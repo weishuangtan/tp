@@ -14,7 +14,7 @@ public class Ui {
     public void showFarewells() {
         System.out.println("Bye. Hope to see you again soon!");
     }
-    
+
     private void printLogo() {
         String logo = "  _            _   ____   ____   _            __T___T__   \n"
                 + " _| |_   ____ |_| | __ \\ | __ \\ |_|   ____   /         \\ \n"
