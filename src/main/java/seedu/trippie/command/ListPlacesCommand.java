@@ -11,8 +11,20 @@ import java.util.List;
 
 public class ListPlacesCommand extends Command{
 
-    public ListPlacesCommand() {
+    private final int specifiedDay;
 
+    public ListPlacesCommand(String userInput) {
+        specifiedDay = getSpecifiedDay(userInput);
+    }
+
+    public int getSpecifiedDay(String userInput) {
+        String[] specificDay = userInput.split("/p");
+        if (specificDay.length == 1) {
+            return -1;
+        } else {
+            String[] finalDay = specificDay[1].split("/d");
+            return Integer.parseInt(finalDay[1].trim());
+        }
     }
 
     @Override
@@ -28,14 +40,23 @@ public class ListPlacesCommand extends Command{
         if (places.size() == 0) {
             System.out.println("Please add your itinerary!");
         }
-        for (int i = 1; i <= maxDay; i++) {
-            System.out.println("DAY " + i + ": ");
+        if (specifiedDay == -1) {
+            for (int i = 1; i <= maxDay; i++) {
+                System.out.println("DAY " + i + ": ");
+                for (Place place : places) {
+                    if (place.getPlaceDay() == i) {
+                        System.out.println(place.getPlace());
+                    }
+                }
+                System.out.println(System.lineSeparator());
+            }
+        } else {
+            System.out.println("DAY " + specifiedDay + ": ");
             for (Place place : places) {
-                if (place.getPlaceDay() == i) {
+                if (place.getPlaceDay() == specifiedDay) {
                     System.out.println(place.getPlace());
                 }
             }
-            System.out.println(System.lineSeparator());
         }
     }
 
