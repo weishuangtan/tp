@@ -7,7 +7,7 @@ import seedu.trippie.Ui;
 
 import java.util.List;
 
-public class DeletePlaceCommand extends Command{
+public class DeletePlaceCommand extends Command {
     private int placeIndex;
 
     public DeletePlaceCommand(String userInput) {

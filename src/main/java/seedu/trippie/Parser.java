@@ -7,7 +7,9 @@ import seedu.trippie.command.DeleteExpenditureCommand;
 import seedu.trippie.command.DeletePlaceCommand;
 import seedu.trippie.command.DisplayTotalExpenditureCommand;
 import seedu.trippie.command.ExitCommand;
+import seedu.trippie.command.HelpCommand;
 import seedu.trippie.command.ListExpenditureCommand;
+
 
 import java.util.IllegalFormatException;
 
@@ -15,7 +17,7 @@ public class Parser {
 
     public static Command parse(String command) {
         try {
-            if (command.equals("bye")) {
+            if (command.equals("exit")) {
                 return new ExitCommand();
             } else if (command.startsWith("buy ")) {
                 return new AddExpenseCommand(command);
@@ -29,11 +31,13 @@ public class Parser {
                 return new AddPlaceCommand(command);
             } else if (command.startsWith("delete /p ")) {
                 return new DeletePlaceCommand(command);
-            } else{
-                System.out.println("Invalid Command!");
+            } else if (command.startsWith("help")) {
+                return new HelpCommand();
+            } else {
+                System.out.println("Invalid Command! Type \"help\" to view the list of available commands!");
             }
         } catch (IllegalFormatException e) {
-            System.out.println("Invalid Command");
+            System.out.println("Invalid Command!");
         }
         return null;
     }
