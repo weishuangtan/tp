@@ -19,20 +19,21 @@ public class AddPlaceCommand extends Command{
     }
 
     public String extractName(String userInput) {
-        int startIndex = userInput.indexOf("-n") + 2;
-        int endIndex = userInput.indexOf("-d") - 1;
-        return userInput.substring(startIndex,endIndex).trim();
+        //add /n Jurong East Mall /d 2 /t 11.00-14.00
+        String withoutDay = userInput.split(" /d ")[0];
+        String name = withoutDay.split(" /n ")[1];
+        return name;
     }
 
     public String extractDay(String userInput) {
-        int startIndex = userInput.indexOf("-d") + 2;
-        int endIndex = userInput.indexOf("-t") - 1;
-        return userInput.substring(startIndex,endIndex).trim();
+        String withoutTime = userInput.split(" /t ")[0];
+        String day = withoutTime.split(" /d ")[1];
+        return day;
     }
 
     public String extractTime(String userInput) {
-        int startIndex = userInput.indexOf("-t") + 2;
-        return userInput.substring(startIndex).trim();
+        String time = userInput.split(" /t ")[1];
+        return time;
     }
 
     @Override

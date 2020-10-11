@@ -12,10 +12,10 @@ public class DeletePlaceCommand extends Command{
 
     public DeletePlaceCommand(String userInput) {
         try {
-            String[] segments = userInput.split("-e ");
-            placeIndex = Integer.parseInt(segments[1]) - 1;
-        } catch (NullPointerException e) {
-            System.out.println("It is empty.");
+            String index = userInput.split(" /p ")[1];
+            placeIndex = Integer.parseInt(index) - 1;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("It is not found.");
         } catch (NumberFormatException e) {
             System.out.println("It must be number.");
         }
@@ -31,7 +31,7 @@ public class DeletePlaceCommand extends Command{
         List<Place> places = place.getPlaceList();
         if (placeIndex >= 0 && placeIndex < places.size()) {
             System.out.println("Noted. I've removed this place.");
-            System.out.println(places.get(placeIndex).toString());
+            System.out.println(places.get(placeIndex).getPlace());
             places.remove(placeIndex);
             System.out.println("There are " + places.size() + " items in the list.");
         } else {

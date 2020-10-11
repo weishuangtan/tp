@@ -19,16 +19,18 @@ public class Parser {
                 return new ExitCommand();
             } else if (command.startsWith("buy ")) {
                 return new AddExpenseCommand(command);
-            } else if (command.startsWith("delete -e ")) {
+            } else if (command.startsWith("delete /e ")) {
                 return new DeleteExpenditureCommand(command);
-            } else if (command.equals("list -e")) {
+            } else if (command.equals("list /e")) {
                 return new ListExpenditureCommand();
             } else if (command.equals("spending")) {
                 return new DisplayTotalExpenditureCommand();
-            } else if (command.equals("add ")) {
+            } else if (command.startsWith("add ")) {
                 return new AddPlaceCommand(command);
-            } else if (command.equals("delete -p ")) {
+            } else if (command.startsWith("delete /p ")) {
                 return new DeletePlaceCommand(command);
+            } else{
+                System.out.println("Invalid Command!");
             }
         } catch (IllegalFormatException e) {
             System.out.println("Invalid Command");
