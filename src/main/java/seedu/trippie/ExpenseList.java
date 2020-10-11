@@ -10,12 +10,9 @@ public class ExpenseList {
         expenseList = new ArrayList<>();
     }
 
-    /*
-        Uses for Storage
-     */
-//    public ExpenseList(List<Expense> expenseList) {
-//        this.expenseList = new ArrayList<>(expenseList);
-//    }
+    public ExpenseList(List<Expense> expenseList) {
+        this.expenseList = new ArrayList<>(expenseList);
+    }
 
     public List<Expense> getExpenseList() {
             return expenseList;

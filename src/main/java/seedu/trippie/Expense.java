@@ -11,11 +11,6 @@ public class Expense {
         this.expenseDayBought = expenseDayBought;
     }
 
-    public static String extractCostFromList(Expense spending) {
-        int startIndex = spending.toString().indexOf("- $") + 3;
-        return spending.toString().substring(startIndex);
-    }
-
     public String getExpenseName() {
         return expenseName;
     }
@@ -28,8 +23,7 @@ public class Expense {
         return expenseDayBought;
     }
 
-    @Override
-    public String toString() {
+    public String getExpense() {
         return "Day " + getExpenseDayBought() + ": " + getExpenseName() + " - $" + getExpenseCost();
     }
 }

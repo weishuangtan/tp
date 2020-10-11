@@ -2,6 +2,7 @@ package seedu.trippie.command;
 
 import seedu.trippie.Expense;
 import seedu.trippie.ExpenseList;
+import seedu.trippie.PlaceList;
 import seedu.trippie.Ui;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class ListExpenditureCommand extends Command {
     }
 
     @Override
-    public void execute(ExpenseList expenseList, Ui ui) {
+    public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
         List<Expense> expenses = expenseList.getExpenseList();
         if (expenses.isEmpty()) {
             ui.printLine();
@@ -26,8 +27,8 @@ public class ListExpenditureCommand extends Command {
             ui.printLine();
             System.out.println("Expenditure List:");
             ui.printLine();
-            for (Expense product: expenses) {
-                System.out.println("[" + listIndex + "] " + product.toString());
+            for (Expense expense: expenses) {
+                System.out.println("[" + listIndex + "] " + expense.getExpense());
                 listIndex++;
             }
         }

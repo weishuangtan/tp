@@ -5,17 +5,22 @@ import seedu.trippie.command.Command;
 public class Trippie {
     //private final Storage storage;
     private final Ui ui;
-    private ExpenseList expenseList;
+    private final ExpenseList expenseList;
+    private final PlaceList placeList;
 
     public Trippie(String filePath) {
         ui = new Ui();
-        try {
-            expenseList = new ExpenseList();
-            //expenseList = new ExpenseList(storage.load());
-        } catch (NullPointerException e) {
-            System.out.println("No file detected");
-            expenseList = new ExpenseList();
-        }
+        expenseList = new ExpenseList();
+        placeList = new PlaceList();
+//        to be implemented with storage
+//        try {
+//             expenseList = new ExpenseList(storage.load());
+//             placeList = new PlaceList(storage.load());
+//        } catch (NullPointerException e) {
+//            System.out.println("No file detected");
+//            expenseList = new ExpenseList();
+//            placeList = new PlaceList();
+//        }
     }
 
     public static void main(String[] args) {
@@ -30,28 +35,10 @@ public class Trippie {
             ui.printLine();
             Command c = Parser.parse(fullCommand);
             if (c != null) {
-                c.execute(expenseList, ui);
+                c.execute(ui, placeList, expenseList);
                 isExit = c.isExit();
             }
             ui.printLine();
         }
-        /*
-        while (!isExit) {
-            try {
-                storage.save(tasks.getList());
-                String fullCommand = ui.readCommand();
-                ui.showLine(); // show the divider line ("_______")
-                Command c = Parser.parse(fullCommand);
-                if (c != null) {
-                    c.execute(tasks, ui, storage);
-                    isExit = c.isExit();
-                }
-            } catch (DukeException e) {
-                ui.showError(e.getMessage());
-            } finally {
-                ui.showLine();
-            }
-        }
-        */
     }
 }
