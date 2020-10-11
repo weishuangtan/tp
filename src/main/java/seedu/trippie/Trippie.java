@@ -11,7 +11,7 @@ public class Trippie {
         ui = new Ui();
         try {
             expenseList = new ExpenseList();
-            // expenseList = new ExpenseList(storage.load());
+            //expenseList = new ExpenseList(storage.load());
         } catch (NullPointerException e) {
             System.out.println("No file detected");
             expenseList = new ExpenseList();
@@ -30,7 +30,7 @@ public class Trippie {
             ui.printLine();
             Command c = Parser.parse(fullCommand);
             if (c != null) {
-                c.execute();
+                c.execute(expenseList, ui);
                 isExit = c.isExit();
             }
             ui.printLine();

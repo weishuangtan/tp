@@ -1,6 +1,8 @@
 package seedu.trippie.command;
 
 import seedu.trippie.Expense;
+import seedu.trippie.ExpenseList;
+import seedu.trippie.Ui;
 
 import java.util.List;
 
@@ -14,8 +16,8 @@ public class ListExpenditureCommand extends Command {
     }
 
     @Override
-    public void execute() {
-        List<Expense> expenses = expense.getExpenseList();
+    public void execute(ExpenseList expenseList, Ui ui) {
+        List<Expense> expenses = expenseList.getExpenseList();
         if (expenses.isEmpty()) {
             ui.printLine();
             System.out.println("There is currently nothing in your expenditure list.");

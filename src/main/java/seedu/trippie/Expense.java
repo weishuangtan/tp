@@ -1,9 +1,9 @@
 package seedu.trippie;
 
 public class Expense {
-    private String expenseName;
-    private String expenseCost;
-    private String expenseDayBought;
+    private final String expenseName;
+    private final String expenseCost;
+    private final String expenseDayBought;
 
     public Expense(String expenseName, String expenseCost, String expenseDayBought) {
         this.expenseName = expenseName;
