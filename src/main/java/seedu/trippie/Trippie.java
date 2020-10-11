@@ -12,15 +12,15 @@ public class Trippie {
         ui = new Ui();
         expenseList = new ExpenseList();
         placeList = new PlaceList();
-//        to be implemented with storage
-//        try {
-//             expenseList = new ExpenseList(storage.load());
-//             placeList = new PlaceList(storage.load());
-//        } catch (NullPointerException e) {
-//            System.out.println("No file detected");
-//            expenseList = new ExpenseList();
-//            placeList = new PlaceList();
-//        }
+        //        to be implemented with storage
+        //        try {
+        //             expenseList = new ExpenseList(storage.load());
+        //             placeList = new PlaceList(storage.load());
+        //        } catch (NullPointerException e) {
+        //            System.out.println("No file detected");
+        //            expenseList = new ExpenseList();
+        //            placeList = new PlaceList();
+        //        }
     }
 
     public static void main(String[] args) {
