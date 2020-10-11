@@ -5,9 +5,10 @@ import seedu.trippie.PlaceList;
 import seedu.trippie.Ui;
 
 public class BudgetCommand extends Command {
-    private final Float budgetValue;
+    private Float budgetValue;
 
     public BudgetCommand(String userInput) {
+        this.budgetValue = null;
         try {
             this.budgetValue = extractBudgetValue(userInput);
         } catch (NullPointerException e) {
@@ -29,7 +30,7 @@ public class BudgetCommand extends Command {
 
     @Override
     public void execute(Ui ui, PlaceList place, ExpenseList expense) {
-        if(budgetValue == null) {
+        if (budgetValue == null) {
             System.out.println("Budget was not set successfully.");
             return;
         }
