@@ -1,6 +1,9 @@
 package seedu.trippie.command;
 
 import seedu.trippie.Expense;
+import seedu.trippie.ExpenseList;
+import seedu.trippie.PlaceList;
+import seedu.trippie.Ui;
 
 import java.util.List;
 
@@ -25,7 +28,7 @@ public class DeleteExpenditureCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public void execute(Ui ui, PlaceList place, ExpenseList expense) {
         List<Expense> expenses = expense.getExpenseList();
         if (expenseIndex >= 0 && expenseIndex < expenses.size()) {
             System.out.println("Noted. I've removed this item from the expenditure list.");
