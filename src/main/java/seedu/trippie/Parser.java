@@ -29,7 +29,7 @@ public class Parser {
                 return new AddPlaceCommand(command);
             } else if (command.startsWith("delete /p ")) {
                 return new DeletePlaceCommand(command);
-            } else{
+            } else {
                 System.out.println("Invalid Command!");
             }
         } catch (IllegalFormatException e) {

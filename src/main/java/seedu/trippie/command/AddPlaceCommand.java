@@ -7,7 +7,7 @@ import seedu.trippie.Ui;
 
 import java.util.List;
 
-public class AddPlaceCommand extends Command{
+public class AddPlaceCommand extends Command {
     private final String name;
     private final String day;
     private final String time;
