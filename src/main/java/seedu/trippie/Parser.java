@@ -27,6 +27,8 @@ public class Parser {
                 return new HelpCommand();
             } else if (command.startsWith("list /p")) {
                 return new ListPlacesCommand(command);
+            } else if (command.startsWith("search")) {
+                return new SearchCommand(command);
             } else {
                 System.out.println("Invalid Command! Type \"help\" to view the list of available commands!");
             }
