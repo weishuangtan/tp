@@ -11,7 +11,7 @@ import seedu.trippie.command.DisplayTotalExpenditureCommand;
 import seedu.trippie.command.ExitCommand;
 import seedu.trippie.command.HelpCommand;
 import seedu.trippie.command.ListExpenseCommand;
-
+import seedu.trippie.command.ListPlacesCommand;
 
 import java.util.IllegalFormatException;
 
@@ -37,8 +37,8 @@ public class Parser {
                 return new DeletePlaceCommand(userInput);
             } else if (userInput.startsWith("help")) {
                 return new HelpCommand();
-            } else if (command.startsWith("list /p")) {
-                return new ListPlacesCommand(command);
+            } else if (userInput.startsWith("list /p")) {
+                return new ListPlacesCommand(userInput);
             } else {
                 System.out.println("Invalid Command! Type \"help\" to view the list of available commands!");
             }
