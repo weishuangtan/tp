@@ -1,5 +1,6 @@
 package seedu.trippie;
 
+
 import seedu.trippie.command.AddExpenseCommand;
 import seedu.trippie.command.AddPlaceCommand;
 import seedu.trippie.command.BudgetCommand;
@@ -36,6 +37,8 @@ public class Parser {
                 return new DeletePlaceCommand(userInput);
             } else if (userInput.startsWith("help")) {
                 return new HelpCommand();
+            } else if (command.startsWith("list /p")) {
+                return new ListPlacesCommand(command);
             } else {
                 System.out.println("Invalid Command! Type \"help\" to view the list of available commands!");
             }

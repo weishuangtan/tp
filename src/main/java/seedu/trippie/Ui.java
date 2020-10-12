@@ -9,8 +9,6 @@ public class Ui {
     public void greetUser() {
         printLogo();
         printLine();
-        System.out.println("How can I help you?");
-        printLine();
     }
 
     public void showFarewells() {
@@ -32,8 +30,14 @@ public class Ui {
         System.out.println("_________________________________________________________________________");
     }
 
+    public void farewellMessage() {
+        System.out.println("Bye! See you again soon!");
+    }
+
     public String readCommand() {
         System.out.print(">> ");
         return in.nextLine();
     }
+
+
 }
