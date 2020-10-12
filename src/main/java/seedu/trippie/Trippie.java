@@ -3,33 +3,33 @@ package seedu.trippie;
 import seedu.trippie.command.Command;
 
 public class Trippie {
-    //private final Storage storage;
     private final Ui ui;
-    private final ExpenseList expenseList;
-    private final PlaceList placeList;
+    private ExpenseList expenseList;
+    private PlaceList placeList;
+    private Storage storage;
 
     public Trippie(String filePath) {
         ui = new Ui();
-        expenseList = new ExpenseList();
-        placeList = new PlaceList();
-        //        to be implemented with storage
-        //        try {
-        //             expenseList = new ExpenseList(storage.load());
-        //             placeList = new PlaceList(storage.load());
-        //        } catch (NullPointerException e) {
-        //            System.out.println("No file detected");
-        //            expenseList = new ExpenseList();
-        //            placeList = new PlaceList();
-        //        }
+        //private final Storage storage;
+        Storage storage = new Storage(filePath);
+        try {
+            expenseList = new ExpenseList();
+            placeList = new PlaceList();
+        } catch (NullPointerException e) {
+            System.out.println("No file detected");
+            expenseList = new ExpenseList();
+            placeList = new PlaceList();
+        }
     }
 
     public static void main(String[] args) {
-        new Trippie("data/trippie.txt").run();
+        new Trippie("trippie.txt").run();
     }
 
     public void run() {
         ui.greetUser();
         boolean isExit = false;
+        storage.setup(placeList,expenseList);
         while (!isExit) {
             String fullCommand = ui.readCommand();
             ui.printLine();
