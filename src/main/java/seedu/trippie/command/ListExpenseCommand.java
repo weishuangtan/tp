@@ -7,8 +7,8 @@ import seedu.trippie.Ui;
 
 import java.util.List;
 
-public class ListExpenditureCommand extends Command {
-    public ListExpenditureCommand() {
+public class ListExpenseCommand extends Command {
+    public ListExpenseCommand() {
     }
 
     @Override
@@ -21,11 +21,12 @@ public class ListExpenditureCommand extends Command {
         List<Expense> expenses = expenseList.getExpenseList();
         if (expenses.isEmpty()) {
             ui.printLine();
-            System.out.println("There is currently nothing in your expenditure list.");
+            System.out.println("There is currently nothing in your Expense list.");
         } else {
             int listIndex = 1;
             ui.printLine();
-            System.out.println("Expenditure List:");
+            System.out.println("Total budget: " + String.format("%.2f", expenseList.getBudgetValue()));
+            System.out.println("Expense List:");
             ui.printLine();
             for (Expense expense: expenses) {
                 System.out.println("[" + listIndex + "] " + expense.getExpense());

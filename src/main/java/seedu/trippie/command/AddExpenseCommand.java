@@ -3,7 +3,6 @@ package seedu.trippie.command;
 import seedu.trippie.Expense;
 import seedu.trippie.ExpenseList;
 import seedu.trippie.PlaceList;
-
 import seedu.trippie.Ui;
 
 import java.util.List;
@@ -23,8 +22,7 @@ public class AddExpenseCommand extends Command {
 
     public String extractExpenseName(String userInput) {
         String withoutCost = userInput.split(" /c ")[0];
-        String expenseName = withoutCost.split(" /i ")[1];
-        return expenseName;
+        return withoutCost.split(" /i ")[1];
     }
 
     public String extractExpenseCost(String userInput) {
