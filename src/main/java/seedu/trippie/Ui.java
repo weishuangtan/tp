@@ -9,8 +9,10 @@ public class Ui {
     public void greetUser() {
         printLogo();
         printLine();
-        System.out.println("How can I help you?");
-        printLine();
+    }
+
+    public void showFarewells() {
+        System.out.println("Bye. Hope to see you again soon!");
     }
 
     private void printLogo() {
@@ -20,16 +22,18 @@ public class Ui {
                 + "  | | _ | |   | | |  __/ |  __/ | | | |__|_||    ___    |\n"
                 + "  | |/ || |   | | | |    | |    | | | \\____  \\  \\WWW/  /\n"
                 + "   \\__/ |_|   |_| |_|    |_|    |_|  \\____/   \\_______/\n";
-        System.out.println("Welcome to\n" + logo +
-                "\n\t\t\t\t\t\t\t" + "Travel made easy");
+        System.out.println("Welcome to\n" + logo
+                + "\n\t\t\t\t\t\t\t" + "Travel made easy");
     }
 
     public void printLine() {
-        System.out.println("____________________________________________________");
+        System.out.println("_________________________________________________________________________");
     }
 
     public String readCommand() {
         System.out.print(">> ");
         return in.nextLine();
     }
+
+
 }
