@@ -1,2 +1,15 @@
-bye
+add /n nus and ntu /d 3 /t 1200 to 1400
+add /n clementi mall /d 1 /t 0200 to 0400
+list /p
+delete /p 1
+list /p
+add /n clementi /d 2 /t 1000 to 1200
+add /n ntu /d 2 /t 0700 to 0800
+list /p
+add /n nus Soc /d 5 /t 1200 to 1400
+list /p
+buy /i ice cream /c 8.21 /d 1
+list /e
+help
+delete /e 1
 exit
