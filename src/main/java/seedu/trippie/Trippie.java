@@ -5,8 +5,8 @@ import seedu.trippie.command.Command;
 public class Trippie {
     //private final Storage storage;
     private final Ui ui;
-    private ExpenseList expenseList;
-    private PlaceList placeList;
+    private final ExpenseList expenseList;
+    private final PlaceList placeList;
 
     public Trippie(String filePath) {
         ui = new Ui();

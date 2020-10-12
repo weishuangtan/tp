@@ -21,15 +21,13 @@ public class AddExpenseCommand extends Command {
     }
 
     public String extractExpenseName(String userInput) {
-        int startIndex = userInput.indexOf("-i") + 2;
-        int endIndex = userInput.indexOf("-c") - 1;
-        return userInput.substring(startIndex,endIndex).trim();
+        String withoutCost = userInput.split(" /c ")[0];
+        return withoutCost.split(" /i ")[1];
     }
 
     public String extractExpenseCost(String userInput) {
-        int startIndex = userInput.indexOf("-c") + 2;
-        int endIndex = userInput.indexOf("-d") - 1;
-        String expenseCost = userInput.substring(startIndex,endIndex).trim();
+        String withoutDay = userInput.split(" /d ")[0];
+        String expenseCost = withoutDay.split(" /c ")[1];
         if (expenseCost.contains("$")) {
             expenseCost = expenseCost.replace("$", "");
         }
@@ -37,8 +35,8 @@ public class AddExpenseCommand extends Command {
     }
 
     public String extractDayBought(String userInput) {
-        int startIndex = userInput.indexOf("-d") + 2;
-        return userInput.substring(startIndex).replaceAll("[^0-9]","").trim();
+        String onlyDay = userInput.split(" /d ")[1];
+        return onlyDay.replaceAll("[^0-9]","").trim();
     }
 
     @Override
@@ -47,18 +45,14 @@ public class AddExpenseCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expense) {
-        List<Expense> expenses = expense.getExpenseList();
-        if (expenses == null) {
-            System.out.println("I'm null.");
-        } else {
-            ui.printLine();
-            Expense expenseEntry = new Expense(expenseName, expenseCost, expenseDayBought);
-            expenses.add(expenseEntry);
-            System.out.println("Got it! I've added the following item: " + expenseEntry.toString());
-            System.out.println("There are " + expenses.size() + " items in the list.");
-            ui.printLine();
-            expense.setExpenseList(expenses);
-        }
+    public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
+        List<Expense> expenses = expenseList.getExpenseList();
+        ui.printLine();
+        Expense expenseEntry = new Expense(expenseName, expenseCost, expenseDayBought);
+        expenses.add(expenseEntry);
+        System.out.println("Got it! I've added the following item: " + expenseEntry.getExpense());
+        System.out.println("There are " + expenses.size() + " items in the list.");
+        ui.printLine();
+        expenseList.setExpenseList(expenses);
     }
 }

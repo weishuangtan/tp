@@ -30,10 +30,6 @@ public class Ui {
         System.out.println("_________________________________________________________________________");
     }
 
-    public void farewellMessage() {
-        System.out.println("Bye! See you again soon!");
-    }
-
     public String readCommand() {
         System.out.print(">> ");
         return in.nextLine();

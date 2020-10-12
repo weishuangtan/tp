@@ -28,16 +28,16 @@ public class DeleteExpenditureCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expense) {
-        List<Expense> expenses = expense.getExpenseList();
+    public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
+        List<Expense> expenses = expenseList.getExpenseList();
         if (expenseIndex >= 0 && expenseIndex < expenses.size()) {
             System.out.println("Noted. I've removed this item from the expenditure list.");
-            System.out.println(expenses.get(expenseIndex).toString());
+            System.out.println(expenses.get(expenseIndex).getExpense());
             expenses.remove(expenseIndex);
             System.out.println("There are " + expenses.size() + " items in the list.");
         } else {
             System.out.println("Item has not been created yet. Enter a valid index.");
         }
-        expense.setExpenseList(expenses);
+        expenseList.setExpenseList(expenses);
     }
 }

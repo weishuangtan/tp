@@ -23,8 +23,7 @@ public class AddPlaceCommand extends Command {
     public String extractName(String userInput) {
         //add /n Jurong East Mall /d 2 /t 1100 to 1400
         String withoutDay = userInput.split(" /d ")[0];
-        String name = withoutDay.split(" /n ")[1];
-        return name;
+        return withoutDay.split(" /n ")[1];
     }
 
     public int extractDay(String userInput) {
