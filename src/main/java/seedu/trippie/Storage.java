@@ -20,7 +20,7 @@ public class Storage {
         try {
             if (file.createNewFile()) {
                 System.out.println("I can't find a file in your directory :(");
-                System.out.println("I created a file for you here!\n" + "File location: " + file.getAbsolutePath());
+                System.out.println("I created a new Trippie.txt file for you!");
             } else if (!file.createNewFile()) {
                 System.out.println("I found a file in your directory!\nSetting up file over here...");
             }

@@ -9,8 +9,7 @@ Welcome to
 							Travel made easy
 _________________________________________________________________________
 I can't find a file in your directory :(
-I created a file for you here!
-File location: C:\Users\Wei Shuang\Desktop\tp\build\libs\trippie.txt
+I created a new Trippie.txt file for you!
 >> _________________________________________________________________________
 Got it. I've added this place:
 1200 - 1400 nus and ntu
