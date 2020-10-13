@@ -16,7 +16,6 @@ public class Trippie {
         try {
             expenseList = new ExpenseList();
             placeList = new PlaceList();
-            storage.loadList();
         } catch (Exception e) {
             System.out.println("No file detected");
             expenseList = new ExpenseList();
@@ -24,11 +23,11 @@ public class Trippie {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         new Trippie().run();
     }
 
-    public void run() throws IOException {
+    public void run() {
         try {
             ui.greetUser();
             boolean isExit = false;
@@ -47,6 +46,6 @@ public class Trippie {
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
-            }
+        }
     }
 }

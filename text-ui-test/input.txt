@@ -11,5 +11,7 @@ list /p
 buy /i ice cream /c 8.21 /d 1
 list /e
 help
-delete /e 1
+buy /i coconut /c 5.00 /d 2
+buy /i bag /c 50.30 /d 3
+budget 300
 exit
