@@ -13,7 +13,7 @@ public class DeleteExpenditureCommand extends Command {
 
     public DeleteExpenditureCommand(String userInput) {
         try {
-            String[] segments = userInput.split("-e ");
+            String[] segments = userInput.split("/e ");
             expenseIndex = Integer.parseInt(segments[1]) - 1;
         } catch (NullPointerException e) {
             System.out.println("It is empty.");

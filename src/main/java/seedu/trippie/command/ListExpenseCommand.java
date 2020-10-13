@@ -25,7 +25,12 @@ public class ListExpenseCommand extends Command {
         } else {
             int listIndex = 1;
             ui.printLine();
-            System.out.println("Total budget: " + String.format("%.2f", expenseList.getBudgetValue()));
+            Float pricing = expenseList.getBudgetValue();
+            if (pricing != null) {
+                System.out.println("Total budget: $" + String.format("%.2f", pricing));
+            } else {
+                System.out.println("Total budget has not been set");
+            }
             System.out.println("Expense List:");
             ui.printLine();
             for (Expense expense: expenses) {
