@@ -6,15 +6,16 @@ public class Trippie {
     private final Ui ui;
     private ExpenseList expenseList;
     private PlaceList placeList;
-    private Storage storage;
+    private final Storage storage;
 
     public Trippie(String filePath) {
         ui = new Ui();
         //private final Storage storage;
-        Storage storage = new Storage(filePath);
+        storage = new Storage(filePath);
         try {
             expenseList = new ExpenseList();
             placeList = new PlaceList();
+            storage.loadList();
         } catch (NullPointerException e) {
             System.out.println("No file detected");
             expenseList = new ExpenseList();

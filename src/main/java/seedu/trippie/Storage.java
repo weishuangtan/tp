@@ -13,7 +13,7 @@ public class Storage {
         this.filePath = filePath;
     }
 
-    public static void setup(PlaceList placeList, ExpenseList expenseList) {
+    public void setup(PlaceList placeList, ExpenseList expenseList) {
         File file = new File("trippie.txt");
         Scanner readFile = Storage.startFile(file);
         assert readFile != null;
@@ -34,5 +34,12 @@ public class Storage {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public void saveList() {
+        
+    }
+
+    public void loadList() {
     }
 }
