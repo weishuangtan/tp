@@ -20,11 +20,9 @@ public class ListExpenseCommand extends Command {
     public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
         List<Expense> expenses = expenseList.getExpenseList();
         if (expenses.isEmpty()) {
-            ui.printLine();
             System.out.println("There is currently nothing in your Expense list.");
         } else {
             int listIndex = 1;
-            ui.printLine();
             Float pricing = expenseList.getBudgetValue();
             if (pricing != null) {
                 System.out.println("Total budget: $" + String.format("%.2f", pricing));
@@ -32,12 +30,10 @@ public class ListExpenseCommand extends Command {
                 System.out.println("Total budget has not been set");
             }
             System.out.println("Expense List:");
-            ui.printLine();
             for (Expense expense: expenses) {
                 System.out.println("[" + listIndex + "] " + expense.getExpense());
                 listIndex++;
             }
         }
-        ui.printLine();
     }
 }

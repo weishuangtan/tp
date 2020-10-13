@@ -35,11 +35,11 @@ public class ListPlacesCommand extends Command {
     public void execute(Ui ui, PlaceList placeList, ExpenseList expense) {
         List<Place> places = placeList.getPlaceList();
         sortPlaceList(places);
-        int maxDay = places.get(places.size() - 1).getPlaceDay();
+
         if (places.size() == 0) {
             System.out.println("Please add your itinerary!");
-        }
-        if (specifiedDay == -1) {
+        } else if (specifiedDay == -1) {
+            int maxDay = places.get(places.size() - 1).getPlaceDay();
             for (int i = 1; i <= maxDay; i++) {
                 System.out.println("DAY " + i + ":");
                 for (int j = 0; j < places.size(); j++) {
