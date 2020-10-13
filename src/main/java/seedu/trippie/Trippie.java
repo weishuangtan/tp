@@ -12,13 +12,12 @@ public class Trippie {
 
     public Trippie() {
         ui = new Ui();
-        //private final Storage storage;
         storage = new Storage();
         try {
             expenseList = new ExpenseList();
             placeList = new PlaceList();
             storage.loadList();
-        } catch (NullPointerException e) {
+        } catch (Exception e) {
             System.out.println("No file detected");
             expenseList = new ExpenseList();
             placeList = new PlaceList();
@@ -30,19 +29,24 @@ public class Trippie {
     }
 
     public void run() throws IOException {
-        ui.greetUser();
-        boolean isExit = false;
-        storage.setup(placeList,expenseList);
-        while (!isExit) {
-            storage.saveList();
-            String fullCommand = ui.readCommand();
-            ui.printLine();
-            Command c = Parser.parse(fullCommand);
-            if (c != null) {
-                c.execute(ui, placeList, expenseList);
-                isExit = c.isExit();
+        try {
+            ui.greetUser();
+            boolean isExit = false;
+            storage.setup(placeList, expenseList);
+            while (!isExit) {
+                String fullCommand = ui.readCommand();
+                ui.printLine();
+                Command c = Parser.parse(fullCommand);
+                if (c != null) {
+                    c.execute(ui, placeList, expenseList);
+                    isExit = c.isExit();
+                }
+                storage.saveList(placeList, expenseList);
+                ui.printLine();
             }
-            ui.printLine();
-        }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+            }
     }
 }
