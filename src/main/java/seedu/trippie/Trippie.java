@@ -2,16 +2,18 @@ package seedu.trippie;
 
 import seedu.trippie.command.Command;
 
+import java.io.IOException;
+
 public class Trippie {
     private final Ui ui;
     private ExpenseList expenseList;
     private PlaceList placeList;
     private final Storage storage;
 
-    public Trippie(String filePath) {
+    public Trippie() {
         ui = new Ui();
         //private final Storage storage;
-        storage = new Storage(filePath);
+        storage = new Storage();
         try {
             expenseList = new ExpenseList();
             placeList = new PlaceList();
@@ -23,15 +25,16 @@ public class Trippie {
         }
     }
 
-    public static void main(String[] args) {
-        new Trippie("trippie.txt").run();
+    public static void main(String[] args) throws IOException {
+        new Trippie().run();
     }
 
-    public void run() {
+    public void run() throws IOException {
         ui.greetUser();
         boolean isExit = false;
         storage.setup(placeList,expenseList);
         while (!isExit) {
+            storage.saveList();
             String fullCommand = ui.readCommand();
             ui.printLine();
             Command c = Parser.parse(fullCommand);

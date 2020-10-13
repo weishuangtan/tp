@@ -1,17 +1,13 @@
 package seedu.trippie;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Storage {
 
-    private final String filePath;
-
-    public Storage(String filePath) {
-        this.filePath = filePath;
-    }
 
     public void setup(PlaceList placeList, ExpenseList expenseList) {
         File file = new File("trippie.txt");
@@ -36,8 +32,10 @@ public class Storage {
         }
     }
 
-    public void saveList() {
-        
+    public void saveList() throws IOException {
+        FileWriter fileWriter = new FileWriter("trippie.txt");
+        fileWriter.write("Here is the collated list of your tasks:" + System.lineSeparator());
+        fileWriter.close();
     }
 
     public void loadList() {
