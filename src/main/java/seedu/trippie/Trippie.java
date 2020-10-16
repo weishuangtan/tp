@@ -2,43 +2,50 @@ package seedu.trippie;
 
 import seedu.trippie.command.Command;
 
-public class Trippie {
-    //private final Storage storage;
-    private final Ui ui;
-    private final ExpenseList expenseList;
-    private final PlaceList placeList;
+import java.io.IOException;
 
-    public Trippie(String filePath) {
+public class Trippie {
+    private final Ui ui;
+    private ExpenseList expenseList;
+    private PlaceList placeList;
+    private final Storage storage;
+
+    public Trippie() {
         ui = new Ui();
-        expenseList = new ExpenseList();
-        placeList = new PlaceList();
-        //        to be implemented with storage
-        //        try {
-        //             expenseList = new ExpenseList(storage.load());
-        //             placeList = new PlaceList(storage.load());
-        //        } catch (NullPointerException e) {
-        //            System.out.println("No file detected");
-        //            expenseList = new ExpenseList();
-        //            placeList = new PlaceList();
-        //        }
+        storage = new Storage();
+        try {
+            expenseList = new ExpenseList();
+            placeList = new PlaceList();
+        } catch (Exception e) {
+            System.out.println("No file detected");
+            expenseList = new ExpenseList();
+            placeList = new PlaceList();
+        }
     }
 
     public static void main(String[] args) {
-        new Trippie("data/trippie.txt").run();
+        new Trippie().run();
     }
 
     public void run() {
-        ui.greetUser();
-        boolean isExit = false;
-        while (!isExit) {
-            String fullCommand = ui.readCommand();
-            ui.printLine();
-            Command c = Parser.parse(fullCommand);
-            if (c != null) {
-                c.execute(ui, placeList, expenseList);
-                isExit = c.isExit();
+        try {
+            ui.greetUser();
+            boolean isExit = false;
+            storage.setup(placeList, expenseList);
+            while (!isExit) {
+                String fullCommand = ui.readCommand();
+                ui.printLine();
+                Command c = Parser.parse(fullCommand);
+                if (c != null) {
+                    c.execute(ui, placeList, expenseList);
+                    isExit = c.isExit();
+                }
+                storage.saveList(placeList, expenseList);
+                ui.printLine();
             }
-            ui.printLine();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
         }
     }
 }
