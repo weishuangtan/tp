@@ -21,7 +21,7 @@ public class Parser {
         try {
             if (userInput.equals("exit")) {
                 return new ExitCommand();
-            } else if (userInput.startsWith("buy ")) {
+            } else if (userInput.startsWith("buy")) {
                 return new AddExpenseCommand(userInput);
             } else if (userInput.startsWith("delete /e ")) {
                 return new DeleteExpenditureCommand(userInput);
