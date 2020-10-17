@@ -111,7 +111,7 @@ public class Storage {
                 input = readFile.nextLine();
                 do {
                     String[] expenseParameters = input.split(" \\| ");
-                    expenses.add(new Expense(expenseParameters[1], Float.parseFloat(expenseParameters[2].substring(1)) ,
+                    expenses.add(new Expense(expenseParameters[1], Float.parseFloat(expenseParameters[2].substring(1)),
                             Integer.parseInt(expenseParameters[0])));
                     input = readFile.nextLine();
                 } while (!input.equals(""));

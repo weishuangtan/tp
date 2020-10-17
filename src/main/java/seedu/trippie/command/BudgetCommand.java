@@ -7,8 +7,8 @@ import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 public class BudgetCommand extends Command {
 
-    private static final String FORMAT_ERROR_MESSAGE = "Incorrect format for [budget] command! " +
-            "Please try the following:\nFormat: budget BUDGET\nExample: budget 4000";
+    private static final String FORMAT_ERROR_MESSAGE = "Incorrect format for [budget] command! "
+            + "Please try the following:\nFormat: budget BUDGET\nExample: budget 4000";
     private static final String PARAMETER_ERROR_MESSAGE = "Please check that the budget value is in numerical form.";
 
     private Float budgetValue;

@@ -1,6 +1,9 @@
 package seedu.trippie.command;
 
-import seedu.trippie.*;
+import seedu.trippie.Expense;
+import seedu.trippie.ExpenseList;
+import seedu.trippie.PlaceList;
+import seedu.trippie.Ui;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.util.List;

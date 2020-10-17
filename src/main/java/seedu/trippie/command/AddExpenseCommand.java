@@ -1,6 +1,9 @@
 package seedu.trippie.command;
 
-import seedu.trippie.*;
+import seedu.trippie.Expense;
+import seedu.trippie.ExpenseList;
+import seedu.trippie.PlaceList;
+import seedu.trippie.Ui;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.util.Collections;
@@ -59,10 +62,9 @@ public class AddExpenseCommand extends Command {
     @Override
     public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
         List<Expense> expenses = expenseList.getExpenseList();
-        Expense expenseEntry = new Expense(expenseName, expenseCost,
-                expenseDayBought);
+        Expense expenseEntry = new Expense(expenseName, expenseCost, expenseDayBought);
         expenses.add(expenseEntry);
-        if(expenses.size() > 1) {
+        if (expenses.size() > 1) {
             sortExpenseList(expenses);
         }
         System.out.println("Got it! I've added the following item: " + expenseEntry.getExpense());

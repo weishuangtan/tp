@@ -29,7 +29,7 @@ public class ExpenseList {
 
     public Float getTotalExpenses() {
         float totalExpenses = 0;
-        for (int i = 0; i < expenseList.size(); i ++) {
+        for (int i = 0; i < expenseList.size(); i++) {
             totalExpenses += expenseList.get(i).getExpenseCost();
         }
         return totalExpenses;
