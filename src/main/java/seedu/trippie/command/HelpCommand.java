@@ -18,6 +18,10 @@ public class HelpCommand extends Command {
         System.out.println("          |   Format: add /n PLACE_NAME /d DAY /t TIME");
         System.out.println("          |   Example: add /n Jurong East Mall /d 2 /t 1100 to 1400");
         printBorder();
+        System.out.println("[budget]  |   Adds a budget to keep track of in expenditure list");
+        System.out.println("          |   Format: budget BUDGET");
+        System.out.println("          |   Example: budget 4000");
+        printBorder();
         System.out.println("[buy]     |   Adds an item with its final cost into an expenditure list");
         System.out.println("          |   Format: buy /i ITEM_NAME /c FINAL_COST /d DAY_NUMBER");
         System.out.println("          |   Example: buy /i R&B Brown Sugar /c 3.00 /d 2");

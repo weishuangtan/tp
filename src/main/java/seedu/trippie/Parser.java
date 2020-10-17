@@ -23,7 +23,7 @@ public class Parser {
                 return new ExitCommand();
             } else if (userInput.startsWith("buy")) {
                 return new AddExpenseCommand(userInput);
-            } else if (userInput.startsWith("delete /e ")) {
+            } else if (userInput.startsWith("delete /e")) {
                 return new DeleteExpenditureCommand(userInput);
             } else if (userInput.equals("list /e")) {
                 return new ListExpenseCommand();
