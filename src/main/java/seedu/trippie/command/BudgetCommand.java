@@ -6,20 +6,15 @@ import seedu.trippie.Ui;
 
 public class BudgetCommand extends Command {
     private Float budgetValue;
+    private final String userInput;
 
     public BudgetCommand(String userInput) {
         this.budgetValue = null;
-        try {
-            this.budgetValue = extractBudgetValue(userInput);
-        } catch (NullPointerException e) {
-            System.out.println("You need to state a valid value for your budget!");
-        } catch (NumberFormatException e) {
-            System.out.println("Budget needs to be input in decimals.");
-        }
+        this.userInput = userInput;
     }
 
     private Float extractBudgetValue(String userInput) throws NullPointerException, NumberFormatException {
-        String budgetValueString = userInput.replace("budget","").trim();
+        String budgetValueString = userInput.substring(7);
         return Float.parseFloat(budgetValueString);
     }
 
@@ -30,11 +25,14 @@ public class BudgetCommand extends Command {
 
     @Override
     public void execute(Ui ui, PlaceList place, ExpenseList expense) {
-        if (budgetValue == null) {
-            System.out.println("Budget was not set successfully.");
-            return;
+        try {
+            this.budgetValue = extractBudgetValue(userInput);
+            expense.setBudgetValue(budgetValue);
+            System.out.println("Successfully set your total budget to " + String.format("%.2f", budgetValue));
+        } catch (NullPointerException | NumberFormatException | IndexOutOfBoundsException e) {
+            System.out.println("Incorrect format for [budget] command! Please try the following: ");
+            System.out.println("Format: budget BUDGET");
+            System.out.println("Example: budget 4000");
         }
-        expense.setBudgetValue(budgetValue);
-        System.out.println("Successfully set your total budget to " + budgetValue.toString());
     }
 }

@@ -27,7 +27,7 @@ public class Parser {
                 return new DeleteExpenditureCommand(userInput);
             } else if (userInput.equals("list /e")) {
                 return new ListExpenseCommand();
-            } else if (userInput.startsWith("budget ")) {
+            } else if (userInput.startsWith("budget")) {
                 return new BudgetCommand(userInput);
             } else if (userInput.equals("spending")) {
                 return new DisplayTotalExpenditureCommand();
