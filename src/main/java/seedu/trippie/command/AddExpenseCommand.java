@@ -1,16 +1,34 @@
 package seedu.trippie.command;
 
 import seedu.trippie.*;
+import seedu.trippie.exception.TrippieInvalidArgumentException;
 
+import java.util.Collections;
 import java.util.List;
 
 
 public class AddExpenseCommand extends Command {
 
-    private final String userInput;
+    private static final String FORMAT_ERROR_MESSAGE = "Incorrect format for [buy] command! Please try the following:\n"
+            + "Format: buy /i ITEM_NAME /c FINAL_COST /d DAY_NUMBER\n"
+            + "Example: buy /i R&B Brown Sugar /c 3.00 /d 2";
+    private static final String PARAMETER_ERROR_MESSAGE = "Please check that your FINAL_COST and DAY_NUMBER parameters"
+            + "are in \nnumerical form.";
 
-    public AddExpenseCommand(String userInput) {
-            this.userInput = userInput;
+    private final String expenseName;
+    private final Float expenseCost;
+    private final int expenseDayBought;
+
+    public AddExpenseCommand(String userInput) throws TrippieInvalidArgumentException {
+        try {
+            this.expenseName = extractExpenseName(userInput);
+            this.expenseCost = extractExpenseCost(userInput);
+            this.expenseDayBought = extractDayBought(userInput);
+        } catch (IndexOutOfBoundsException e) {
+            throw new TrippieInvalidArgumentException(FORMAT_ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            throw new TrippieInvalidArgumentException(PARAMETER_ERROR_MESSAGE);
+        }
     }
 
     public String extractExpenseName(String userInput) {
@@ -40,18 +58,23 @@ public class AddExpenseCommand extends Command {
 
     @Override
     public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
-        try {
-            List<Expense> expenses = expenseList.getExpenseList();
-            Expense expenseEntry = new Expense(extractExpenseName(userInput), extractExpenseCost(userInput),
-                    extractDayBought(userInput));
-            expenses.add(expenseEntry);
-            System.out.println("Got it! I've added the following item: " + expenseEntry.getExpense());
-            System.out.println("There are " + expenses.size() + " items in the list.");
-            expenseList.setExpenseList(expenses);
-        } catch (IndexOutOfBoundsException | NumberFormatException e) {
-            System.out.println("Incorrect format for [buy] command! Please try the following: ");
-            System.out.println("Format: buy /i ITEM_NAME /c FINAL_COST /d DAY_NUMBER");
-            System.out.println("Example: buy /i R&B Brown Sugar /c 3.00 /d 2");
+        List<Expense> expenses = expenseList.getExpenseList();
+        Expense expenseEntry = new Expense(expenseName, expenseCost,
+                expenseDayBought);
+        expenses.add(expenseEntry);
+        if(expenses.size() > 1) {
+            sortExpenseList(expenses);
+        }
+        System.out.println("Got it! I've added the following item: " + expenseEntry.getExpense());
+        System.out.println("There are " + expenses.size() + " items in the list.");
+        expenseList.setExpenseList(expenses);
+    }
+
+    public void sortExpenseList(List<Expense> expenseList) {
+        for (int i = 1; i < expenseList.size(); i++) {
+            if (expenseList.get(i).getExpenseDayBought() < expenseList.get(i - 1).getExpenseDayBought()) {
+                Collections.swap(expenseList, i, i - 1);
+            }
         }
     }
 }

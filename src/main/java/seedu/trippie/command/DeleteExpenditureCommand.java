@@ -1,15 +1,28 @@
 package seedu.trippie.command;
 
 import seedu.trippie.*;
+import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.util.List;
 
 public class DeleteExpenditureCommand extends Command {
 
-    private final String userInput;
+    private static final String FORMAT_ERROR_MESSAGE = "Incorrect format for [delete /e] command! Please try the "
+            + "following:\nFormat: delete /e EXPENSE_INDEX\nExample: delete /e 3";
+    private static final String PARAMETER_ERROR_MESSAGE = "Please check that the index keyed in is a number.";
+    private static final String NULL_ERROR_MESSAGE = "Item has not been created yet. Enter a valid index.";
 
-    public DeleteExpenditureCommand(String userInput) {
-        this.userInput = userInput;
+    private final int expenseIndex;
+
+    public DeleteExpenditureCommand(String userInput) throws TrippieInvalidArgumentException {
+        try {
+            String[] segments = userInput.split("/e ");
+            expenseIndex = Integer.parseInt(segments[1]) - 1;
+        } catch (NumberFormatException e) {
+            throw new TrippieInvalidArgumentException(PARAMETER_ERROR_MESSAGE);
+        } catch (IndexOutOfBoundsException e) {
+            throw new TrippieInvalidArgumentException(FORMAT_ERROR_MESSAGE);
+        }
     }
 
     @Override
@@ -20,25 +33,13 @@ public class DeleteExpenditureCommand extends Command {
     @Override
     public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
         List<Expense> expenses = expenseList.getExpenseList();
-        try {
-            String[] segments = userInput.split(" /e ");
-            int expenseIndex = Integer.parseInt(segments[1]) - 1;
-            if (expenseIndex >= 0 && expenseIndex < expenses.size()) {
-                System.out.println("Noted. I've removed this item from the expenditure list.");
-                System.out.println(expenses.get(expenseIndex).getExpense());
-                expenses.remove(expenseIndex);
-                System.out.println("There are " + expenses.size() + " items in the list.");
-            } else {
-                throw new TrippieException();
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("The index keyed in must be a number.");
-        } catch (TrippieException e) {
-            System.out.println("Item has not been created yet. Enter a valid index.");
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Incorrect format for [delete /e] command! Please try the following:");
-            System.out.println("Format: delete /e EXPENSE_INDEX");
-            System.out.println("Example: delete /e 3");
+        if (expenseIndex >= 0 && expenseIndex < expenses.size()) {
+            System.out.println("Noted. I've removed this item from the expenditure list.");
+            System.out.println(expenses.get(expenseIndex).getExpense());
+            expenses.remove(expenseIndex);
+            System.out.println("There are " + expenses.size() + " items in the list.");
+        } else {
+            System.out.println(NULL_ERROR_MESSAGE);
         }
         expenseList.setExpenseList(expenses);
     }
