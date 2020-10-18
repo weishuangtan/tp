@@ -55,7 +55,7 @@ public class Storage {
             fileWriter.write("Day | Item | Cost" + System.lineSeparator());
             for (Expense expense : expenses) {
                 fileWriter.write(expense.getExpenseDayBought() + " | " + expense.getExpenseName()
-                        + " | $" + expense.getExpenseCost() + System.lineSeparator());
+                        + " | $" + String.format("%.2f", expense.getExpenseCost()) + System.lineSeparator());
             }
         }
 
@@ -111,8 +111,8 @@ public class Storage {
                 input = readFile.nextLine();
                 do {
                     String[] expenseParameters = input.split(" \\| ");
-                    expenses.add(new Expense(expenseParameters[1], expenseParameters[2].substring(1),
-                            expenseParameters[0]));
+                    expenses.add(new Expense(expenseParameters[1], Float.parseFloat(expenseParameters[2].substring(1)),
+                            Integer.parseInt(expenseParameters[0])));
                     input = readFile.nextLine();
                 } while (!input.equals(""));
             } else if (line.contains("Total budget: $")) {
