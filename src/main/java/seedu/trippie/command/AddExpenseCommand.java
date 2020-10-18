@@ -1,9 +1,10 @@
 package seedu.trippie.command;
 
 import seedu.trippie.data.Expense;
-import seedu.trippie.data.ExpenseList;
-import seedu.trippie.data.PlaceList;
 import seedu.trippie.Ui;
+import seedu.trippie.data.ExpenseList;
+import seedu.trippie.data.Trip;
+import seedu.trippie.data.TripList;
 
 import java.util.List;
 
@@ -45,14 +46,14 @@ public class AddExpenseCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
-        List<Expense> expenses = expenseList.getExpenseList();
+    public void execute(Ui ui, Trip trip, TripList tripList) {
+        List<Expense> expenses = trip.getExpenseListObject().getExpenseList();
         ui.printLine();
         Expense expenseEntry = new Expense(expenseName, expenseCost, expenseDayBought);
         expenses.add(expenseEntry);
         System.out.println("Got it! I've added the following item: " + expenseEntry.toString());
         System.out.println("There are " + expenses.size() + " items in the list.");
         ui.printLine();
-        expenseList.setExpenseList(expenses);
+        trip.getExpenseListObject().setExpenseList(expenses);
     }
 }

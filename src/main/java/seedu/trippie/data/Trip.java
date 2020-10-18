@@ -1,7 +1,6 @@
 package seedu.trippie.data;
 
 import java.util.Date;
-import java.util.List;
 
 public class Trip {
     private int index;
@@ -54,14 +53,11 @@ public class Trip {
     public int getMaxDay() {
 
         return 0;
-        //TODO: Fix placeList.getMaxDay();
-
-//  TODO: return integer in expenses, get ExpenseDayBought.
-//        return Integer.max(
-//                places.get(places.size() - 1).getPlaceDay(),
-//                expenses.get(expenses.size() - 1).getExpenseDayBought()
-//                );
+        //TODO: Fix placeList.getMaxDay() and expenseList.getMaxDay()
     }
 
+    public String toString() {
+        return index + " " + name + " " + startDate.toString();
+    }
 
 }

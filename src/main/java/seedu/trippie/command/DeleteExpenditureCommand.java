@@ -1,9 +1,9 @@
 package seedu.trippie.command;
 
 import seedu.trippie.data.Expense;
-import seedu.trippie.data.ExpenseList;
-import seedu.trippie.data.PlaceList;
 import seedu.trippie.Ui;
+import seedu.trippie.data.Trip;
+import seedu.trippie.data.TripList;
 
 import java.util.List;
 
@@ -28,8 +28,8 @@ public class DeleteExpenditureCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
-        List<Expense> expenses = expenseList.getExpenseList();
+    public void execute(Ui ui, Trip trip, TripList tripList) {
+        List<Expense> expenses = trip.getExpenseListObject().getExpenseList();
         if (expenseIndex >= 0 && expenseIndex < expenses.size()) {
             System.out.println("Noted. I've removed this item from the expenditure list.");
             System.out.println(expenses.get(expenseIndex).toString());
@@ -38,6 +38,6 @@ public class DeleteExpenditureCommand extends Command {
         } else {
             System.out.println("Item has not been created yet. Enter a valid index.");
         }
-        expenseList.setExpenseList(expenses);
+        trip.getExpenseListObject().setExpenseList(expenses);
     }
 }

@@ -24,6 +24,7 @@ public class Storage {
     private final String MASTER_DIRECTORY = "trippie_data";
     private final String MASTER_FILE_NAME = "trippie.txt";
     private final String MASTER_FILE_PATH = MASTER_DIRECTORY + File.separator + MASTER_FILE_NAME;
+    private final String FILE_EXTENSION = ".txt";
 
     public void setupMasterFile(TripList tripList) {
         File file = new File(MASTER_FILE_PATH);
@@ -71,12 +72,13 @@ public class Storage {
         }
 
         FileWriter finalFileWriter = fileWriter;
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         tripList.getTripList().stream().forEach(trip -> {
             try {
                 finalFileWriter.write(
                         Integer.toString(trip.getIndex()) + ","
                         + trip.getName() + ","
-                        + trip.getStartDate().toString() + "\n"
+                        + df.format(trip.getStartDate()) + "\n"
                 );
             } catch (IOException e) {
                 System.out.println("Error occured when saving Master File.");
@@ -94,7 +96,8 @@ public class Storage {
     }
 
     public void saveTrip(Trip trip) throws IOException {
-        FileWriter fileWriter = new FileWriter("trippie.txt");
+        String path = MASTER_DIRECTORY + File.separator + trip.getName() + FILE_EXTENSION;
+        FileWriter fileWriter = new FileWriter(path);
         fileWriter.write(
                 "This file shows your saved trips under Trippie!"
                         + System.lineSeparator()
@@ -103,7 +106,6 @@ public class Storage {
 
         savePlaceList(fileWriter, trip.getPlaceListObject());
         saveExpenseList(fileWriter, trip.getExpenseListObject());
-
 
         fileWriter.close();
     }
@@ -157,7 +159,12 @@ public class Storage {
 
     }
 
-    public void loadTrip(Scanner readFile, Trip trip) {
+    public Trip loadTrip(String tripName) {
+        File file = new File(MASTER_DIRECTORY + File.separator + tripName + FILE_EXTENSION);
+        Scanner readFile = findFile(file);
+
+        Trip trip = new Trip();
+
         List<Place> places = trip.getPlaceListObject().getPlaceList();
         List<Expense> expenses = trip.getExpenseListObject().getExpenseList();
         while (readFile.hasNext()) {
@@ -194,8 +201,11 @@ public class Storage {
             } else if (line.contains("Total budget: $")) {
                 trip.getExpenseListObject().setBudgetValue(extractBudgetValue(line));
             }
-
         }
+        trip.setExpenseList(new ExpenseList(expenses));
+        trip.setPlaceList(new PlaceList(places));
+
+        return trip;
     }
 
     private Float extractBudgetValue(String userInput) throws NullPointerException, NumberFormatException {

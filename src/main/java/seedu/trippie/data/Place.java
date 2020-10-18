@@ -29,7 +29,8 @@ public class Place {
         return end;
     }
 
-    public String getPlace() {
+    @Override
+    public String toString() {
         return String.format("%04d",getPlaceStartTime()) + " - " + String.format("%04d", getPlaceEndTime())
                 + " " + getPlaceName();
     }

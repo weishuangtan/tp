@@ -1,8 +1,8 @@
 package seedu.trippie.command;
 
-import seedu.trippie.data.ExpenseList;
-import seedu.trippie.data.PlaceList;
 import seedu.trippie.Ui;
+import seedu.trippie.data.Trip;
+import seedu.trippie.data.TripList;
 
 public class BudgetCommand extends Command {
     private Float budgetValue;
@@ -29,12 +29,12 @@ public class BudgetCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expense) {
+    public void execute(Ui ui, Trip trip, TripList tripList) {
         if (budgetValue == null) {
             System.out.println("Budget was not set successfully.");
             return;
         }
-        expense.setBudgetValue(budgetValue);
+        trip.getExpenseListObject().setBudgetValue(budgetValue);
         System.out.println("Successfully set your total budget to " + budgetValue.toString());
     }
 }

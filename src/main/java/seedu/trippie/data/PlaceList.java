@@ -7,7 +7,11 @@ public class PlaceList {
     private List<Place> placeList;
 
     public PlaceList() {
-        placeList = new ArrayList<>();
+        this.placeList = new ArrayList<>();
+    }
+
+    public PlaceList(List<Place> placeList) {
+        this.placeList = placeList;
     }
 
     public List<Place> getPlaceList() {

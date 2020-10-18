@@ -1,9 +1,9 @@
 package seedu.trippie.command;
 
 import seedu.trippie.data.Expense;
-import seedu.trippie.data.ExpenseList;
-import seedu.trippie.data.PlaceList;
 import seedu.trippie.Ui;
+import seedu.trippie.data.Trip;
+import seedu.trippie.data.TripList;
 
 import java.text.NumberFormat;
 import java.util.List;
@@ -25,8 +25,8 @@ public class DisplayTotalExpenditureCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
-        List<Expense> expenses = expenseList.getExpenseList();
+    public void execute(Ui ui, Trip trip, TripList tripList) {
+        List<Expense> expenses = trip.getExpenseListObject().getExpenseList();
         try {
             double amount = 0.00;
             NumberFormat formatter = NumberFormat.getCurrencyInstance();
