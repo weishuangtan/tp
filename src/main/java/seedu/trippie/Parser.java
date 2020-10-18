@@ -34,7 +34,7 @@ public class Parser {
                 return new AddPlaceCommand(userInput);
             } else if (userInput.startsWith("delete /p ")) {
                 return new DeletePlaceCommand(userInput);
-            } else if (userInput.startsWith("help")) {
+            } else if (userInput.equals("help")) {
                 return new HelpCommand();
             } else if (userInput.startsWith("list /p")) {
                 return new ListPlacesCommand(userInput);

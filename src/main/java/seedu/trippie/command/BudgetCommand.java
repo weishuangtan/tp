@@ -16,7 +16,12 @@ public class BudgetCommand extends Command {
     public BudgetCommand(String userInput) throws TrippieInvalidArgumentException {
         this.budgetValue = null;
         try {
-            this.budgetValue = extractBudgetValue(userInput);
+            char[] characters = userInput.toCharArray();
+            if (characters[6] != ' ' | userInput.length() == 7) {
+                throw new TrippieInvalidArgumentException(FORMAT_ERROR_MESSAGE);
+            } else {
+                this.budgetValue = extractBudgetValue(userInput);
+            }
         } catch (NullPointerException | IndexOutOfBoundsException e) {
             throw new TrippieInvalidArgumentException(FORMAT_ERROR_MESSAGE);
         } catch (NumberFormatException e) {

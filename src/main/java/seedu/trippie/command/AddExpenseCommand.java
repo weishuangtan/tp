@@ -27,6 +27,10 @@ public class AddExpenseCommand extends Command {
             this.expenseName = extractExpenseName(userInput);
             this.expenseCost = extractExpenseCost(userInput);
             this.expenseDayBought = extractDayBought(userInput);
+            char[] characters = userInput.toCharArray();
+            if (characters[3] != ' ') {
+                throw new TrippieInvalidArgumentException(FORMAT_ERROR_MESSAGE);
+            }
         } catch (IndexOutOfBoundsException e) {
             throw new TrippieInvalidArgumentException(FORMAT_ERROR_MESSAGE);
         } catch (NumberFormatException e) {
