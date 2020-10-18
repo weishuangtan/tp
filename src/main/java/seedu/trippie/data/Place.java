@@ -1,4 +1,4 @@
-package seedu.trippie;
+package seedu.trippie.data;
 
 public class Place {
     private final String name;

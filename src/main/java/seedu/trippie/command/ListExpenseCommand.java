@@ -1,8 +1,8 @@
 package seedu.trippie.command;
 
-import seedu.trippie.Expense;
-import seedu.trippie.ExpenseList;
-import seedu.trippie.PlaceList;
+import seedu.trippie.data.Expense;
+import seedu.trippie.data.ExpenseList;
+import seedu.trippie.data.PlaceList;
 import seedu.trippie.Ui;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class ListExpenseCommand extends Command {
             }
             System.out.println("Expense List:");
             for (Expense expense: expenses) {
-                System.out.println("[" + listIndex + "] " + expense.getExpense());
+                System.out.println("[" + listIndex + "] " + expense.toString());
                 listIndex++;
             }
         }

@@ -1,4 +1,4 @@
-package seedu.trippie;
+package seedu.trippie.data;
 
 public class Expense {
     private final String expenseName;
@@ -23,7 +23,8 @@ public class Expense {
         return expenseDayBought;
     }
 
-    public String getExpense() {
+    @Override
+    public String toString() {
         return "Day " + getExpenseDayBought() + ": " + getExpenseName() + " - $" + getExpenseCost();
     }
 }

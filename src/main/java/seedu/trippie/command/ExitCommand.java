@@ -1,7 +1,7 @@
 package seedu.trippie.command;
 
-import seedu.trippie.ExpenseList;
-import seedu.trippie.PlaceList;
+import seedu.trippie.data.ExpenseList;
+import seedu.trippie.data.PlaceList;
 import seedu.trippie.Ui;
 
 public class ExitCommand extends Command {

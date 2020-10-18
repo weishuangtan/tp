@@ -1,8 +1,8 @@
 package seedu.trippie.command;
 
-import seedu.trippie.Expense;
-import seedu.trippie.ExpenseList;
-import seedu.trippie.PlaceList;
+import seedu.trippie.data.Expense;
+import seedu.trippie.data.ExpenseList;
+import seedu.trippie.data.PlaceList;
 import seedu.trippie.Ui;
 
 import java.text.NumberFormat;
@@ -15,8 +15,8 @@ public class DisplayTotalExpenditureCommand extends Command {
     }
 
     public static String extractCostFromList(Expense spending) {
-        int startIndex = spending.getExpense().indexOf("- $") + 3;
-        return spending.getExpense().substring(startIndex);
+        int startIndex = spending.toString().indexOf("- $") + 3;
+        return spending.toString().substring(startIndex);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package seedu.trippie;
+package seedu.trippie.data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,5 +16,9 @@ public class PlaceList {
 
     public void setPlaceList(List<Place> placeList) {
         this.placeList = new ArrayList<>(placeList);
+    }
+
+    public int getMaxDay() {
+        return placeList.get(placeList.size() - 1).getPlaceDay();
     }
 }

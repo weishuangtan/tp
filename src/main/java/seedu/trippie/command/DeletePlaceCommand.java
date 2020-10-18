@@ -1,8 +1,8 @@
 package seedu.trippie.command;
 
-import seedu.trippie.ExpenseList;
-import seedu.trippie.Place;
-import seedu.trippie.PlaceList;
+import seedu.trippie.data.ExpenseList;
+import seedu.trippie.data.Place;
+import seedu.trippie.data.PlaceList;
 import seedu.trippie.Ui;
 
 import java.util.List;

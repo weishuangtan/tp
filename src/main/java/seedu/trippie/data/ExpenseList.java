@@ -1,4 +1,4 @@
-package seedu.trippie;
+package seedu.trippie.data;
 
 import java.util.ArrayList;
 import java.util.List;
