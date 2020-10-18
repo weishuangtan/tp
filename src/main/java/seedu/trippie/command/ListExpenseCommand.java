@@ -34,6 +34,8 @@ public class ListExpenseCommand extends Command {
                 System.out.println("[" + listIndex + "] " + expense.toString());
                 listIndex++;
             }
+            System.out.println("Your current total spending is $"
+                    + String.format("%.2f",trip.getExpenseListObject().getTotalExpenses()));
         }
     }
 }

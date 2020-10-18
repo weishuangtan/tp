@@ -2,10 +2,10 @@ package seedu.trippie.data;
 
 public class Expense {
     private final String expenseName;
-    private final String expenseCost;
-    private final String expenseDayBought;
+    private final Float expenseCost;
+    private final int expenseDayBought;
 
-    public Expense(String expenseName, String expenseCost, String expenseDayBought) {
+    public Expense(String expenseName, Float expenseCost, int expenseDayBought) {
         this.expenseName = expenseName;
         this.expenseCost = expenseCost;
         this.expenseDayBought = expenseDayBought;
@@ -15,16 +15,18 @@ public class Expense {
         return expenseName;
     }
 
-    public String getExpenseCost() {
+    public Float getExpenseCost() {
         return expenseCost;
     }
 
-    public String getExpenseDayBought() {
+    public int getExpenseDayBought() {
         return expenseDayBought;
     }
 
     @Override
     public String toString() {
-        return "Day " + getExpenseDayBought() + ": " + getExpenseName() + " - $" + getExpenseCost();
+        return "Day " + getExpenseDayBought() + ": " + getExpenseName() + " - $"
+                + String.format("%.2f",getExpenseCost());
     }
+
 }

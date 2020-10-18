@@ -16,6 +16,7 @@ public class Trippie {
     private final Storage storage;
     private Trip currentTrip;
     public static int currentTripIndex;
+    public static boolean isFirstRun;
 
     public Trippie() {
         ui = new Ui();
@@ -23,6 +24,7 @@ public class Trippie {
         tripList = new TripList();
         currentTrip = null;
         currentTripIndex = 0;
+        isFirstRun = true;
     }
 
     public static void main(String[] args) {
@@ -37,6 +39,11 @@ public class Trippie {
         System.out.println(tripList.list()); // For debugging purposes
 
         while (!isExit) {
+            if (isFirstRun) {
+                System.out.println("Please create a new trip first by entering the command 'new trip'!");
+                isFirstRun = false;
+            }
+
             String fullCommand = ui.readCommand();
             ui.printLine();
             Command c = Parser.parse(fullCommand);

@@ -27,6 +27,14 @@ public class ExpenseList {
         return budgetValue;
     }
 
+    public Float getTotalExpenses() {
+        float totalExpenses = 0;
+        for (Expense expense: expenseList) {
+            totalExpenses += expense.getExpenseCost();
+        }
+        return totalExpenses;
+    }
+
     public void setBudgetValue(Float budgetValue) {
         this.budgetValue = budgetValue;
     }

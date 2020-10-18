@@ -4,21 +4,27 @@ import seedu.trippie.data.Expense;
 import seedu.trippie.Ui;
 import seedu.trippie.data.Trip;
 import seedu.trippie.data.TripList;
+import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.util.List;
 
 public class DeleteExpenditureCommand extends Command {
 
-    private int expenseIndex;
+    private static final String FORMAT_ERROR_MESSAGE = "Incorrect format for [delete /e] command! Please try the "
+            + "following:\nFormat: delete /e EXPENSE_INDEX\nExample: delete /e 3";
+    private static final String PARAMETER_ERROR_MESSAGE = "Please check that the index keyed in is a number.";
+    private static final String NULL_ERROR_MESSAGE = "Item has not been created yet. Enter a valid index.";
 
-    public DeleteExpenditureCommand(String userInput) {
+    private final int expenseIndex;
+
+    public DeleteExpenditureCommand(String userInput) throws TrippieInvalidArgumentException {
         try {
             String[] segments = userInput.split("/e ");
             expenseIndex = Integer.parseInt(segments[1]) - 1;
-        } catch (NullPointerException e) {
-            System.out.println("It is empty.");
         } catch (NumberFormatException e) {
-            System.out.println("It must be number.");
+            throw new TrippieInvalidArgumentException(PARAMETER_ERROR_MESSAGE);
+        } catch (IndexOutOfBoundsException e) {
+            throw new TrippieInvalidArgumentException(FORMAT_ERROR_MESSAGE);
         }
     }
 
@@ -36,7 +42,7 @@ public class DeleteExpenditureCommand extends Command {
             expenses.remove(expenseIndex);
             System.out.println("There are " + expenses.size() + " items in the list.");
         } else {
-            System.out.println("Item has not been created yet. Enter a valid index.");
+            System.out.println(NULL_ERROR_MESSAGE);
         }
         trip.getExpenseListObject().setExpenseList(expenses);
     }

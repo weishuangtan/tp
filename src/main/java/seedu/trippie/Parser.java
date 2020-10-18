@@ -1,30 +1,30 @@
 package seedu.trippie;
 
 import seedu.trippie.command.*;
-
-import java.util.IllegalFormatException;
+import seedu.trippie.exception.TrippieInvalidArgumentException;
+import seedu.trippie.exception.TrippieIllegalCommandException;
 
 public class Parser {
+
+    private static final String ERROR_MESSAGE = "Invalid Command! Type \"help\" to view the commands available!";
 
     public static Command parse(String userInput) {
         try {
             if (userInput.equals("exit")) {
                 return new ExitCommand();
-            } else if (userInput.startsWith("buy ")) {
+            } else if (userInput.startsWith("buy")) {
                 return new AddExpenseCommand(userInput);
-            } else if (userInput.startsWith("delete /e ")) {
+            } else if (userInput.startsWith("delete /e")) {
                 return new DeleteExpenditureCommand(userInput);
             } else if (userInput.equals("list /e")) {
                 return new ListExpenseCommand();
-            } else if (userInput.startsWith("budget ")) {
+            } else if (userInput.startsWith("budget")) {
                 return new BudgetCommand(userInput);
-            } else if (userInput.equals("spending")) {
-                return new DisplayTotalExpenditureCommand();
             } else if (userInput.startsWith("add ")) {
                 return new AddPlaceCommand(userInput);
             } else if (userInput.startsWith("delete /p ")) {
                 return new DeletePlaceCommand(userInput);
-            } else if (userInput.startsWith("help")) {
+            } else if (userInput.equals("help")) {
                 return new HelpCommand();
             } else if (userInput.startsWith("list /p")) {
                 return new ListPlacesCommand(userInput);
@@ -35,10 +35,10 @@ public class Parser {
             } else if (userInput.equals("load trip")) {
                 return new LoadTripCommand();
             } else {
-                System.out.println("Invalid Command! Type \"help\" to view the list of available commands!");
+                throw new TrippieIllegalCommandException(ERROR_MESSAGE);
             }
-        } catch (IllegalFormatException e) {
-            System.out.println("Invalid Command!");
+        } catch (TrippieIllegalCommandException | TrippieInvalidArgumentException e) {
+            System.out.println(e.getMessage());
         }
         return null;
     }
