@@ -1,10 +1,9 @@
 package seedu.trippie.command;
 
-import seedu.trippie.Currency;
-import seedu.trippie.CurrencyType;
-import seedu.trippie.ExpenseList;
-import seedu.trippie.PlaceList;
+import seedu.trippie.data.Currency;
+import seedu.trippie.data.CurrencyType;
 import seedu.trippie.Ui;
+import seedu.trippie.data.TrippieData;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 
@@ -58,9 +57,9 @@ public class CalculateCurrencyCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
-        float exchangeRate = 3.01F; // temporary to be taken in from set up
-        String currencyAbbreviation = "MYR"; // temporary to be taken in from set up
+    public void execute(Ui ui, TrippieData trippieData) {
+        float exchangeRate = trippieData.getCurrentTrip().getExpenseListObject().getForExValue();
+        String currencyAbbreviation = trippieData.getCurrentTrip().getExpenseListObject().getCurrencyAbbreviation();
         Currency currencyEntry = new Currency(currencyChoice, currencyAmount);
         float initialInputAmount = currencyEntry.getCurrencyAmount();
         float finalOutputAmount;
@@ -73,7 +72,7 @@ public class CalculateCurrencyCommand extends Command {
             finalOutputAmount = initialInputAmount * exchangeRate;
             finalOutputAbbreviation = currencyAbbreviation;
         }
-        System.out.print("That amount in your " + currencyEntry.getCurrencyChoice()
+        System.out.println("That amount in your " + currencyEntry.getCurrencyChoice()
                 + " currency is " + String.format("%.2f ", finalOutputAmount)
                 + finalOutputAbbreviation + ".");
     }

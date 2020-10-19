@@ -35,5 +35,8 @@ public class Ui {
         return in.nextLine();
     }
 
+    public String getLine() {
+        return in.nextLine();
+    }
 
 }

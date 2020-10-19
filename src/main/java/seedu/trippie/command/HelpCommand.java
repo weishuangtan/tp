@@ -1,8 +1,7 @@
 package seedu.trippie.command;
 
-import seedu.trippie.ExpenseList;
-import seedu.trippie.PlaceList;
 import seedu.trippie.Ui;
+import seedu.trippie.data.TrippieData;
 
 public class HelpCommand extends Command {
     @Override
@@ -11,7 +10,7 @@ public class HelpCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expense) {
+    public void execute(Ui ui, TrippieData trippieData) {
         System.out.println("Welcome to Trippie! A one-stop app to plan any of your upcoming trips!");
         System.out.println("Here is a list of commands which you can use to navigate your way\nthrough Trippie!\n");
         System.out.println("[add]     |   Adds a place to your trip");

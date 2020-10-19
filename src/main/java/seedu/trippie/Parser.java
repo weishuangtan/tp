@@ -1,6 +1,19 @@
 package seedu.trippie;
 
-import seedu.trippie.command.*;
+import seedu.trippie.command.AddExpenseCommand;
+import seedu.trippie.command.AddPlaceCommand;
+import seedu.trippie.command.BudgetCommand;
+import seedu.trippie.command.CalculateCurrencyCommand;
+import seedu.trippie.command.Command;
+import seedu.trippie.command.DeleteExpenditureCommand;
+import seedu.trippie.command.DeletePlaceCommand;
+import seedu.trippie.command.ExitCommand;
+import seedu.trippie.command.HelpCommand;
+import seedu.trippie.command.ListExpenseCommand;
+import seedu.trippie.command.ListPlacesCommand;
+import seedu.trippie.command.LoadTripCommand;
+import seedu.trippie.command.NewTripCommand;
+import seedu.trippie.command.SearchCommand;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 import seedu.trippie.exception.TrippieIllegalCommandException;
 
@@ -32,6 +45,10 @@ public class Parser {
                 return new ListPlacesCommand(userInput);
             } else if (userInput.startsWith("search ")) {
                 return new SearchCommand(userInput);
+            } else if (userInput.equals("new trip")) {
+                return new NewTripCommand();
+            } else if (userInput.equals("load trip")) {
+                return new LoadTripCommand();
             } else {
                 throw new TrippieIllegalCommandException(ERROR_MESSAGE);
             }

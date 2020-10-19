@@ -1,5 +1,7 @@
 package seedu.trippie;
 
+import seedu.trippie.data.Expense;
+
 import java.util.Comparator;
 
 public class ExpenseComparator implements Comparator<Expense> {

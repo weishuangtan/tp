@@ -1,9 +1,8 @@
 package seedu.trippie.command;
 
-import seedu.trippie.ExpenseList;
-import seedu.trippie.Place;
-import seedu.trippie.PlaceList;
+import seedu.trippie.data.Place;
 import seedu.trippie.Ui;
+import seedu.trippie.data.TrippieData;
 
 import java.util.List;
 
@@ -27,16 +26,17 @@ public class DeletePlaceCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expense) {
-        List<Place> places = place.getPlaceList();
+    public void execute(Ui ui, TrippieData trippieData) {
+        List<Place> places = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
         if (placeIndex >= 0 && placeIndex < places.size()) {
             System.out.println("Noted. I've removed this place.");
-            System.out.println(places.get(placeIndex).getPlace());
+            System.out.println(places.get(placeIndex).toString());
             places.remove(placeIndex);
             System.out.println("There are " + places.size() + " items in the list.");
         } else {
             System.out.println("Enter a valid index.");
         }
-        place.setPlaceList(places);
+        trippieData.getCurrentTrip().getPlaceListObject().setPlaceList(places);
+
     }
 }

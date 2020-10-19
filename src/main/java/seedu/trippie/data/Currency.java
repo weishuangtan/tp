@@ -1,4 +1,4 @@
-package seedu.trippie;
+package seedu.trippie.data;
 
 public class Currency {
     private final CurrencyType currencyChoice;

@@ -1,10 +1,9 @@
 package seedu.trippie.command;
 
-import seedu.trippie.Expense;
-import seedu.trippie.ExpenseList;
-import seedu.trippie.PlaceList;
+import seedu.trippie.data.Expense;
 import seedu.trippie.Ui;
 import seedu.trippie.exception.TrippieExceedBudgetException;
+import seedu.trippie.data.TrippieData;
 
 import java.util.List;
 
@@ -28,33 +27,35 @@ public class ListExpenseCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expenseList) {
-        List<Expense> expenses = expenseList.getExpenseList();
-        float exchangeRate = 3.01F;
+    public void execute(Ui ui, TrippieData trippieData) {
+        List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
+        Float exchangeRate = trippieData.getCurrentTrip().getExpenseListObject().getForExValue();
+        String currencyAbbreviation = trippieData.getCurrentTrip().getExpenseListObject().getCurrencyAbbreviation();
         if (expenses.isEmpty()) {
             System.out.println("There is currently nothing in your Expense list.");
         } else {
             int listIndex = 1;
-            Float pricing = expenseList.getBudgetValue();
-            if (pricing != null) {
-                System.out.println("Total budget: $" + String.format("%.2f", pricing)
-                        + " (" + String.format("%.2f", pricing/exchangeRate) + " SGD)");
+            Float budget = trippieData.getCurrentTrip().getExpenseListObject().getBudgetValue() * exchangeRate;
+            if (budget != null) {
+                System.out.println("Total budget: $" + String.format("%.2f ", budget) + currencyAbbreviation
+                        + " (" + String.format("%.2f", budget/exchangeRate) + " SGD)");
             } else {
                 System.out.println("Total budget has not been set");
             }
             System.out.println("Expense List:");
             for (Expense expense: expenses) {
-                System.out.println("[" + listIndex + "] " + expense.getExpense());
+                System.out.println("[" + listIndex + "] " + expense.toString());
                 listIndex++;
             }
+            float totalSpending = trippieData.getCurrentTrip().getExpenseListObject().getTotalExpenses();
             System.out.println("Your current total spending is $"
-                    + String.format("%.2f",expenseList.getTotalExpenses())
-                    + " (" + String.format("%.2f", expenseList.getTotalExpenses()/exchangeRate) + " SGD)");
+                    + String.format("%.2f ",totalSpending) + currencyAbbreviation
+                    + " (" + String.format("%.2f", totalSpending / exchangeRate) + " SGD)");
             try {
-                if (pricing != null) {
-                    float remainingBudget = pricing - expenseList.getTotalExpenses();
-                    checkRemainingBudget(remainingBudget,exchangeRate);
-                    createBudgetPercentageBar(expenseList.getTotalExpenses(), pricing);
+                if (budget != null) {
+                    float remainingBudget = budget - totalSpending;
+                    checkRemainingBudget(remainingBudget, exchangeRate, currencyAbbreviation);
+                    createBudgetPercentageBar(totalSpending, budget);
                 }
             } catch (TrippieExceedBudgetException e) {
                 System.out.println(EXCEED_BUDGET_MESSAGE);
@@ -62,12 +63,12 @@ public class ListExpenseCommand extends Command {
         }
     }
 
-    private void checkRemainingBudget(float remainingBudget, float exchangeRate) {
+    private void checkRemainingBudget(float remainingBudget, float exchangeRate, String currencyAbbreviation) {
         if (remainingBudget < 0) {
             System.out.print("");
         } else {
             System.out.println("Your current remaining budget is $"
-                    + String.format("%.2f", remainingBudget)
+                    + String.format("%.2f ", remainingBudget) + currencyAbbreviation
                     + " (" + String.format("%.2f", remainingBudget/exchangeRate) + " SGD)");
         }
     }
