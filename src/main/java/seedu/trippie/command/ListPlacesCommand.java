@@ -44,7 +44,7 @@ public class ListPlacesCommand extends Command {
         } else if (specifiedDay == -1) {
             int maxDay = places.get(places.size() - 1).getPlaceDay();
             for (int i = 1; i <= maxDay; i++) {
-                String currentDate = addDays(date, i-1);
+                String currentDate = addDays(date, i - 1);
                 System.out.println("DAY " + i + ": (" + currentDate + ")");
                 for (int j = 0; j < places.size(); j++) {
                     if (places.get(j).getPlaceDay() == i) {
@@ -55,7 +55,7 @@ public class ListPlacesCommand extends Command {
                 System.out.println(System.lineSeparator());
             }
         } else {
-            String currentDate = addDays(date, specifiedDay-1);
+            String currentDate = addDays(date, specifiedDay - 1);
             System.out.println("DAY " + specifiedDay + ": (" + currentDate + ")");
             for (Place place : places) {
                 if (place.getPlaceDay() == specifiedDay) {
