@@ -37,5 +37,6 @@ public class DeletePlaceCommand extends Command {
             System.out.println("Enter a valid index.");
         }
         trippieData.getCurrentTrip().getPlaceListObject().setPlaceList(places);
+
     }
 }

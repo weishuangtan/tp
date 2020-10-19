@@ -2,10 +2,14 @@ package seedu.trippie.command;
 
 import seedu.trippie.data.Place;
 import seedu.trippie.Ui;
+import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.List;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ListPlacesCommand extends Command {
 
@@ -30,17 +34,18 @@ public class ListPlacesCommand extends Command {
         return false;
     }
 
-    @Override
     public void execute(Ui ui, TrippieData trippieData) {
         List<Place> places = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
         sortPlaceList(places);
+        Date date = trippieData.getCurrentTrip().getStartDate();
 
         if (places.size() == 0) {
             System.out.println("Please add your itinerary!");
         } else if (specifiedDay == -1) {
             int maxDay = places.get(places.size() - 1).getPlaceDay();
             for (int i = 1; i <= maxDay; i++) {
-                System.out.println("DAY " + i + ":");
+                String currentDate = addDays(date, i - 1);
+                System.out.println("DAY " + i + ": (" + currentDate + ")");
                 for (int j = 0; j < places.size(); j++) {
                     if (places.get(j).getPlaceDay() == i) {
                         System.out.print((j + 1) + ". ");
@@ -50,7 +55,8 @@ public class ListPlacesCommand extends Command {
                 System.out.println(System.lineSeparator());
             }
         } else {
-            System.out.println("DAY " + specifiedDay + ": ");
+            String currentDate = addDays(date, specifiedDay - 1);
+            System.out.println("DAY " + specifiedDay + ": (" + currentDate + ")");
             for (Place place : places) {
                 if (place.getPlaceDay() == specifiedDay) {
                     System.out.println(place.toString());
@@ -58,6 +64,14 @@ public class ListPlacesCommand extends Command {
             }
         }
         trippieData.getCurrentTrip().getPlaceListObject().setPlaceList(places);
+    }
+
+    public String addDays(Date date, int day) {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        cal.setTime(date);
+        cal.add(Calendar.DATE, day);
+        return sdf.format(cal.getTime());
     }
 
     public void sortPlaceList(List<Place> sortedPlaces) {

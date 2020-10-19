@@ -1,6 +1,5 @@
 package seedu.trippie.command;
 
-import seedu.trippie.Trippie;
 import seedu.trippie.Ui;
 import seedu.trippie.data.TrippieData;
 

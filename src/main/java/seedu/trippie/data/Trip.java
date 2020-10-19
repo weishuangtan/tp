@@ -52,7 +52,7 @@ public class Trip {
 
     public int getMaxDay() {
 
-        return 0;
+        return 1;
         //TODO: Fix placeList.getMaxDay() and expenseList.getMaxDay()
     }
 
