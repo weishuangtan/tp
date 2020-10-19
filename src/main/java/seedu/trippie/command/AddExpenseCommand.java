@@ -2,9 +2,8 @@ package seedu.trippie.command;
 
 import seedu.trippie.data.Expense;
 import seedu.trippie.Ui;
-import seedu.trippie.data.ExpenseList;
 import seedu.trippie.data.Trip;
-import seedu.trippie.data.TripList;
+import seedu.trippie.data.TrippieData;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.util.Collections;
@@ -65,7 +64,7 @@ public class AddExpenseCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, Trip trip, TripList tripList) {
+    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
         List<Expense> expenses = trip.getExpenseListObject().getExpenseList();
         Expense expenseEntry = new Expense(expenseName, expenseCost, expenseDayBought);
         expenses.add(expenseEntry);

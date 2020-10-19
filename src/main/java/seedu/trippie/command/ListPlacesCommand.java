@@ -3,7 +3,7 @@ package seedu.trippie.command;
 import seedu.trippie.data.Place;
 import seedu.trippie.Ui;
 import seedu.trippie.data.Trip;
-import seedu.trippie.data.TripList;
+import seedu.trippie.data.TrippieData;
 
 import java.util.Collections;
 import java.util.List;
@@ -32,7 +32,7 @@ public class ListPlacesCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, Trip trip, TripList tripList) {
+    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
         List<Place> places = trip.getPlaceListObject().getPlaceList();
         sortPlaceList(places);
 

@@ -4,15 +4,13 @@ import seedu.trippie.command.Command;
 import seedu.trippie.data.ExpenseList;
 import seedu.trippie.data.PlaceList;
 import seedu.trippie.data.Trip;
-import seedu.trippie.data.TripList;
+import seedu.trippie.data.TrippieData;
 
 import java.io.IOException;
 
 public class Trippie {
     private final Ui ui;
-    private ExpenseList expenseList;
-    private PlaceList placeList;
-    private TripList tripList;
+    private TrippieData trippieData;
     private final Storage storage;
     private Trip currentTrip;
     public static int currentTripIndex;
@@ -21,7 +19,7 @@ public class Trippie {
     public Trippie() {
         ui = new Ui();
         storage = new Storage();
-        tripList = new TripList();
+        trippieData = new TrippieData();
         currentTrip = null;
         currentTripIndex = 0;
         isFirstRun = true;
@@ -33,10 +31,10 @@ public class Trippie {
 
     public void run() {
         ui.greetUser();
-        boolean isExit = false;
-        storage.setupMasterFile(tripList);
+        storage.setupMasterFile(trippieData);
         currentTrip = null; // TODO: store default value of trips
-        System.out.println(tripList.list()); // For debugging purposes
+        System.out.println(trippieData.list()); // For debugging purposes
+        boolean isExit = false;
 
         while (!isExit) {
             if (isFirstRun) {
@@ -44,27 +42,32 @@ public class Trippie {
                 isFirstRun = false;
             }
 
+
             String fullCommand = ui.readCommand();
             ui.printLine();
             Command c = Parser.parse(fullCommand);
             if (c != null) {
-                // TODO: don't load on each command execution
-                currentTrip = tripList.getTripList().get(currentTripIndex);
-                Trip tempTrip = storage.loadTrip(currentTrip.getName());
-                currentTrip.setPlaceList(tempTrip.getPlaceListObject());
-                currentTrip.setExpenseList(tempTrip.getExpenseListObject());
-
-                c.execute(ui, currentTrip, tripList);
+                c.execute(ui, currentTrip, trippieData);
                 isExit = c.isExit();
             }
-
             try {
                 storage.saveTrip(currentTrip);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            storage.saveMasterFile(tripList);
+            updateCurrentTrip();
+            storage.saveMasterFile(trippieData);
             ui.printLine();
+        }
+    }
+
+    private void updateCurrentTrip() {
+        if (currentTripIndex < trippieData.getTripList().size()) {
+            // TODO: don't load on each command execution
+            currentTrip = trippieData.getTripList().get(currentTripIndex);
+            Trip tempTrip = storage.loadTrip(currentTrip);
+            currentTrip.setPlaceList(tempTrip.getPlaceListObject());
+            currentTrip.setExpenseList(tempTrip.getExpenseListObject());
         }
     }
 }

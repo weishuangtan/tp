@@ -2,7 +2,7 @@ package seedu.trippie.command;
 
 import seedu.trippie.Ui;
 import seedu.trippie.data.Trip;
-import seedu.trippie.data.TripList;
+import seedu.trippie.data.TrippieData;
 
 public class ExitCommand extends Command {
     public ExitCommand() {
@@ -15,7 +15,7 @@ public class ExitCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, Trip trip, TripList tripList) {
+    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
         ui.showFarewells();
     }
 }

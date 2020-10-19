@@ -5,15 +5,13 @@ import seedu.trippie.data.ExpenseList;
 import seedu.trippie.data.Place;
 import seedu.trippie.data.PlaceList;
 import seedu.trippie.data.Trip;
-import seedu.trippie.data.TripList;
+import seedu.trippie.data.TrippieData;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.sql.Date;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,18 +19,29 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Storage {
-    private final String MASTER_DIRECTORY = "trippie_data";
-    private final String MASTER_FILE_NAME = "trippie.txt";
-    private final String MASTER_FILE_PATH = MASTER_DIRECTORY + File.separator + MASTER_FILE_NAME;
-    private final String FILE_EXTENSION = ".txt";
+    public static final String MASTER_DIRECTORY = "trippie_data";
+    public static final String MASTER_FILE_NAME = "trippie.txt";
+    public static final String MASTER_FILE_PATH = MASTER_DIRECTORY + File.separator + MASTER_FILE_NAME;
+    public static final String FILE_EXTENSION = ".txt";
 
-    public void setupMasterFile(TripList tripList) {
+    /**
+     * Setups a master file from a tripList. Crates the directories and loads the masterfile onto tripList.
+     * @param trippieData a tripList object that would be updated.
+     */
+    public void setupMasterFile(TrippieData trippieData) {
         File file = new File(MASTER_FILE_PATH);
-        Scanner readFile = findFile(file);
-        loadMasterFile(readFile, tripList);
+        Scanner readFile = getOrCreateFileScanner(file);
+        loadMasterFile(readFile, trippieData);
     }
 
-    public Scanner findFile(File file) {
+    /**
+     * Gets a scanner for the corresponding file.
+     * Creates a file if the corresponding file does not exist.
+     *
+     * @param file A file to get the scanner from
+     * @return Scanner from file.
+     */
+    public Scanner getOrCreateFileScanner(File file) {
         try {
             // Code referenced from
             // https://stackoverflow.com/questions/2833853/create-whole-path-automatically-when-writing-to-a-new-file
@@ -57,13 +66,12 @@ public class Storage {
 
     /**
      * This method saves a tripList object to a single master txt file.
-     *
      * Each line in the master file stores a trip in the following format:
      * TRIP_INDEX,TRIP_NAME,TRIP_DATE
      *
-     * @param tripList The tripList object to be saved.
+     * @param trippieData The tripList object to be saved.
      */
-    public void saveMasterFile(TripList tripList) {
+    public void saveMasterFile(TrippieData trippieData) {
         FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(MASTER_FILE_PATH);
@@ -73,18 +81,27 @@ public class Storage {
 
         FileWriter finalFileWriter = fileWriter;
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        tripList.getTripList().stream().forEach(trip -> {
-            try {
-                finalFileWriter.write(
-                        Integer.toString(trip.getIndex()) + ","
-                        + trip.getName() + ","
-                        + df.format(trip.getStartDate()) + "\n"
-                );
-            } catch (IOException e) {
-                System.out.println("Error occured when saving Master File.");
-                e.printStackTrace();
-            }
-        });
+        try {
+            finalFileWriter.write(
+                    String.format("DEFAULT %d", Trippie.currentTripIndex)
+            );
+
+            trippieData.getTripList().stream().forEach(trip -> {
+                try {
+                    finalFileWriter.write(
+                            trip.getIndex() + ","
+                            + trip.getName() + ","
+                            + df.format(trip.getStartDate()) + "\n"
+                    );
+                } catch (IOException e) {
+                    System.out.println("Error occured when saving Master File.");
+                    e.printStackTrace();
+                }
+            });
+        } catch (IOException e) {
+            System.out.println("Error occured when saving Master File.");
+            e.printStackTrace();
+        }
 
 
         try {
@@ -159,14 +176,20 @@ public class Storage {
 
     }
 
-    public Trip loadTrip(String tripName) {
-        File file = new File(MASTER_DIRECTORY + File.separator + tripName + FILE_EXTENSION);
-        Scanner readFile = findFile(file);
+    /**
+     * Finds a corresponding trip file, and either gets or create the File.
+     * Loads the content of the file to the trip object
+     * @param trip A trip object to search for
+     * @return A trip from the file contents
+     */
+    public Trip loadTrip(Trip trip) {
+        File file = new File(MASTER_DIRECTORY + File.separator + trip.getName() + FILE_EXTENSION);
+        Scanner readFile = getOrCreateFileScanner(file);
 
-        Trip trip = new Trip();
+        Trip newTrip = new Trip(trip.getIndex(), trip.getName(), trip.getStartDate());
 
-        List<Place> places = trip.getPlaceListObject().getPlaceList();
-        List<Expense> expenses = trip.getExpenseListObject().getExpenseList();
+        List<Place> places = newTrip.getPlaceListObject().getPlaceList();
+        List<Expense> expenses = newTrip.getExpenseListObject().getExpenseList();
         while (readFile.hasNext()) {
             String line = readFile.nextLine();
             if (line.contains("Day | Start Time | End Time | Place")) {
@@ -192,20 +215,20 @@ public class Storage {
                     String[] expenseParameters = input.split(" \\| ");
                     expenses.add(new Expense(
                             expenseParameters[1],
-                            expenseParameters[2].substring(1),
-                            expenseParameters[0])
+                            Float.parseFloat(expenseParameters[2].substring(1)),
+                            Integer.parseInt(expenseParameters[0]))
                     );
                     input = readFile.nextLine();
                 } while (!input.equals(""));
 
             } else if (line.contains("Total budget: $")) {
-                trip.getExpenseListObject().setBudgetValue(extractBudgetValue(line));
+                newTrip.getExpenseListObject().setBudgetValue(extractBudgetValue(line));
             }
         }
-        trip.setExpenseList(new ExpenseList(expenses));
-        trip.setPlaceList(new PlaceList(places));
+        newTrip.setExpenseList(new ExpenseList(expenses));
+        newTrip.setPlaceList(new PlaceList(places));
 
-        return trip;
+        return newTrip;
     }
 
     private Float extractBudgetValue(String userInput) throws NullPointerException, NumberFormatException {
@@ -213,7 +236,7 @@ public class Storage {
         return Float.parseFloat(budgetValueString);
     }
 
-    public void loadMasterFile(Scanner readFile, TripList tripList) {
+    public void loadMasterFile(Scanner readFile, TrippieData trippieData) {
         List<Trip> parsedTripList = new ArrayList<>();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -234,7 +257,7 @@ public class Storage {
             }
         }
 
-        tripList.setTripList(parsedTripList);
+        trippieData.setTripList(parsedTripList);
     }
 
 }

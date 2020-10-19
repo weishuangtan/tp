@@ -3,10 +3,10 @@ package seedu.trippie.data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TripList {
+public class TrippieData {
     private List<Trip> tripList;
 
-    public TripList() {
+    public TrippieData() {
         tripList = new ArrayList<>();
     }
 

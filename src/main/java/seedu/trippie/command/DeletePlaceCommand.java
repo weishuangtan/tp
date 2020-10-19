@@ -3,7 +3,7 @@ package seedu.trippie.command;
 import seedu.trippie.data.Place;
 import seedu.trippie.Ui;
 import seedu.trippie.data.Trip;
-import seedu.trippie.data.TripList;
+import seedu.trippie.data.TrippieData;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class DeletePlaceCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, Trip trip, TripList tripList) {
+    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
         List<Place> places = trip.getPlaceListObject().getPlaceList();
         if (placeIndex >= 0 && placeIndex < places.size()) {
             System.out.println("Noted. I've removed this place.");

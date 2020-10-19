@@ -3,7 +3,7 @@ package seedu.trippie.command;
 import seedu.trippie.Trippie;
 import seedu.trippie.Ui;
 import seedu.trippie.data.Trip;
-import seedu.trippie.data.TripList;
+import seedu.trippie.data.TrippieData;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,9 +16,9 @@ public class NewTripCommand extends Command {
 
     public boolean isExit() {
         return false;
-    };
+    }
 
-    public void execute(Ui ui, Trip trip, TripList tripList) {
+    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
         System.out.print("Enter your new trip's name:");
         String name = ui.getLine();
 
@@ -31,12 +31,12 @@ public class NewTripCommand extends Command {
             e.printStackTrace();
         }
 
-        int index = tripList.getTripList().size();
+        int index = trippieData.getTripList().size();
 
         Trip newTrip = new Trip(index, name, startDate);
-        tripList.getTripList().add(newTrip);
+        trippieData.getTripList().add(newTrip);
 
         System.out.println("Added the trip " + newTrip.toString());
         Trippie.currentTripIndex = index;
-    };
+    }
 }
