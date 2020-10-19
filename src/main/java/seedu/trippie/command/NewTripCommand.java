@@ -33,7 +33,6 @@ public class NewTripCommand extends Command {
         int index = trippieData.getTripList().size();
 
         Trip newTrip = new Trip(index, name, startDate);
-        trippieData.getTripList().add(newTrip);
 
         System.out.print("Enter the foreign exchange rate:");
         String forEx = ui.getLine();
@@ -41,7 +40,8 @@ public class NewTripCommand extends Command {
         System.out.print("Enter your budget for the trip:");
         Float budget = Float.parseFloat(ui.getLine());
 
-        trippieData.getCurrentTrip().getExpenseListObject().setBudgetValue(budget);
+        newTrip.getExpenseListObject().setBudgetValue(budget);
+        trippieData.getTripList().add(newTrip);
 
         System.out.println("Added the trip " + newTrip.toString());
         trippieData.setCurrentTripIndex(index);
