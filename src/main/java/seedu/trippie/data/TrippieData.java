@@ -9,7 +9,6 @@ public class TrippieData {
     private Storage storage;
     private int defaultTripIndex;
     private List<Trip> tripList;
-    private int currentTripIndex;
     private Trip currentTrip = null;
 
     public TrippieData(Storage storage) {
@@ -53,13 +52,13 @@ public class TrippieData {
         return this.currentTrip;
     }
 
-    public void setCurrentTripIndex(int index) {
-        this.currentTripIndex = index;
+    public void setCurrentTripFromIndex(int index) {
+        this.currentTrip = this.tripList.get(index);
     }
 
     public void loadCurrentTripFromFile() {
-        if (currentTripIndex < this.getTripList().size()) {
-            currentTrip = this.getTripList().get(currentTripIndex);
+        if (currentTrip.getIndex() < this.getTripList().size()) {
+            currentTrip = this.getTripList().get(currentTrip.getIndex());
             Trip tempTrip = storage.loadTrip(currentTrip);
             currentTrip.setPlaceList(tempTrip.getPlaceListObject());
             currentTrip.setExpenseList(tempTrip.getExpenseListObject());

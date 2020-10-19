@@ -1,6 +1,5 @@
 package seedu.trippie.command;
 
-import seedu.trippie.Trippie;
 import seedu.trippie.Ui;
 import seedu.trippie.data.TrippieData;
 
@@ -19,7 +18,7 @@ public class LoadTripCommand extends Command {
         System.out.print("Which one do you want to load? Enter the index:");
         int index = Integer.parseInt(ui.getLine());
 
-        trippieData.setCurrentTripIndex(index);
+        trippieData.setCurrentTripFromIndex(index);
         trippieData.loadCurrentTripFromFile();
     }
 }

@@ -34,7 +34,7 @@ public class Storage {
         loadMasterFile(readFile, trippieData);
 
         if (trippieData.getTripList().size() > 0) {
-            trippieData.setCurrentTripIndex(trippieData.getCurrentTrip().getIndex());
+            trippieData.setCurrentTripFromIndex(trippieData.getCurrentTrip().getIndex());
             trippieData.loadCurrentTripFromFile();
         }
     }
