@@ -2,7 +2,6 @@ package seedu.trippie.command;
 
 import seedu.trippie.data.Place;
 import seedu.trippie.Ui;
-import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 
 import java.util.List;
@@ -50,13 +49,13 @@ public class AddPlaceCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
-        List<Place> places = trip.getPlaceListObject().getPlaceList();
+    public void execute(Ui ui, TrippieData trippieData) {
+        List<Place> places = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
         Place newPlace = new Place(name, day, start, end);
         places.add(newPlace);
 
         System.out.println("Got it. I've added this place:");
         System.out.println(newPlace);
-        trip.getPlaceListObject().setPlaceList(places);
+        trippieData.getCurrentTrip().getPlaceListObject().setPlaceList(places);
     }
 }

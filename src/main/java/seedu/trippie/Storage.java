@@ -32,6 +32,8 @@ public class Storage {
         File file = new File(MASTER_FILE_PATH);
         Scanner readFile = getOrCreateFileScanner(file);
         loadMasterFile(readFile, trippieData);
+        trippieData.setCurrentTripIndex(trippieData.getCurrentTrip().getIndex());
+        trippieData.loadCurrentTripFromFile();
     }
 
     /**
@@ -83,7 +85,7 @@ public class Storage {
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         try {
             finalFileWriter.write(
-                    String.format("DEFAULT %d", Trippie.currentTripIndex)
+                    String.format("DEFAULT %d\n", trippieData.getCurrentTrip().getIndex())
             );
 
             trippieData.getTripList().stream().forEach(trip -> {
@@ -242,6 +244,15 @@ public class Storage {
 
         while (readFile.hasNext()) {
             String line = readFile.nextLine();
+
+            // Parse default parameter
+            if (line.startsWith("DEFAULT")) {
+                trippieData.setDefaultTripIndex(
+                        Integer.parseInt(line.replace("DEFAULT", "").trim())
+                );
+                continue;
+            }
+
             String[] parameters = line.split(",");
 
             try {
@@ -258,6 +269,11 @@ public class Storage {
         }
 
         trippieData.setTripList(parsedTripList);
+        if (trippieData.getTripList().size() > 0) {
+            System.out.println("Found these trips in your computer \n" + trippieData.list());
+        } else {
+            System.out.println("Please create a new trip by entering 'new trip'");
+        }
     }
 
 }

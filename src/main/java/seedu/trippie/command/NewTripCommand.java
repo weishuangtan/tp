@@ -18,7 +18,7 @@ public class NewTripCommand extends Command {
         return false;
     }
 
-    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
+    public void execute(Ui ui, TrippieData trippieData) {
         System.out.print("Enter your new trip's name:");
         String name = ui.getLine();
 
@@ -37,6 +37,7 @@ public class NewTripCommand extends Command {
         trippieData.getTripList().add(newTrip);
 
         System.out.println("Added the trip " + newTrip.toString());
-        Trippie.currentTripIndex = index;
+        trippieData.setCurrentTripIndex(index);
+        trippieData.loadCurrentTripFromFile();
     }
 }

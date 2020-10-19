@@ -2,7 +2,6 @@ package seedu.trippie.command;
 
 import seedu.trippie.data.Expense;
 import seedu.trippie.Ui;
-import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
@@ -34,8 +33,8 @@ public class DeleteExpenditureCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
-        List<Expense> expenses = trip.getExpenseListObject().getExpenseList();
+    public void execute(Ui ui, TrippieData trippieData) {
+        List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
         if (expenseIndex >= 0 && expenseIndex < expenses.size()) {
             System.out.println("Noted. I've removed this item from the expenditure list.");
             System.out.println(expenses.get(expenseIndex).toString());
@@ -44,6 +43,6 @@ public class DeleteExpenditureCommand extends Command {
         } else {
             System.out.println(NULL_ERROR_MESSAGE);
         }
-        trip.getExpenseListObject().setExpenseList(expenses);
+        trippieData.getCurrentTrip().getExpenseListObject().setExpenseList(expenses);
     }
 }

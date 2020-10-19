@@ -2,7 +2,6 @@ package seedu.trippie.command;
 
 import seedu.trippie.data.Place;
 import seedu.trippie.Ui;
-import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 
 import java.util.List;
@@ -22,8 +21,8 @@ public class SearchCommand extends Command {
         return false;
     }
 
-    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
-        List<Place> list = trip.getPlaceListObject().getPlaceList();
+    public void execute(Ui ui, TrippieData trippieData) {
+        List<Place> list = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
         int size = list.size();
         String listPlurality = size > 1 ? "are" : "is";
         String placePlurality = size > 1 ? "places" : "place";

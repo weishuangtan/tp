@@ -1,13 +1,20 @@
 package seedu.trippie.data;
 
+import seedu.trippie.Storage;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TrippieData {
+    private Storage storage;
+    private int defaultTripIndex;
     private List<Trip> tripList;
+    private int currentTripIndex;
+    private Trip currentTrip;
 
-    public TrippieData() {
-        tripList = new ArrayList<>();
+    public TrippieData(Storage storage) {
+        this.tripList = new ArrayList<>();
+        this.storage = storage;
     }
 
     public List<Trip> getTripList() {
@@ -29,5 +36,33 @@ public class TrippieData {
         }
 
         return list;
+    }
+
+    public void setDefaultTripIndex(int index) {
+        this.defaultTripIndex = index;
+    }
+
+    public Trip getCurrentTrip() throws NullPointerException {
+        if (this.currentTrip == null) {
+            try {
+                this.currentTrip = tripList.get(this.defaultTripIndex);
+            } catch (NullPointerException e) {
+                throw new NullPointerException();
+            }
+        }
+        return this.currentTrip;
+    }
+
+    public void setCurrentTripIndex(int index) {
+        this.currentTripIndex = index;
+    }
+
+    public void loadCurrentTripFromFile() {
+        if (currentTripIndex < this.getTripList().size()) {
+            currentTrip = this.getTripList().get(currentTripIndex);
+            Trip tempTrip = storage.loadTrip(currentTrip);
+            currentTrip.setPlaceList(tempTrip.getPlaceListObject());
+            currentTrip.setExpenseList(tempTrip.getExpenseListObject());
+        }
     }
 }

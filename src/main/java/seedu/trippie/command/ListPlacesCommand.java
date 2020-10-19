@@ -2,7 +2,6 @@ package seedu.trippie.command;
 
 import seedu.trippie.data.Place;
 import seedu.trippie.Ui;
-import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ public class ListPlacesCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
-        List<Place> places = trip.getPlaceListObject().getPlaceList();
+    public void execute(Ui ui, TrippieData trippieData) {
+        List<Place> places = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
         sortPlaceList(places);
 
         if (places.size() == 0) {
@@ -58,7 +57,7 @@ public class ListPlacesCommand extends Command {
                 }
             }
         }
-        trip.getPlaceListObject().setPlaceList(places);
+        trippieData.getCurrentTrip().getPlaceListObject().setPlaceList(places);
     }
 
     public void sortPlaceList(List<Place> sortedPlaces) {

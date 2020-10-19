@@ -2,7 +2,6 @@ package seedu.trippie.command;
 
 import seedu.trippie.data.Expense;
 import seedu.trippie.Ui;
-import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
@@ -64,8 +63,8 @@ public class AddExpenseCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
-        List<Expense> expenses = trip.getExpenseListObject().getExpenseList();
+    public void execute(Ui ui, TrippieData trippieData) {
+        List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
         Expense expenseEntry = new Expense(expenseName, expenseCost, expenseDayBought);
         expenses.add(expenseEntry);
         if (expenses.size() > 1) {
@@ -73,7 +72,7 @@ public class AddExpenseCommand extends Command {
         }
         System.out.println("Got it! I've added the following item: " + expenseEntry.toString());
         System.out.println("There are " + expenses.size() + " items in the list.");
-        trip.getExpenseListObject().setExpenseList(expenses);
+        trippieData.getCurrentTrip().getExpenseListObject().setExpenseList(expenses);
     }
 
     public void sortExpenseList(List<Expense> expenseList) {

@@ -2,7 +2,6 @@ package seedu.trippie.command;
 
 import seedu.trippie.data.Expense;
 import seedu.trippie.Ui;
-import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 
 import java.util.List;
@@ -17,13 +16,13 @@ public class ListExpenseCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, Trip trip, TrippieData trippieData) {
-        List<Expense> expenses = trip.getExpenseListObject().getExpenseList();
+    public void execute(Ui ui, TrippieData trippieData) {
+        List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
         if (expenses.isEmpty()) {
             System.out.println("There is currently nothing in your Expense list.");
         } else {
             int listIndex = 1;
-            Float pricing = trip.getExpenseListObject().getBudgetValue();
+            Float pricing = trippieData.getCurrentTrip().getExpenseListObject().getBudgetValue();
             if (pricing != null) {
                 System.out.println("Total budget: $" + String.format("%.2f", pricing));
             } else {
@@ -35,7 +34,7 @@ public class ListExpenseCommand extends Command {
                 listIndex++;
             }
             System.out.println("Your current total spending is $"
-                    + String.format("%.2f",trip.getExpenseListObject().getTotalExpenses()));
+                    + String.format("%.2f",trippieData.getCurrentTrip().getExpenseListObject().getTotalExpenses()));
         }
     }
 }
