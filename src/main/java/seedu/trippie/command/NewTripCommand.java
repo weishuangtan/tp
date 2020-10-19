@@ -44,7 +44,6 @@ public class NewTripCommand extends Command {
         trippieData.getTripList().add(newTrip);
 
         System.out.println("Added the trip " + newTrip.toString());
-        trippieData.setCurrentTripIndex(index);
-        trippieData.loadCurrentTripFromFile();
+        trippieData.setCurrentTripFromIndex(index);
     }
 }
