@@ -10,6 +10,59 @@ Welcome to
 _________________________________________________________________________
 I can't find a file in your directory :(
 I created a new trippie_data/trippie.txt file for you!
+Please create a new trip by entering 'new trip'
+>> _________________________________________________________________________
+Invalid Command! Type "help" to view the commands available!
+Failed to save trip
+_________________________________________________________________________
+>> _________________________________________________________________________
+Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Added the trip 0 Wonderful Singapore Sun Jan 01 00:00:00 SGT 2023
+I can't find a file in your directory :(
+I created a new trippie_data/Wonderful Singapore.txt file for you!
+_________________________________________________________________________
+>> _________________________________________________________________________
+Please add your itinerary!
+_________________________________________________________________________
+>> _________________________________________________________________________
+Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Added the trip 1 Amazing Bali Sat Apr 03 00:00:00 SGT 2021
+I can't find a file in your directory :(
+I created a new trippie_data/Amazing Bali.txt file for you!
+_________________________________________________________________________
+>> _________________________________________________________________________
+Here are your existing trips.
+0. 0 Day - Wonderful Singapore
+1. 0 Day - Amazing Bali
+
+Which one do you want to load? Enter the index:I found a file in your directory!
+Setting up the file now...
+_________________________________________________________________________
+>> _________________________________________________________________________
+Please add your itinerary!
+_________________________________________________________________________
+>> _________________________________________________________________________
+Here are your existing trips.
+0. 0 Day - Wonderful Singapore
+1. 0 Day - Amazing Bali
+
+Which one do you want to load? Enter the index:I found a file in your directory!
+Setting up the file now...
+_________________________________________________________________________
+>> _________________________________________________________________________
+Got it. I've added this place:
+1200 - 1400 Apple MBS
+_________________________________________________________________________
+>> _________________________________________________________________________
+DAY 1:
+
+
+DAY 2:
+
+
+DAY 3:
+1. 1200 - 1400 Apple MBS
+
+
+_________________________________________________________________________
 >> _________________________________________________________________________
 Got it. I've added this place:
 1200 - 1400 nus and ntu
@@ -28,13 +81,14 @@ DAY 2:
 
 DAY 3:
 2. 1200 - 1400 nus and ntu
+3. 1200 - 1400 Apple MBS
 
 
 _________________________________________________________________________
 >> _________________________________________________________________________
 Noted. I've removed this place.
 0200 - 0400 clementi mall
-There are 1 items in the list.
+There are 2 items in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
 DAY 1:
@@ -45,6 +99,7 @@ DAY 2:
 
 DAY 3:
 1. 1200 - 1400 nus and ntu
+2. 1200 - 1400 Apple MBS
 
 
 _________________________________________________________________________
@@ -67,6 +122,7 @@ DAY 2:
 
 DAY 3:
 3. 1200 - 1400 nus and ntu
+4. 1200 - 1400 Apple MBS
 
 
 _________________________________________________________________________
@@ -85,13 +141,14 @@ DAY 2:
 
 DAY 3:
 3. 1200 - 1400 nus and ntu
+4. 1200 - 1400 Apple MBS
 
 
 DAY 4:
 
 
 DAY 5:
-4. 1200 - 1400 nus Soc
+5. 1200 - 1400 nus Soc
 
 
 _________________________________________________________________________

@@ -1,3 +1,18 @@
+
+new trip
+Wonderful Singapore
+1-1-2023
+list /p
+new trip
+Amazing Bali
+3-4-2021
+load trip
+1
+list /p
+load trip
+0
+add /n Apple MBS /d 3 /t 1200 to 1400
+list /p
 add /n nus and ntu /d 3 /t 1200 to 1400
 add /n clementi mall /d 1 /t 0200 to 0400
 list /p

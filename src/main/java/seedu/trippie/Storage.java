@@ -32,8 +32,11 @@ public class Storage {
         File file = new File(MASTER_FILE_PATH);
         Scanner readFile = getOrCreateFileScanner(file);
         loadMasterFile(readFile, trippieData);
-        trippieData.setCurrentTripIndex(trippieData.getCurrentTrip().getIndex());
-        trippieData.loadCurrentTripFromFile();
+
+        if (trippieData.getTripList().size() > 0) {
+            trippieData.setCurrentTripIndex(trippieData.getCurrentTrip().getIndex());
+            trippieData.loadCurrentTripFromFile();
+        }
     }
 
     /**
@@ -84,9 +87,11 @@ public class Storage {
         FileWriter finalFileWriter = fileWriter;
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         try {
-            finalFileWriter.write(
-                    String.format("DEFAULT %d\n", trippieData.getCurrentTrip().getIndex())
-            );
+            if (trippieData.getCurrentTrip() != null) {
+                finalFileWriter.write(
+                        String.format("DEFAULT %d\n", trippieData.getCurrentTrip().getIndex())
+                );
+            }
 
             trippieData.getTripList().stream().forEach(trip -> {
                 try {
@@ -115,6 +120,12 @@ public class Storage {
     }
 
     public void saveTrip(Trip trip) throws IOException {
+
+        if (trip == null) {
+            System.out.println("Failed to save trip");
+            return;
+        }
+
         String path = MASTER_DIRECTORY + File.separator + trip.getName() + FILE_EXTENSION;
         FileWriter fileWriter = new FileWriter(path);
         fileWriter.write(

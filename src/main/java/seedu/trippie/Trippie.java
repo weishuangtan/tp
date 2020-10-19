@@ -44,6 +44,7 @@ public class Trippie {
                 isExit = c.isExit();
             }
             try {
+                // here current Trip should not output index out of bounds exception.
                 storage.saveTrip(trippieData.getCurrentTrip());
             } catch (IOException e) {
                 e.printStackTrace();

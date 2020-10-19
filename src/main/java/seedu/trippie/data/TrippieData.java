@@ -10,7 +10,7 @@ public class TrippieData {
     private int defaultTripIndex;
     private List<Trip> tripList;
     private int currentTripIndex;
-    private Trip currentTrip;
+    private Trip currentTrip = null;
 
     public TrippieData(Storage storage) {
         this.tripList = new ArrayList<>();
@@ -42,12 +42,12 @@ public class TrippieData {
         this.defaultTripIndex = index;
     }
 
-    public Trip getCurrentTrip() throws NullPointerException {
+    public Trip getCurrentTrip() {
         if (this.currentTrip == null) {
             try {
                 this.currentTrip = tripList.get(this.defaultTripIndex);
-            } catch (NullPointerException e) {
-                throw new NullPointerException();
+            } catch (IndexOutOfBoundsException | NullPointerException p) {
+                return null;
             }
         }
         return this.currentTrip;
