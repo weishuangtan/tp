@@ -2,8 +2,10 @@ package seedu.trippie.command;
 
 import seedu.trippie.data.Place;
 import seedu.trippie.Ui;
+import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 
+import java.util.Date;
 import java.util.List;
 
 public class AddPlaceCommand extends Command {
