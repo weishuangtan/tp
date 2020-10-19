@@ -1,8 +1,7 @@
 package seedu.trippie.command;
 
-import seedu.trippie.ExpenseList;
-import seedu.trippie.PlaceList;
 import seedu.trippie.Ui;
+import seedu.trippie.data.TrippieData;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 public class BudgetCommand extends Command {
@@ -40,8 +39,8 @@ public class BudgetCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList place, ExpenseList expense) {
-        expense.setBudgetValue(budgetValue);
+    public void execute(Ui ui, TrippieData trippieData) {
+        trippieData.getCurrentTrip().getExpenseListObject().setBudgetValue(budgetValue);
         System.out.println("Successfully set your total budget to " + String.format("%.2f", budgetValue));
     }
 }

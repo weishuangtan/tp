@@ -1,4 +1,4 @@
-package seedu.trippie;
+package seedu.trippie.data;
 
 public class Place {
     private final String name;
@@ -29,7 +29,8 @@ public class Place {
         return end;
     }
 
-    public String getPlace() {
+    @Override
+    public String toString() {
         return String.format("%04d",getPlaceStartTime()) + " - " + String.format("%04d", getPlaceEndTime())
                 + " " + getPlaceName();
     }

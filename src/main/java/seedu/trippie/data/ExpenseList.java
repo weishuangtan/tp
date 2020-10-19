@@ -1,4 +1,4 @@
-package seedu.trippie;
+package seedu.trippie.data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +29,8 @@ public class ExpenseList {
 
     public Float getTotalExpenses() {
         float totalExpenses = 0;
-        for (int i = 0; i < expenseList.size(); i++) {
-            totalExpenses += expenseList.get(i).getExpenseCost();
+        for (Expense expense: expenseList) {
+            totalExpenses += expense.getExpenseCost();
         }
         return totalExpenses;
     }

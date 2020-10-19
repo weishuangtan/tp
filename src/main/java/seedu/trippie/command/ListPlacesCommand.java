@@ -1,9 +1,8 @@
 package seedu.trippie.command;
 
-import seedu.trippie.ExpenseList;
-import seedu.trippie.Place;
-import seedu.trippie.PlaceList;
+import seedu.trippie.data.Place;
 import seedu.trippie.Ui;
+import seedu.trippie.data.TrippieData;
 
 import java.util.Collections;
 import java.util.List;
@@ -32,8 +31,8 @@ public class ListPlacesCommand extends Command {
     }
 
     @Override
-    public void execute(Ui ui, PlaceList placeList, ExpenseList expense) {
-        List<Place> places = placeList.getPlaceList();
+    public void execute(Ui ui, TrippieData trippieData) {
+        List<Place> places = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
         sortPlaceList(places);
 
         if (places.size() == 0) {
@@ -45,7 +44,7 @@ public class ListPlacesCommand extends Command {
                 for (int j = 0; j < places.size(); j++) {
                     if (places.get(j).getPlaceDay() == i) {
                         System.out.print((j + 1) + ". ");
-                        System.out.println(places.get(j).getPlace());
+                        System.out.println(places.get(j).toString());
                     }
                 }
                 System.out.println(System.lineSeparator());
@@ -54,11 +53,11 @@ public class ListPlacesCommand extends Command {
             System.out.println("DAY " + specifiedDay + ": ");
             for (Place place : places) {
                 if (place.getPlaceDay() == specifiedDay) {
-                    System.out.println(place.getPlace());
+                    System.out.println(place.toString());
                 }
             }
         }
-        placeList.setPlaceList(places);
+        trippieData.getCurrentTrip().getPlaceListObject().setPlaceList(places);
     }
 
     public void sortPlaceList(List<Place> sortedPlaces) {

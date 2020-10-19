@@ -1,26 +1,22 @@
 package seedu.trippie;
 
 import seedu.trippie.command.Command;
+import seedu.trippie.data.Trip;
+import seedu.trippie.data.TrippieData;
 
 import java.io.IOException;
 
 public class Trippie {
     private final Ui ui;
-    private ExpenseList expenseList;
-    private PlaceList placeList;
+    private TrippieData trippieData;
     private final Storage storage;
+    private boolean isFirstRun;
 
     public Trippie() {
         ui = new Ui();
         storage = new Storage();
-        try {
-            expenseList = new ExpenseList();
-            placeList = new PlaceList();
-        } catch (Exception e) {
-            System.out.println("No file detected");
-            expenseList = new ExpenseList();
-            placeList = new PlaceList();
-        }
+        trippieData = new TrippieData(storage);
+        isFirstRun = false;
     }
 
     public static void main(String[] args) {
@@ -28,24 +24,36 @@ public class Trippie {
     }
 
     public void run() {
-        try {
-            ui.greetUser();
-            boolean isExit = false;
-            storage.setup(placeList, expenseList);
-            while (!isExit) {
-                String fullCommand = ui.readCommand();
-                ui.printLine();
-                Command c = Parser.parse(fullCommand);
-                if (c != null) {
-                    c.execute(ui, placeList, expenseList);
-                    isExit = c.isExit();
-                }
-                storage.saveList(placeList, expenseList);
-                ui.printLine();
+        ui.greetUser();
+        storage.setupMasterFile(trippieData);
+
+        boolean isExit = false;
+
+        while (!isExit) {
+            if (isFirstRun) {
+                System.out.println("Please create a new trip first by entering the command 'new trip'!");
+                isFirstRun = false;
             }
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+
+
+            String fullCommand = ui.readCommand();
+            ui.printLine();
+            Command c = Parser.parse(fullCommand);
+            if (c != null) {
+                c.execute(ui, trippieData);
+                isExit = c.isExit();
+            }
+            try {
+                // here current Trip should not output index out of bounds exception.
+                storage.saveTrip(trippieData.getCurrentTrip());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            storage.saveMasterFile(trippieData);
+            ui.printLine();
         }
     }
+
+
 }
