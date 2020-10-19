@@ -1,0 +1,13 @@
+This file shows your saved trip under Trippie!
+
+Please add your itinerary!
+These are your expenses!
+Day | Item | Cost
+1 | earpiece | $200.00
+2 | clothes | $2.10
+2 | clothes | $20.00
+2 | item | $12.00
+3 | Breakfast | $20.00
+3 | maggi mee | $254.10
+
+Total budget: $508.20
