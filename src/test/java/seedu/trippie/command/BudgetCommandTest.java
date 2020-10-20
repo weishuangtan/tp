@@ -3,7 +3,7 @@ package seedu.trippie.command;
 import org.junit.jupiter.api.Test;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class BudgetCommandTest {
 

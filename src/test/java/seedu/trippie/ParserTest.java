@@ -2,9 +2,23 @@ package seedu.trippie;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seedu.trippie.command.*;
+import seedu.trippie.command.AddExpenseCommand;
+import seedu.trippie.command.AddPlaceCommand;
+import seedu.trippie.command.BudgetCommand;
+import seedu.trippie.command.CalculateCurrencyCommand;
+import seedu.trippie.command.Command;
+import seedu.trippie.command.DeleteExpenditureCommand;
+import seedu.trippie.command.DeletePlaceCommand;
+import seedu.trippie.command.ExitCommand;
+import seedu.trippie.command.HelpCommand;
+import seedu.trippie.command.ListExpenseCommand;
+import seedu.trippie.command.ListPlacesCommand;
+import seedu.trippie.command.LoadTripCommand;
+import seedu.trippie.command.NewTripCommand;
+import seedu.trippie.command.SearchCommand;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ParserTest {
 
@@ -94,8 +108,7 @@ class ParserTest {
         parseAndAssertCommandType(input, LoadTripCommand.class);
     }
 
-
-    private <T extends Command> T parseAndAssertCommandType (String userInput, Class<T> expectedCommandClass) {
+    private <T extends Command> T parseAndAssertCommandType(String userInput, Class<T> expectedCommandClass) {
         Command result = parser.parse(userInput);
         assertTrue(result.getClass().isAssignableFrom(expectedCommandClass));
         if (expectedCommandClass != ExitCommand.class) {

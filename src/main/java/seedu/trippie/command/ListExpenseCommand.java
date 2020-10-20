@@ -38,7 +38,7 @@ public class ListExpenseCommand extends Command {
             Float budget = trippieData.getCurrentTrip().getExpenseListObject().getBudgetValue() * exchangeRate;
             if (budget != null) {
                 System.out.println("Total budget: $" + String.format("%.2f ", budget) + currencyAbbreviation
-                        + " (" + String.format("%.2f", budget/exchangeRate) + " SGD)");
+                        + " (" + String.format("%.2f", budget / exchangeRate) + " SGD)");
             } else {
                 System.out.println("Total budget has not been set");
             }
@@ -69,11 +69,11 @@ public class ListExpenseCommand extends Command {
         } else {
             System.out.println("Your current remaining budget is $"
                     + String.format("%.2f ", remainingBudget) + currencyAbbreviation
-                    + " (" + String.format("%.2f", remainingBudget/exchangeRate) + " SGD)");
+                    + " (" + String.format("%.2f", remainingBudget / exchangeRate) + " SGD)");
         }
     }
 
-    public static void createBudgetPercentageBar (float spent, float budget) throws TrippieExceedBudgetException {
+    public static void createBudgetPercentageBar(float spent, float budget) throws TrippieExceedBudgetException {
         if (spent == budget) {
             System.out.println("You have spent finish your budget.");
         } else if (spent > budget) {

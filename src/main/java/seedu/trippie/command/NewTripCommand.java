@@ -19,7 +19,6 @@ public class NewTripCommand extends Command {
 
     public void execute(Ui ui, TrippieData trippieData) {
         System.out.print("Enter your new trip's name:");
-        String name = ui.getLine();
 
         System.out.print("Enter your new trip's start date (dd-mm-yyyy):");
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
@@ -32,8 +31,6 @@ public class NewTripCommand extends Command {
 
         int index = trippieData.getTripList().size();
 
-        Trip newTrip = new Trip(index, name, startDate);
-
         System.out.print("Enter the foreign exchange rate:");
         Float forEx = Float.parseFloat(ui.getLine());
 
@@ -42,6 +39,9 @@ public class NewTripCommand extends Command {
 
         System.out.print("Enter your budget for the trip (in SGD):");
         Float budget = Float.parseFloat(ui.getLine());
+
+        String name = ui.getLine();
+        Trip newTrip = new Trip(index, name, startDate);
 
         newTrip.getExpenseListObject().setForExValue(forEx);
         newTrip.getExpenseListObject().setCurrencyAbbreviation(currencyAbbreviation);
