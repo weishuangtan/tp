@@ -1,6 +1,11 @@
 package seedu.trippie;
 
-import seedu.trippie.data.*;
+import seedu.trippie.data.Expense;
+import seedu.trippie.data.ExpenseList;
+import seedu.trippie.data.Place;
+import seedu.trippie.data.PlaceList;
+import seedu.trippie.data.Trip;
+import seedu.trippie.data.TrippieData;
 
 import java.io.File;
 import java.io.FileWriter;

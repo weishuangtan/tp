@@ -9,8 +9,8 @@ import java.util.List;
 
 public class DeleteExpenditureCommand extends Command {
 
-    private static final String FORMAT_ERROR_MESSAGE = "You typed in the incorrect format for [delete /e] command! " +
-            "Please try the following:\nFormat: delete /e EXPENSE_INDEX\nExample: delete /e 3";
+    private static final String FORMAT_ERROR_MESSAGE = "You typed in the incorrect format for [delete /e] command! "
+            + "Please try the following:\nFormat: delete /e EXPENSE_INDEX\nExample: delete /e 3";
     private static final String PARAMETER_ERROR_MESSAGE = "Please check that the index keyed in is a number.";
     private static final String NULL_ERROR_MESSAGE = "Sorry I can't find the expense. Please enter a valid index.";
 

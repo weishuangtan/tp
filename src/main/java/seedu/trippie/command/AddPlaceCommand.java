@@ -13,12 +13,12 @@ public class AddPlaceCommand extends Command {
     private static final String FORMAT_ERROR_MESSAGE = "Incorrect format for [add] command! Please try the following:\n"
             + "Format: add /n PLACE_NAME /d DAY /t TIME\n"
             + "Example: add /n Dinner at Marina Bay Sands /d 2 /t 1800 to 2000";
-    private static final String PARAMETER_ERROR_MESSAGE = "Please check that your DAY parameter is in the numerical " +
-            "form.";
-    private static final String TIME_ERROR_MESSAGE = "Please check that your TIME parameters are in the correct " +
-            "24-hours format";
-    private static final String TIME_TRAVELLER_ERROR_MESSAGE = "Are you a time traveller? Your END TIME should " +
-            "end before START TIME";
+    private static final String PARAMETER_ERROR_MESSAGE = "Please check that your DAY parameter is in the numerical "
+            + "form.";
+    private static final String TIME_ERROR_MESSAGE = "Please check that your TIME parameters are in the correct "
+            + "24-hours format";
+    private static final String TIME_TRAVELLER_ERROR_MESSAGE = "Are you a time traveller? Your END TIME should "
+            + "end before START TIME";
 
     private final String name;
     private final int day;

@@ -9,8 +9,8 @@ import java.util.List;
 
 public class DeletePlaceCommand extends Command {
 
-    private static final String FORMAT_ERROR_MESSAGE = "You typed in the incorrect format for [delete /p] command! " +
-            "Please try the following:\nFormat: delete /p PLACE_INDEX\nExample: delete /p 1";
+    private static final String FORMAT_ERROR_MESSAGE = "You typed in the incorrect format for [delete /p] command! "
+            + "Please try the following:\nFormat: delete /p PLACE_INDEX\nExample: delete /p 1";
     private static final String PARAMETER_ERROR_MESSAGE = "Please check that the index keyed in is a number.";
     private static final String NULL_ERROR_MESSAGE = "Sorry I can't find the place. Please enter a valid index.";
 
