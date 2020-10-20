@@ -1,7 +1,7 @@
 package seedu.trippie.command;
 
-import seedu.trippie.data.Expense;
 import seedu.trippie.Ui;
+import seedu.trippie.data.Expense;
 import seedu.trippie.data.TrippieData;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class ListExpenseCommand extends Command {
     public void execute(Ui ui, TrippieData trippieData) {
         List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
         if (expenses.isEmpty()) {
-            System.out.println("There is currently nothing in your Expense list.");
+            System.out.println("There is currently nothing in your expense list. Why not add one?");
         } else {
             int listIndex = 1;
             Float pricing = trippieData.getCurrentTrip().getExpenseListObject().getBudgetValue();
