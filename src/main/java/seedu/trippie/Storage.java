@@ -25,7 +25,8 @@ public class Storage {
     public static final String FILE_EXTENSION = ".txt";
 
     /**
-     * Setups a master file from a tripList. Crates the directories and loads the masterfile onto tripList.
+     * Setups a master file from a tripList. Crates the directories and loads the masterFile onto tripList.
+     *
      * @param trippieData a tripList object that would be updated.
      */
     public void setupMasterFile(TrippieData trippieData) {
@@ -97,8 +98,8 @@ public class Storage {
                 try {
                     finalFileWriter.write(
                             trip.getIndex() + ","
-                            + trip.getName() + ","
-                            + df.format(trip.getStartDate()) + "\n"
+                                    + trip.getName() + ","
+                                    + df.format(trip.getStartDate()) + "\n"
                     );
                 } catch (IOException e) {
                     System.out.println("Error occurred when saving Master File.");
@@ -154,14 +155,29 @@ public class Storage {
             }
         }
 
-        Float pricing = expenseList.getBudgetValue();
-        if (pricing != null) {
-            fileWriter.write(System.lineSeparator() + "Total budget: $" + String.format("%.2f", pricing)
+        Float budget = expenseList.getBudgetValue();
+        if (budget != null) {
+            fileWriter.write(System.lineSeparator() + "Total budget: $" + String.format("%.2f", budget)
                     + System.lineSeparator());
         } else {
             fileWriter.write(System.lineSeparator() + "Total budget has not been set" + System.lineSeparator());
         }
 
+        String currencyAbbreviation = expenseList.getCurrencyAbbreviation();
+        if (currencyAbbreviation != null) {
+            fileWriter.write(System.lineSeparator() + "Forex Abbreviation: " + currencyAbbreviation
+                    + System.lineSeparator());
+        } else {
+            fileWriter.write(System.lineSeparator()
+                    + "ForEx abbreviation has not been set" + System.lineSeparator());
+        }
+
+        Float forExValue = expenseList.getForExValue();
+        if (forExValue != null) {
+            fileWriter.write(System.lineSeparator() + "Forex Rate: " + forExValue + System.lineSeparator());
+        } else {
+            fileWriter.write(System.lineSeparator() + "Forex Rate has not been set" + System.lineSeparator());
+        }
     }
 
     private void savePlaceList(FileWriter fileWriter, PlaceList placeList) throws IOException {
@@ -192,6 +208,7 @@ public class Storage {
     /**
      * Finds a corresponding trip file, and either gets or create the File.
      * Loads the content of the file to the trip object
+     *
      * @param trip A trip object to search for
      * @return A trip from the file contents
      */
@@ -236,31 +253,30 @@ public class Storage {
 
             } else if (line.contains("Total budget: $")) {
                 newTrip.getExpenseListObject().setBudgetValue(extractBudgetValue(line));
+            } else if (line.contains("Forex Abbreviation: ")) {
                 newTrip.getExpenseListObject().setCurrencyAbbreviation(extractCurrencyAbbreviation(line));
+            } else if (line.contains("Forex Rate: ")) {
                 newTrip.getExpenseListObject().setForExValue(extractForExValue(line));
             }
         }
-        newTrip.setExpenseList(new ExpenseList(expenses));
-        newTrip.setPlaceList(new PlaceList(places));
+        newTrip.getExpenseListObject().setExpenseList(expenses);
+        newTrip.getPlaceListObject().setPlaceList(places);
 
         return newTrip;
     }
 
     private Float extractBudgetValue(String userInput) throws NullPointerException, NumberFormatException {
-        String budgetValueString = userInput.split(" ")[2].trim();
-        String budgetValue = budgetValueString.replace("$", "").trim();
-        return Float.parseFloat(budgetValue);
+        String budgetValueString = userInput.replace("Total budget: $", "").trim();
+        return Float.parseFloat(budgetValueString);
     }
 
     private String extractCurrencyAbbreviation(String userInput) throws NullPointerException {
-        return userInput.split(" ")[3].trim();
+        return userInput.replace("Forex Abbreviation: ", "").trim();
     }
 
     private Float extractForExValue(String userInput) {
-        String localCurrencyString = userInput.split(" ")[4].trim();
-        String localCurrency = localCurrencyString.replace("(", "");
-        Float foreignCurrency = extractBudgetValue(userInput);
-        return foreignCurrency / Float.parseFloat(localCurrency);
+        String forExString = userInput.replace("Forex Rate: ", "").trim();
+        return Float.parseFloat(forExString);
     }
 
     public void loadMasterFile(Scanner readFile, TrippieData trippieData) {
@@ -277,7 +293,6 @@ public class Storage {
                 );
                 continue;
             }
-
             String[] parameters = line.split(",");
 
             try {
@@ -300,5 +315,4 @@ public class Storage {
             System.out.println("Please create a new trip by entering 'new trip'");
         }
     }
-
 }
