@@ -99,6 +99,8 @@ public class AddPlaceCommand extends Command {
         System.out.println("Got it. I've added this place:");
         System.out.println(newPlace);
         System.out.printf("Now you have %d %s in the list.%n", places.size(), places.size() > 1 ? "places" : "place");
+        int placesSize = places.size();
+        assert placesSize > 0 : "placesSize should be greater than 0";
         trippieData.getCurrentTrip().getPlaceListObject().setPlaceList(places);
     }
 
