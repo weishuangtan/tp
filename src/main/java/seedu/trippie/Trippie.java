@@ -1,7 +1,6 @@
 package seedu.trippie;
 
 import seedu.trippie.command.Command;
-import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 
 import java.io.IOException;
