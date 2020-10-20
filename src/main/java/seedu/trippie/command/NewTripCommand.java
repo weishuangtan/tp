@@ -35,11 +35,16 @@ public class NewTripCommand extends Command {
         Trip newTrip = new Trip(index, name, startDate);
 
         System.out.print("Enter the foreign exchange rate:");
-        String forEx = ui.getLine();
+        Float forEx = Float.parseFloat(ui.getLine());
 
-        System.out.print("Enter your budget for the trip:");
+        System.out.print("Enter the foreign currency abbreviation (eg. MYR): ");
+        String currencyAbbreviation = ui.getLine();
+
+        System.out.print("Enter your budget for the trip (in SGD):");
         Float budget = Float.parseFloat(ui.getLine());
 
+        newTrip.getExpenseListObject().setForExValue(forEx);
+        newTrip.getExpenseListObject().setCurrencyAbbreviation(currencyAbbreviation);
         newTrip.getExpenseListObject().setBudgetValue(budget);
         trippieData.getTripList().add(newTrip);
 

@@ -3,6 +3,7 @@ package seedu.trippie;
 import seedu.trippie.command.AddExpenseCommand;
 import seedu.trippie.command.AddPlaceCommand;
 import seedu.trippie.command.BudgetCommand;
+import seedu.trippie.command.CalculateCurrencyCommand;
 import seedu.trippie.command.Command;
 import seedu.trippie.command.DeleteExpenditureCommand;
 import seedu.trippie.command.DeletePlaceCommand;
@@ -32,6 +33,8 @@ public class Parser {
                 return new ListExpenseCommand();
             } else if (userInput.startsWith("budget")) {
                 return new BudgetCommand(userInput);
+            } else if (userInput.startsWith("convert /to")) {
+                return new CalculateCurrencyCommand(userInput);
             } else if (userInput.startsWith("add ")) {
                 return new AddPlaceCommand(userInput);
             } else if (userInput.startsWith("delete /p ")) {

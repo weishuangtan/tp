@@ -62,7 +62,6 @@ public class TrippieData {
             Trip tempTrip = storage.loadTrip(currentTrip);
             currentTrip.setPlaceList(tempTrip.getPlaceListObject());
             currentTrip.setExpenseList(tempTrip.getExpenseListObject());
-            currentTrip.getExpenseListObject().setBudgetValue(tempTrip.getExpenseListObject().getBudgetValue());
         }
     }
 }

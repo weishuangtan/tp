@@ -1,11 +1,12 @@
 package seedu.trippie.command;
 
-import seedu.trippie.data.Expense;
+
+import seedu.trippie.ExpenseComparator;
 import seedu.trippie.Ui;
+import seedu.trippie.data.Expense;
 import seedu.trippie.data.TrippieData;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
-import java.util.Collections;
 import java.util.List;
 
 
@@ -76,10 +77,6 @@ public class AddExpenseCommand extends Command {
     }
 
     public void sortExpenseList(List<Expense> expenseList) {
-        for (int i = 1; i < expenseList.size(); i++) {
-            if (expenseList.get(i).getExpenseDayBought() < expenseList.get(i - 1).getExpenseDayBought()) {
-                Collections.swap(expenseList, i, i - 1);
-            }
-        }
+        expenseList.sort(new ExpenseComparator());
     }
 }
