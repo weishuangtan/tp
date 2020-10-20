@@ -89,6 +89,7 @@ public class Storage {
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         try {
             if (trippieData.getCurrentTrip() != null) {
+                assert trippieData.getTripList().size() > 0;
                 finalFileWriter.write(
                         String.format("DEFAULT %d\n", trippieData.getCurrentTrip().getIndex())
                 );
@@ -127,6 +128,7 @@ public class Storage {
             return;
         }
 
+        assert trip != null;
         String path = MASTER_DIRECTORY + File.separator + trip.getName() + FILE_EXTENSION;
         FileWriter fileWriter = new FileWriter(path);
         fileWriter.write(
@@ -135,6 +137,8 @@ public class Storage {
                         + System.lineSeparator()
         );
 
+        assert trip.getExpenseListObject() != null;
+        assert trip.getPlaceListObject() != null;
         savePlaceList(fileWriter, trip.getPlaceListObject());
         saveExpenseList(fileWriter, trip.getExpenseListObject());
 
@@ -280,6 +284,9 @@ public class Storage {
     }
 
     public void loadMasterFile(Scanner readFile, TrippieData trippieData) {
+        assert trippieData != null;
+        assert readFile != null;
+
         List<Trip> parsedTripList = new ArrayList<>();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -294,6 +301,7 @@ public class Storage {
                 continue;
             }
             String[] parameters = line.split(",");
+            assert parameters.length == 3;
 
             try {
                 parsedTripList.add(
