@@ -64,7 +64,6 @@ public class TrippieData {
             assert tempTrip != null;
             currentTrip.setPlaceList(tempTrip.getPlaceListObject());
             currentTrip.setExpenseList(tempTrip.getExpenseListObject());
-            assert currentTrip == tempTrip;
         }
     }
 }
