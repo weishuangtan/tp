@@ -6,6 +6,8 @@ import java.util.List;
 public class ExpenseList {
     private List<Expense> expenseList;
     private Float budgetValue;
+    private Float forExValue;
+    private String currencyAbbreviation;
 
     public ExpenseList() {
         expenseList = new ArrayList<>();
@@ -27,6 +29,14 @@ public class ExpenseList {
         return budgetValue;
     }
 
+    public Float getForExValue() {
+        return forExValue;
+    }
+
+    public String getCurrencyAbbreviation() {
+        return currencyAbbreviation;
+    }
+
     public Float getTotalExpenses() {
         float totalExpenses = 0;
         for (Expense expense: expenseList) {
@@ -37,5 +47,13 @@ public class ExpenseList {
 
     public void setBudgetValue(Float budgetValue) {
         this.budgetValue = budgetValue;
+    }
+
+    public void setForExValue(Float forExValue) {
+        this.forExValue = forExValue;
+    }
+
+    public void setCurrencyAbbreviation(String currencyAbbreviation) {
+        this.currencyAbbreviation = currencyAbbreviation;
     }
 }
