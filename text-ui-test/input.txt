@@ -2,10 +2,16 @@
 new trip
 Wonderful Singapore
 1-1-2023
+1.409
+USD
+999
 list /p
 new trip
 Amazing Bali
 3-4-2021
+0.00123
+IDR
+1000029
 load trip
 1
 list /p
