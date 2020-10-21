@@ -27,7 +27,8 @@ public class TrippieData {
     public String list() {
         String list = "";
         for (Trip trip : tripList) {
-            boolean plural = trip.getMaxDay() > 1;
+            assert trip != null;
+            boolean plural = trip.getMaxDay() != 1;
             String dayWord = plural ? "Days" : "Day";
             list = list.concat(
                     trip.getIndex() + ". " + trip.getMaxDay() + " " + dayWord + " - " + trip.getName() + "\n"
@@ -60,6 +61,7 @@ public class TrippieData {
         if (currentTrip.getIndex() < this.getTripList().size()) {
             currentTrip = this.getTripList().get(currentTrip.getIndex());
             Trip tempTrip = storage.loadTrip(currentTrip);
+            assert tempTrip != null;
             currentTrip.setPlaceList(tempTrip.getPlaceListObject());
             currentTrip.setExpenseList(tempTrip.getExpenseListObject());
         }
