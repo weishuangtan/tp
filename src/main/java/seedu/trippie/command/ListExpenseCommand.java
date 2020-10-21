@@ -26,29 +26,6 @@ public class ListExpenseCommand extends Command {
         return false;
     }
 
-    public static void createBudgetPercentageBar(float spent, float budget) throws TrippieExceedBudgetException {
-        if (spent == budget) {
-            System.out.println("You have spent finish your budget.");
-        } else if (spent > budget) {
-            throw new TrippieExceedBudgetException(EXCEED_BUDGET_MESSAGE);
-        } else {
-            System.out.println("You are still spending within your budget.");
-        }
-        float spentPercentage = (100 * spent) / budget;
-        float spentLength = BAR_SIZE * spentPercentage / 100;
-        StringBuilder bar = new StringBuilder(SYMBOL_START_BOUNDARY);
-        for (int i = 0; i < BAR_SIZE; i++) {
-            if (i < spentLength) {
-                bar.append(SYMBOL_SPEND);
-            } else {
-                bar.append(SYMBOL_REMAINING);
-            }
-        }
-        bar.append(SYMBOL_END_BOUNDARY);
-        System.out.println(bar + " "
-                + String.format("%.1f", spentPercentage) + "%");
-    }
-
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
