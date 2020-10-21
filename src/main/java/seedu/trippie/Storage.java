@@ -209,26 +209,31 @@ public class Storage {
 
     }
 
+    public Trip loadTripFromFile(Trip trip) {
+        File file = new File(MASTER_DIRECTORY + File.separator + trip.getName() + FILE_EXTENSION);
+        Scanner fileScanner = getOrCreateFileScanner(file);
+        return loadTrip(fileScanner, trip);
+    }
+
     /**
      * Finds a corresponding trip file, and either gets or create the File.
      * Loads the content of the file to the trip object
      *
+     * @param fileScanner The scanner for the trip file
      * @param trip A trip object to search for
      * @return A trip from the file contents
      */
-    public Trip loadTrip(Trip trip) {
-        File file = new File(MASTER_DIRECTORY + File.separator + trip.getName() + FILE_EXTENSION);
-        Scanner readFile = getOrCreateFileScanner(file);
+    public Trip loadTrip(Scanner fileScanner, Trip trip) {
 
         Trip newTrip = new Trip(trip.getIndex(), trip.getName(), trip.getStartDate());
 
         List<Place> places = newTrip.getPlaceListObject().getPlaceList();
         List<Expense> expenses = newTrip.getExpenseListObject().getExpenseList();
-        while (readFile.hasNext()) {
-            String line = readFile.nextLine();
+        while (fileScanner.hasNext()) {
+            String line = fileScanner.nextLine();
             if (line.contains("Day | Start Time | End Time | Place")) {
                 String input;
-                input = readFile.nextLine();
+                input = fileScanner.nextLine();
 
                 do {
                     String[] placeParameters = input.split(" \\| ");
@@ -238,12 +243,12 @@ public class Storage {
                             Integer.parseInt(placeParameters[1]),
                             Integer.parseInt(placeParameters[2]))
                     );
-                    input = readFile.nextLine();
+                    input = fileScanner.nextLine();
                 } while (!input.equals(""));
 
             } else if (line.contains("Day | Item | Cost")) {
                 String input;
-                input = readFile.nextLine();
+                input = fileScanner.nextLine();
 
                 do {
                     String[] expenseParameters = input.split(" \\| ");
@@ -252,7 +257,7 @@ public class Storage {
                             Float.parseFloat(expenseParameters[2].substring(1)),
                             Integer.parseInt(expenseParameters[0]))
                     );
-                    input = readFile.nextLine();
+                    input = fileScanner.nextLine();
                 } while (!input.equals(""));
 
             } else if (line.contains("Total budget: $")) {
