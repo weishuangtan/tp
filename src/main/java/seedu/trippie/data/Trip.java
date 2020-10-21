@@ -1,5 +1,6 @@
 package seedu.trippie.data;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Trip {
@@ -57,7 +58,8 @@ public class Trip {
     }
 
     public String toString() {
-        return index + " " + name + " " + startDate.toString();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        return index + " " + name + " " + df.format(startDate);
     }
 
 }
