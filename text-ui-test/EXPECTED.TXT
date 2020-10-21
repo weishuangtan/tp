@@ -9,7 +9,7 @@ Welcome to
 							Travel made easy
 _________________________________________________________________________
 I can't find a file in your directory :(
-I created a new trippie_data/trippie.txt file for you!
+I created a new trippie.txt file for you!
 Please create a new trip by entering 'new trip'
 >> _________________________________________________________________________
 Invalid Command! Type "help" to view the commands available!
