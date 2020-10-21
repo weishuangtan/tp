@@ -63,7 +63,7 @@ class StorageTest {
                 + "6. 1 Day - Africa\n";
 
         assertEquals(expectedTripListString, data.list());
-        assertEquals(6, data.getCurrentTrip());
+        assertEquals("6 Africa 04-03-2021", data.getCurrentTrip().toString());
         assertEquals("Malaysia", data.getTripList().get(3).getName());
     }
 
