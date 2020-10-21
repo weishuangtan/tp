@@ -14,8 +14,8 @@ import seedu.trippie.command.ListPlacesCommand;
 import seedu.trippie.command.LoadTripCommand;
 import seedu.trippie.command.NewTripCommand;
 import seedu.trippie.command.SearchCommand;
-import seedu.trippie.exception.TrippieInvalidArgumentException;
 import seedu.trippie.exception.TrippieIllegalCommandException;
+import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 public class Parser {
 
@@ -37,13 +37,13 @@ public class Parser {
                 return new CalculateCurrencyCommand(userInput);
             } else if (userInput.startsWith("add ")) {
                 return new AddPlaceCommand(userInput);
-            } else if (userInput.startsWith("delete /p ")) {
+            } else if (userInput.startsWith("delete /p")) {
                 return new DeletePlaceCommand(userInput);
             } else if (userInput.equals("help")) {
                 return new HelpCommand();
             } else if (userInput.startsWith("list /p")) {
                 return new ListPlacesCommand(userInput);
-            } else if (userInput.startsWith("search ")) {
+            } else if (userInput.startsWith("search")) {
                 return new SearchCommand(userInput);
             } else if (userInput.equals("new trip")) {
                 return new NewTripCommand();
