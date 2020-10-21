@@ -3,6 +3,7 @@ package seedu.trippie.command;
 import seedu.trippie.Ui;
 import seedu.trippie.data.Place;
 import seedu.trippie.data.TrippieData;
+import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,19 +12,29 @@ import java.util.List;
 
 public class ListPlacesCommand extends Command {
 
+    private static final String FORMAT_ERROR_MESSAGE = "You typed in the incorrect format for [list /p] command! "
+            + "Please try the following:\nFormat:\nlist /p\nlist /p /d DAY_INDEX";
+    private static final String PARAMETER_ERROR_MESSAGE = "Please check that the index keyed in is a number.";
+
     private final int specifiedDay;
 
-    public ListPlacesCommand(String userInput) {
+    public ListPlacesCommand(String userInput) throws TrippieInvalidArgumentException {
         specifiedDay = getSpecifiedDay(userInput);
     }
 
-    public int getSpecifiedDay(String userInput) {
-        String[] specificDay = userInput.split("/p");
-        if (specificDay.length == 1) {
-            return -1;
-        } else {
-            String[] finalDay = specificDay[1].split("/d");
-            return Integer.parseInt(finalDay[1].trim());
+    public int getSpecifiedDay(String userInput) throws TrippieInvalidArgumentException {
+        try {
+            String[] specificDay = userInput.split("/p");
+            if (specificDay.length == 1) {
+                return -1;
+            } else {
+                String[] finalDay = specificDay[1].split("/d");
+                return Integer.parseInt(finalDay[1].trim());
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new TrippieInvalidArgumentException(FORMAT_ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            throw new TrippieInvalidArgumentException(PARAMETER_ERROR_MESSAGE);
         }
     }
 
