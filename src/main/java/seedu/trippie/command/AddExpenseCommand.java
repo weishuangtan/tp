@@ -1,6 +1,5 @@
 package seedu.trippie.command;
 
-
 import seedu.trippie.ExpenseComparator;
 import seedu.trippie.Ui;
 import seedu.trippie.data.Expense;
@@ -8,7 +7,6 @@ import seedu.trippie.data.TrippieData;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.util.List;
-
 
 public class AddExpenseCommand extends Command {
 
@@ -72,7 +70,7 @@ public class AddExpenseCommand extends Command {
             sortExpenseList(expenses);
         }
         System.out.println("Got it! I've added the following item: " + expenseEntry.toString());
-        System.out.println("There are " + expenses.size() + " items in the list.");
+        System.out.printf("Now you have %d %s in the list.%n", expenses.size(), expenses.size() > 1 ? "items" : "item");
         trippieData.getCurrentTrip().getExpenseListObject().setExpenseList(expenses);
     }
 

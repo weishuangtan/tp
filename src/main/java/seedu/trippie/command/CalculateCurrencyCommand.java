@@ -1,8 +1,8 @@
 package seedu.trippie.command;
 
+import seedu.trippie.Ui;
 import seedu.trippie.data.Currency;
 import seedu.trippie.data.CurrencyType;
-import seedu.trippie.Ui;
 import seedu.trippie.data.TrippieData;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 

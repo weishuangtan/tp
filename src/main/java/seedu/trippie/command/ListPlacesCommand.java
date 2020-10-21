@@ -1,15 +1,13 @@
 package seedu.trippie.command;
 
-import seedu.trippie.data.Place;
 import seedu.trippie.Ui;
-import seedu.trippie.data.Trip;
+import seedu.trippie.data.Place;
 import seedu.trippie.data.TrippieData;
 
 import java.text.SimpleDateFormat;
-import java.util.Collections;
-import java.util.List;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class ListPlacesCommand extends Command {
 
@@ -36,23 +34,23 @@ public class ListPlacesCommand extends Command {
 
     public void execute(Ui ui, TrippieData trippieData) {
         List<Place> places = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
-        sortPlaceList(places);
         Date date = trippieData.getCurrentTrip().getStartDate();
 
         if (places.size() == 0) {
-            System.out.println("Please add your itinerary!");
+            System.out.println("There is currently nothing in your place list. Why not add one?");
         } else if (specifiedDay == -1) {
-            int maxDay = places.get(places.size() - 1).getPlaceDay();
-            for (int i = 1; i <= maxDay; i++) {
-                String currentDate = addDays(date, i - 1);
-                System.out.println("DAY " + i + ": (" + currentDate + ")");
-                for (int j = 0; j < places.size(); j++) {
-                    if (places.get(j).getPlaceDay() == i) {
-                        System.out.print((j + 1) + ". ");
-                        System.out.println(places.get(j).toString());
-                    }
+            int listIndex = 1;
+            int dayPointer = places.get(0).getPlaceDay();
+            String currentDate = addDays(date, dayPointer - 1);
+            System.out.println("DAY " + dayPointer + ": (" + currentDate + ")");
+            for (Place place : places) {
+                if (dayPointer != place.getPlaceDay()) {
+                    dayPointer = place.getPlaceDay();
+                    currentDate = addDays(date, dayPointer - 1);
+                    System.out.println("DAY " + dayPointer + ": (" + currentDate + ")");
                 }
-                System.out.println(System.lineSeparator());
+                System.out.println("[" + listIndex + "] " + place.toString());
+                listIndex++;
             }
         } else {
             String currentDate = addDays(date, specifiedDay - 1);
@@ -72,33 +70,6 @@ public class ListPlacesCommand extends Command {
         cal.setTime(date);
         cal.add(Calendar.DATE, day);
         return sdf.format(cal.getTime());
-    }
-
-    public void sortPlaceList(List<Place> sortedPlaces) {
-
-        for (int i = 0; i < sortedPlaces.size(); i++) {
-            for (int j = i + 1; j < sortedPlaces.size(); j++) {
-                if (sortedPlaces.get(i).getPlaceDay() == sortedPlaces.get(j).getPlaceDay()
-                        && sortedPlaces.get(i).getPlaceStartTime() > sortedPlaces.get(j).getPlaceStartTime()) {
-                    Collections.swap(sortedPlaces, i, j);
-                } else if (sortedPlaces.get(i).getPlaceDay() > sortedPlaces.get(j).getPlaceDay()) {
-                    Collections.swap(sortedPlaces, i, j);
-                }
-            }
-        }
-
-        /*
-        sortedPlaces.stream().sorted(
-                (place1, place2) -> {
-                     place1.getPlaceStartTime().compareTo(place2.getPlaceStartTime());
-                }
-        ).sorted(
-                (place1, place2) -> {
-                    return place1.getPlaceDay().compareTo(place2.getPlaceDay());
-                }
-        );
-
-         */
     }
 
 }
