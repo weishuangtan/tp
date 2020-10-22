@@ -15,34 +15,42 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class BudgetCommandTest {
+class DeleteExpenseCommandTest {
 
-
-    private final String[] badUserInputs = {"budgets 1000", "budget", "budget ", "budget abc"};
-    private final String[] validUserInputs = {"budget 1000", "budget 2000", "budget 3000"};
-    private final String[] budgetValues = {"1000", "2000", "3000"};
+    private final String[] validAddUserInputs = {"buy /i ice-cream /c 3.00 /d 2", "buy /i chicken rice /c 5.00 /d 1",
+        "buy /i pants /c $30.00 /d 3"};
+    private final String[] validDeleteUserInputs = {"delete /e 4", "delete /e 1", "delete /e 1", "delete /e 1"};
+    private final String[] badUserInputs = {"delete /e", "delete /e three", "delete ", "delete"};
+    private final int[] expectedSize = {3,2,1,0};
 
     @Test
-    void budgetCommand_invalidUserInput_throwsTrippieInvalidArgumentException() {
+    void addExpenseCommand_invalidUserInput_throwsTrippieInvalidArgumentException() {
         for (String badUserInput : badUserInputs) {
-            assertThrows(TrippieInvalidArgumentException.class, () -> new BudgetCommand(badUserInput));
+            assertThrows(TrippieInvalidArgumentException.class, () -> new DeleteExpenseCommand(badUserInput));
         }
     }
 
     @Test
-    void budgetCommand_validUserInput_parsedCorrectly() throws TrippieInvalidArgumentException, ParseException {
+    void deleteExpenditureCommand_validUserInput_parsedCorrectly() throws TrippieInvalidArgumentException,
+            ParseException {
 
         Ui ui = new Ui();
         Storage storage = new Storage();
         TrippieData trippieData = new TrippieData(storage);
         fileSetup(storage, trippieData);
 
-        for (int i = 0; i < validUserInputs.length; i++) {
-            BudgetCommand c = new BudgetCommand(validUserInputs[i]);
+        for (String validAddUserInput : validAddUserInputs) {
+            AddExpenseCommand c = new AddExpenseCommand(validAddUserInput);
             c.execute(ui,trippieData);
-            assertEquals(Float.parseFloat(budgetValues[i]),trippieData.getCurrentTrip()
-                    .getExpenseListObject().getBudgetValue());
         }
+
+        for (int i = 0; i < validDeleteUserInputs.length; i++) {
+            DeleteExpenseCommand c = new DeleteExpenseCommand(validDeleteUserInputs[i]);
+            c.execute(ui,trippieData);
+            List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
+            assertEquals(expectedSize[i],expenses.size());
+        }
+
     }
 
     private void fileSetup(Storage storage, TrippieData trippieData) throws ParseException {
@@ -53,6 +61,6 @@ class BudgetCommandTest {
         newTrip.getExpenseListObject().setCurrencyAbbreviation("SGD");
         newTrip.getExpenseListObject().setBudgetValue(Float.parseFloat("1000"));
         trippieData.getTripList().add(newTrip);
-    }
 
+    }
 }
