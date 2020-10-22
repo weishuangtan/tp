@@ -149,3 +149,49 @@ Given below are the instructions to test the app manually.
 1. Initial Launch
     1. Download the jar file and copy it into an empty folder.
     2. Double-click the jar file or run it through terminal with `java -jar Trippie.jar`. A start-up menu with a default trip will be shown in the CLI.
+
+Expected outcome: 
+```
+Welcome to
+  _            _   ____   ____   _            __T___T__   
+ _| |_   ____ |_| | __ \ | __ \ |_|   ____   /         \ 
+|_   _| /  __\ _  | |_| || |_| | _   / __ \ | |_|   |_| |  
+  | | _ | |   | | |  __/ |  __/ | | | |__|_||    ___    |
+  | |/ || |   | | | |    | |    | | | \____  \  \WWW/  /
+   \__/ |_|   |_| |_|    |_|    |_|  \____/   \_______/
+
+							Travel made easy
+_________________________________________________________________________
+I found a file in your directory!
+Setting up the file now...
+Found these trips in your computer 
+0. 1 Day - Bangkok
+```
+2. Shutdown
+    1. Enter `exit` command into the CLI.
+
+Expected outcome: 
+```
+_________________________________________________________________________
+Bye. Hope to see you again soon!
+_________________________________________________________________________
+```
+
+### Adding and Loading Trip
+1. Adding a new trip from scratch
+    1. Enter `new trip` command into the CLI.
+    2. Key in `test trip` when prompted to enter a trip name.
+    3. Fill in the other relevant information required by Trippie.
+    4. Enter `exit` command into the CLI.
+2. Loading a saved trip
+    1. Double click to re-launch the jar file.
+    2. Look out for `test trip` listed in the main menu and its respective index.
+    3. Enter `load trip` command into the CLI.
+    4. Key in the respective index when prompted.
+    5. Make sure that the following outcome is printed.
+
+Expected outcome:
+```
+I found a file in your directory!
+Setting up the file now...
+```
