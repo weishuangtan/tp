@@ -12,7 +12,7 @@ Trippie is a command-line app to plan any of your upcoming trips. It is tailored
 
 <div markdown="span" class="alert alert-warning">
 
-⚠️ **Caution:**
+⚠ **Caution:**
 
 Follow the steps in the following guide precisely. Things will not work out if you deviate in some steps.
 </div>
@@ -37,31 +37,42 @@ This section explains the high-level design of the application. Given below is a
 <center><i>Figure 1: Overall Architecture</i></center>
 
 The Architecture Diagram given above explains the high-level design of Trippie. Given below is a quick overview of each component.
+![UML Diagram](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Class%20Diagram.jpg?raw=true)
+<center><i>Figure 2: Class Types and Parameters</i></center>
 
-## Product scope
-### Target user profile
+Figure 2 above shows an overview on how various Classes are created for the different parameters, mainly Place and Expense.
 
-{Describe the target user profile}
+![UML Diagram Command](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Command.jpg?raw=true)
+<center><i>Figure 3: Commands Classes</i></center>
 
-### Value proposition
+Figure 3 above shows an overview of the various command classes created which attributes to `Trippie`'s function.
 
-{Describe the value proposition: what problem does it solve?}
+![UML Diagram Exception](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Exception.jpg?raw=true)
+<center><i>Figure 4: Exception Classes</i></center>
 
-## User Stories
+Figure 4 above shows the various exception classes used to handle the different errors met.
 
-|Version| As a ... | I want to ... | So that I can ...|
-|--------|----------|---------------|------------------|
-|v1.0|new user|see usage instructions|refer to them when I forget how to use the application|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
+**`Trippie`** has one class called [`Trippie`](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/src/main/java/seedu/trippie/Trippie.java?) It is responsible for:
+* At app launch: Initializes the components in the correct sequence, and connects them up with each other.
+* At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
-## Non-Functional Requirements
+The rest of the App consists of three components.
+- **UI** : The UI of the App.
+- **Parser** : Parses user input and its information to respective commands.
+- **Storage** : Reads data from, and write data to, the text file.
+- **Command** : Executes each command respectively.
 
-{Give non-functional requirements}
+The Sequence diagram below shows how the program flows across the different classes when parsing or executing user commands.
 
-## Glossary
+![UML Sequence Diagram](https://i.imgur.com/hHq7ltY.png)
 
-* *glossary item* - Definition
+<center><i>Figure 5: Sequence Diagram during Command execution</i></center>
 
-## Instructions for manual testing
+## Implementation
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+This section elaborates on some unique details about how certain features are implemented.
+### Trippie
+The main trippie class
+### Ui
+The UI class
+### Parser
