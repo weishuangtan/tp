@@ -51,7 +51,7 @@ public class ListExpenseCommand extends Command {
                     + " (" + String.format("%.2f", totalSpending / exchangeRate) + " SGD)");
             try {
                 float remainingBudget = budget - totalSpending;
-                checkRemainingBudget(remainingBudget, exchangeRate, currencyAbbreviation);
+                displayRemainingBudget(remainingBudget, exchangeRate, currencyAbbreviation);
                 createBudgetPercentageBar(totalSpending, budget);
             } catch (TrippieExceedBudgetException e) {
                 System.out.println(EXCEED_BUDGET_MESSAGE);
@@ -59,7 +59,7 @@ public class ListExpenseCommand extends Command {
         }
     }
 
-    private void checkRemainingBudget(float remainingBudget, float exchangeRate, String currencyAbbreviation) {
+    private void displayRemainingBudget(float remainingBudget, float exchangeRate, String currencyAbbreviation) {
         if (remainingBudget < 0) {
             System.out.print("");
         } else {

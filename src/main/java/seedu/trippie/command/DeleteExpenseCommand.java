@@ -7,7 +7,7 @@ import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.util.List;
 
-public class DeleteExpenditureCommand extends Command {
+public class DeleteExpenseCommand extends Command {
 
     private static final String FORMAT_ERROR_MESSAGE = "You typed in the incorrect format for [delete /e] command! "
             + "Please try the following:\nFormat: delete /e EXPENSE_INDEX\nExample: delete /e 3";
@@ -16,7 +16,7 @@ public class DeleteExpenditureCommand extends Command {
 
     private final int expenseIndex;
 
-    public DeleteExpenditureCommand(String userInput) throws TrippieInvalidArgumentException {
+    public DeleteExpenseCommand(String userInput) throws TrippieInvalidArgumentException {
         try {
             String index = userInput.split(" /e ")[1];
             expenseIndex = Integer.parseInt(index) - 1;

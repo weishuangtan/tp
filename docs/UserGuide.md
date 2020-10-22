@@ -16,6 +16,7 @@ Trippie is a command-line app to plan any of your upcoming trips. It is tailored
     * [Add an expense: `buy`](#adding-an-expense-buy)
     * [List all expenses: `list /e`](#listing-all-expenses-list-e)
     * [Delete an expense: `delete /e`](#deleting-an-expense-delete-e)
+    * [Convert Currency: `convert /to`](#convert-currency-convert-to)
     * [Exit the Trippie: `exit`](#exiting-the-trippie-exit)
     * [Save the data](#saving-the-data)
 * [Command Summary](#command-summary)
@@ -38,6 +39,18 @@ Creates a new trip. You will be prompted to enter some details (i.e. name, start
 
 Format: `new trip`
 
+Example: `new trip`
+
+Expected Output:
+
+```
+Enter your new trip's name: Summer Exchange Peru
+Enter your new trip's start date (dd-mm-yyyy):12-12-2020
+Enter the foreign exchange rate:2.65
+Enter the foreign currency abbreviation (eg. MYR): SOL
+Enter your budget for the trip (in SGD):500
+Added the trip 4  Summer Exchange Peru 12-12-2020
+```
 ### Viewing help: `help`
 Shows a concise list of commands available. 
 
@@ -143,16 +156,20 @@ There are 1 items in the list.
 ```
 
 ### Listing all expenses: `list /e`
-Displays all the items bought in the expenditure list.
+Displays all the items bought in the expenditure list
+and reminds user on their budget limit.
 
 Format: `list /e`
 
 Expected output:
 ```
-Total budget: $100.00
+Total budget: $1325.00 SOL (500.00 SGD)
 Expense List:
 [1] Day 2: R&B Brown Sugar - $3.00
-Your current total spending is $3.00
+Your current total spending is $3.00 SOL (1.13 SGD)
+Your current remaining budget is $1322.00 SOL (498.87 SGD)
+You are still spending within your budget.
+[=---------] 0.2%
 ```
 
 ### Deleting an expense: `delete /e`
@@ -170,6 +187,32 @@ Expected output:
 Noted. I've removed this item from the expenditure list.
 Day 2: R&B Brown Sugar - $3.00
 There are 0 items in the list.
+```
+
+### Convert currency: `convert /to`
+Converts an amount to the requested currency.
+
+Format: `convert /to[CURRENCY] AMOUNT`
+
+* `CURRENCY` refers to either local currency `SGD` or foreign currency `FOR`.
+* `AMOUNT` refers to the amount to be converted into the preferred currency.
+
+Example:
+`convert /toSGD 500`
+
+Expected output:
+```
+Processing... Please Wait.
+That amount in your local currency is 188.68 SGD.
+```
+
+Example:
+`convert /toFOR 500`
+
+Expected output:
+```
+Processing... Please Wait.
+That amount in your foreign currency is 1325.00 SOL.
 ```
 
 ### Exiting the Trippie: `exit`
@@ -198,4 +241,5 @@ Trippie data are saved in the hard disk automatically.
 **buy**|`buy /i ITEM_NAME /c FINAL_COST /d DAY` <br>e.g., `buy /i R&B Brown Sugar /c 3.00 /d 2`
 **list /e**|`list /e`
 **delete /e**|`delete /p EXPENSE_INDEX` <br>e.g., `delete 1`
+**convert /to**|`convert /toCURRENCY AMOUNT` <br>e.g., `convert /toSGD 500`<br>`convert /toFOR 500`
 **exit**|`exit`
