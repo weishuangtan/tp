@@ -7,7 +7,7 @@ import seedu.trippie.command.AddPlaceCommand;
 import seedu.trippie.command.BudgetCommand;
 import seedu.trippie.command.CalculateCurrencyCommand;
 import seedu.trippie.command.Command;
-import seedu.trippie.command.DeleteExpenditureCommand;
+import seedu.trippie.command.DeleteExpenseCommand;
 import seedu.trippie.command.DeletePlaceCommand;
 import seedu.trippie.command.ExitCommand;
 import seedu.trippie.command.HelpCommand;
@@ -43,9 +43,9 @@ class ParserTest {
     }
 
     @Test
-    public void parse_deleteExpenditureCommand_parsedCorrectly() {
+    public void parse_deleteExpenseCommand_parsedCorrectly() {
         final String input = "delete /e 2";
-        parseAndAssertCommandType(input, DeleteExpenditureCommand.class);
+        parseAndAssertCommandType(input, DeleteExpenseCommand.class);
     }
 
     @Test
