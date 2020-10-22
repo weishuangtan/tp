@@ -9,36 +9,40 @@ Welcome to
 							Travel made easy
 _________________________________________________________________________
 I can't find a file in your directory :(
-I created a new trippie.txt file for you!
+I created a new trippie_data/trippie.txt file for you!
 Please create a new trip by entering 'new trip'
 >> _________________________________________________________________________
 Invalid Command! Type "help" to view the commands available!
 Failed to save trip
 _________________________________________________________________________
 >> _________________________________________________________________________
-Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR): Enter your budget for the trip (in SGD):Added the trip 0 Wonderful Singapore 01-01-2023
+Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Added the trip 0 Wonderful Singapore Sun Jan 01 00:00:00 SGT 2023
+I can't find a file in your directory :(
+I created a new trippie_data/Wonderful Singapore.txt file for you!
 _________________________________________________________________________
 >> _________________________________________________________________________
-There is currently nothing in your place list. Why not add one?
+Please add your itinerary!
 _________________________________________________________________________
 >> _________________________________________________________________________
-Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR): Enter your budget for the trip (in SGD):Added the trip 1 Amazing Bali 03-04-2021
+Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Added the trip 1 Amazing Bali Sat Apr 03 00:00:00 SGT 2021
+I can't find a file in your directory :(
+I created a new trippie_data/Amazing Bali.txt file for you!
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
-0. 1 Day - Wonderful Singapore
-1. 1 Day - Amazing Bali
+0. 0 Day - Wonderful Singapore
+1. 0 Day - Amazing Bali
 
 Which one do you want to load? Enter the index:I found a file in your directory!
 Setting up the file now...
 _________________________________________________________________________
 >> _________________________________________________________________________
-There is currently nothing in your place list. Why not add one?
+Please add your itinerary!
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
-0. 1 Day - Wonderful Singapore
-1. 1 Day - Amazing Bali
+0. 0 Day - Wonderful Singapore
+1. 0 Day - Amazing Bali
 
 Which one do you want to load? Enter the index:I found a file in your directory!
 Setting up the file now...
@@ -46,137 +50,164 @@ _________________________________________________________________________
 >> _________________________________________________________________________
 Got it. I've added this place:
 1200 - 1400 Apple MBS
-Now you have 1 place in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
-DAY 3: (2023-01-03)
-[1] 1200 - 1400 Apple MBS
+DAY 1:
+
+
+DAY 2:
+
+
+DAY 3:
+1. 1200 - 1400 Apple MBS
+
+
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it. I've added this place:
 1200 - 1400 nus and ntu
-Now you have 2 places in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it. I've added this place:
 0200 - 0400 clementi mall
-Now you have 3 places in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
-DAY 1: (2023-01-01)
-[1] 0200 - 0400 clementi mall
-DAY 3: (2023-01-03)
-[2] 1200 - 1400 nus and ntu
-[3] 1200 - 1400 Apple MBS
+DAY 1:
+1. 0200 - 0400 clementi mall
+
+
+DAY 2:
+
+
+DAY 3:
+2. 1200 - 1400 nus and ntu
+3. 1200 - 1400 Apple MBS
+
+
 _________________________________________________________________________
 >> _________________________________________________________________________
-Noted. I've removed this place from the place list.
+Noted. I've removed this place.
 0200 - 0400 clementi mall
-Now you have 2 places in the list.
+There are 2 items in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
-DAY 3: (2023-01-03)
-[1] 1200 - 1400 nus and ntu
-[2] 1200 - 1400 Apple MBS
+DAY 1:
+
+
+DAY 2:
+
+
+DAY 3:
+1. 1200 - 1400 nus and ntu
+2. 1200 - 1400 Apple MBS
+
+
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it. I've added this place:
 1000 - 1200 clementi
-Now you have 3 places in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it. I've added this place:
 0700 - 0800 ntu
-Now you have 4 places in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
-DAY 2: (2023-01-02)
-[1] 0700 - 0800 ntu
-[2] 1000 - 1200 clementi
-DAY 3: (2023-01-03)
-[3] 1200 - 1400 nus and ntu
-[4] 1200 - 1400 Apple MBS
+DAY 1:
+
+
+DAY 2:
+1. 0700 - 0800 ntu
+2. 1000 - 1200 clementi
+
+
+DAY 3:
+3. 1200 - 1400 nus and ntu
+4. 1200 - 1400 Apple MBS
+
+
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it. I've added this place:
 1200 - 1400 nus Soc
-Now you have 5 places in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
-DAY 2: (2023-01-02)
-[1] 0700 - 0800 ntu
-[2] 1000 - 1200 clementi
-DAY 3: (2023-01-03)
-[3] 1200 - 1400 nus and ntu
-[4] 1200 - 1400 Apple MBS
-DAY 5: (2023-01-05)
-[5] 1200 - 1400 nus Soc
+DAY 1:
+
+
+DAY 2:
+1. 0700 - 0800 ntu
+2. 1000 - 1200 clementi
+
+
+DAY 3:
+3. 1200 - 1400 nus and ntu
+4. 1200 - 1400 Apple MBS
+
+
+DAY 4:
+
+
+DAY 5:
+5. 1200 - 1400 nus Soc
+
+
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it! I've added the following item: Day 1: ice cream - $8.21
-Now you have 1 item in the list.
+There are 1 items in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
-Total budget: $1407.59 USD (999.00 SGD)
+Total budget has not been set
 Expense List:
 [1] Day 1: ice cream - $8.21
-Your current total spending is $8.21 USD (5.83 SGD)
-Your current remaining budget is $1399.38 USD (993.17 SGD)
-You are still spending within your budget.
-[=---------] 0.6%
+Your current total spending is $8.21
 _________________________________________________________________________
 >> _________________________________________________________________________
 Welcome to Trippie! A one-stop app to plan any of your upcoming trips!
 Here is a list of commands which you can use to navigate your way
 through Trippie!
 
-[new trip]|   Creates a new trip. You will be prompted to enter some details
-          |   Format: new trip
-__________|______________________________________________________________
-[help]    |   Shows a concise list of commands available
-          |   Format: help
-__________|______________________________________________________________
 [add]     |   Adds a place to your trip
           |   Format: add /n PLACE_NAME /d DAY /t TIME
-          |   Example: add /n Dinner at Marina Bay Sands /d 2 /t 1800 to 2000
-__________|______________________________________________________________
-[list]    |   Displays all places in a timetable format
-(places)  |   Format: list /p [/d DAY]
-          |   list /p /d 2
-__________|______________________________________________________________
-[search]  |   Displays all places that includes the search keyword
-(places)  |   Format: search KEYWORD
-          |   search Dinner
-__________|______________________________________________________________
-[delete]  |   Deletes the specified place from the list
-(place)   |   Format: delete /p PLACE_INDEX
-          |   Example: delete /p 1
-__________|______________________________________________________________
-[budget]  |   Edits a budget to keep track of in expenditure list
-          |   Format: budget AMOUNT
-          |   Example: budget 100
-__________|______________________________________________________________
+          |   Example: add /n Jurong East Mall /d 2 /t 1100 to 1400
+__________|____________________________________________________________
+[budget]  |   Adds a budget to keep track of in expenditure list
+          |   Format: budget BUDGET
+          |   Example: budget 4000
+__________|____________________________________________________________
 [buy]     |   Adds an item with its final cost into an expenditure list
           |   Format: buy /i ITEM_NAME /c FINAL_COST /d DAY_NUMBER
           |   Example: buy /i R&B Brown Sugar /c 3.00 /d 2
-__________|______________________________________________________________
+__________|____________________________________________________________
+[delete]  |   Deletes the specified place from the list
+(places)  |   Format: delete /p PLACE_INDEX
+          |   Example: delete /p 3
+__________|____________________________________________________________
+[delete]  |   Deletes an item from the expenditure list
+(expenses)|   Format: delete /e EXPENSE_INDEX
+          |   Example: delete /e 3
+__________|____________________________________________________________
+[exit]    |   Exit the program and auto-save
+          |   Format: exit
+__________|____________________________________________________________
+[help]    |   Shows a short guide that lists all the commands
+          |   Format: help
+__________|____________________________________________________________
+[list]    |   Displays all places in a timetable format
+(places)  |   Format: list /p [/d DAY]
+          |   list /p /d 3
+__________|____________________________________________________________
 [list]    |   Displays all the items bought in the expenditure list
 (expenses)|   Format: list /e
           |
-[delete]  |   Deletes the specified place from the list
-(expense) |   Format: delete /e EXPENSE_INDEX
-          |   Example: delete /e 1
-__________|______________________________________________________________
-[exit]    |   Exit the program and auto-saves
-          |   Format: exit
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it! I've added the following item: Day 2: coconut - $5.00
-Now you have 2 items in the list.
+There are 2 items in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it! I've added the following item: Day 3: bag - $50.30
-Now you have 3 items in the list.
+There are 3 items in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
 Successfully set your total budget to 300.00

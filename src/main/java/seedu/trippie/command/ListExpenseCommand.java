@@ -91,5 +91,5 @@ public class ListExpenseCommand extends Command {
         System.out.println(bar + " "
                 + String.format("%.1f", spentPercentage) + "%");
     }
-
 }
+

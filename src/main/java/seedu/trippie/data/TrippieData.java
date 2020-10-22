@@ -60,7 +60,7 @@ public class TrippieData {
     public void loadCurrentTripFromFile() {
         if (currentTrip.getIndex() < this.getTripList().size()) {
             currentTrip = this.getTripList().get(currentTrip.getIndex());
-            Trip tempTrip = storage.loadTripFromFile(currentTrip);
+            Trip tempTrip = storage.loadTrip(currentTrip);
             assert tempTrip != null;
             currentTrip.setPlaceList(tempTrip.getPlaceListObject());
             currentTrip.setExpenseList(tempTrip.getExpenseListObject());
