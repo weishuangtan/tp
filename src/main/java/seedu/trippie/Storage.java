@@ -55,7 +55,7 @@ public class Storage {
 
             if (file.createNewFile()) {
                 System.out.println("I can't find a file in your directory :(");
-                System.out.println("I created a new " + file.getPath() + " file for you!");
+                System.out.println("I created a new " + file.getName() + " file for you!");
 
             } else if (!file.createNewFile()) {
                 System.out.println("I found a file in your directory!\nSetting up the file now...");
