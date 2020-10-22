@@ -17,15 +17,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DeleteExpenditureCommandTest {
 
-    private final String[] validAddUserInputs = {"buy /i ice-cream /c 3.00 /d 2", "buy /i chicken rice /c 5.00 /d 1",
-        "buy /i pants /c $30.00 /d 3"};
-    private final String[] validDeleteUserInputs = {"delete /e 4", "delete /e 1", "delete /e 1", "delete /e 1"};
-    private final String[] badUserInputs = {"delete /e", "delete /e three", "delete ", "delete"};
-    private final int[] expectedSize = {3,2,1,0};
+    private static final String[] VALID_ADD_USER_INPUTS = {"buy /i ice-cream /c 3.00 /d 2",
+        "buy /i chicken rice /c 5.00 /d 1", "buy /i pants /c $30.00 /d 3"};
+    private static final String[] VALID_DELETE_USER_INPUTS = {"delete /e 4", "delete /e 1", "delete /e 1",
+        "delete /e 1"};
+    private static final String[] BAD_USER_INPUTS = {"delete /e", "delete /e three", "delete ", "delete"};
+    private static final int[] EXPECTED_SIZE = {3,2,1,0};
 
     @Test
     void addExpenseCommand_invalidUserInput_throwsTrippieInvalidArgumentException() {
-        for (String badUserInput : badUserInputs) {
+        for (String badUserInput : BAD_USER_INPUTS) {
             assertThrows(TrippieInvalidArgumentException.class, () -> new DeleteExpenditureCommand(badUserInput));
         }
     }
@@ -39,16 +40,16 @@ class DeleteExpenditureCommandTest {
         TrippieData trippieData = new TrippieData(storage);
         fileSetup(storage, trippieData);
 
-        for (String validAddUserInput : validAddUserInputs) {
+        for (String validAddUserInput : VALID_ADD_USER_INPUTS) {
             AddExpenseCommand c = new AddExpenseCommand(validAddUserInput);
             c.execute(ui,trippieData);
         }
 
-        for (int i = 0; i < validDeleteUserInputs.length; i++) {
-            DeleteExpenditureCommand c = new DeleteExpenditureCommand(validDeleteUserInputs[i]);
+        for (int i = 0; i < VALID_DELETE_USER_INPUTS.length; i++) {
+            DeleteExpenditureCommand c = new DeleteExpenditureCommand(VALID_DELETE_USER_INPUTS[i]);
             c.execute(ui,trippieData);
             List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
-            assertEquals(expectedSize[i],expenses.size());
+            assertEquals(EXPECTED_SIZE[i],expenses.size());
         }
 
     }

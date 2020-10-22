@@ -3,14 +3,12 @@ package seedu.trippie.command;
 import org.junit.jupiter.api.Test;
 import seedu.trippie.Storage;
 import seedu.trippie.Ui;
-import seedu.trippie.data.Expense;
 import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -18,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class BudgetCommandTest {
 
 
-    private final String[] badUserInputs = {"budgets 1000", "budget", "budget ", "budget abc"};
-    private final String[] validUserInputs = {"budget 1000", "budget 2000", "budget 3000"};
-    private final String[] budgetValues = {"1000", "2000", "3000"};
+    private static final String[] BAD_USER_INPUTS = {"budgets 1000", "budget", "budget ", "budget abc"};
+    private static final String[] VALID_USER_INPUTS = {"budget 1000", "budget 2000", "budget 3000"};
+    private static final String[] BUDGET_VALUES = {"1000", "2000", "3000"};
 
     @Test
     void budgetCommand_invalidUserInput_throwsTrippieInvalidArgumentException() {
-        for (String badUserInput : badUserInputs) {
+        for (String badUserInput : BAD_USER_INPUTS) {
             assertThrows(TrippieInvalidArgumentException.class, () -> new BudgetCommand(badUserInput));
         }
     }
@@ -37,10 +35,10 @@ class BudgetCommandTest {
         TrippieData trippieData = new TrippieData(storage);
         fileSetup(storage, trippieData);
 
-        for (int i = 0; i < validUserInputs.length; i++) {
-            BudgetCommand c = new BudgetCommand(validUserInputs[i]);
+        for (int i = 0; i < VALID_USER_INPUTS.length; i++) {
+            BudgetCommand c = new BudgetCommand(VALID_USER_INPUTS[i]);
             c.execute(ui,trippieData);
-            assertEquals(Float.parseFloat(budgetValues[i]),trippieData.getCurrentTrip()
+            assertEquals(Float.parseFloat(BUDGET_VALUES[i]),trippieData.getCurrentTrip()
                     .getExpenseListObject().getBudgetValue());
         }
     }

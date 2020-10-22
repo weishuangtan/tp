@@ -17,16 +17,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class AddExpenseCommandTest {
 
-    private final String[] validUserInputs = {"buy /i ice-cream /c 3.00 /d 2", "buy /i chicken rice /c 5.00 /d 1",
-        "buy /i pants /c $30.00 /d 3"};
+    private static final String[] VALID_USER_INPUTS = {"buy /i ice-cream /c 3.00 /d 2",
+        "buy /i chicken rice /c 5.00 /d 1", "buy /i pants /c $30.00 /d 3"};
 
-    private final String[] badUserInputs = {"buy /i /c /d", "buy /i ice-cream /c three dollars /d 2",
+    private static final String[] BAD_USER_INPUTS = {"buy /i /c /d", "buy /i ice-cream /c three dollars /d 2",
         "buy /i ice-cream /c 3.00 /d two", "buy /i ice-cream /c /d", "buy /i /c /d 2",
         "buys /i ice-cream /c 3.00 /d 2"};
 
     @Test
     void addExpenseCommand_invalidUserInput_throwsTrippieInvalidArgumentException() {
-        for (String badUserInput : badUserInputs) {
+        for (String badUserInput : BAD_USER_INPUTS) {
             assertThrows(TrippieInvalidArgumentException.class, () -> new AddExpenseCommand(badUserInput));
         }
     }
@@ -37,11 +37,11 @@ class AddExpenseCommandTest {
         Float[] expenseCosts  = {Float.parseFloat("3.00"), Float.parseFloat("5.00"),
                 Float.parseFloat("30.00"),};
         int[] expenseDays = {2,1,3};
-        for (int i = 0; i < validUserInputs.length; i++) {
-            AddExpenseCommand c = new AddExpenseCommand(validUserInputs[i]);
-            assertEquals(expenseNames[i], c.extractExpenseName(validUserInputs[i]));
-            assertEquals(expenseCosts[i], c.extractExpenseCost(validUserInputs[i]));
-            assertEquals(expenseDays[i], c.extractDayBought(validUserInputs[i]));
+        for (int i = 0; i < VALID_USER_INPUTS.length; i++) {
+            AddExpenseCommand c = new AddExpenseCommand(VALID_USER_INPUTS[i]);
+            assertEquals(expenseNames[i], c.extractExpenseName(VALID_USER_INPUTS[i]));
+            assertEquals(expenseCosts[i], c.extractExpenseCost(VALID_USER_INPUTS[i]));
+            assertEquals(expenseDays[i], c.extractDayBought(VALID_USER_INPUTS[i]));
         }
     }
 
@@ -54,7 +54,7 @@ class AddExpenseCommandTest {
         TrippieData trippieData = new TrippieData(storage);
         fileSetup(storage, trippieData);
 
-        for (String validUserInput : validUserInputs) {
+        for (String validUserInput : VALID_USER_INPUTS) {
             AddExpenseCommand c = new AddExpenseCommand(validUserInput);
             c.execute(ui,trippieData);
         }
