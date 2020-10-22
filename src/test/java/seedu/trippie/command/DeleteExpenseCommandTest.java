@@ -15,7 +15,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class DeleteExpenditureCommandTest {
+class DeleteExpenseCommandTest {
 
     private static final String[] VALID_ADD_USER_INPUTS = {"buy /i ice-cream /c 3.00 /d 2",
         "buy /i chicken rice /c 5.00 /d 1", "buy /i pants /c $30.00 /d 3"};
@@ -27,7 +27,7 @@ class DeleteExpenditureCommandTest {
     @Test
     void addExpenseCommand_invalidUserInput_throwsTrippieInvalidArgumentException() {
         for (String badUserInput : BAD_USER_INPUTS) {
-            assertThrows(TrippieInvalidArgumentException.class, () -> new DeleteExpenditureCommand(badUserInput));
+            assertThrows(TrippieInvalidArgumentException.class, () -> new DeleteExpenseCommand(badUserInput));
         }
     }
 
@@ -46,7 +46,7 @@ class DeleteExpenditureCommandTest {
         }
 
         for (int i = 0; i < VALID_DELETE_USER_INPUTS.length; i++) {
-            DeleteExpenditureCommand c = new DeleteExpenditureCommand(VALID_DELETE_USER_INPUTS[i]);
+            DeleteExpenseCommand c = new DeleteExpenseCommand(VALID_DELETE_USER_INPUTS[i]);
             c.execute(ui,trippieData);
             List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
             assertEquals(EXPECTED_SIZE[i],expenses.size());
