@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import seedu.trippie.data.CurrencyType;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CalculateCurrencyCommandTest {
 
@@ -13,13 +13,13 @@ class CalculateCurrencyCommandTest {
     public static final String CURRENCY_AMOUNT = "convert /toSGD 500";
 
     @Test
-    void extractCurrencyChoice_currencyChoiceIsLOCALEnum_Success() throws TrippieInvalidArgumentException {
+    void extractCurrencyChoice_currencyChoiceIsLocalEnum_Success() throws TrippieInvalidArgumentException {
         CalculateCurrencyCommand command = new CalculateCurrencyCommand(CURRENCY_CHOICE_TO_SGD);
         assertEquals(command.extractCurrencyChoice(CURRENCY_CHOICE_TO_SGD), CurrencyType.LOCAL);
     }
 
     @Test
-        void extractCurrencyChoice_currencyChoiceIsFOREIGNEnum_Success() throws TrippieInvalidArgumentException {
+        void extractCurrencyChoice_currencyChoiceIsForeignEnum_Success() throws TrippieInvalidArgumentException {
         CalculateCurrencyCommand command = new CalculateCurrencyCommand(CURRENCY_CHOICE_TO_FOR);
         assertEquals(command.extractCurrencyChoice(CURRENCY_CHOICE_TO_FOR), CurrencyType.FOREIGN);
     }
