@@ -76,3 +76,43 @@ The main trippie class
 ### Ui
 The UI class
 ### Parser
+Parses the user input
+### TrippieData
+Stores all the user's data
+### Storage
+Handles file input and output
+
+
+## Appendix: Requirements
+
+### Product scope
+
+#### Target user profile
+
+- Students who loves to travel.
+- Students going on exchange trips e.g. Student Exchange Program (SEP), NUS Overseas College (NOC).
+- Students who like to challenge themselves to plan for their own trips.
+- Students who seek convenience in tracking their expenses under the same planning application.
+
+#### Value proposition
+
+It allows users to plan multiple trips in a one-stop platform before and during the trip. It provides user with a convenient method of tracking expenditure while not spending past their budget. It also allows user to quickly convert any amount from local to foreign currency, vice versa. 
+
+### User Stories
+
+|Version| As a ... | I want ... | So that I can ...|
+|--------|----------|---------------|------------------|
+|v1.0|Student event planner|A good organiser|Update details of the trips conveniently|
+|v1.0|Student who loves travelling with friends|To easily plan my group trip and share it with my friends|Plan our trips together by being able to seek their advice easily|
+|v1.0|Student who is unfamiliar with complex travel planners|To have a simple platform that is easy to use|Efficiently plan out my itinerary|
+|v1.0|Studious student|To have my trips automatically saved|Not worry about my trips getting lost if I focus on something else|
+|v1.0|Student who likes to plan as I travel|To update my trips daily|use them again in the future|
+|v1.0|Student who wants to plan trips online|To take note of any links and/or online references to certain accomodations, places, or restaurants|Open them later|
+|v1.0|Student in a student exchange planning committee|To note down some tourist attraction places in Singapore|Bring the exchange students around during orientation|
+|v1.0|Student who likes to keep notes on places I travel before|To note down my fresh experiences while on travel trips|Open and look back at it anytime|
+|v1.0|Student who is always on-the-go|To input my spendings in a very quick manner|Input my spendings without a hassle|
+|v2.0|Student traveling to a foreign country for the first time|To record cultural differences and some other travel notes before traveling there|Access them quickly in that country to avoid any misunderstandings|
+|v2.0|Student unsure on which country to visit for exchange | To plan various trips before looking at them individually | Make an informed decision which country I'm most interested in for exchange|
+|v2.0|Student who is not very good at managing expenses|To be reminded when my spendings are going to exceed my initial budget|Reduce my spendings if required|
+|v2.0|Student who plans trip ahead of time|To be able to edit whatever has been planned easily|Improve my itinerary easily|
+|v2.0|Student who is interested in many overseas opportunities|To create ane edit multiple trips simultaneously|Plan multiple trips ahead at a time|
