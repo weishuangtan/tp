@@ -55,5 +55,4 @@ class BudgetCommandTest {
         trippieData.getTripList().add(newTrip);
     }
 
-
 }
