@@ -116,3 +116,36 @@ It allows users to plan multiple trips in a one-stop platform before and during 
 |v2.0|Student who is not very good at managing expenses|To be reminded when my spendings are going to exceed my initial budget|Reduce my spendings if required|
 |v2.0|Student who plans trip ahead of time|To be able to edit whatever has been planned easily|Improve my itinerary easily|
 |v2.0|Student who is interested in many overseas opportunities|To create ane edit multiple trips simultaneously|Plan multiple trips ahead at a time|
+
+### Use Cases
+
+### Non-Functional Requirements
+
+| Requirement Type | Description |
+|------------------|-------------|
+|Constraint|Single user product|
+|Performance|Software should not be dependent on a remote server|
+|Performance|Software should not exceed 100Mb for JAR file and 15MB per PDF file|
+|Quality|Users should prefer CLI/Typing|
+|Technical|Must have Java 11 installed|
+|Technical|No DBMS, all data to be stored locally|
+|Technical|Data stored must be in human-editable files|
+|Technical|Programme should be platform independent|
+|Technical|Programme should work without an installer|
+
+### Glossary
+
+* *CLI* - Command Line Interface
+* *IntelliJ* - A Java IDE developed by Jetbrains
+* *JUnit* - Java Unit Testing Framework
+* *Java* - A programming language
+
+## Appendix: Instructions for Manual Testing
+
+Given below are the instructions to test the app manually.
+
+### Launch and Shutdown
+
+1. Initial Launch
+    1. Download the jar file and copy it into an empty folder.
+    2. Double-click the jar file or run it through terminal with `java -jar Trippie.jar`. A start-up menu with a default trip will be shown in the CLI.
