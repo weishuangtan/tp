@@ -17,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DeletePlaceCommandTest {
     private final String[] validAddUserInputs = {
-            "add /n Marina Bay Sands /d 2 /t 1000 to 1200",
-            "add /n Changi Airport /d 1 /t 1900 to 2000",
-            "add /n Bugis Junction /d 3 /t 1100 to 1400"
+        "add /n Marina Bay Sands /d 2 /t 1000 to 1200",
+        "add /n Changi Airport /d 1 /t 1900 to 2000",
+        "add /n Bugis Junction /d 3 /t 1100 to 1400"
     };
     private final String[] validDeleteUserInputs = {"delete /p 3", "delete /p 2", "delete /p 1"};
     private final String[] badUserInputs = {"delete /p", "delete /p one", "delete "};
