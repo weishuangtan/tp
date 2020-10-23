@@ -24,7 +24,7 @@ class DeleteExpenseCommandTest {
     private final int[] expectedSize = {3,2,1,0};
 
     @Test
-    void addExpenseCommand_invalidUserInput_throwsTrippieInvalidArgumentException() {
+    void deleteExpenseCommand_invalidUserInput_throwsTrippieInvalidArgumentException() {
         for (String badUserInput : badUserInputs) {
             assertThrows(TrippieInvalidArgumentException.class, () -> new DeleteExpenseCommand(badUserInput));
         }
