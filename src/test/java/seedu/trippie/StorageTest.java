@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import seedu.trippie.data.Place;
 import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
+import seedu.trippie.exception.TrippieException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -18,13 +19,13 @@ class StorageTest {
     private Scanner createSampleMasterFile() {
 
         String sampleMasterFileText = "DEFAULT 6\n"
-               + "0,Chigago run,01-01-2021\n"
-               + "1,Jakarta Fest,01-02-2021\n"
-               + "2,Malaysia,20-08-2021\n"
-               + "3,Malaysia,20-02-2020\n"
-               + "4,Australia,20-12-2020\n"
-               + "5,America,20-11-2020\n"
-               + "6,Africa,04-03-2021\n";
+               + "0,Chigago run,01-01-2021,1\n"
+               + "1,Jakarta Fest,01-02-2021,2\n"
+               + "2,Malaysia,20-08-2021,3\n"
+               + "3,Malaysia,20-02-2020,4\n"
+               + "4,Australia,20-12-2020,5\n"
+               + "5,America,20-11-2020,6\n"
+               + "6,Africa,04-03-2021,7\n";
 
         return new Scanner(sampleMasterFileText);
     }
@@ -48,19 +49,19 @@ class StorageTest {
     }
 
     @Test
-    public void loadMasterFile_sampleMasterFile_success() {
+    public void loadMasterFile_sampleMasterFile_success() throws TrippieException {
         Scanner sc = createSampleMasterFile();
         Storage storage = new Storage();
         TrippieData data = new TrippieData(storage);
         storage.loadMasterFile(sc, data);
 
-        String expectedTripListString = "0. 1 Day - Chigago run\n"
-                + "1. 1 Day - Jakarta Fest\n"
-                + "2. 1 Day - Malaysia\n"
-                + "3. 1 Day - Malaysia\n"
-                + "4. 1 Day - Australia\n"
-                + "5. 1 Day - America\n"
-                + "6. 1 Day - Africa\n";
+        String expectedTripListString = "1. 1 Day - Chigago run\n"
+                + "2. 2 Days - Jakarta Fest\n"
+                + "3. 3 Days - Malaysia\n"
+                + "4. 4 Days - Malaysia\n"
+                + "5. 5 Days - Australia\n"
+                + "6. 6 Days - America\n"
+                + "7. 7 Days - Africa\n";
 
         assertEquals(expectedTripListString, data.list());
         assertEquals("6 Africa 04-03-2021", data.getCurrentTrip().toString());
@@ -68,7 +69,7 @@ class StorageTest {
     }
 
     @Test
-    public void loadTripFile_sampleTripFile_success() throws ParseException {
+    public void loadTripFile_sampleTripFile_success() throws ParseException, TrippieException {
         Scanner sc = createSampleTripFile();
         Storage storage = new Storage();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
