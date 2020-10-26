@@ -1,5 +1,8 @@
 package seedu.trippie.data;
 
+import seedu.trippie.Trippie;
+import seedu.trippie.exception.TrippieException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -15,7 +18,17 @@ public class Trip {
         this.placeList = new PlaceList();
     }
 
-    public Trip(int index, String name, Date startDate) {
+    public Trip(int index, String name, Date startDate) throws TrippieException {
+
+        if (index < 0) {
+            throw new TrippieException("Index out of bounds");
+        }
+
+        if (name.length() == 0) {
+            throw new TrippieException("Trip name should not be empty");
+        }
+
+
         this.index = index;
         this.name = name;
         this.startDate = startDate;
@@ -52,9 +65,7 @@ public class Trip {
     }
 
     public int getMaxDay() {
-
-        return 1;
-        //TODO: Fix placeList.getMaxDay() and expenseList.getMaxDay()
+        return Integer.max(placeList.getMaxDay(), expenseList.getMaxDay());
     }
 
     public String toString() {

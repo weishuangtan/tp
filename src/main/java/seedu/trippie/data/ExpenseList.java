@@ -45,6 +45,19 @@ public class ExpenseList {
         return totalExpenses;
     }
 
+    public int getMaxDay() {
+        if (expenseList.size() == 0) {
+            return 0;
+        }
+        int maxDay = 0;
+        for (Expense expense: expenseList) {
+            if (expense.getExpenseDayBought() > maxDay) {
+                maxDay = expense.getExpenseDayBought();
+            }
+        }
+        return maxDay;
+    }
+
     public void setBudgetValue(Float budgetValue) {
         this.budgetValue = budgetValue;
     }
