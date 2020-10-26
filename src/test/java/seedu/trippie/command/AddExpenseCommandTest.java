@@ -45,7 +45,6 @@ class AddExpenseCommandTest {
         }
     }
 
-
     @Test
     void addExpenseCommand_validUserInput_parsedCorrectly() throws TrippieInvalidArgumentException, ParseException {
 
@@ -58,8 +57,10 @@ class AddExpenseCommandTest {
             AddExpenseCommand c = new AddExpenseCommand(validUserInput);
             c.execute(ui,trippieData);
         }
+
         List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
         assertEquals(3,expenses.size());
+
     }
 
     private void fileSetup(Storage storage, TrippieData trippieData) throws ParseException {
@@ -69,7 +70,9 @@ class AddExpenseCommandTest {
         newTrip.getExpenseListObject().setForExValue(Float.parseFloat("100"));
         newTrip.getExpenseListObject().setCurrencyAbbreviation("SGD");
         newTrip.getExpenseListObject().setBudgetValue(Float.parseFloat("1000"));
+        int index = trippieData.getTripList().size();
         trippieData.getTripList().add(newTrip);
+        trippieData.setCurrentTripFromIndex(index);
     }
 
 }

@@ -31,7 +31,7 @@ class DeleteExpenseCommandTest {
     }
 
     @Test
-    void deleteExpenditureCommand_validUserInput_parsedCorrectly() throws TrippieInvalidArgumentException,
+    void deleteExpenseCommand_validUserInput_parsedCorrectly() throws TrippieInvalidArgumentException,
             ParseException {
 
         Ui ui = new Ui();
@@ -60,7 +60,8 @@ class DeleteExpenseCommandTest {
         newTrip.getExpenseListObject().setForExValue(Float.parseFloat("100"));
         newTrip.getExpenseListObject().setCurrencyAbbreviation("SGD");
         newTrip.getExpenseListObject().setBudgetValue(Float.parseFloat("1000"));
+        int index = trippieData.getTripList().size();
         trippieData.getTripList().add(newTrip);
-
+        trippieData.setCurrentTripFromIndex(index);
     }
 }
