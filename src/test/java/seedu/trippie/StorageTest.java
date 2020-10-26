@@ -89,4 +89,3 @@ class StorageTest {
         assertEquals(trip.getExpenseListObject().getForExValue(), 0.33, 0.002);
     }
 }
-
