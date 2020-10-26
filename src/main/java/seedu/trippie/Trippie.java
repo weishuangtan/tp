@@ -42,11 +42,15 @@ public class Trippie {
                 c.execute(ui, trippieData);
                 isExit = c.isExit();
             }
-            try {
-                // here current Trip should not output index out of bounds exception.
-                storage.saveTrip(trippieData.getCurrentTrip());
-            } catch (IOException e) {
-                e.printStackTrace();
+
+            if (trippieData.getCurrentTrip() != null) {
+                try {
+                    // here current Trip should not output index out of bounds exception.
+                    storage.saveTrip(trippieData.getCurrentTrip());
+                    trippieData.getCurrentTrip().updateMaxDay();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             storage.saveMasterFile(trippieData);

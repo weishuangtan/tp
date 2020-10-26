@@ -6,6 +6,7 @@ import seedu.trippie.data.Place;
 import seedu.trippie.data.PlaceList;
 import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
+import seedu.trippie.exception.TrippieException;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -30,13 +31,19 @@ public class Storage {
      * @param trippieData a tripList object that would be updated.
      */
     public void setupMasterFile(TrippieData trippieData) {
-        File file = new File(MASTER_FILE_PATH);
-        Scanner readFile = getOrCreateFileScanner(file);
-        loadMasterFile(readFile, trippieData);
+        try {
+            File file = new File(MASTER_FILE_PATH);
+            Scanner readFile = getOrCreateFileScanner(file);
+            loadMasterFile(readFile, trippieData);
 
-        if (trippieData.getTripList().size() > 0) {
-            trippieData.setCurrentTripFromIndex(trippieData.getCurrentTrip().getIndex());
-            trippieData.loadCurrentTripFromFile();
+            if (trippieData.getTripList().size() > 0) {
+                trippieData.setCurrentTripFromIndex(trippieData.getCurrentTrip().getIndex());
+                trippieData.loadCurrentTripFromFile();
+                System.out.println("Loaded most recently opened trip: " + trippieData.getCurrentTrip().getName());
+            }
+        } catch (TrippieException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Could not load master file");
         }
     }
 
@@ -58,7 +65,7 @@ public class Storage {
                 System.out.println("I created a new " + file.getName() + " file for you!");
 
             } else if (!file.createNewFile()) {
-                System.out.println("I found a file in your directory!\nSetting up the file now...");
+                System.out.println("Reading the Trippie files now...");
             }
 
             return new Scanner(file);
@@ -100,7 +107,8 @@ public class Storage {
                     finalFileWriter.write(
                             trip.getIndex() + ","
                                     + trip.getName() + ","
-                                    + df.format(trip.getStartDate()) + "\n"
+                                    + df.format(trip.getStartDate()) + ","
+                                    + trip.getMaxDay() + "\n"
                     );
                 } catch (IOException e) {
                     System.out.println("Error occurred when saving Master File.");
@@ -139,6 +147,7 @@ public class Storage {
 
         assert trip.getExpenseListObject() != null;
         assert trip.getPlaceListObject() != null;
+
         savePlaceList(fileWriter, trip.getPlaceListObject());
         saveExpenseList(fileWriter, trip.getExpenseListObject());
 
@@ -210,9 +219,15 @@ public class Storage {
     }
 
     public Trip loadTripFromFile(Trip trip) {
-        File file = new File(MASTER_DIRECTORY + File.separator + trip.getName() + FILE_EXTENSION);
-        Scanner fileScanner = getOrCreateFileScanner(file);
-        return loadTrip(fileScanner, trip);
+        try {
+            File file = new File(MASTER_DIRECTORY + File.separator + trip.getName() + FILE_EXTENSION);
+            Scanner fileScanner = getOrCreateFileScanner(file);
+            return loadTrip(fileScanner, trip);
+        } catch (TrippieException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Could not load trip file");
+            return null;
+        }
     }
 
     /**
@@ -223,7 +238,7 @@ public class Storage {
      * @param trip A trip object to search for
      * @return A trip from the file contents
      */
-    public Trip loadTrip(Scanner fileScanner, Trip trip) {
+    public Trip loadTrip(Scanner fileScanner, Trip trip) throws TrippieException {
 
         Trip newTrip = new Trip(trip.getIndex(), trip.getName(), trip.getStartDate());
 
@@ -288,7 +303,7 @@ public class Storage {
         return Float.parseFloat(forExString);
     }
 
-    public void loadMasterFile(Scanner readFile, TrippieData trippieData) {
+    public void loadMasterFile(Scanner readFile, TrippieData trippieData) throws TrippieException {
         assert trippieData != null;
         assert readFile != null;
 
@@ -306,18 +321,20 @@ public class Storage {
                 continue;
             }
             String[] parameters = line.split(",");
-            assert parameters.length == 3;
+            assert parameters.length == 4;
 
             try {
                 parsedTripList.add(
                         new Trip(
                                 Integer.parseInt(parameters[0]),
                                 parameters[1],
-                                df.parse(parameters[2])
+                                df.parse(parameters[2]),
+                                Integer.parseInt(parameters[3])
                         )
                 );
             } catch (ParseException e) {
                 e.printStackTrace();
+                throw new TrippieException("Master file corrupted.");
             }
         }
 

@@ -16,7 +16,7 @@ load trip
 1
 list /p
 load trip
-0
+1
 add /n Apple MBS /d 3 /t 1200 to 1400
 list /p
 add /n nus and ntu /d 3 /t 1200 to 1400
@@ -29,10 +29,14 @@ add /n ntu /d 2 /t 0700 to 0800
 list /p
 add /n nus Soc /d 5 /t 1200 to 1400
 list /p
+load trip
+2
 buy /i ice cream /c 8.21 /d 1
 list /e
 help
 buy /i coconut /c 5.00 /d 2
 buy /i bag /c 50.30 /d 3
+load trip
+2
 budget 300
 exit

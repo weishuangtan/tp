@@ -12,6 +12,7 @@ public class Trip {
     private Date startDate;
     private ExpenseList expenseList;
     private PlaceList placeList;
+    private int maxDay;
 
     public Trip() {
         this.expenseList = new ExpenseList();
@@ -34,6 +35,11 @@ public class Trip {
         this.startDate = startDate;
         this.expenseList = new ExpenseList();
         this.placeList = new PlaceList();
+    }
+
+    public Trip(int index, String name, Date startDate, int maxDay) throws TrippieException {
+        this(index, name, startDate);
+        this.maxDay = maxDay;
     }
 
     public ExpenseList getExpenseListObject() {
@@ -64,8 +70,12 @@ public class Trip {
         return startDate;
     }
 
+    public void updateMaxDay() {
+        maxDay = Integer.max(placeList.getMaxDay(), expenseList.getMaxDay());
+    }
+
     public int getMaxDay() {
-        return Integer.max(placeList.getMaxDay(), expenseList.getMaxDay());
+        return maxDay;
     }
 
     public String toString() {

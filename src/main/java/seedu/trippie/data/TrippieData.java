@@ -1,6 +1,7 @@
 package seedu.trippie.data;
 
 import seedu.trippie.Storage;
+import seedu.trippie.exception.TrippieException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class TrippieData {
             boolean plural = trip.getMaxDay() != 1;
             String dayWord = plural ? "Days" : "Day";
             list = list.concat(
-                    trip.getIndex() + ". " + trip.getMaxDay() + " " + dayWord + " - " + trip.getName() + "\n"
+                    (trip.getIndex() + 1) + ". " + trip.getMaxDay() + " " + dayWord + " - " + trip.getName() + "\n"
             );
         }
 

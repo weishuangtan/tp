@@ -13,7 +13,6 @@ I created a new trippie.txt file for you!
 Please create a new trip by entering 'new trip'
 >> _________________________________________________________________________
 Invalid Command! Type "help" to view the commands available!
-Failed to save trip
 _________________________________________________________________________
 >> _________________________________________________________________________
 Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR): Enter your budget for the trip (in SGD):Added the trip 0 Wonderful Singapore 01-01-2023
@@ -26,22 +25,20 @@ Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter t
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
-0. 1 Day - Wonderful Singapore
-1. 1 Day - Amazing Bali
+1. 0 Days - Wonderful Singapore
+2. 0 Days - Amazing Bali
 
-Which one do you want to load? Enter the index:I found a file in your directory!
-Setting up the file now...
+Which one do you want to load? Enter the index:Reading the Trippie files now...
 _________________________________________________________________________
 >> _________________________________________________________________________
 There is currently nothing in your place list. Why not add one?
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
-0. 1 Day - Wonderful Singapore
-1. 1 Day - Amazing Bali
+1. 0 Days - Wonderful Singapore
+2. 0 Days - Amazing Bali
 
-Which one do you want to load? Enter the index:I found a file in your directory!
-Setting up the file now...
+Which one do you want to load? Enter the index:Reading the Trippie files now...
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it. I've added this place:
@@ -113,17 +110,24 @@ DAY 5: (2023-01-05)
 [5] 1200 - 1400 nus Soc
 _________________________________________________________________________
 >> _________________________________________________________________________
+Here are your existing trips.
+1. 5 Days - Wonderful Singapore
+2. 0 Days - Amazing Bali
+
+Which one do you want to load? Enter the index:Reading the Trippie files now...
+_________________________________________________________________________
+>> _________________________________________________________________________
 Got it! I've added the following item: Day 1: ice cream - $8.21
 Now you have 1 item in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
-Total budget: $1407.59 USD (999.00 SGD)
+Total budget: $1230.04 IDR (1000029.06 SGD)
 Expense List:
 [1] Day 1: ice cream - $8.21
-Your current total spending is $8.21 USD (5.83 SGD)
-Your current remaining budget is $1399.38 USD (993.17 SGD)
+Your current total spending is $8.21 IDR (6674.80 SGD)
+Your current remaining budget is $1221.83 IDR (993354.25 SGD)
 You are still spending within your budget.
-[=---------] 0.6%
+[=---------] 0.7%
 _________________________________________________________________________
 >> _________________________________________________________________________
 Welcome to Trippie! A one-stop app to plan any of your upcoming trips!
@@ -177,6 +181,13 @@ _________________________________________________________________________
 >> _________________________________________________________________________
 Got it! I've added the following item: Day 3: bag - $50.30
 Now you have 3 items in the list.
+_________________________________________________________________________
+>> _________________________________________________________________________
+Here are your existing trips.
+1. 5 Days - Wonderful Singapore
+2. 3 Days - Amazing Bali
+
+Which one do you want to load? Enter the index:Reading the Trippie files now...
 _________________________________________________________________________
 >> _________________________________________________________________________
 Successfully set your total budget to 300.00
