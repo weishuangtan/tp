@@ -19,8 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ListPlacesCommandTest {
 
     private static final String LIST_IS_EMPTY = "There is currently nothing in your place list. Why not add one?";
-    private final String[] validAddUserInputs = {"add /n Marina Bay Sands /d 2 /t 1000 to 1200",
-            "add /n Changi Airport /d 1 /t 1900 to 2000", "add /n Bugis Junction /d 3 /t 1100 to 1400"
+    private final String[] validAddUserInputs = {
+        "add /n Marina Bay Sands /d 2 /t 1000 to 1200",
+        "add /n Changi Airport /d 1 /t 1900 to 2000",
+        "add /n Bugis Junction /d 3 /t 1100 to 1400"
     };
 
     @Test
