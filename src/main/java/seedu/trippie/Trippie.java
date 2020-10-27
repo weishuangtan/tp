@@ -1,6 +1,7 @@
 package seedu.trippie;
 
 import seedu.trippie.command.Command;
+import seedu.trippie.command.ExitCommand;
 import seedu.trippie.command.NewTripCommand;
 import seedu.trippie.data.TrippieData;
 
@@ -39,7 +40,7 @@ public class Trippie {
             Command c = parseCommand();
 
             if (isFirstRun) {
-                if (!(c instanceof NewTripCommand)) {
+                if (!(c instanceof NewTripCommand) && !(c instanceof ExitCommand)) {
                     c = promptNewTripCommand();
                 }
                 isFirstRun = false;
