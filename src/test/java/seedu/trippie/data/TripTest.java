@@ -74,12 +74,4 @@ class TripTest {
         trip.setPlaceList(placeList);
         assertEquals(trip.getPlaceListObject(), placeList);
     }
-
-    @Test
-    void getMaxDay() {
-    }
-
-    @Test
-    void testToString() {
-    }
 }

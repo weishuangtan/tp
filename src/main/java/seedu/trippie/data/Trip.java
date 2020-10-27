@@ -25,7 +25,7 @@ public class Trip {
             throw new TrippieException("Index out of bounds");
         }
 
-        if (name.length() == 0) {
+        if (name.isEmpty()) {
             throw new TrippieException("Trip name should not be empty");
         }
 
