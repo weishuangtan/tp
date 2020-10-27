@@ -1,12 +1,21 @@
 # Testing Guide
 
-## Table of Content
+<center>
 
-## Introduction
+![Trippie Logo](https://i.imgur.com/jSwGL7O.png)
+
+</center>
+
+## Table of Content
+* [1.0 Introduction](#10-Introduction)
+* [2.0 Running tests](#20-Running-tests)
+* [3.0 Types of tests](#30-Types-of-tests)
+
+## 1.0 Introduction
 
 The following content entails a list of tests to aid you in testing the application.
 
-## Running tests
+## 2.0 Running tests
 
 There are 2 methods to run tests on the Trippie programme.
 - Method 1: Using IntelliJ JUnit test runner
@@ -17,7 +26,7 @@ There are 2 methods to run tests on the Trippie programme.
     - `./gradlew clean test` for Mac and Linux
 - Read [this Gradle Tutorial from the se-edu/guides](https://se-education.org/guides/tutorials/gradle.html) to learn more about using Gradle.
 
-## Types of tests
+## 3.0 Types of tests
 This project has three types of tests:
 1. Unit tests targeting the lowest level methods/classes.
 eg. `src.test.java.seedu.trippie.command.CalculateCurrencyCommandTest`.
