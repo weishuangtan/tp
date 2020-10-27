@@ -341,8 +341,6 @@ public class Storage {
         trippieData.setTripList(parsedTripList);
         if (trippieData.getTripList().size() > 0) {
             System.out.println("Found these trips in your computer \n" + trippieData.list());
-        } else {
-            System.out.println("Please create a new trip by entering 'new trip'");
         }
     }
 }

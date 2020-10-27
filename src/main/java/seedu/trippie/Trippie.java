@@ -1,6 +1,7 @@
 package seedu.trippie;
 
 import seedu.trippie.command.Command;
+import seedu.trippie.command.NewTripCommand;
 import seedu.trippie.data.TrippieData;
 
 import java.io.IOException;
@@ -15,7 +16,6 @@ public class Trippie {
         ui = new Ui();
         storage = new Storage();
         trippieData = new TrippieData(storage);
-        isFirstRun = false;
     }
 
     public static void main(String[] args) {
@@ -28,20 +28,24 @@ public class Trippie {
 
         boolean isExit = false;
 
+        if (trippieData.getTripList().isEmpty()) {
+            System.out.println("Please create a new trip first by entering the command 'new trip'!");
+            isFirstRun = true;
+        }
+
+
         while (!isExit) {
+
+            Command c = parseCommand();
+
             if (isFirstRun) {
-                System.out.println("Please create a new trip first by entering the command 'new trip'!");
+                if (!(c instanceof NewTripCommand)) {
+                    c = promptNewTripCommand();
+                }
                 isFirstRun = false;
             }
 
-
-            String fullCommand = ui.readCommand();
-            ui.printLine();
-            Command c = Parser.parse(fullCommand);
-            if (c != null) {
-                c.execute(ui, trippieData);
-                isExit = c.isExit();
-            }
+            isExit = executeCommand(c);
 
             if (trippieData.getCurrentTrip() != null) {
                 try {
@@ -58,5 +62,26 @@ public class Trippie {
         }
     }
 
+    private Command parseCommand() {
+        String fullCommand = ui.readCommand();
+        ui.printLine();
+        return Parser.parse(fullCommand);
+    }
 
+    private boolean executeCommand(Command c) {
+        if (c != null) {
+            c.execute(ui, trippieData);
+            return c.isExit();
+        }
+        return false;
+    }
+
+    private Command promptNewTripCommand() {
+        Command c;
+        do {
+            System.out.println("Please create a new trip first by entering the command 'new trip'!");
+            c = parseCommand();
+        } while (isFirstRun && !(c instanceof NewTripCommand));
+        return c;
+    }
 }

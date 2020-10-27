@@ -10,10 +10,10 @@ Welcome to
 _________________________________________________________________________
 I can't find a file in your directory :(
 I created a new trippie.txt file for you!
-Please create a new trip by entering 'new trip'
+Please create a new trip first by entering the command 'new trip'!
 >> _________________________________________________________________________
 Invalid Command! Type "help" to view the commands available!
-_________________________________________________________________________
+Please create a new trip first by entering the command 'new trip'!
 >> _________________________________________________________________________
 Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR): Enter your budget for the trip (in SGD):Added the trip 0 Wonderful Singapore 01-01-2023
 _________________________________________________________________________
