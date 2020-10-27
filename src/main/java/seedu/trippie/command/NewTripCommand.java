@@ -17,11 +17,18 @@ public class NewTripCommand extends Command {
     private boolean isFilenameValid(String file) {
         Pattern p = Pattern.compile("[<>:\"/\\\\|?*]");
 
-        if (p.matcher(file).find()) {
-            return false;
-        } else {
-            return true;
+        return !p.matcher(file).find();
+    }
+
+    // Implemented with reference to
+    // https://www.rgagnon.com/javadetails/java-check-if-a-filename-is-valid.html
+    private boolean doesTripNameExist(TrippieData trippieData, String name) {
+        for (Trip trip: trippieData.getTripList()) {
+            if (trip.getName().equals(name)) {
+                return true;
+            }
         }
+        return false;
     }
 
     public NewTripCommand() {
@@ -40,7 +47,10 @@ public class NewTripCommand extends Command {
                 name = ui.getLine();
 
                 if (!isFilenameValid(name)) {
-                    System.out.println("New trip should not contain invalid characters like <>:\"/\\|?*");
+                    System.out.println("New trip should not contain invalid characters like <>:\"/\\|?*!");
+                    name = null;
+                } else if (doesTripNameExist(trippieData, name)) {
+                    System.out.println("A trip with that name already exists!");
                     name = null;
                 }
 
@@ -78,13 +88,13 @@ public class NewTripCommand extends Command {
                     }
 
                 } catch (NumberFormatException e) {
-                    System.out.println("Give a valid exchange rate (in decimals)");
+                    System.out.println("Give a valid exchange rate (in decimals)!");
                 }
             } while (forEx == null);
 
 
             // Get currency abbreviation
-            String currencyAbbreviation = null;
+            String currencyAbbreviation;
             do {
                 System.out.print("Enter the foreign currency abbreviation (eg. MYR):");
                 currencyAbbreviation = ui.getLine();
@@ -104,7 +114,7 @@ public class NewTripCommand extends Command {
                     }
 
                 } catch (NumberFormatException e) {
-                    System.out.println("Give a valid budget value (in decimals)");
+                    System.out.println("Give a valid budget value (in decimals)!");
                 }
             } while (budget == null);
 
