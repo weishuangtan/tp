@@ -5,6 +5,7 @@ import seedu.trippie.Storage;
 import seedu.trippie.Ui;
 import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
+import seedu.trippie.exception.TrippieException;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.io.ByteArrayOutputStream;
@@ -22,7 +23,7 @@ class SearchCommandTest {
 
 
     @Test
-    void searchCommand_validUserInput_emptyList() throws TrippieInvalidArgumentException, ParseException {
+    void searchCommand_validUserInput_emptyList() throws TrippieException, ParseException {
         Ui ui = new Ui();
         Storage storage = new Storage();
         TrippieData trippieData = new TrippieData(storage);
@@ -41,7 +42,7 @@ class SearchCommandTest {
     }
 
     @Test
-    void searchCommand_validUserInput_noPlaceFound() throws ParseException, TrippieInvalidArgumentException {
+    void searchCommand_validUserInput_noPlaceFound() throws ParseException, TrippieException {
         Ui ui = new Ui();
         Storage storage = new Storage();
         TrippieData trippieData = new TrippieData(storage);
@@ -61,7 +62,7 @@ class SearchCommandTest {
     }
 
     @Test
-    void searchCommand_validUserInput_placeFound() throws TrippieInvalidArgumentException, ParseException {
+    void searchCommand_validUserInput_placeFound() throws TrippieException, ParseException {
         Ui ui = new Ui();
         Storage storage = new Storage();
         TrippieData trippieData = new TrippieData(storage);
@@ -94,8 +95,7 @@ class SearchCommandTest {
         assertFalse(c.isExit());
     }
 
-    private void fileSetup(Storage storage, TrippieData trippieData) throws ParseException {
-        storage.setupMasterFile(trippieData);
+    private void fileSetup(Storage storage, TrippieData trippieData) throws ParseException, TrippieException {
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         Trip newTrip = new Trip(trippieData.getTripList().size(), "Singapore", df.parse("11-11-2020"));
         newTrip.getExpenseListObject().setForExValue(Float.parseFloat("100"));
