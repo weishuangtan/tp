@@ -15,13 +15,13 @@ Please create a new trip first by entering the command 'new trip'!
 Invalid Command! Type "help" to view the commands available!
 Please create a new trip first by entering the command 'new trip'!
 >> _________________________________________________________________________
-Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR): Enter your budget for the trip (in SGD):Added the trip 0 Wonderful Singapore 01-01-2023
+Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR):Enter your budget for the trip (in SGD):Added the trip 0 Wonderful Singapore 01-01-2023
 _________________________________________________________________________
 >> _________________________________________________________________________
 There is currently nothing in your place list. Why not add one?
 _________________________________________________________________________
 >> _________________________________________________________________________
-Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR): Enter your budget for the trip (in SGD):Added the trip 1 Amazing Bali 03-04-2021
+Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR):Enter your budget for the trip (in SGD):Added the trip 1 Amazing Bali 03-04-2021
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
