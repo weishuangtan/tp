@@ -130,45 +130,54 @@ Welcome to Trippie! A one-stop app to plan any of your upcoming trips!
 Here is a list of commands which you can use to navigate your way
 through Trippie!
 
-[new trip]|   Creates a new trip. You will be prompted to enter some details
-          |   Format: new trip
-__________|______________________________________________________________
-[help]    |   Shows a concise list of commands available
-          |   Format: help
-__________|______________________________________________________________
-[add]     |   Adds a place to your trip
-          |   Format: add /n PLACE_NAME /d DAY /t TIME
-          |   Example: add /n Dinner at Marina Bay Sands /d 2 /t 1800 to 2000
-__________|______________________________________________________________
-[list]    |   Displays all places in a timetable format
-(places)  |   Format: list /p [/d DAY]
-          |   list /p /d 2
-__________|______________________________________________________________
-[search]  |   Displays all places that includes the search keyword
-(places)  |   Format: search KEYWORD
-          |   search Dinner
-__________|______________________________________________________________
-[delete]  |   Deletes the specified place from the list
-(place)   |   Format: delete /p PLACE_INDEX
-          |   Example: delete /p 1
-__________|______________________________________________________________
-[budget]  |   Edits a budget to keep track of in expenditure list
-          |   Format: budget AMOUNT
-          |   Example: budget 100
-__________|______________________________________________________________
-[buy]     |   Adds an item with its final cost into an expenditure list
-          |   Format: buy /i ITEM_NAME /c FINAL_COST /d DAY_NUMBER
-          |   Example: buy /i R&B Brown Sugar /c 3.00 /d 2
-__________|______________________________________________________________
-[list]    |   Displays all the items bought in the expenditure list
-(expenses)|   Format: list /e
-          |
-[delete]  |   Deletes the specified place from the list
-(expense) |   Format: delete /e EXPENSE_INDEX
-          |   Example: delete /e 1
-__________|______________________________________________________________
-[exit]    |   Exit the program and auto-saves
-          |   Format: exit
+[new trip] |   Creates a new trip. You will be prompted to enter some details
+           |   Format: new trip
+___________|______________________________________________________________
+[load trip]|   Loads a specific trip from the saved list
+           |   Format: load trip
+___________|______________________________________________________________
+[help]     |   Shows a concise list of commands available
+           |   Format: help
+___________|______________________________________________________________
+[add]      |   Adds a place to your trip
+           |   Format: add /n PLACE_NAME /d DAY /t TIME
+           |   Example: add /n Dinner at Marina Bay Sands /d 2 /t 1800 to 2000
+___________|______________________________________________________________
+[list]     |   Displays all places in a timetable format
+(places)   |   Format: list /p [/d DAY]
+           |   list /p /d 2
+___________|______________________________________________________________
+[search]   |   Displays all places that includes the search keyword
+(places)   |   Format: search KEYWORD
+           |   search Dinner
+___________|______________________________________________________________
+[delete]   |   Deletes the specified place from the list
+(place)    |   Format: delete /p PLACE_INDEX
+           |   Example: delete /p 1
+___________|______________________________________________________________
+[budget]   |   Edits a budget to keep track of in expenditure list
+           |   Format: budget AMOUNT
+           |   Example: budget 100
+___________|______________________________________________________________
+[buy]      |   Adds an item with its final cost into an expenditure list
+           |   Format: buy /i ITEM_NAME /c FINAL_COST /d DAY_NUMBER
+           |   Example: buy /i R&B Brown Sugar /c 3.00 /d 2
+___________|______________________________________________________________
+[list]     |   Displays all the items bought in the expenditure list
+(expenses) |   Format: list /e
+___________|______________________________________________________________
+[delete]   |   Deletes the specified place from the list
+(expense)  |   Format: delete /e EXPENSE_INDEX
+           |   Example: delete /e 1
+___________|______________________________________________________________
+[convert   |   Converts an amount to the requested currency
+/to]       |   Format: convert /toSGD AMOUNT
+           |   Format: convert /toSGD 500
+           |   Format: convert /toFOR AMOUNT
+           |   Format: convert /toFOR 500
+___________|______________________________________________________________
+[exit]     |   Exit the program and auto-saves
+           |   Format: exit
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it! I've added the following item: Day 2: coconut - $5.00
