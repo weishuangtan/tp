@@ -4,6 +4,7 @@ import seedu.trippie.Ui;
 import seedu.trippie.data.Currency;
 import seedu.trippie.data.CurrencyType;
 import seedu.trippie.data.TrippieData;
+import seedu.trippie.exception.TrippieExceedBudgetException;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 
@@ -46,9 +47,17 @@ public class CalculateCurrencyCommand extends Command {
         }
     }
 
-    public Float extractCurrencyAmount(String userInput) {
-        String withoutChoice = userInput.split(" ")[2];
-        return Float.parseFloat(withoutChoice);
+    public Float extractCurrencyAmount(String userInput) throws TrippieInvalidArgumentException {
+        try {
+            if (userInput.split(" ")[2] == null) { //account for missing input
+                throw new ArrayIndexOutOfBoundsException();
+            } else {
+                String withoutChoice = userInput.split(" ")[2];
+                return Float.parseFloat(withoutChoice);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new TrippieInvalidArgumentException(FORMAT_ERROR_MESSAGE);
+        }
     }
 
     @Override

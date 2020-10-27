@@ -1,48 +1,108 @@
 # User Guide
 
-## Introduction
+<center>
 
-Trippie is a command-line app to plan any of your upcoming trips. It is tailored to match the needs of student travellers. Whether you are planning for your summer holiday, or a leisure trip on your student exchange program, Trippie got you covered! 
+![Trippie Logo](https://i.imgur.com/jSwGL7O.png)
 
-* [Quick Start](#quick-start)
-* [Features](#features)
-    * [Create new trip: `new trip`](#creating-new-trip-new-trip)
-    * [View help: `help`](#viewing-help-help)
-    * [Add a place: `add`](#adding-a-place-add)
-    * [List all places: `list /p`](#listing-all-places-list-p)
-    * [Search for place: `search`](#searching-for-place-search)
-    * [Delete place: `delete /p`](#deleting-place-delete-p)
-    * [Edit budget: `budget`](#editing-budget-budget)
-    * [Add an expense: `buy`](#adding-an-expense-buy)
-    * [List all expenses: `list /e`](#listing-all-expenses-list-e)
-    * [Delete an expense: `delete /e`](#deleting-an-expense-delete-e)
-    * [Convert Currency: `convert /to`](#convert-currency-convert-to)
-    * [Exit the Trippie: `exit`](#exiting-the-trippie-exit)
-    * [Save the data](#saving-the-data)
-* [Command Summary](#command-summary)
+</center>
 
-## Quick Start
+## Table of Contents (Felix)
+Below is a list of contents that is included in this document.
+* [1.0 Introduction](#10-Introduction-Shawn-Tan)
+* [2.0 About this document](#20-About-this-document-Felix)
+* [3.0 How to use](#30-How-to-use-Ivander)
+* [4.0 Quick Start](#40-Quick-Start-Ivander)
+* [5.0 Features](#50-Features-Shawn-Tan)
+    * [5.1 Creating a new trip: **`new trip`**](#51-Creating-a-new-trip-new-trip-Ivander)
+    * [5.2 Loading an existing trip: **`load trip`**](#52-Loading-an-existing-trip-load-trip-Ivander)
+    * [5.3 Deleting a trip: **`delete trip`**](#53-Deleting-a-trip-delete-trip-Proposed-Ivander)
+    * [5.4 Viewing help: **`help`**](#54-Viewing-help-help-Felix)
+    * [5.5 Adding a place: **`add`**](#55-Adding-a-place-add-Felix)
+    * [5.6 Listing all places: **`list /p`**](#56-Listing-all-places-list-p-Felix)
+    * [5.7 Searching for place: **`search`**](#57-Searching-for-place-search-Wei-Shuang)
+    * [5.8 Deleting place: **`delete /p`**](#58-Deleting-place-delete-p-Wei-Shuang)
+    * [5.9 Editing budget: **`budget`**](#59-Editing-budget-budget-Wei-Shuang)
+    * [5.10 Adding an expense: **`buy`**](#510-Adding-an-expense-buy-Shawn-Tan)
+    * [5.11 Listing all expenses: **`list /e`**](#511-Listing-all-expenses-list-e-Shawn-Tan)
+    * [5.12 Deleting an expense: **`delete /e`**](#512-Deleting-an-expense-delete-e-Shawn-Tan)
+    * [5.13 Converting Currency: **`convert /to`**](#513-Convert-currency-convert-to-Kian-En)
+        * [5.13.1 Convert to Local Currency (SGD): **`convert /toSGD`**](#5131-Convert-to-Local-Currency-SGD)
+        * [5.13.2 Convert to Foreign Currency (FOR): **`convert /toFROM`**](#5132-Convert-to-Foreign-Currency-FOR)
+    * [5.14 Exiting the Trippie: **`exit`**](#514-Exiting-the-Trippie-exit-Kian-En)
+    * [5.15 Saving the data](#515-Saving-the-data-Kian-En)
+* [6.0 FAQ](#60-FAQ-Kian-En)
+* [7.0 Command Summary](#70-Command-Summary-Wei-Shuang)
 
-1. Verify that you have Java 11 or above installed in your computer.
-2. Download the latest `trippie.jar`.
+## 1.0 Introduction (Shawn Tan)
+Trippie is a command-line app to plan any of your upcoming trips. It is tailored to match the needs of student travellers. Whether you are planning for your summer holiday, or a leisure trip on your student exchange program, Trippie got you covered!
+
+<center>
+
+![Screenshot of Trippie](https://i.imgur.com/29TB8E8.png)
+
+<center><i>A screenshot of Trippie's command line interface</i></center>
+
+</center>
+
+## 2.0 About this document (Felix)
+This section helps you in using the various features available in Trippie.
+
+Note the following symbols and formatting used in this document:
+<div markdown="span" class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i>
+This box indicates important information for you to take note of.
+</div>
+<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i>
+This box indicates notable warnings that you should be aware of.
+</div>
+
+`command` : This grey highlight shows command line input or output
+```
+This block style shows the command line output of Trippie
+```
+
+## 3.0 How to use (Ivander)
+Begin with the [Quick Start](#40-Quick-Start-Ivander) section if it is your first time using Trippie. All the commands are listed out in the table of contents. To find out the details on each command, just click and follow the links. Please check the [FAQ](#60-FAQ-Kian-En) section for frequently encountered problems.
+
+
+## 4.0 Quick Start (Ivander)
+Written below are the steps to be taken to set up the application:
+1. Verify that you have Java 11 or above installed in your computer by running `java --version`.
+2. Download the latest `trippie.jar` from [here](https://github.com/AY2021S1-CS2113T-W11-2/tp/releases/tag/v2.0).
 3. Copy the file to a folder where you want to run it from.
-4. Using the terminal, navigate to the path of `trippie.jar`.
-5. Run `java -jar trippie.jar`
-6. If the setup is correct, you should see a welcome message. Then, it is now ready to go.
+4. Using a command line tool, navigate to the path of `trippie.jar`, by entering `cd path/to/file`
+    * If your operating system is Windows, use Command Prompt.
+    * If your operating system is MacOS, use Terminal.
+6. Enter `java -jar trippie.jar` in your command line tool and press enter.
+7. If the setup is correct, you should see a welcome message. Then, it is now ready to go.
+8. Create your first trip by entering [`new trip`](#51-Creating-a-new-trip-new-trip-Ivander) to the command line. Then, enter your trip name, start date, exhange rate, currency, and budget.
+9. Add your first place using [`add`](#55-Adding-a-place-add-Felix). Then buy your first item with [`buy`](#510-Adding-an-expense-buy-Shawn-Tan).
+10. Try listing your places by entering `list /p` and your expenses with `list /e`.
+11. `exit` and check your folder to check your Trippie files!
 
-## Features 
 
-### Creating new trip: `new trip`
-Creates a new trip. You will be prompted to enter some details (i.e. name, start date, exchange rate, and budget) on
- your
- new trip. This allows you to organize multiple trips conveniently.
+## 5.0 Features (Shawn Tan)
+Written below are the various features available in Trippie.
+<div markdown="span" class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Notes on command format:</b> 
 
-Format: `new trip`
+* The **`bolded syntax`** represents the key command.
+* Words in `CAPITAL LETTERS` are arguments that you need to supply. 
+    * e.g. **`add`**`/n PLACE_NAME /d DAY /t TIME`
+    * `PLACE_NAME`, `DAY`, `TIME` are arguments needed accordingly.
+* Items in `[square brackets]` are optional. 
+    * e.g. **`list`**`/p [/d DAY]`
+</div>
 
-Example: `new trip`
+
+### 5.1 Creating a new trip: `new trip` (Ivander)
+Creates a new trip. You will be prompted to enter some details (i.e. name, start date, exchange rate, and budget) after entering this command. Trippie allows you to organize multiple trips, thus you can use this command to create many trips conveniently.
+
+Format: **`new trip`**
+
+Example: **`new trip`**
+
+<br/>
 
 Expected Output:
-
 ```
 Enter your new trip's name: Summer Exchange Peru
 Enter your new trip's start date (dd-mm-yyyy):12-12-2020
@@ -51,115 +111,248 @@ Enter the foreign currency abbreviation (eg. MYR): SOL
 Enter your budget for the trip (in SGD):500
 Added the trip 4  Summer Exchange Peru 12-12-2020
 ```
-### Viewing help: `help`
-Shows a concise list of commands available. 
 
-Format: `help`
+<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning</b> 
 
-### Adding a place: `add`
-Adds a place to your trip.
+* Enter your trip name without slashes i.e. "\\" or "/".
+* Input your start date with the given format.
+* Currency abbreviation should only be 3 characters.
+* Budget is accurate only to 2 decimal places.
 
-Format: `add /n PLACE_NAME /d DAY /t TIME`
+</div>
+
+---
+
+### 5.2 Loading an existing trip: `load trip` (Ivander)
+Loads a specific trip from the list of saved trips in `trippie_data`. Trippie will prompt you to enter the index of your preferred trip and sets it as the current trip. Before entering this command, Trippie will automatically load your last opened trip.
+
+Format: **`load trip`**
+
+Example: **`load trip`**
+
+<br/>
+
+Expected output:
+
+```
+Here are your existing trips.
+1. 1 Day - Chigago Trip
+2. 3 Days - Jakarta Festival
+3. 5 Days - Wonderful Singapore
+4. 6 Days - Malaysia KL
+
+Which one do you want to load? Enter the index:3
+I found a file in your directory!
+Setting up the file now...
+```
+
+
+
+<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning</b> 
+
+* You need to enter a valid trip index!
+
+</div>
+
+---
+
+### 5.3 Deleting a trip: `delete trip` [Proposed in v2.1] (Ivander)
+
+Deletes a specific trip from the list of saved trip in `trippie_data`. Trippie will prompt you to enter the index of your preferred trip.
+
+Format: **`delete trip`**
+
+Example: **`delete trip`**
+
+<br/>
+
+Expected output:
+```
+Here are your existing trips.
+1. 1 Day - Chigago Trip
+2. 3 Days - Jakarta Festival
+3. 5 Days - Wonderful Singapore
+4. 6 Days - Malaysia KL
+
+Which one do you want to delete? Enter the index:3
+Are you sure you want to permanently remove "Wonderful Singapore"? Enter [Y/N]:Y
+"Wonderful Singapore" has been deleted.
+```
+---
+
+### 5.4 Viewing help: `help` (Felix)
+Shows a concise list of commands available. Think of this as a cheatsheet. If you are new to Trippie, you can take a look of what and how you can utilize each commands via `help`.
+
+Format: **`help`**
+
+Example: **`help`**
+
+<br/>
+
+Expected output:
+```
+[new trip] |   Creates a new trip. You will be prompted to enter some details
+           |   Format: new trip
+___________|______________________________________________________________
+[load trip]|   Loads a specific trip from the saved list
+           |   Format: load trip
+___________|______________________________________________________________
+[delete    |   Deletes a specific trip from the saved list
+trip]      |   Format: delete trip
+___________|______________________________________________________________
+...        |   ...
+...        |   ...
+...        |   ...
+```
+
+---
+### 5.5 Adding a place: `add` (Felix)
+Adds a place to your trip. In the example below, we're adding "Dinner at Marina Bay Sands" as the `PLACE_NAME`, for `DAY` 2, from 1800 to 2000 as the `TIME`.
+
+Format: **`add`**`/n PLACE_NAME /d DAY /t TIME`
 
 * `PLACE_NAME` is the label of the place.
 * `DAY` indicates which day you want to visit the place.
 * `TIME` indicates the time in the 24-hour format. Separate starting time and ending time with `to`.
 
-Example:
-`add /n Dinner at Marina Bay Sands /d 2 /t 1800 to 2000`
+Example: **`add`**`/n Dinner at Marina Bay Sands /d 2 /t 1800 to 2000`
+
+<br/>
 
 Expected output:
 ```
 Got it. I've added this place:
-1800 - 2000 Dinner at Marina Bay Sands
+1800 - 2000 Dinner at Marina Bay 
+Now you have 1 place in the list.
 ```
 
-### Listing all places: `list /p`
-Displays all places in a timetable format.
+<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning</b> 
 
-Format: `list /p [/d DAY]`
+* The tags should be in the correct order.
+* Use 24-hour format for time.
+
+</div>
+
+
+---
+
+### 5.6 Listing all places: `list /p` (Felix)
+Displays all places in a timetable format. If you specify a `DAY`, only places on the specified day will be displayed. In the example below, we are viewing the full timetable for the trip.
+
+Format: **`list /p`**`[/d DAY]`
 
 * `DAY` indicates the specific day which timetable should display.
 * If `[/d DAY]` is not specified, displays the full timetable.
 
-Example:
-`list /p`
+Example: **`list /p`**
+
+<br/>
 
 Expected output:
 ```
 DAY 2: (2020-10-21)
-1. 1800 - 2000 Dinner at Marina Bay Sands
+[1] 1800 - 2000 Dinner at Marina Bay Sands
 ```
 
-### Searching for place: `search`
-Displays all places that includes the search keyword. 
+---
 
-Format: `search KEYWORD`
+### 5.7 Searching for place: `search` (Wei Shuang)
+Displays all places that includes the search keyword. In the example below, we are searching for the `KEYWORD` 'Dinner'.
 
-Example:
-`search Dinner`
+Format: **`search`**`KEYWORD`
+
+Example: **`search`**`Dinner`
+
+<br/>
 
 Expected output:
 ```
-Here is the matching place in your list:
+Here is your search result:
 1.1800 - 2000 Dinner at Marina Bay Sands on DAY 2
 ```
 
-### Deleting place: `delete /p`
-Deletes the specified place from the list.
+---
 
-Format: `delete /p PLACE_INDEX`
+### 5.8 Deleting place: `delete /p` (Wei Shuang)
+Deletes the specified place from the list. In the example below, we are deleting "Dinner at Marina Bay Sands" which has the `PLACE_INDEX` of 1.
+
+Format: **`delete /p`**`PLACE_INDEX`
 
 * `PLACE_INDEX` refers to the index of the place that you want to delete.
 
-Example:
-`delete /p 1`
+Example: **`delete /p`**`1`
+
+<br/>
 
 Expected output:
 ```
-Noted. I've removed this place.
+Noted. I've removed this place from the place list.
 1800 - 2000 Dinner at Marina Bay Sands
-There are 0 items in the list.
+Now you have 0 place in the list.
 ```
 
-### Editing budget: `budget`
-Edits a budget to keep track of in expenditure list.
+<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning</b> 
 
-Format: `budget AMOUNT`
+* Refer to the index from `list /p` to delete. Enter a valid place index.
 
-* `AMOUNT` indicates your planned budget to spend for the trip.
+</div>
 
-Example:
-`budget 100`
+---
+
+### 5.9 Editing budget: `budget` (Wei Shuang)
+Edits a budget to keep track of in expenditure list. The budget is stored in the local currency SGD. In the example below, we are setting the total budget to SGD100.
+
+Format: **`budget`**`AMOUNT`
+
+* `AMOUNT` indicates your planned budget to spend for the trip, in SGD.
+
+Example: **`budget`**`100`
+
+<br/>
 
 Expected output:
 ```
 Successfully set your total budget to 100.00
 ```
 
-### Adding an expense: `buy`
-Adds an item with its final cost into an expenditure list.
+<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning</b> 
 
-Format: `buy /i ITEM_NAME /c FINAL_COST /d DAY`
+* Watch out when shrinking your budget.
+
+</div>
+
+
+---
+
+### 5.10 Adding an expense: `buy` (Shawn Tan)
+Adds an item and its final cost in foreign currency into the current trip's expense list. In the example below, we are adding an expense "R&B Brown Sugar" as `ITEM_NAME`, which has the `FINAL_COST` of $3.00, on `DAY` 2.
+
+Format: **`buy`**`/i ITEM_NAME /c FINAL_COST /d DAY`
 
 * `ITEM_NAME` is the label of the item.
 * `FINAL_COST` indicates the cost of the item you purchased.
 * `DAY` indicates the specific day when you bought the item.
 
-Example:
-`buy /i R&B Brown Sugar /c 3.00 /d 2`
+Example: **`buy`**`/i R&B Brown Sugar /c 3.00 /d 2`
+
+<br/>
 
 Expected output:
 ```
 Got it! I've added the following item: Day 2: R&B Brown Sugar - $3.00
-There are 1 items in the list.
+Now you have 1 item in the list.
 ```
 
-### Listing all expenses: `list /e`
-Displays all the items bought in the expenditure list
-and reminds user on their budget limit.
+---
 
-Format: `list /e`
+### 5.11 Listing all expenses: `list /e` (Shawn Tan)
+Displays all the items bought in the expenditure list and reminds you on your budget limit.
+
+Format: **`list /e`**
+
+Example: **`list /e`**
+
+<br/>
 
 Expected output:
 ```
@@ -171,34 +364,63 @@ Your current remaining budget is $1322.00 SOL (498.87 SGD)
 You are still spending within your budget.
 [=---------] 0.2%
 ```
+<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning!</b> 
 
-### Deleting an expense: `delete /e`
-Deletes the specified place from the list.
+* If you were to buy an item that exceeds the total budget, Trippie will send a warning message and recommend you to increase your budget limit.
 
-Format: `delete /p EXPENSE_INDEX`
+</div>
+
+
+Expected output:
+```
+Total budget: $141680.00 SWE (5600.00 SGD)
+Expense List:
+[1] Day 1: glassware - $8000.00
+[2] Day 1: jersey - $19900.50
+[3] Day 1: tissue - $2.00
+[4] Day 2: picture - $200.00
+[5] Day 3: clothes - $2000.00
+[6] Day 5: house - $120000.00
+Your current total spending is $150102.50 SWE (5932.91 SGD)
+WARNING! You have exceeded your initial budget.
+Recommended action: Increase budget limit.
+```
+
+---
+
+### 5.12 Deleting an expense: `delete /e` (Shawn Tan)
+Deletes the specified place from the list. In the example below, we are removing "R&B Brown Sugar", which has the `PLACE_INDEX` of 1.
+
+Format: **`delete /e`**`EXPENSE_INDEX`
 
 * `EXPENSE_INDEX` refers to the index of the expense based on the list that you want to delete.
 
-Example:
-`delete /p 1`
+Example: **`delete /e`**`1`
+
+<br/>
 
 Expected output:
 ```
 Noted. I've removed this item from the expenditure list.
 Day 2: R&B Brown Sugar - $3.00
-There are 0 items in the list.
+Now you have 0 item in the list.
 ```
 
-### Convert currency: `convert /to`
-Converts an amount to the requested currency.
+---
 
-Format: `convert /to[CURRENCY] AMOUNT`
+### 5.13 Convert currency: `convert /to` (Kian En)
+Converts an amount to the requested currency. The requested currency can either be in SGD or the foreign currency specified when creating the trip.
 
-* `CURRENCY` refers to either local currency `SGD` or foreign currency `FOR`.
+#### 5.13.1 Convert to Local Currency (SGD)
+Converts an amount from foreign currency (FOR) to local currency (SGD).
+
+Format: **`convert /toSGD`**`AMOUNT`
+
 * `AMOUNT` refers to the amount to be converted into the preferred currency.
 
-Example:
-`convert /toSGD 500`
+Example: **`convert /toSGD`**`500`
+
+<br/>
 
 Expected output:
 ```
@@ -206,8 +428,16 @@ Processing... Please Wait.
 That amount in your local currency is 188.68 SGD.
 ```
 
-Example:
-`convert /toFOR 500`
+#### 5.13.2 Convert to Foreign Currency (FOR)
+Converts an amount from local currency (SGD) to foreign currency (FOR).
+
+Format: **`convert /toFOR`**`AMOUNT`
+
+* `AMOUNT` refers to the amount to be converted into the preferred currency.
+
+Example: **`convert /toFOR`**`500`
+
+<br/>
 
 Expected output:
 ```
@@ -215,31 +445,61 @@ Processing... Please Wait.
 That amount in your foreign currency is 1325.00 SOL.
 ```
 
-### Exiting the Trippie: `exit`
+---
+
+### 5.14 Exiting the Trippie: `exit` (Kian En)
 Exits the program and auto-saves.
+
+Format: **`exit`**
+
+Example: **`exit`**
+
+<br/>
 
 Expected output:
 ```
 Bye. Hope to see you again soon!
 ```
 
-### Saving the data:
+---
 
-Trippie data are saved in the hard disk automatically.
+### 5.15 Saving the data: (Kian En)
+Trippie data are saved in a folder named `trippie_data` automatically. This folder will be created in the same location as your `trippie.jar`.
 
-## Command Summary
+---
+## 6.0 FAQ (Kian En)
+Below are some Frequently Asked Questions you might have:
+
+**Q:** Will I be able to view my trips after exiting Trippie?
+
+**A:** Yes, Trippie is able to automatically save your trips for your viewing every time.
+
+**Q:** Can I transfer my old Trippie files to another computer?
+
+**A:** Yes, you can copy the `trippie_data` folder to your new computer before running Trippie there.
+
+**Q:** Does Trippie need Internet?
+
+**A:** No, Trippie is fully offline.
+
+<p style="page-break-before: always">
+
+## 7.0 Command Summary (Wei Shuang)
+Below is a summary of all trippie commands. You can check this section if you need a quick reference.
 
 **Action** | **Format, Examples**
 ------------ | -------------
-**new trip**|`new trip`
-**help**|`help`
-**add**|`add /n PLACE_NAME /d DAY /t TIME`<br>e.g., `add /n Dinner at Marina Bay Sands /d 2 /t 1800 to 2000`
-**list /p**|`list /p [/d DAY]` <br>e.g., `list /p`
-**search**|`search KEYWORD` <br>e.g., `search Dinner`
-**delete /p**|`delete /p PLACE_INDEX` <br>e.g., `delete 1`
-**budget**|`budget AMOUNT`<br>e.g., `budget 100`
-**buy**|`buy /i ITEM_NAME /c FINAL_COST /d DAY` <br>e.g., `buy /i R&B Brown Sugar /c 3.00 /d 2`
-**list /e**|`list /e`
-**delete /e**|`delete /p EXPENSE_INDEX` <br>e.g., `delete 1`
-**convert /to**|`convert /toCURRENCY AMOUNT` <br>e.g., `convert /toSGD 500`<br>`convert /toFOR 500`
-**exit**|`exit`
+**`new trip`**|`new trip`
+**`load trip`**|`load trip`
+**`delete trip`**|`delete trip`
+**`help`**|`help`
+**`add`**|`add /n PLACE_NAME /d DAY /t TIME`<br>e.g., `add /n Dinner at Marina Bay Sands /d 2 /t 1800 to 2000`
+**`list /p`**|`list /p [/d DAY]` <br>e.g., `list /p`
+**`search`**|`search KEYWORD` <br>e.g., `search Dinner`
+**`delete /p`**|`delete /p PLACE_INDEX` <br>e.g., `delete 1`
+**`budget`**|`budget AMOUNT`<br>e.g., `budget 100`
+**`buy`**|`buy /i ITEM_NAME /c FINAL_COST /d DAY` <br>e.g., `buy /i R&B Brown Sugar /c 3.00 /d 2`
+**`list /e`**|`list /e`
+**`delete /e`**|`delete /p EXPENSE_INDEX` <br>e.g., `delete 1`
+**`convert /to`**|`convert /toCURRENCY AMOUNT` <br>e.g., `convert /toSGD 500`<br>`convert /toFOR 500`
+**`exit`**|`exit`

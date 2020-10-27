@@ -6,6 +6,7 @@ import seedu.trippie.Ui;
 import seedu.trippie.data.Place;
 import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
+import seedu.trippie.exception.TrippieException;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.text.ParseException;
@@ -33,7 +34,8 @@ class DeletePlaceCommandTest {
     }
 
     @Test
-    void deletePlaceCommand_validUserInput_parsedCorrectly() throws TrippieInvalidArgumentException, ParseException {
+    void deletePlaceCommand_validUserInput_parsedCorrectly() throws TrippieInvalidArgumentException, ParseException,
+            TrippieException {
         Ui ui = new Ui();
         Storage storage = new Storage();
         TrippieData trippieData = new TrippieData(storage);
@@ -53,8 +55,7 @@ class DeletePlaceCommandTest {
 
     }
 
-    private void fileSetup(Storage storage, TrippieData trippieData) throws ParseException {
-        storage.setupMasterFile(trippieData);
+    private void fileSetup(Storage storage, TrippieData trippieData) throws ParseException, TrippieException {
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         Trip newTrip = new Trip(trippieData.getTripList().size(), "Singapore", df.parse("11-11-2020"));
         newTrip.getExpenseListObject().setForExValue(Float.parseFloat("100"));

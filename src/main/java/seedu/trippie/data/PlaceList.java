@@ -23,6 +23,15 @@ public class PlaceList {
     }
 
     public int getMaxDay() {
-        return placeList.get(placeList.size() - 1).getPlaceDay();
+        if (placeList.size() == 0) {
+            return 0;
+        }
+        int maxDay = 0;
+        for (Place place: placeList) {
+            if (place.getPlaceDay() > maxDay) {
+                maxDay = place.getPlaceDay();
+            }
+        }
+        return maxDay;
     }
 }

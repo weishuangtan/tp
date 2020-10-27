@@ -11,6 +11,7 @@ public class ListExpenseCommand extends Command {
 
     private static final String EXCEED_BUDGET_MESSAGE = "WARNING! You have exceeded your initial budget.\n"
             + "Recommended action: Increase budget limit.";
+    private static final String LIST_IS_EMPTY_MESSAGE = "There is currently nothing in your Expense list.";
 
     private static final int BAR_SIZE = 10;
     private static final String SYMBOL_START_BOUNDARY = "[";
@@ -32,7 +33,7 @@ public class ListExpenseCommand extends Command {
         Float exchangeRate = trippieData.getCurrentTrip().getExpenseListObject().getForExValue();
         String currencyAbbreviation = trippieData.getCurrentTrip().getExpenseListObject().getCurrencyAbbreviation();
         if (expenses.isEmpty()) {
-            System.out.println("There is currently nothing in your Expense list.");
+            System.out.println(LIST_IS_EMPTY_MESSAGE);
         } else {
             int listIndex = 1;
 
