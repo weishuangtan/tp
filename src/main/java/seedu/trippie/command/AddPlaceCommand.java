@@ -105,14 +105,20 @@ public class AddPlaceCommand extends Command {
     }
 
     public void sortPlaceList(List<Place> sortedPlaces) {
-        for (int i = 0; i < sortedPlaces.size(); i++) {
-            for (int j = i + 1; j < sortedPlaces.size(); j++) {
+        Boolean swapped = false;
+        for (int i = (sortedPlaces.size() - 1); i >= 0; i--) {
+            for (int j = i - 1; j >= 0; j--) {
                 if (sortedPlaces.get(i).getPlaceDay() == sortedPlaces.get(j).getPlaceDay()
-                        && sortedPlaces.get(i).getPlaceStartTime() > sortedPlaces.get(j).getPlaceStartTime()) {
+                        && sortedPlaces.get(i).getPlaceStartTime() < sortedPlaces.get(j).getPlaceStartTime()) {
                     Collections.swap(sortedPlaces, i, j);
-                } else if (sortedPlaces.get(i).getPlaceDay() > sortedPlaces.get(j).getPlaceDay()) {
+                    swapped = true;
+                } else if (sortedPlaces.get(i).getPlaceDay() < sortedPlaces.get(j).getPlaceDay()) {
                     Collections.swap(sortedPlaces, i, j);
+                    swapped = true;
                 }
+            }
+            if (swapped == false) {
+                break;
             }
         }
     }
