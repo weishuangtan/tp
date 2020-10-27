@@ -5,6 +5,7 @@ import seedu.trippie.Storage;
 import seedu.trippie.Ui;
 import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
+import seedu.trippie.exception.TrippieException;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.io.ByteArrayOutputStream;
@@ -27,7 +28,7 @@ class ListExpenseCommandTest {
     private final String[] invalidAddUserInputs = {"buy /i priceless product /c 100001 /d 2"};
 
     @Test
-    void listExpenseCommand_emptyList_printListIsEmpty() throws ParseException {
+    void listExpenseCommand_emptyList_printListIsEmpty() throws TrippieException, ParseException {
         Ui ui = new Ui();
         Storage storage = new Storage();
         TrippieData trippieData = new TrippieData(storage);
@@ -45,7 +46,7 @@ class ListExpenseCommandTest {
     }
 
     @Test
-    void listExpenseCommand_validUserInput_printRemainBudget() throws TrippieInvalidArgumentException, ParseException {
+    void listExpenseCommand_validUserInput_printRemainBudget() throws TrippieException, ParseException {
 
         Ui ui = new Ui();
         Storage storage = new Storage();
@@ -70,7 +71,7 @@ class ListExpenseCommandTest {
     }
 
     @Test
-    void listExpenseCommand_validUserInput_printEqualBudget() throws TrippieInvalidArgumentException, ParseException {
+    void listExpenseCommand_validUserInput_printEqualBudget() throws TrippieException, ParseException {
 
         Ui ui = new Ui();
         Storage storage = new Storage();
@@ -94,7 +95,7 @@ class ListExpenseCommandTest {
     }
 
     @Test
-    void listExpenseCommand_invalidUserInput_exceedBudget() throws TrippieInvalidArgumentException, ParseException {
+    void listExpenseCommand_invalidUserInput_exceedBudget() throws TrippieException, ParseException {
 
         Ui ui = new Ui();
         Storage storage = new Storage();
@@ -117,8 +118,7 @@ class ListExpenseCommandTest {
         assertTrue(outputStream.toString().contains(EXCEED_BUDGET));
     }
 
-    private void fileSetup(Storage storage, TrippieData trippieData) throws ParseException {
-        storage.setupMasterFile(trippieData);
+    private void fileSetup(Storage storage, TrippieData trippieData) throws TrippieException, ParseException {
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         Trip newTrip = new Trip(trippieData.getTripList().size(), "Singapore", df.parse("11-11-2020"));
         newTrip.getExpenseListObject().setForExValue(Float.parseFloat("100"));
