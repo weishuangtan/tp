@@ -32,7 +32,7 @@ class DeleteExpenseCommandTest {
     }
 
     @Test
-    void deleteExpenditureCommand_validUserInput_parsedCorrectly() throws TrippieException, ParseException {
+    void deleteExpenseCommand_validUserInput_parsedCorrectly() throws TrippieException, ParseException {
 
         Ui ui = new Ui();
         Storage storage = new Storage();
