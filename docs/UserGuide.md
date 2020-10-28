@@ -32,13 +32,9 @@ Below is a list of contents that is included in this document.
 ## 1.0 Introduction (Shawn Tan)
 Trippie is a command-line app to plan any of your upcoming trips. It is tailored to match the needs of student travellers. Whether you are planning for your summer holiday, or a leisure trip on your student exchange program, Trippie got you covered!
 
-<center>
-
 ![Screenshot of Trippie](https://i.imgur.com/29TB8E8.png)
 
-<center><i>A screenshot of Trippie's command line interface</i></center>
-
-</center>
+_A screenshot of Trippie's command line interface_
 
 ## 2.0 About this document (Felix)
 This section helps you in using the various features available in Trippie.
