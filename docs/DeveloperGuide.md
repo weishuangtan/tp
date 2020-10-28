@@ -407,3 +407,101 @@ Given below are the instructions to test the app manually.
 2. Shutdown
    1. `exit` to exit Trippie.
    2. Your Trippie files will be automatically saved in ./trippie_data!
+
+### 6.2 Step by Step Guide
+
+#### Creating a new trip
+
+1. Creates a new trip and sets it as the current trip.
+* Test Case:  Enter the command `new trip`. Trippie will prompt you to enter the trip name. Try inputting an invalid file name, like `A trip of 01/01`. 
+
+* Expected: Trippie will ask you to reenter the name.
+
+```
+Enter your new trip's name:A trip of 01/01
+New trip should not contain invalid characters like <>:"/\|?*!
+Enter your new trip's name:
+```
+
+#### Loading an existing trip
+
+* Test case: Create a new trip. Enter the command `load trip`. Trippie will prompt you to enter a trip index. Which you can enter correspondingly.
+* Expected: 
+
+```
+_________________________________________________________________________
+Here are your existing trips.
+1. 0 Days - test
+
+Which one do you want to load? Enter the index:1
+_________________________________________________________________________
+```
+
+#### Viewing help
+
+* Test case: Enter the command `help`.
+* Expected: Trippie will show you a table of commands.
+
+#### Adding a place
+
+* Test case: Key in `add /n test place /d 3 /t 0000 to 0100` into the CLI.
+* Expected:
+```
+Got it. I've added this place:
+0000 - 0100 test place
+Now you have 1 place in the list.
+```
+
+#### Listing all places
+
+* Test case: Enter the command `list /p`. Trippie will then list out the places that you have added into the trip.
+* Expected:
+```
+_________________________________________________________________________
+DAY 3: (2011-01-03)
+[1] 0000 - 0100 test place
+_________________________________________________________________________
+```
+
+#### Searching all places
+
+* Test case:
+* Expected:
+
+#### Deleting place
+
+* Test case: Enter the command `delete /p 1`. Trippie will then delete the place in the first index of the `Place List`.
+* Expected:
+
+#### Editing budget
+
+* Test case: Enter `budget 2000`, then enter `budget 1000`.
+* Expected: Trippie will set your budget to 1000.
+```
+_________________________________________________________________________
+Successfully set your total budget to 8000.00
+_________________________________________________________________________
+```
+
+#### Adding an expense
+
+* Test case: Key in `buy /i item test /c 300 /d 2` into the CLI.
+* Espected:
+```
+Got it! I've added the following item: Day 2: item test - $300.00
+Now you have 1 item in the list.
+```
+
+#### Listing all expenses
+
+* Test case: Enter the command `list /e`. Trippie will then list out the expenditure list of all the items bought.
+* Expected:
+```
+Total budget: $1000.00 TST (100.00 SGD)
+Expense List:
+[1] Day 2: item test - $300.00
+Your current total spending is $300.00 TST (30.00 SGD)
+Your current remaining budget is $700.00 TST (70.00 SGD)
+You are still spending within your budget.
+[===-------] 30.0%
+```
