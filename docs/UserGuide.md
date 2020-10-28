@@ -1,10 +1,6 @@
 # User Guide
 
-<center>
-
 ![Trippie Logo](https://i.imgur.com/jSwGL7O.png)
-
-</center>
 
 ## Table of Contents (Felix)
 Below is a list of contents that is included in this document.
@@ -481,8 +477,6 @@ Below are some Frequently Asked Questions you might have:
 **Q:** Does Trippie need Internet?
 
 **A:** No, Trippie is fully offline.
-
-<p style="page-break-before: always">
 
 ## 7.0 Command Summary (Wei Shuang)
 Below is a summary of all trippie commands. You can check this section if you need a quick reference.
