@@ -100,9 +100,9 @@ public class NewTripCommand extends Command {
             do {
                 System.out.print("Enter the foreign currency abbreviation (eg. MYR):");
                 currencyAbbreviation = ui.getLine();
-                if (currencyAbbreviation.length() > 3 | isNumberIncluded(currencyAbbreviation)) {
+                if (!isCurrencyAbbreviationFormat(currencyAbbreviation)) {
                     currencyAbbreviation = null;
-                    System.out.println("Currency abbreviations should be 3-letter alphabetical codes!");
+                    System.out.println("Currency abbreviations should be 3-letter alphabetical codes in upper cases!");
                 }
             } while (currencyAbbreviation == null);
 
@@ -140,13 +140,17 @@ public class NewTripCommand extends Command {
         }
     }
 
-    public boolean isNumberIncluded(String input) {
+    public boolean isCurrencyAbbreviationFormat(String input) {
+        if (input.length() > 3 | input.length() == 0) {
+            return false;
+        }
+
         char[] characters = input.toCharArray();
         for (char character : characters) {
-            if (Character.isDigit(character)) {
-                return true;
+            if (Character.isDigit(character) | Character.isLowerCase(character)) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
