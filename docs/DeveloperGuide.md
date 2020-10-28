@@ -34,7 +34,7 @@ Below is a list of contents that is included in this document.
     * [5.4 Non-Functional Requirements](#54-Non-Functional-Requirements)
     * [5.5 Glossary](#55-Glossary)
 * [6.0 Appendix: Instructions for Manual Testing](#60-Appendix-Instructions-for-Manual-Testing)
-    * [6.1 Launch and Shutdown](#61-Launch-and-Shutdown)
+    * [6.1 Launch and Shutdown](#61-Launch-and-Shutdown-Felix)
 
 
 ## 1.0 Introduction
@@ -390,8 +390,20 @@ Here are the list of use cases for Trippie.
 
 Given below are the instructions to test the app manually.
 
-### 6.1 Launch and Shutdown
+### 6.1 Launch and Shutdown (Felix)
 
 1. Initial Launch
-    1. Download the jar file and copy it into an empty folder.
-    2. Double-click the jar file or run it through terminal with `java -jar Trippie.jar`. A start-up menu with a default trip will be shown in the CLI.
+   1. Verify that you have Java 11 or above installed in your computer by running `java --version`.
+   2. Download the latest `trippie.jar` from [here](https://github.com/AY2021S1-CS2113T-W11-2/tp/releases/tag/v2.0).
+   3. Copy the file to a folder where you want to run it from.
+   4. Using a command line tool, navigate to the path of `trippie.jar`, by entering `cd path/to/file`
+       * If your operating system is Windows, use Command Prompt.
+       * If your operating system is MacOS, use Terminal.
+   6. Enter `java -jar trippie.jar` in your command line tool and press enter.
+   7. If the setup is correct, you should see a welcome message. Then, it is now ready to go.
+   8. Create your first trip by entering `new trip` to the command line. Then, enter your trip name, start date, exhange rate, currency, and budget.
+   9. Add your first place using `add`. Then buy your first item with `buy`.
+   10. Try listing your places by entering `list /p` and your expenses with `list /e`.
+2. Shutdown
+   1. `exit` to exit Trippie.
+   2. Your Trippie files will be automatically saved in ./trippie_data!
