@@ -11,16 +11,16 @@ Below is a list of contents that is included in this document.
 * [1.0 Introduction](#10-Introduction)
 * [2.0 Setting up the project in your computer](#20-Setting-up-the-project-in-your-computer)
 * [3.0 Design](#30-Design)
-    * [3.1 Architecture](#31-Architecture)
-    * [3.2 Ui](#32-Ui)
-    * [3.3 Parser](#33-Parser)
-    * [3.4 TrippieData](#34-TrippieData)
-    * [3.5 Storage](#35-Storage)
-    * [3.6 Command](#36-Command)
-    * [3.7 Exceptions](#37-Exceptions)
+    * [3.1 Architecture](#31-Architecture-Felix)
+    * [3.2 Ui](#32-Ui-Felix)
+    * [3.3 Parser](#33-Parser-Wei-Shuang)
+    * [3.4 TrippieData](#34-TrippieData-Ivander)
+    * [3.5 Storage](#35-Storage-Ivander)
+    * [3.6 Command](#36-Command-Wei-Shuang)
+    * [3.7 Exceptions](#37-Exceptions-Wei-Shuang)
 * [4.0 Implementation](#40-Implementation-DG-to-complete-by-Wed-28-Oct-soft)
     * [4.1 Multiple Trips Structure](#41-Multiple-Trips-Structure-Ivander)
-    * [4.2 Sorting Place List](#42-Sorting-Place-List)
+    * [4.2 Sorting Place List](#42-Sorting-Place-List-Kian-En)
     * [4.3 Budget and Expenses](#43-Budget-and-Expenses-Shawn)
     * [4.4 Foreign Exchange Converter](#Foreign-Exchange-Converter-Shawn)
     * [4.5 Import and Export Files](#45-Import-and-Export-Files-Wei-Shuang)
@@ -69,7 +69,7 @@ If you plan to use Intellij IDEA (highly recommended):
 This section explains the high-level design of the application. Given below is an overview of each component and a more detailed explanation of the architecture. Trippie is the main class which manages the initialization of the relevant classes and their execution.
 
 
-### 3.1 Architecture
+### 3.1 Architecture (Felix)
 
 <kbd>
 
@@ -95,7 +95,7 @@ The Sequence diagram below shows how the program flows across the different clas
 ![UML Sequence Diagram](https://i.imgur.com/hHq7ltY.png)
 <center><i>Figure 2: Sequence Diagram during Command execution</i></center>
 
-### 3.2 Ui
+### 3.2 Ui (Felix)
 
 The UI class is in charge of the user's input, from the `readCommand` or `getLine` methods. Other functions of the Ui is to provide shorthands of Trippie's outputs, such as `greetUser` or `showFarewells`.
 
@@ -376,17 +376,17 @@ Here are the list of use cases for Trippie.
 <kbd>
 
 ![UML Diagram Main](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Main.jpg?raw=true)
-<center><i>Figure ???: Overall Architecture</i></center>
+<center><i>Figure 9: Overall Architecture</i></center>
 </kbd>
 
 ![UML Diagram](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Class%20Diagram.jpg?raw=true)
-<center><i>Figure ???: Class Types and Parameters</i></center>
+<center><i>Figure 10: Class Types and Parameters</i></center>
 
 ![UML Diagram Command](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Command.jpg?raw=true)
-<center><i>Figure ???: Commands Classes</i></center>
+<center><i>Figure 11: Commands Classes</i></center>
 
 ![UML Diagram Exception](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Exception.jpg?raw=true)
-<center><i>Figure ???: Exception Classes</i></center>
+<center><i>Figure 12: Exception Classes</i></center>
 
 Given below are the instructions to test the app manually.
 
