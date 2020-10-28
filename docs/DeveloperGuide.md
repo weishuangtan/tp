@@ -1,10 +1,10 @@
 # Developer Guide
 
-<center>
+<kbd>
 
 ![Trippie Logo](https://i.imgur.com/jSwGL7O.png)
 
-</center>
+</kbd>
 
 ## Table of Content
 Below is a list of contents that is included in this document.
