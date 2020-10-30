@@ -4,30 +4,30 @@
 
 ## Table of Contents (Felix)
 Below is a list of contents that is included in this document.
-* [1.0 Introduction](#10-Introduction-Shawn-Tan)
-* [2.0 About this document](#20-About-this-document-Felix)
-* [3.0 How to use](#30-How-to-use-Ivander)
-* [4.0 Quick Start](#40-Quick-Start-Ivander)
-* [5.0 Features](#50-Features-Shawn-Tan)
-    * [5.1 Creating a new trip: **`new trip`**](#51-Creating-a-new-trip-new-trip-Ivander)
-    * [5.2 Loading an existing trip: **`load trip`**](#52-Loading-an-existing-trip-load-trip-Ivander)
-    * [5.3 Deleting a trip: **`delete trip`**](#53-Deleting-a-trip-delete-trip-Proposed-Ivander)
-    * [5.4 Viewing help: **`help`**](#54-Viewing-help-help-Felix)
-    * [5.5 Adding a place: **`add`**](#55-Adding-a-place-add-Felix)
-    * [5.6 Listing all places: **`list /p`**](#56-Listing-all-places-list-p-Felix)
-    * [5.7 Searching for place: **`search`**](#57-Searching-for-place-search-Wei-Shuang)
-    * [5.8 Deleting place: **`delete /p`**](#58-Deleting-place-delete-p-Wei-Shuang)
-    * [5.9 Editing budget: **`budget`**](#59-Editing-budget-budget-Wei-Shuang)
-    * [5.10 Adding an expense: **`buy`**](#510-Adding-an-expense-buy-Shawn-Tan)
-    * [5.11 Listing all expenses: **`list /e`**](#511-Listing-all-expenses-list-e-Shawn-Tan)
-    * [5.12 Deleting an expense: **`delete /e`**](#512-Deleting-an-expense-delete-e-Shawn-Tan)
-    * [5.13 Converting Currency: **`convert /to`**](#513-Convert-currency-convert-to-Kian-En)
-        * [5.13.1 Convert to Local Currency (SGD): **`convert /toSGD`**](#5131-Convert-to-Local-Currency-SGD)
-        * [5.13.2 Convert to Foreign Currency (FOR): **`convert /toFROM`**](#5132-Convert-to-Foreign-Currency-FOR)
-    * [5.14 Exiting the Trippie: **`exit`**](#514-Exiting-the-Trippie-exit-Kian-En)
-    * [5.15 Saving the data](#515-Saving-the-data-Kian-En)
-* [6.0 FAQ](#60-FAQ-Kian-En)
-* [7.0 Command Summary](#70-Command-Summary-Wei-Shuang)
+* [1.0 Introduction](#10-introduction-shawn-tan)
+* [2.0 About this document](#20-about-this-document-felix)
+* [3.0 How to use](#30-how-to-use-ivander)
+* [4.0 Quick Start](#40-quick-start-ivander)
+* [5.0 Features](#50-features-shawn-tan)
+    * [5.1 Creating a new trip: **`new trip`**](#51-creating-a-new-trip-new-trip-ivander)
+    * [5.2 Loading an existing trip: **`load trip`**](#52-loading-an-existing-trip-load-trip-ivander)
+    * [5.3 Deleting a trip: **`delete trip`**](#53-deleting-a-trip-delete-trip-proposed-ivander)
+    * [5.4 Viewing help: **`help`**](#54-viewing-help-help-felix)
+    * [5.5 Adding a place: **`add`**](#55-adding-a-place-add-felix)
+    * [5.6 Listing all places: **`list /p`**](#56-listing-all-places-list-p-felix)
+    * [5.7 Searching for place: **`search`**](#57-searching-for-place-search-wei-shuang)
+    * [5.8 Deleting place: **`delete /p`**](#58-deleting-place-delete-p-wei-shuang)
+    * [5.9 Editing budget: **`budget`**](#59-editing-budget-budget-wei-shuang)
+    * [5.10 Adding an expense: **`buy`**](#510-adding-an-expense-buy-shawn-tan)
+    * [5.11 Listing all expenses: **`list /e`**](#511-listing-all-expenses-list-e-shawn-tan)
+    * [5.12 Deleting an expense: **`delete /e`**](#512-deleting-an-expense-delete-e-shawn-tan)
+    * [5.13 Converting Currency: **`convert /to`**](#513-convert-currency-convert-to-kian-en)
+        * [5.13.1 Convert to Local Currency (SGD): **`convert /toSGD`**](#5131-convert-to-local-currency-sgd)
+        * [5.13.2 Convert to Foreign Currency (FOR): **`convert /toFROM`**](#5132-convert-to-foreign-currency-for)
+    * [5.14 Exiting the Trippie: **`exit`**](#514-exiting-the-trippie-exit-kian-en)
+    * [5.15 Saving the data](#515-saving-the-data-kian-en)
+* [6.0 FAQ](#60-faq-kian-en)
+* [7.0 Command Summary](#70-command-summary-wei-shuang)
 
 ## 1.0 Introduction (Shawn Tan)
 Trippie is a command-line app to plan any of your upcoming trips. It is tailored to match the needs of student travellers. Whether you are planning for your summer holiday, or a leisure trip on your student exchange program, Trippie got you covered!
@@ -53,7 +53,7 @@ This block style shows the command line output of Trippie
 ```
 
 ## 3.0 How to use (Ivander)
-Begin with the [Quick Start](#40-Quick-Start-Ivander) section if it is your first time using Trippie. All the commands are listed out in the table of contents. To find out the details on each command, just click and follow the links. Please check the [FAQ](#60-FAQ-Kian-En) section for frequently encountered problems.
+Begin with the [Quick Start](#40-quick-start-ivander) section if it is your first time using Trippie. All the commands are listed out in the table of contents. To find out the details on each command, just click and follow the links. Please check the [FAQ](#60-faq-kian-en) section for frequently encountered problems.
 
 
 ## 4.0 Quick Start (Ivander)
@@ -66,8 +66,8 @@ Written below are the steps to be taken to set up the application:
     * If your operating system is MacOS, use Terminal.
 6. Enter `java -jar trippie.jar` in your command line tool and press enter.
 7. If the setup is correct, you should see a welcome message. Then, it is now ready to go.
-8. Create your first trip by entering [`new trip`](#51-Creating-a-new-trip-new-trip-Ivander) to the command line. Then, enter your trip name, start date, exhange rate, currency, and budget.
-9. Add your first place using [`add`](#55-Adding-a-place-add-Felix). Then buy your first item with [`buy`](#510-Adding-an-expense-buy-Shawn-Tan).
+8. Create your first trip by entering [`new trip`](#51-creating-a-new-trip-new-trip-ivander) to the command line. Then, enter your trip name, start date, exhange rate, currency, and budget.
+9. Add your first place using [`add`](#55-adding-a-place-add-felix). Then buy your first item with [`buy`](#510-adding-an-expense-buy-shawn-tan).
 10. Try listing your places by entering `list /p` and your expenses with `list /e`.
 11. `exit` and check your folder to check your Trippie files!
 
