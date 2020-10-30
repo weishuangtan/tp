@@ -15,10 +15,22 @@ public class LoadTripCommand extends Command {
     public void execute(Ui ui, TrippieData trippieData) {
         System.out.println("Here are your existing trips.");
         System.out.println(trippieData.list());
-        System.out.print("Which one do you want to load? Enter the index:");
-        int index = Integer.parseInt(ui.getLine());
+        int index = 0;
+        do {
+            try {
+                System.out.print("Which one do you want to load? Enter the index:");
+                index = Integer.parseInt(ui.getLine());
+                trippieData.setCurrentTripFromIndex(index - 1);
+                trippieData.loadCurrentTripFromFile();
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid trip number!");
+            } catch (IndexOutOfBoundsException e) {
+                index = 0;
+                System.out.println("Trip cannot be found! Please enter a valid trip number from the list.");
+            }
 
-        trippieData.setCurrentTripFromIndex(index - 1);
-        trippieData.loadCurrentTripFromFile();
+        } while (index == 0);
+
+
     }
 }

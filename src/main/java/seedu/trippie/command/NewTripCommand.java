@@ -49,11 +49,13 @@ public class NewTripCommand extends Command {
                 if (!isFilenameValid(name)) {
                     System.out.println("New trip should not contain invalid characters like <>:\"/\\|?*!");
                     name = null;
+                } else if (name.length() == 0) {
+                    System.out.println("Trip name should not be empty!");
+                    name = null;
                 } else if (doesTripNameExist(trippieData, name)) {
                     System.out.println("A trip with that name already exists!");
                     name = null;
                 }
-
             } while (name == null);
 
             // Get start date
@@ -98,8 +100,11 @@ public class NewTripCommand extends Command {
             do {
                 System.out.print("Enter the foreign currency abbreviation (eg. MYR):");
                 currencyAbbreviation = ui.getLine();
+                if (!isCurrencyAbbreviationFormat(currencyAbbreviation)) {
+                    currencyAbbreviation = null;
+                    System.out.println("Currency abbreviations should be 3-letter alphabetical codes in upper cases!");
+                }
             } while (currencyAbbreviation == null);
-
 
             // Get budget
             Float budget = null;
@@ -133,5 +138,19 @@ public class NewTripCommand extends Command {
             System.out.println(e.getMessage());
             System.out.println("Failed to create new trip.");
         }
+    }
+
+    public boolean isCurrencyAbbreviationFormat(String input) {
+        if (input.length() > 3 | input.length() == 0) {
+            return false;
+        }
+
+        char[] characters = input.toCharArray();
+        for (char character : characters) {
+            if (Character.isDigit(character) | Character.isLowerCase(character)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
