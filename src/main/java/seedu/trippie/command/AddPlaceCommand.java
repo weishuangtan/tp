@@ -19,6 +19,7 @@ public class AddPlaceCommand extends Command {
             + "24-hours format";
     private static final String TIME_TRAVELLER_ERROR_MESSAGE = "Are you a time traveller? Your END TIME should "
             + "end before START TIME";
+    private static final String NEGATIVE_DAY_MESSAGE = "Trippie doesn't know how to deal with negative days.";
 
     private final String name;
     private final int day;
@@ -43,13 +44,16 @@ public class AddPlaceCommand extends Command {
     }
 
     public String extractName(String userInput) {
-        String withoutDay = userInput.split(" /d ")[0];
-        return withoutDay.split(" /n ")[1];
+        String inputWithoutDay = userInput.split(" /d ")[0];
+        return inputWithoutDay.split(" /n ")[1];
     }
 
-    public int extractDay(String userInput) {
-        String withoutTime = userInput.split(" /t ")[0];
-        String day = withoutTime.split(" /d ")[1];
+    public int extractDay(String userInput) throws TrippieInvalidArgumentException {
+        String inputWithoutTime = userInput.split(" /t ")[0];
+        String day = inputWithoutTime.split(" /d ")[1];
+        if (Integer.parseInt(day.trim()) < 0) {
+            throw new TrippieInvalidArgumentException(NEGATIVE_DAY_MESSAGE);
+        }
         return Integer.parseInt(day.trim());
     }
 
@@ -105,7 +109,7 @@ public class AddPlaceCommand extends Command {
     }
 
     public void sortPlaceList(List<Place> sortedPlaces) {
-        Boolean swapped = false;
+        boolean swapped = false;
         for (int i = (sortedPlaces.size() - 1); i >= 0; i--) {
             for (int j = i - 1; j >= 0; j--) {
                 if (sortedPlaces.get(i).getPlaceDay() == sortedPlaces.get(j).getPlaceDay()
@@ -117,7 +121,7 @@ public class AddPlaceCommand extends Command {
                     swapped = true;
                 }
             }
-            if (swapped == false) {
+            if (!swapped) {
                 break;
             }
         }

@@ -20,6 +20,9 @@ public class LoadTripCommand extends Command {
             try {
                 System.out.print("Which one do you want to load? Enter the index:");
                 index = Integer.parseInt(ui.getLine());
+                if (index < 0) {
+                    throw new IndexOutOfBoundsException("Please enter a valid trip number");
+                }
                 trippieData.setCurrentTripFromIndex(index - 1);
                 trippieData.loadCurrentTripFromFile();
             } catch (NumberFormatException e) {

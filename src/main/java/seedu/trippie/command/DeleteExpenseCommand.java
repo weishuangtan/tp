@@ -35,9 +35,10 @@ public class DeleteExpenseCommand extends Command {
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
+        String currencyAbbreviation = trippieData.getCurrentTrip().getExpenseListObject().getCurrencyAbbreviation();
         if (expenseIndex >= 0 && expenseIndex < expenses.size()) {
             System.out.println("Noted. I've removed this item from the expenditure list.");
-            System.out.println(expenses.get(expenseIndex).toString());
+            System.out.println(expenses.get(expenseIndex).toString() + " " + currencyAbbreviation);
             expenses.remove(expenseIndex);
             System.out.printf("Now you have %d %s in the list.%n", expenses.size(), expenses.size() > 1 ? "items" :
                     "item");
