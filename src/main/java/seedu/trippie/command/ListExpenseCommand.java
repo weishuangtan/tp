@@ -81,7 +81,7 @@ public class ListExpenseCommand extends Command {
         float spentLength = BAR_SIZE * spentPercentage / 100;
         StringBuilder bar = new StringBuilder(SYMBOL_START_BOUNDARY);
         for (int i = 0; i < BAR_SIZE; i++) {
-            if (i < spentLength) {
+            if (i < (int)spentLength) {
                 bar.append(SYMBOL_SPEND);
             } else {
                 bar.append(SYMBOL_REMAINING);
