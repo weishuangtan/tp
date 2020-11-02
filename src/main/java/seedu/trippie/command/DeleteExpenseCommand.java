@@ -16,6 +16,13 @@ public class DeleteExpenseCommand extends Command {
 
     private final int expenseIndex;
 
+    /**
+     * Takes in the delete input command from the user.
+     * Identifies and sets the index to be deleted in expenseIndex.
+     *
+     * @param userInput Command inputted by the user.
+     * @throws TrippieInvalidArgumentException If index is not found and if input has incorrect format.
+     */
     public DeleteExpenseCommand(String userInput) throws TrippieInvalidArgumentException {
         try {
             String index = userInput.split(" /e ")[1];
@@ -32,6 +39,12 @@ public class DeleteExpenseCommand extends Command {
         return false;
     }
 
+    /**
+     * Prints out successful delete item message and removes item from the expenseList.
+     *
+     * @param ui User Interface of the program.
+     * @param trippieData The current trip expenseList that would updated.
+     */
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();

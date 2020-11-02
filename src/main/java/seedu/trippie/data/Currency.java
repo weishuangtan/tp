@@ -1,5 +1,9 @@
 package seedu.trippie.data;
 
+/**
+ * Represents currency object to be converted into the requested currency.
+ * Stores the choice of currency to be converted to and the amount.
+ */
 public class Currency {
     private final CurrencyType currencyChoice;
     private final Float currencyAmount;

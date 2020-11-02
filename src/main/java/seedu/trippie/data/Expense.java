@@ -1,5 +1,9 @@
 package seedu.trippie.data;
 
+/**
+ * Represents the individual expenses made by the user.
+ * Stores the name of the item, its cost and the day it is bought.
+ */
 public class Expense {
     private final String expenseName;
     private final Float expenseCost;

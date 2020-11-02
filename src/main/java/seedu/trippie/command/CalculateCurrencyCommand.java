@@ -4,7 +4,6 @@ import seedu.trippie.Ui;
 import seedu.trippie.data.Currency;
 import seedu.trippie.data.CurrencyType;
 import seedu.trippie.data.TrippieData;
-import seedu.trippie.exception.TrippieExceedBudgetException;
 import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 
@@ -21,6 +20,14 @@ public class CalculateCurrencyCommand extends Command {
     private final CurrencyType currencyChoice;
     private final Float currencyAmount;
 
+    /**
+     * Takes in the convert input command from the user.
+     * Identifies and set the choice of conversion (local or foreign) and the amount to be converted into
+     * currencyChoice and currencyAmount respectively.
+     *
+     * @param userInput Command input by the user.
+     * @throws TrippieInvalidArgumentException if input has incorrect format.
+     */
     public CalculateCurrencyCommand(String userInput) throws TrippieInvalidArgumentException {
         try {
             this.currencyChoice = extractCurrencyChoice(userInput);
@@ -30,6 +37,13 @@ public class CalculateCurrencyCommand extends Command {
         }
     }
 
+    /**
+     * Extracts the choice of conversion from the command inputted by the user.
+     *
+     * @param userInput Command input by the user.
+     * @return Input with only the choice of currency to be converted.
+     * @throws TrippieInvalidArgumentException if choice inputted by user has incorrect format
+     */
     public CurrencyType extractCurrencyChoice(String userInput) throws TrippieInvalidArgumentException {
         try {
             String withoutCommand = userInput.split(" /to")[1];
@@ -48,6 +62,13 @@ public class CalculateCurrencyCommand extends Command {
         }
     }
 
+    /**
+     * Extract the amount to be converted from the command inputted by the user.
+     *
+     * @param userInput Command input by the user.
+     * @return Input without the currency amount
+     * @throws TrippieInvalidArgumentException if amount inputted is negative or has incorrect format
+     */
     public Float extractCurrencyAmount(String userInput) throws TrippieInvalidArgumentException {
         try {
             if (userInput.split(" ")[2] == null) { //account for missing input
@@ -69,6 +90,12 @@ public class CalculateCurrencyCommand extends Command {
         return false;
     }
 
+    /**
+     * Prints amount after conversion from either local to foreign or visa versa.
+     *
+     * @param ui User Interface of the program.
+     * @param trippieData Current trip currency foreign exchange rate and foreign currency abbreviation.
+     */
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         float exchangeRate = trippieData.getCurrentTrip().getExpenseListObject().getForExValue();

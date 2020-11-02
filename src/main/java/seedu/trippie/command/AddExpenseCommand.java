@@ -22,6 +22,14 @@ public class AddExpenseCommand extends Command {
     private final Float expenseCost;
     private final int expenseDayBought;
 
+    /**
+     * Takes in the add input command from the user.
+     * Identifies and set the item name, item cost and day bought into expenseName, expenseCost and expenseDayBought
+     * respectively.
+     *
+     * @param userInput Command input by the user
+     * @throws TrippieInvalidArgumentException if input has incorrect format, cost and days has incorrect parameters.
+     */
     public AddExpenseCommand(String userInput) throws TrippieInvalidArgumentException {
         try {
             this.expenseName = extractExpenseName(userInput);
@@ -38,11 +46,24 @@ public class AddExpenseCommand extends Command {
         }
     }
 
+    /**
+     * Extracts the item name from the command inputted by the user.
+     *
+     * @param userInput Command input by the user.
+     * @return Input with only the item name.
+     */
     public String extractExpenseName(String userInput) {
         String inputWithoutCost = userInput.split(" /c ")[0];
         return inputWithoutCost.split(" /i ")[1];
     }
 
+    /**
+     * Extracts the item cost from the command inputted by the user.
+     *
+     * @param userInput Command input by the user.
+     * @return Input with only the item cost.
+     * @throws TrippieInvalidArgumentException if negative cost is inputted in the command.
+     */
     public Float extractExpenseCost(String userInput) throws TrippieInvalidArgumentException {
         String inputWithoutDay = userInput.split(" /d ")[0];
         String expenseCost = inputWithoutDay.split(" /c ")[1];
@@ -56,6 +77,13 @@ public class AddExpenseCommand extends Command {
 
     }
 
+    /**
+     * Extracts the day item was bought from the command inputted by the user.
+     *
+     * @param userInput Command input by the user.
+     * @return Input with only the day bought.
+     * @throws TrippieInvalidArgumentException if negative day is inputted in the command.
+     */
     public int extractDayBought(String userInput) throws TrippieInvalidArgumentException {
         String onlyDay = userInput.split(" /d ")[1];
         if (Integer.parseInt(onlyDay) < 0) {
@@ -69,6 +97,12 @@ public class AddExpenseCommand extends Command {
         return false;
     }
 
+    /**
+     * Prints out successful add item message and add item from the expenseList.
+     *
+     * @param ui User Interface of the program.
+     * @param trippieData The current trip expenseList that would updated.
+     */
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();

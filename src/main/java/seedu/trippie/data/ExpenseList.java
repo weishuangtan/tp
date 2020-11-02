@@ -3,6 +3,10 @@ package seedu.trippie.data;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the list of expenses stored in an array.
+ * Stores the budget, foreign exchange rate and foreign currency abbreviation inputted by the user for the current trip.
+ */
 public class ExpenseList {
     private List<Expense> expenseList;
     private Float budgetValue;
@@ -45,6 +49,11 @@ public class ExpenseList {
         return totalExpenses;
     }
 
+    /**
+     * Extract the latest day in which an item was bought.
+     *
+     * @return the max day to be displayed.
+     */
     public int getMaxDay() {
         if (expenseList.size() == 0) {
             return 0;
