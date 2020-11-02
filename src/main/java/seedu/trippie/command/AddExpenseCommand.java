@@ -86,7 +86,7 @@ public class AddExpenseCommand extends Command {
      */
     public int extractDayBought(String userInput) throws TrippieInvalidArgumentException {
         String onlyDay = userInput.split(" /d ")[1];
-        if (Integer.parseInt(onlyDay) < 0) {
+        if (Integer.parseInt(onlyDay) <= 0) {
             throw new TrippieInvalidArgumentException(NEGATIVE_DAY_MESSAGE);
         }
         return Integer.parseInt(onlyDay);
