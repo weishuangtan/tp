@@ -51,7 +51,7 @@ public class AddPlaceCommand extends Command {
     public int extractDay(String userInput) throws TrippieInvalidArgumentException {
         String inputWithoutTime = userInput.split(" /t ")[0];
         String day = inputWithoutTime.split(" /d ")[1];
-        if (Integer.parseInt(day.trim()) < 0) {
+        if (Integer.parseInt(day.trim()) <= 0) {
             throw new TrippieInvalidArgumentException(NEGATIVE_DAY_MESSAGE);
         }
         return Integer.parseInt(day.trim());
