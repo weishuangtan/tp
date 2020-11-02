@@ -16,6 +16,7 @@ public class CalculateCurrencyCommand extends Command {
             + "Format: convert /toFOR AMOUNT_IN_SGD\n"
             + "Example: convert /toSGD 500\n"
             + "Example: convert /toFOR 500";
+    private static final String NEGATIVE_VALUE_MESSAGE = "Trippie doesn't know how to deal with negative values";
 
     private final CurrencyType currencyChoice;
     private final Float currencyAmount;
@@ -52,8 +53,11 @@ public class CalculateCurrencyCommand extends Command {
             if (userInput.split(" ")[2] == null) { //account for missing input
                 throw new ArrayIndexOutOfBoundsException();
             } else {
-                String withoutChoice = userInput.split(" ")[2];
-                return Float.parseFloat(withoutChoice);
+                String inputWithoutChoice = userInput.split(" ")[2];
+                if (Float.parseFloat(inputWithoutChoice) < 0) {
+                    throw new TrippieInvalidArgumentException(NEGATIVE_VALUE_MESSAGE);
+                }
+                return Float.parseFloat(inputWithoutChoice);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new TrippieInvalidArgumentException(FORMAT_ERROR_MESSAGE);

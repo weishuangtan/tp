@@ -25,7 +25,7 @@ public class Expense {
 
     @Override
     public String toString() {
-        return "Day " + getExpenseDayBought() + ": " + getExpenseName() + " - $"
+        return "Day " + getExpenseDayBought() + ": " + getExpenseName() + " - "
                 + String.format("%.2f",getExpenseCost());
     }
 

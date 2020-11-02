@@ -75,7 +75,7 @@ Written below are the steps to be taken to set up the application:
     * If your operating system is MacOS, use Terminal.
 6. Enter `java -jar trippie.jar` in your command line tool and press enter.
 7. If the setup is correct, you should see a welcome message. Then, it is now ready to go.
-8. Create your first trip by entering [`new trip`](#51-creating-a-new-trip-new-trip-ivander) to the command line. Then, enter your trip name, start date, exhange rate, currency, and budget.
+8. Create your first trip by entering [`new trip`](#51-creating-a-new-trip-new-trip-ivander) to the command line. Then, enter your trip name, start date, exchange rate, currency, and budget.
 9. Add your first place using [`add`](#55-adding-a-place-add-felix). Then buy your first item with [`buy`](#510-adding-an-expense-buy-shawn-tan).
 10. Try listing your places by entering `list /p` and your expenses with `list /e`.
 11. `exit` and check your folder to check your Trippie files!
@@ -255,6 +255,16 @@ DAY 2: (2020-10-21)
 [1] 1800 - 2000 Dinner at Marina Bay Sands
 ```
 
+Example: **`list /p /d 2`**
+
+<br/>
+
+Expected output:
+```
+DAY 2: (2020-10-21)
+1800 - 2000 Dinner at Marina Bay Sands
+```
+
 ---
 
 ### 5.7 Searching for place: `search` (Wei Shuang)
@@ -357,31 +367,31 @@ Example: **`list /e`**
 
 Expected output:
 ```
-Total budget: $1325.00 SOL (500.00 SGD)
+Total budget: 1325.00 SOL (500.00 SGD)
 Expense List:
-[1] Day 2: R&B Brown Sugar - $3.00
-Your current total spending is $3.00 SOL (1.13 SGD)
-Your current remaining budget is $1322.00 SOL (498.87 SGD)
+[1] Day 2: R&B Brown Sugar - 3.00 SOL
+Your current total spending is 3.00 SOL (1.13 SGD)
+Your current remaining budget is 1322.00 SOL (498.87 SGD)
 You are still spending within your budget.
 [=---------] 0.2%
 ```
 <div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning!</b> 
 
-* If you were to buy an item that exceeds the total budget, Trippie will send a warning message and recommend you to increase your budget limit.
+* If you were to buy an item which exceeds the total budget, Trippie will send a warning message and recommend you to increase your budget limit.
 
 </div>
 
 
 Expected output:
 ```
-Total budget: $141680.00 SWE (5600.00 SGD)
+Total budget: 141680.00 SWE (5600.00 SGD)
 Expense List:
-[1] Day 1: glassware - $8000.00
-[2] Day 1: jersey - $19900.50
-[3] Day 1: tissue - $2.00
-[4] Day 2: picture - $200.00
-[5] Day 3: clothes - $2000.00
-[6] Day 5: house - $120000.00
+[1] Day 1: glassware - 8000.00 SWE
+[2] Day 1: jersey - 19900.50 SWE
+[3] Day 1: tissue - 2.00 SWE
+[4] Day 2: picture - 200.00 SWE
+[5] Day 3: clothes - 2000.00 SWE
+[6] Day 5: house - 120000.00 SWE
 Your current total spending is $150102.50 SWE (5932.91 SGD)
 WARNING! You have exceeded your initial budget.
 Recommended action: Increase budget limit.
@@ -403,7 +413,7 @@ Example: **`delete /e`**`1`
 Expected output:
 ```
 Noted. I've removed this item from the expenditure list.
-Day 2: R&B Brown Sugar - $3.00
+Day 2: R&B Brown Sugar - 3.00 SOL
 Now you have 0 item in the list.
 ```
 
@@ -465,7 +475,7 @@ Bye. Hope to see you again soon!
 ---
 
 ### 5.15 Saving the data: (Kian En)
-Trippie data are saved in a folder named `trippie_data` automatically. This folder will be created in the same location as your `trippie.jar`.
+Saves Trippie's data in a folder named `trippie_data` automatically. This folder will be created in the same location as your `trippie.jar`.
 
 ---
 ## 6.0 FAQ (Kian En)

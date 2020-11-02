@@ -80,7 +80,7 @@ public class Trip {
 
     public String toString() {
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        return index + " " + name + " " + df.format(startDate);
+        return index + 1 + " " + name + " " + df.format(startDate);
     }
 
 }

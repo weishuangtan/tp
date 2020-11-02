@@ -32,22 +32,21 @@ public class ListExpenseCommand extends Command {
         List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
         Float exchangeRate = trippieData.getCurrentTrip().getExpenseListObject().getForExValue();
         String currencyAbbreviation = trippieData.getCurrentTrip().getExpenseListObject().getCurrencyAbbreviation();
+        float budget = trippieData.getCurrentTrip().getExpenseListObject().getBudgetValue() * exchangeRate;
+        System.out.println("Total budget: " + String.format("%.2f ", budget) + currencyAbbreviation
+                + " (" + String.format("%.2f", budget / exchangeRate) + " SGD)");
         if (expenses.isEmpty()) {
             System.out.println(LIST_IS_EMPTY_MESSAGE);
         } else {
             int listIndex = 1;
 
-            float budget = trippieData.getCurrentTrip().getExpenseListObject().getBudgetValue() * exchangeRate;
-            System.out.println("Total budget: $" + String.format("%.2f ", budget) + currencyAbbreviation
-                    + " (" + String.format("%.2f", budget / exchangeRate) + " SGD)");
-
             System.out.println("Expense List:");
             for (Expense expense : expenses) {
-                System.out.println("[" + listIndex + "] " + expense.toString());
+                System.out.println("[" + listIndex + "] " + expense.toString() + " " + currencyAbbreviation);
                 listIndex++;
             }
             float totalSpending = trippieData.getCurrentTrip().getExpenseListObject().getTotalExpenses();
-            System.out.println("Your current total spending is $"
+            System.out.println("Your current total spending is "
                     + String.format("%.2f ", totalSpending) + currencyAbbreviation
                     + " (" + String.format("%.2f", totalSpending / exchangeRate) + " SGD)");
             try {
@@ -64,7 +63,7 @@ public class ListExpenseCommand extends Command {
         if (remainingBudget < 0) {
             System.out.print("");
         } else {
-            System.out.println("Your current remaining budget is $"
+            System.out.println("Your current remaining budget is "
                     + String.format("%.2f ", remainingBudget) + currencyAbbreviation
                     + " (" + String.format("%.2f", remainingBudget / exchangeRate) + " SGD)");
         }

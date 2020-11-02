@@ -15,13 +15,13 @@ Please create a new trip first by entering the command 'new trip'!
 Invalid Command! Type "help" to view the commands available!
 Please create a new trip first by entering the command 'new trip'!
 >> _________________________________________________________________________
-Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR):Enter your budget for the trip (in SGD):Added the trip 0 Wonderful Singapore 01-01-2023
+Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR):Enter your budget for the trip (in SGD):Added the trip 1 Wonderful Singapore 01-01-2023
 _________________________________________________________________________
 >> _________________________________________________________________________
 There is currently nothing in your place list. Why not add one?
 _________________________________________________________________________
 >> _________________________________________________________________________
-Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR):Enter your budget for the trip (in SGD):Added the trip 1 Amazing Bali 03-04-2021
+Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR):Enter your budget for the trip (in SGD):Added the trip 2 Amazing Bali 03-04-2021
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
@@ -117,15 +117,15 @@ Here are your existing trips.
 Which one do you want to load? Enter the index:Reading the Trippie files now...
 _________________________________________________________________________
 >> _________________________________________________________________________
-Got it! I've added the following item: Day 1: ice cream - $8.21
+Got it! I've added the following item: Day 1: ice cream - 8.21 IDR
 Now you have 1 item in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
-Total budget: $1230.04 IDR (1000029.06 SGD)
+Total budget: 1230.04 IDR (1000029.06 SGD)
 Expense List:
-[1] Day 1: ice cream - $8.21
-Your current total spending is $8.21 IDR (6674.80 SGD)
-Your current remaining budget is $1221.83 IDR (993354.25 SGD)
+[1] Day 1: ice cream - 8.21 IDR
+Your current total spending is 8.21 IDR (6674.80 SGD)
+Your current remaining budget is 1221.83 IDR (993354.25 SGD)
 You are still spending within your budget.
 [=---------] 0.7%
 _________________________________________________________________________
@@ -184,11 +184,11 @@ ___________|______________________________________________________________
            |   Format: exit
 _________________________________________________________________________
 >> _________________________________________________________________________
-Got it! I've added the following item: Day 2: coconut - $5.00
+Got it! I've added the following item: Day 2: coconut - 5.00 IDR
 Now you have 2 items in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
-Got it! I've added the following item: Day 3: bag - $50.30
+Got it! I've added the following item: Day 3: bag - 50.30 IDR
 Now you have 3 items in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
