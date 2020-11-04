@@ -74,4 +74,99 @@ class TripTest {
         trip.setPlaceList(placeList);
         assertEquals(trip.getPlaceListObject(), placeList);
     }
+
+    @Test
+    void getMaxDay_emptyPlaceAndExpenses_zero() throws TrippieException, ParseException {
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        Trip trip = new Trip(1, "Check", df.parse("01-01-2020"));
+
+        assertEquals(trip.getMaxDay(), 0);
+    }
+
+    @Test
+    void getMaxDay_withPlaceList_correct() throws TrippieException, ParseException {
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        Trip trip = new Trip(1, "Check0", df.parse("01-01-2020"));
+
+        PlaceList placeList = new PlaceList();
+
+        placeList.getPlaceList().add(new Place("A name", 9999, 200, 300));
+        placeList.getPlaceList().add(new Place("A name1", 99999, 200, 300));
+        placeList.getPlaceList().add(new Place("A name2", 999999, 200, 300));
+        placeList.getPlaceList().add(new Place("A name3", 9999999, 200, 300));
+
+        trip.setPlaceList(placeList);
+        trip.updateMaxDay();
+
+        assertEquals(9999999, trip.getMaxDay());
+    }
+
+    @Test
+    void getMaxDay_withExpenseListOnly_correct() throws TrippieException, ParseException {
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        Trip trip = new Trip(1, "Check1", df.parse("01-01-2020"));
+
+        ExpenseList expenseList = new ExpenseList();
+
+        expenseList.getExpenseList().add(new Expense(
+                "Something",
+                Float.valueOf("1.231"),
+                9));
+        expenseList.getExpenseList().add(new Expense(
+                "Something2",
+                Float.valueOf("1.231"),
+                99));
+        expenseList.getExpenseList().add(new Expense(
+                "Something3",
+                Float.valueOf("1.231"),
+                999));
+        expenseList.getExpenseList().add(new Expense(
+                "Something4",
+                Float.valueOf("1.231"),
+                9999));
+
+        trip.setExpenseList(expenseList);
+        trip.updateMaxDay();
+
+        assertEquals(9999, trip.getMaxDay());
+    }
+
+    @Test
+    void getMaxDay_withExpenseListAndPlaceList_correct() throws TrippieException, ParseException{
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        Trip trip = new Trip(1, "Check2", df.parse("01-01-2020"));
+
+        PlaceList placeList = new PlaceList();
+
+        placeList.getPlaceList().add(new Place("A name", 9999, 200, 300));
+        placeList.getPlaceList().add(new Place("A name1", 99999, 200, 300));
+        placeList.getPlaceList().add(new Place("A name2", 999999, 200, 300));
+        placeList.getPlaceList().add(new Place("A name3", 9999999, 200, 300));
+
+        trip.setPlaceList(placeList);
+
+        ExpenseList expenseList = new ExpenseList();
+
+        expenseList.getExpenseList().add(new Expense(
+                "Something",
+                Float.valueOf("1.231"),
+                9));
+        expenseList.getExpenseList().add(new Expense(
+                "Something2",
+                Float.valueOf("1.231"),
+                99));
+        expenseList.getExpenseList().add(new Expense(
+                "Something3",
+                Float.valueOf("1.231"),
+                999));
+        expenseList.getExpenseList().add(new Expense(
+                "Something4",
+                Float.valueOf("1.231"),
+                9999));
+
+        trip.setExpenseList(expenseList);
+        trip.updateMaxDay();
+
+        assertEquals(9999999, trip.getMaxDay());
+    }
 }

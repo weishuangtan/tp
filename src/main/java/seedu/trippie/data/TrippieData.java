@@ -29,11 +29,20 @@ public class TrippieData {
         String list = "";
         for (Trip trip : tripList) {
             assert trip != null;
-            boolean plural = trip.getMaxDay() != 1;
-            String dayWord = plural ? "Days" : "Day";
-            list = list.concat(
-                    (trip.getIndex() + 1) + ". " + trip.getMaxDay() + " " + dayWord + " - " + trip.getName() + "\n"
-            );
+            int maxDay = trip.getMaxDay();
+
+            if (maxDay == 0) {
+                list = list.concat(
+                        (trip.getIndex() + 1) + ". " + trip.getName() + " " + "[No places or expenses added yet]" + "\n"
+                );
+            } else {
+                boolean plural = maxDay != 1;
+                String dayWord = plural ? "Days" : "Day";
+
+                list = list.concat(
+                        (trip.getIndex() + 1) + ". " + trip.getName() + " [" + trip.getMaxDay() + " " + dayWord + "]\n"
+                );
+            }
         }
 
         return list;

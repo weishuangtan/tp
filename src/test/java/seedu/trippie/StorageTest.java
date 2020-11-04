@@ -55,13 +55,13 @@ class StorageTest {
         TrippieData data = new TrippieData(storage);
         storage.loadMasterFile(sc, data);
 
-        String expectedTripListString = "1. 1 Day - Chigago run\n"
-                + "2. 2 Days - Jakarta Fest\n"
-                + "3. 3 Days - Malaysia\n"
-                + "4. 4 Days - Malaysia\n"
-                + "5. 5 Days - Australia\n"
-                + "6. 6 Days - America\n"
-                + "7. 7 Days - Africa\n";
+        String expectedTripListString = "1. Chigago run [1 Day]\n"
+                + "2. Jakarta Fest [2 Days]\n"
+                + "3. Malaysia [3 Days]\n"
+                + "4. Malaysia [4 Days]\n"
+                + "5. Australia [5 Days]\n"
+                + "6. America [6 Days]\n"
+                + "7. Africa [7 Days]\n";
 
         assertEquals(expectedTripListString, data.list());
         assertEquals("7 Africa 04-03-2021", data.getCurrentTrip().toString());
