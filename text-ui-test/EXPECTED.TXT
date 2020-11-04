@@ -22,8 +22,8 @@ Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter t
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
-1. 0 Days - Wonderful Singapore
-2. 0 Days - Amazing Bali
+1. Wonderful Singapore [No places or expenses added yet]
+2. Amazing Bali [No places or expenses added yet]
 
 Which one do you want to load? Enter the index:Reading the Trippie files now...
 _________________________________________________________________________
@@ -32,8 +32,8 @@ There is currently nothing in your place list. Why not add one?
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
-1. 0 Days - Wonderful Singapore
-2. 0 Days - Amazing Bali
+1. Wonderful Singapore [No places or expenses added yet]
+2. Amazing Bali [No places or expenses added yet]
 
 Which one do you want to load? Enter the index:Reading the Trippie files now...
 _________________________________________________________________________
@@ -108,8 +108,8 @@ DAY 5: (2023-01-05)
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
-1. 5 Days - Wonderful Singapore
-2. 0 Days - Amazing Bali
+1. Wonderful Singapore [5 Days]
+2. Amazing Bali [No places or expenses added yet]
 
 Which one do you want to load? Enter the index:Reading the Trippie files now...
 _________________________________________________________________________
@@ -190,8 +190,8 @@ Now you have 3 items in the list.
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
-1. 5 Days - Wonderful Singapore
-2. 3 Days - Amazing Bali
+1. Wonderful Singapore [5 Days]
+2. Amazing Bali [3 Days]
 
 Which one do you want to load? Enter the index:Reading the Trippie files now...
 _________________________________________________________________________
