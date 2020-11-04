@@ -86,7 +86,6 @@ class TripTest {
     @Test
     void getMaxDay_withPlaceList_correct() throws TrippieException, ParseException {
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        Trip trip = new Trip(1, "Check0", df.parse("01-01-2020"));
 
         PlaceList placeList = new PlaceList();
 
@@ -95,6 +94,7 @@ class TripTest {
         placeList.getPlaceList().add(new Place("A name2", 999999, 200, 300));
         placeList.getPlaceList().add(new Place("A name3", 9999999, 200, 300));
 
+        Trip trip = new Trip(1, "Check0", df.parse("01-01-2020"));
         trip.setPlaceList(placeList);
         trip.updateMaxDay();
 
@@ -104,7 +104,6 @@ class TripTest {
     @Test
     void getMaxDay_withExpenseListOnly_correct() throws TrippieException, ParseException {
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        Trip trip = new Trip(1, "Check1", df.parse("01-01-2020"));
 
         ExpenseList expenseList = new ExpenseList();
 
@@ -125,6 +124,7 @@ class TripTest {
                 Float.valueOf("1.231"),
                 9999));
 
+        Trip trip = new Trip(1, "Check1", df.parse("01-01-2020"));
         trip.setExpenseList(expenseList);
         trip.updateMaxDay();
 
@@ -132,9 +132,8 @@ class TripTest {
     }
 
     @Test
-    void getMaxDay_withExpenseListAndPlaceList_correct() throws TrippieException, ParseException{
+    void getMaxDay_withExpenseListAndPlaceList_correct() throws TrippieException, ParseException {
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        Trip trip = new Trip(1, "Check2", df.parse("01-01-2020"));
 
         PlaceList placeList = new PlaceList();
 
@@ -143,8 +142,6 @@ class TripTest {
         placeList.getPlaceList().add(new Place("A name2", 999999, 200, 300));
         placeList.getPlaceList().add(new Place("A name3", 9999999, 200, 300));
 
-        trip.setPlaceList(placeList);
-
         ExpenseList expenseList = new ExpenseList();
 
         expenseList.getExpenseList().add(new Expense(
@@ -164,6 +161,8 @@ class TripTest {
                 Float.valueOf("1.231"),
                 9999));
 
+        Trip trip = new Trip(1, "Check2", df.parse("01-01-2020"));
+        trip.setPlaceList(placeList);
         trip.setExpenseList(expenseList);
         trip.updateMaxDay();
 
