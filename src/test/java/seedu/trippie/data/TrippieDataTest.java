@@ -48,10 +48,10 @@ class TrippieDataTest {
 
 
         Trip[] trips = {
-                new Trip(0, "TripName0", df.parse("01-01-2020")),
-                new Trip(0, "TripName1", df.parse("01-01-2020")),
-                new Trip(0, "TripName2", df.parse("01-01-2020")),
-                new Trip(0, "TripName3", df.parse("01-01-2020")),
+            new Trip(0, "TripName0", df.parse("01-01-2020")),
+            new Trip(0, "TripName1", df.parse("01-01-2020")),
+            new Trip(0, "TripName2", df.parse("01-01-2020")),
+            new Trip(0, "TripName3", df.parse("01-01-2020")),
         };
 
         for (Trip t: trips) {
@@ -60,10 +60,10 @@ class TrippieDataTest {
 
         assertEquals(
                 "1. TripName0 [No places or expenses added yet]\n"
-                        + "2. TripName1 [No places or expenses added yet]\n"
-                        + "3. TripName2 [No places or expenses added yet]\n"
-                        + "4. TripName3 [No places or expenses added yet]\n",
-                trippieData.list()
+                    + "2. TripName1 [No places or expenses added yet]\n"
+                    + "3. TripName2 [No places or expenses added yet]\n"
+                    + "4. TripName3 [No places or expenses added yet]\n",
+                    trippieData.list()
         );
     }
 
@@ -76,10 +76,10 @@ class TrippieDataTest {
 
 
         Trip[] trips = {
-                new Trip(0, "TripName0", df.parse("01-01-2020")),
-                new Trip(1, "TripName1", df.parse("01-01-2020")),
-                new Trip(2, "TripName2", df.parse("01-01-2020")),
-                new Trip(3, "TripName3", df.parse("01-01-2020")),
+            new Trip(0, "TripName0", df.parse("01-01-2020")),
+            new Trip(1, "TripName1", df.parse("01-01-2020")),
+            new Trip(2, "TripName2", df.parse("01-01-2020")),
+            new Trip(3, "TripName3", df.parse("01-01-2020")),
         };
 
         for (Trip t: trips) {
@@ -100,10 +100,10 @@ class TrippieDataTest {
 
 
         Trip[] trips = {
-                new Trip(0, "TripName0", df.parse("01-01-2020")),
-                new Trip(1, "TripName1", df.parse("01-01-2020")),
-                new Trip(2, "TripName2", df.parse("01-01-2020")),
-                new Trip(3, "TripName3", df.parse("01-01-2020")),
+            new Trip(0, "TripName0", df.parse("01-01-2020")),
+            new Trip(1, "TripName1", df.parse("01-01-2020")),
+            new Trip(2, "TripName2", df.parse("01-01-2020")),
+            new Trip(3, "TripName3", df.parse("01-01-2020")),
         };
 
         for (Trip t: trips) {

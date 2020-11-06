@@ -13,7 +13,7 @@ public class TrippieData {
     private Trip currentTrip = null;
 
     private void updateTripIndices() {
-        for(Trip t: tripList) {
+        for (Trip t: tripList) {
             t.setIndex(tripList.indexOf(t));
         }
     }
