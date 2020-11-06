@@ -39,11 +39,10 @@ public class Trippie {
 
             Command c = parseCommand();
 
-            if (isFirstRun) {
+            if (trippieData.isTripListEmpty()) {
                 if (!(c instanceof NewTripCommand) && !(c instanceof ExitCommand)) {
                     c = promptNewTripCommand();
                 }
-                isFirstRun = false;
             }
 
             isExit = executeCommand(c);

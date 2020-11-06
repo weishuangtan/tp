@@ -39,7 +39,6 @@ public class Storage {
             if (trippieData.getTripListSize() > 0) {
                 trippieData.setCurrentTripFromIndex(trippieData.getCurrentTrip().getIndex());
                 trippieData.loadCurrentTripFromFile();
-                System.out.println("Loaded most recently opened trip: " + trippieData.getCurrentTrip().getName());
             }
         } catch (TrippieException e) {
             System.out.println(e.getMessage());
@@ -316,7 +315,7 @@ public class Storage {
             // Parse default parameter
             if (line.startsWith("DEFAULT")) {
                 trippieData.setDefaultTripIndex(
-                        Integer.parseInt(line.replace("DEFAULT", "").trim())
+                        Integer.parseInt(line.replace("DEFAULT", "").trim()) - 1
                 );
                 continue;
             }
@@ -341,6 +340,16 @@ public class Storage {
         trippieData.setTripList(parsedTripList);
         if (trippieData.getTripListSize() > 0) {
             System.out.println("Found these trips in your computer \n" + trippieData.list());
+        }
+    }
+
+    public void deleteTripFile(String tripName) {
+        File tripFile = new File(MASTER_DIRECTORY + File.separator + tripName + FILE_EXTENSION);
+
+        boolean success = tripFile.delete();
+
+        if(!success) {
+            System.out.println("An error occured while deleting the trip.");
         }
     }
 }

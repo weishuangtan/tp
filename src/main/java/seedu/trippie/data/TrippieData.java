@@ -40,9 +40,15 @@ public class TrippieData {
         return tripList.get(index);
     }
 
+    public void removeTripFile(String name) {
+        storage.deleteTripFile(name);
+    }
+
     public Trip removeTripFromIndex(int index) {
         Trip t = tripList.remove(index);
+        storage.deleteTripFile(t.getName());
         updateTripIndices();
+        this.setCurrentTripFromIndex(-1);
         return t;
     }
 
@@ -69,8 +75,18 @@ public class TrippieData {
         this.defaultTripIndex = index;
     }
 
+    /**
+     * Sets the current trip index to the specified trip index.
+     * If index given is -1, then set current trip to null.
+     * @param index specified trip index to point to.
+     */
     public void setCurrentTripFromIndex(int index) {
-        this.currentTrip = this.tripList.get(index);
+        if (index == -1) {
+            this.currentTrip = null;
+        } else {
+            this.currentTrip = this.tripList.get(index);
+            System.out.println("Current trip is set to '" + this.currentTrip.getName() + "'.");
+        }
     }
 
     // Implemented with reference to

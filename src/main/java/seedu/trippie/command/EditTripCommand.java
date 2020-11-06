@@ -162,12 +162,17 @@ public class EditTripCommand extends Command {
             }
         } while (budget == null);
 
+
         Trip editedTrip = trippieData.getCurrentTrip();
+        String oldName = editedTrip.getName();
+
         editedTrip.setName(name);
         editedTrip.setStartDate(startDate);
         editedTrip.getExpenseListObject().setForExValue(forEx);
         editedTrip.getExpenseListObject().setCurrencyAbbreviation(currencyAbbreviation);
         editedTrip.getExpenseListObject().setBudgetValue(budget);
+
+        trippieData.removeTripFile(oldName);
 
         System.out.println("Edited the trip " + editedTrip.toString());
 
