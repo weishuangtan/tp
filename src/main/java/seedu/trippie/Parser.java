@@ -7,6 +7,7 @@ import seedu.trippie.command.CalculateCurrencyCommand;
 import seedu.trippie.command.Command;
 import seedu.trippie.command.DeleteExpenseCommand;
 import seedu.trippie.command.DeletePlaceCommand;
+import seedu.trippie.command.EditTripCommand;
 import seedu.trippie.command.ExitCommand;
 import seedu.trippie.command.HelpCommand;
 import seedu.trippie.command.ListExpenseCommand;
@@ -49,6 +50,8 @@ public class Parser {
                 return new NewTripCommand();
             } else if (userInput.equals("load trip")) {
                 return new LoadTripCommand();
+            } else if (userInput.equals("edit trip")) {
+                return new EditTripCommand();
             } else {
                 throw new TrippieIllegalCommandException(ERROR_MESSAGE);
             }
