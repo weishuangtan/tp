@@ -57,7 +57,7 @@ public class EditTripCommand extends Command {
             } else if (name.length() == 0) {
                 System.out.println("Trip name should not be empty!");
                 name = null;
-            } else if (doesTripNameExist(trippieData, name)) {
+            } else if (trippieData.doesTripNameExist(name)) {
                 System.out.println("A trip with that name already exists!");
                 name = null;
             }
@@ -195,14 +195,5 @@ public class EditTripCommand extends Command {
         return !p.matcher(file).find();
     }
 
-    // Implemented with reference to
-    // https://www.rgagnon.com/javadetails/java-check-if-a-filename-is-valid.html
-    private boolean doesTripNameExist(TrippieData trippieData, String name) {
-        for (Trip trip: trippieData.getTripList()) {
-            if (trip.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 }

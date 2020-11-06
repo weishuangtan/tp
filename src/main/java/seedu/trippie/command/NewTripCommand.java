@@ -20,16 +20,6 @@ public class NewTripCommand extends Command {
         return !p.matcher(file).find();
     }
 
-    // Implemented with reference to
-    // https://www.rgagnon.com/javadetails/java-check-if-a-filename-is-valid.html
-    private boolean doesTripNameExist(TrippieData trippieData, String name) {
-        for (Trip trip: trippieData.getTripList()) {
-            if (trip.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public NewTripCommand() {
     }
@@ -52,7 +42,7 @@ public class NewTripCommand extends Command {
                 } else if (name.length() == 0) {
                     System.out.println("Trip name should not be empty!");
                     name = null;
-                } else if (doesTripNameExist(trippieData, name)) {
+                } else if (trippieData.doesTripNameExist(name)) {
                     System.out.println("A trip with that name already exists!");
                     name = null;
                 }
@@ -124,13 +114,13 @@ public class NewTripCommand extends Command {
             } while (budget == null);
 
             // Get index
-            int index = trippieData.getTripList().size();
+            int index = trippieData.getTripListSize();
 
             Trip newTrip = new Trip(index, name, startDate);
             newTrip.getExpenseListObject().setForExValue(forEx);
             newTrip.getExpenseListObject().setCurrencyAbbreviation(currencyAbbreviation);
             newTrip.getExpenseListObject().setBudgetValue(budget);
-            trippieData.getTripList().add(newTrip);
+            trippieData.addTrip(newTrip);
 
             System.out.println("Added the trip " + newTrip.toString());
             trippieData.setCurrentTripFromIndex(index);

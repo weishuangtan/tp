@@ -36,7 +36,7 @@ public class Storage {
             Scanner readFile = getOrCreateFileScanner(file);
             loadMasterFile(readFile, trippieData);
 
-            if (trippieData.getTripList().size() > 0) {
+            if (trippieData.getTripListSize() > 0) {
                 trippieData.setCurrentTripFromIndex(trippieData.getCurrentTrip().getIndex());
                 trippieData.loadCurrentTripFromFile();
                 System.out.println("Loaded most recently opened trip: " + trippieData.getCurrentTrip().getName());
@@ -96,7 +96,7 @@ public class Storage {
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         try {
             if (trippieData.getCurrentTrip() != null) {
-                assert trippieData.getTripList().size() > 0;
+                assert trippieData.getTripListSize() > 0;
                 finalFileWriter.write(
                         String.format("DEFAULT %d\n", trippieData.getCurrentTrip().getIndex())
                 );
@@ -339,7 +339,7 @@ public class Storage {
         }
 
         trippieData.setTripList(parsedTripList);
-        if (trippieData.getTripList().size() > 0) {
+        if (trippieData.getTripListSize() > 0) {
             System.out.println("Found these trips in your computer \n" + trippieData.list());
         }
     }

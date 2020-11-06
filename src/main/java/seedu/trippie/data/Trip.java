@@ -14,6 +14,10 @@ public class Trip {
     private PlaceList placeList;
     private int maxDay;
 
+    protected void setIndex(int index) {
+        this.index = index;
+    }
+
     /**
      * A trip constructor that initializes both an empty expense list and an empty place list.
      */
@@ -95,7 +99,6 @@ public class Trip {
     public void updateMaxDay() {
         maxDay = Integer.max(placeList.getMaxDay(), expenseList.getMaxDay());
     }
-
 
     public String toString() {
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
