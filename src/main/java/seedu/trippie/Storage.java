@@ -315,7 +315,7 @@ public class Storage {
             // Parse default parameter
             if (line.startsWith("DEFAULT")) {
                 trippieData.setDefaultTripIndex(
-                        Integer.parseInt(line.replace("DEFAULT", "").trim()) - 1
+                        Integer.parseInt(line.replace("DEFAULT", "").trim())
                 );
                 continue;
             }
@@ -348,7 +348,7 @@ public class Storage {
 
         boolean success = tripFile.delete();
 
-        if(!success) {
+        if (!success) {
             System.out.println("An error occured while deleting the trip.");
         }
     }
