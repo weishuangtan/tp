@@ -250,7 +250,11 @@ Trippie provide travellers with a quicker alternative to convert any amount into
 <center><i>Figure 8: Currency Classes</i></center>
 </kbd>
 
+<<<<<<< HEAD
 Similar to [4.3 Budget and Expense](#43-budget-and-expenses-shawn), `currencyAbbreviation`, `budgetValue` and `forExValue` are retrivable from `Trip` object.
+=======
+Similar to [4.3 Budget and Expenses](#43-budget-and-expenses-shawn), `currencyAbbreviation`, `budgetValue` and `forExValue` are retrivable from `Trip` object.
+>>>>>>> final
 `Currency` object composes of an **enummeration** `CurrencyType` object. This provides **clarity** since it consists of only `LOCAL` and `FOREIGN` contants.
 `CalculateCurrencyCommand` retrive data and convert the input amount according to the input choice.
 
@@ -289,11 +293,6 @@ Forex Abbreviation: MYR
 
 Forex Rate: 3.0
 ```
-
-### 4.6 [Proposed] Colors
-Who doesn't like colors? 
-
----
 
 ## 5.0 Appendix: Requirements
 
@@ -367,6 +366,7 @@ Here are the list of use cases for Trippie.
 * *Java* - A programming language
 
 ## 6.0 Appendix: Instructions for Manual Testing (Shawn)
+
 
 ![UML Diagram Main](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Main.jpg?raw=true)
 <center><i>Figure 9: Overall Architecture</i></center>
