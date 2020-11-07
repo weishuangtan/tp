@@ -155,11 +155,13 @@ Classes inherited from the `Command` class will overwrite the `execute` method i
 The `TrippieException` class is designed as the parent class for the other exception classes like the `TrippieIllegalCommandException` class. These exception classes are created to specify the exceptions faced when `Trippie` is running.
 
 Below shows the architecture for `TrippieException`:
+
 <kbd>
 
 ![Exception UML Diagram](https://i.imgur.com/ps7ZxEQ.jpg)
 
 <center><i>Figure 6: Exception Classes</i> </center>
+</kbd>
 
 * `TrippieIllegalCommandException` is thrown when `Parser` class is unable to parse the command successfully.
 * `TrippieInvalidArgumentException` is thrown when the individual commands inherited from `Command` class meets an error.
@@ -250,11 +252,7 @@ Trippie provide travellers with a quicker alternative to convert any amount into
 <center><i>Figure 8: Currency Classes</i></center>
 </kbd>
 
-<<<<<<< HEAD
-Similar to [4.3 Budget and Expense](#43-budget-and-expenses-shawn), `currencyAbbreviation`, `budgetValue` and `forExValue` are retrivable from `Trip` object.
-=======
 Similar to [4.3 Budget and Expenses](#43-budget-and-expenses-shawn), `currencyAbbreviation`, `budgetValue` and `forExValue` are retrivable from `Trip` object.
->>>>>>> final
 `Currency` object composes of an **enummeration** `CurrencyType` object. This provides **clarity** since it consists of only `LOCAL` and `FOREIGN` contants.
 `CalculateCurrencyCommand` retrive data and convert the input amount according to the input choice.
 
