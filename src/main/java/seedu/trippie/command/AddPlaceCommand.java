@@ -109,19 +109,19 @@ public class AddPlaceCommand extends Command {
     }
 
     public void sortPlaceList(List<Place> sortedPlaces) {
-        boolean swapped = false;
+        boolean isSwapped = false;
         for (int i = (sortedPlaces.size() - 1); i >= 0; i--) {
             for (int j = i - 1; j >= 0; j--) {
                 if (sortedPlaces.get(i).getPlaceDay() == sortedPlaces.get(j).getPlaceDay()
                         && sortedPlaces.get(i).getPlaceStartTime() < sortedPlaces.get(j).getPlaceStartTime()) {
                     Collections.swap(sortedPlaces, i, j);
-                    swapped = true;
+                    isSwapped = true;
                 } else if (sortedPlaces.get(i).getPlaceDay() < sortedPlaces.get(j).getPlaceDay()) {
                     Collections.swap(sortedPlaces, i, j);
-                    swapped = true;
+                    isSwapped = true;
                 }
             }
-            if (!swapped) {
+            if (!isSwapped) {
                 break;
             }
         }
