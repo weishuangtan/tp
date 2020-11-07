@@ -13,19 +13,22 @@ I created a new trippie.txt file for you!
 Please create a new trip first by entering the command 'new trip'!
 >> _________________________________________________________________________
 Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR):Enter your budget for the trip (in SGD):Added the trip 1 Wonderful Singapore 01-01-2023
+Current trip is set to 'Wonderful Singapore'.
 _________________________________________________________________________
 >> _________________________________________________________________________
 There is currently nothing in your place list. Why not add one?
 _________________________________________________________________________
 >> _________________________________________________________________________
 Enter your new trip's name:Enter your new trip's start date (dd-mm-yyyy):Enter the foreign exchange rate:Enter the foreign currency abbreviation (eg. MYR):Enter your budget for the trip (in SGD):Added the trip 2 Amazing Bali 03-04-2021
+Current trip is set to 'Amazing Bali'.
 _________________________________________________________________________
 >> _________________________________________________________________________
 Here are your existing trips.
 1. Wonderful Singapore [No places or expenses added yet]
 2. Amazing Bali [No places or expenses added yet]
 
-Which one do you want to load? Enter the index:Reading the Trippie files now...
+Which one do you want to load? Enter the index:Current trip is set to 'Wonderful Singapore'.
+Reading the Trippie files now...
 _________________________________________________________________________
 >> _________________________________________________________________________
 There is currently nothing in your place list. Why not add one?
@@ -35,7 +38,8 @@ Here are your existing trips.
 1. Wonderful Singapore [No places or expenses added yet]
 2. Amazing Bali [No places or expenses added yet]
 
-Which one do you want to load? Enter the index:Reading the Trippie files now...
+Which one do you want to load? Enter the index:Current trip is set to 'Wonderful Singapore'.
+Reading the Trippie files now...
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it. I've added this place:
@@ -111,7 +115,8 @@ Here are your existing trips.
 1. Wonderful Singapore [5 Days]
 2. Amazing Bali [No places or expenses added yet]
 
-Which one do you want to load? Enter the index:Reading the Trippie files now...
+Which one do you want to load? Enter the index:Current trip is set to 'Amazing Bali'.
+Reading the Trippie files now...
 _________________________________________________________________________
 >> _________________________________________________________________________
 Got it! I've added the following item: Day 1: ice cream - 8.21 IDR
@@ -193,7 +198,8 @@ Here are your existing trips.
 1. Wonderful Singapore [5 Days]
 2. Amazing Bali [3 Days]
 
-Which one do you want to load? Enter the index:Reading the Trippie files now...
+Which one do you want to load? Enter the index:Current trip is set to 'Amazing Bali'.
+Reading the Trippie files now...
 _________________________________________________________________________
 >> _________________________________________________________________________
 Successfully set your total budget to 300.00

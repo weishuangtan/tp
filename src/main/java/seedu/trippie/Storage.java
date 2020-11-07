@@ -36,10 +36,9 @@ public class Storage {
             Scanner readFile = getOrCreateFileScanner(file);
             loadMasterFile(readFile, trippieData);
 
-            if (trippieData.getTripList().size() > 0) {
+            if (trippieData.getTripListSize() > 0) {
                 trippieData.setCurrentTripFromIndex(trippieData.getCurrentTrip().getIndex());
                 trippieData.loadCurrentTripFromFile();
-                System.out.println("Loaded most recently opened trip: " + trippieData.getCurrentTrip().getName());
             }
         } catch (TrippieException e) {
             System.out.println(e.getMessage());
@@ -96,7 +95,7 @@ public class Storage {
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         try {
             if (trippieData.getCurrentTrip() != null) {
-                assert trippieData.getTripList().size() > 0;
+                assert trippieData.getTripListSize() > 0;
                 finalFileWriter.write(
                         String.format("DEFAULT %d\n", trippieData.getCurrentTrip().getIndex())
                 );
@@ -339,8 +338,18 @@ public class Storage {
         }
 
         trippieData.setTripList(parsedTripList);
-        if (trippieData.getTripList().size() > 0) {
+        if (trippieData.getTripListSize() > 0) {
             System.out.println("Found these trips in your computer \n" + trippieData.list());
+        }
+    }
+
+    public void deleteTripFile(String tripName) {
+        File tripFile = new File(MASTER_DIRECTORY + File.separator + tripName + FILE_EXTENSION);
+
+        boolean success = tripFile.delete();
+
+        if (!success) {
+            System.out.println("An error occured while deleting the trip.");
         }
     }
 }

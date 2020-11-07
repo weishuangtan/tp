@@ -29,7 +29,7 @@ public class Trippie {
 
         boolean isExit = false;
 
-        if (trippieData.getTripList().isEmpty()) {
+        if (trippieData.isTripListEmpty()) {
             System.out.println("Please create a new trip first by entering the command 'new trip'!");
             isFirstRun = true;
         }
@@ -39,11 +39,10 @@ public class Trippie {
 
             Command c = parseCommand();
 
-            if (isFirstRun) {
+            if (trippieData.isTripListEmpty()) {
                 if (!(c instanceof NewTripCommand) && !(c instanceof ExitCommand)) {
                     c = promptNewTripCommand();
                 }
-                isFirstRun = false;
             }
 
             isExit = executeCommand(c);

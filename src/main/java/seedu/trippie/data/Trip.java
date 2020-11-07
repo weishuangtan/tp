@@ -14,11 +14,25 @@ public class Trip {
     private PlaceList placeList;
     private int maxDay;
 
+    protected void setIndex(int index) {
+        this.index = index;
+    }
+
+    /**
+     * A trip constructor that initializes both an empty expense list and an empty place list.
+     */
     public Trip() {
         this.expenseList = new ExpenseList();
         this.placeList = new PlaceList();
     }
 
+    /**
+     * A trip constructor based on given parameters.
+     * @param index Given trip index
+     * @param name Given trip name
+     * @param startDate Given trip startDate
+     * @throws TrippieException A common Trippie exception
+     */
     public Trip(int index, String name, Date startDate) throws TrippieException {
 
         if (index < 0) {
@@ -50,14 +64,6 @@ public class Trip {
         return this.placeList;
     }
 
-    public void setExpenseList(ExpenseList expenseList) {
-        this.expenseList = expenseList;
-    }
-
-    public void setPlaceList(PlaceList placeList) {
-        this.placeList = placeList;
-    }
-
     public int getIndex() {
         return index;
     }
@@ -70,12 +76,28 @@ public class Trip {
         return startDate;
     }
 
-    public void updateMaxDay() {
-        maxDay = Integer.max(placeList.getMaxDay(), expenseList.getMaxDay());
-    }
-
     public int getMaxDay() {
         return maxDay;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setExpenseList(ExpenseList expenseList) {
+        this.expenseList = expenseList;
+    }
+
+    public void setPlaceList(PlaceList placeList) {
+        this.placeList = placeList;
+    }
+
+    public void updateMaxDay() {
+        maxDay = Integer.max(placeList.getMaxDay(), expenseList.getMaxDay());
     }
 
     public String toString() {
