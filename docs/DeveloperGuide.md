@@ -371,17 +371,17 @@ Here are the list of use cases for Trippie.
 
 <kbd>
 
-![UML Diagram Main](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Main.jpg?raw=true)
+![UML Diagram Main](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Main.jpg?raw=true)
 <center><i>Figure 9: Overall Architecture</i></center>
 </kbd>
 
-![UML Diagram](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Class%20Diagram.jpg?raw=true)
+![UML Diagram](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Class%20Diagram.jpg?raw=true)
 <center><i>Figure 10: Class Types and Parameters</i></center>
 
-![UML Diagram Command](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Command.jpg?raw=true)
+![UML Diagram Command](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Command.jpg?raw=true)
 <center><i>Figure 11: Commands Classes</i></center>
 
-![UML Diagram Exception](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/Trippie%20UML-Exception.jpg?raw=true)
+![UML Diagram Exception](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Exception.jpg?raw=true)
 <center><i>Figure 12: Exception Classes</i></center>
 
 Given below are the instructions to test the app manually.
@@ -410,8 +410,7 @@ Given below are the instructions to test the app manually.
 
 1. Creates a new trip and sets it as the current trip.
 * Test Case:  Enter the command `new trip`. Trippie will prompt you to enter the trip name. Try inputting an invalid file name, like `A trip of 01/01`. 
-
-* Expected: Trippie will ask you to reenter the name.
+* Expected: Trippie will ask you to re-enter the name.
 
 ```
 Enter your new trip's name:A trip of 01/01
@@ -419,29 +418,77 @@ New trip should not contain invalid characters like <>:"/\|?*!
 Enter your new trip's name:
 ```
 
+* Test Case: Trippie will prompt you to enter another trip name. Try inputting a valid file name, like `test`.
+* Expected: Trippie will ask you for your start date, foreign exchange rate, abbreviation and budget as follows:
+
+```
+Enter your new trip's name:test
+Enter your new trip's start date (dd-mm-yyyy):01-01-2011
+Enter the foreign exchange rate:3.0
+Enter the foreign currency abbreviation (eg. MYR):THA
+Enter your budget for the trip (in SGD):150
+Added the trip 1 test 01-01-2011
+Current trip is set to 'test'.
+``` 
+
 #### Loading an existing trip
 
-* Test case: Create a new trip. Enter the command `load trip`. Trippie will prompt you to enter a trip index. Which you can enter correspondingly.
+* Test case: Create a new trip. Enter the command `load trip`. Trippie will prompt you to enter a trip index. Enter correspondingly.
 * Expected: 
 
 ```
-_________________________________________________________________________
 Here are your existing trips.
-1. 0 Days - test
+1. test [No places or expenses added yet]
 
 Which one do you want to load? Enter the index:1
-_________________________________________________________________________
+Current trip is set to 'test'.
+Reading the Trippie files now...
+```
+
+#### Editing an existing trip
+
+* Test case: Enter the command `edit trip`. Trippie will prompt you to enter a trip index.  Enter correspondingly and edit whichever relevant information.
+* Expected: Trippie will ask you for your start date, foreign exchange rate, abbreviation and budget as follows (Leave blank if you do not want to change): 
+
+```
+Which one do you want to edit? Enter the index:1
+Current trip is set to 'test'.
+Reading the Trippie files now...
+Leave the field empty if you do not want to change the specified detail.
+Enter edited name, [old: test]:old
+Enter your new trip's start date (dd-mm-yyyy) [old:01-01-2011]:01-01-2012
+Enter the foreign exchange rate [old:3.0]:4.0
+Enter the foreign currency abbreviation (eg. MYR) [old: THA]:TAH
+Enter your budget for the trip (in SGD) [old:200.0]:200
+Edited the trip 1 old 01-01-2012
+```
+
+#### Deleting trip
+
+* Test case: Enter the command `delete trip`. Trippie will prompt you to enter a trip index. Enter correspondingly.
+* Expected: 
+
+```
+Here are your existing trips.
+1. old [No places or expenses added yet]
+
+Which one do you want to edit? Enter the index:1
+Current trip is set to 'old'.
+Reading the Trippie files now...
+Are you sure you want to permanently delete 'old'? [Y/N]:Y
+Deleted trip old.
 ```
 
 #### Viewing help
 
 * Test case: Enter the command `help`.
-* Expected: Trippie will show you a table of commands.
+* Expected: Trippie will show you a table of commands with examples.
 
 #### Adding a place
 
 * Test case: Key in `add /n test place /d 3 /t 0000 to 0100` into the CLI.
 * Expected:
+
 ```
 Got it. I've added this place:
 0000 - 0100 test place
@@ -452,30 +499,41 @@ Now you have 1 place in the list.
 
 * Test case: Enter the command `list /p`. Trippie will then list out the places that you have added into the trip.
 * Expected:
+
 ```
-_________________________________________________________________________
 DAY 3: (2011-01-03)
 [1] 0000 - 0100 test place
-_________________________________________________________________________
 ```
 
 #### Searching all places
 
-* Test case:
-* Expected:
+* Test case: Enter the command `search test` to find places that consist of the `test` keyword.
+* Expected: 
+
+```
+Here is your search result:
+1.0000 - 0100 test place on DAY 3
+```
 
 #### Deleting place
 
 * Test case: Enter the command `delete /p 1`. Trippie will then delete the place in the first index of the `Place List`.
 * Expected:
 
+```
+Noted. I've removed this place from the place list.
+0000 - 0100 test place
+Now you have 0 place in the list.
+```
+
 #### Editing budget
 
-* Test case: Enter `budget 2000`, then enter `budget 1000`.
+* Test case: Enter `budget 1000`.
 * Expected: Trippie will set your budget to 1000.
+
 ```
 _________________________________________________________________________
-Successfully set your total budget to 8000.00
+Successfully set your total budget to 1000.00
 _________________________________________________________________________
 ```
 
@@ -483,8 +541,9 @@ _________________________________________________________________________
 
 * Test case: Key in `buy /n item test /d 2 /c 300` into the CLI.
 * Expected:
+
 ```
-Got it! I've added the following item: Day 2: item test - $300.00
+Got it! I've added the following item: Day 2: item test - 300.00 THA
 Now you have 1 item in the list.
 ```
 
@@ -492,12 +551,43 @@ Now you have 1 item in the list.
 
 * Test case: Enter the command `list /e`. Trippie will then list out the expenditure list of all the items bought.
 * Expected:
+
 ```
-Total budget: $1000.00 TST (100.00 SGD)
+Total budget: 600.00 THA (200.00 SGD)
 Expense List:
-[1] Day 2: item test - $300.00
-Your current total spending is $300.00 TST (30.00 SGD)
-Your current remaining budget is $700.00 TST (70.00 SGD)
+[1] Day 2: item test - 300.00 THA
+Your current total spending is 300.00 THA (100.00 SGD)
+Your current remaining budget is 300.00 THA (100.00 SGD)
 You are still spending within your budget.
-[===-------] 30.0%
+[=====-----] 50.0%
+```
+
+#### Deleting expense
+
+* Test case: Enter the command `delete /e 1`.  Trippie will then delete the place in the first index of the `Expense List`.
+* Expected:
+
+```
+Noted. I've removed this item from the expenditure list.
+Day 2: item test - 300.00 THA
+Now you have 0 item in the list.
+```
+
+#### Converting currency
+
+* Test case: Enter the command `convert /toFOR 250`. Trippie will then convert the local currency amount to foreign currency.
+* Expected:
+
+```
+Processing... Please Wait.
+That amount in your foreign currency is 750.00 THA.
+```
+
+#### Exiting Trippie
+
+* Test case: Enter the command `exit`. Trippie will exit and automatically save all the data.
+* Expected:
+
+```
+Bye. Hope to see you again soon!
 ```
