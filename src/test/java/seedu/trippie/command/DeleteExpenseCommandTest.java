@@ -18,8 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DeleteExpenseCommandTest {
 
-    private final String[] validAddUserInputs = {"buy /i ice-cream /c 3.00 /d 2", "buy /i chicken rice /c 5.00 /d 1",
-        "buy /i pants /c $30.00 /d 3"};
+    private final String[] validAddUserInputs = {"buy /n ice-cream /d 2 /c 3.00", "buy /n chicken rice /d 1 /c 5.00",
+        "buy /n pants /d 3 /c $30.00"};
     private final String[] validDeleteUserInputs = {"delete /e 4", "delete /e 1", "delete /e 1", "delete /e 1"};
     private final String[] badUserInputs = {"delete /e", "delete /e three", "delete ", "delete"};
     private final int[] expectedSize = {3,2,1,0};
