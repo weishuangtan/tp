@@ -276,7 +276,7 @@ Forex Abbreviation: MYR
 
 Forex Rate: 3.0
 ```
-###4.6 Addition Class Diagrams [Confirm if we still need them]:
+### 4.6 Addition Class Diagrams [Confirm if we still need them]:
 
 
 ![UML Diagram Main](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Main.jpg?raw=true)
@@ -573,8 +573,5 @@ That amount in your foreign currency is 750.00 THA.
 Bye. Hope to see you again soon!
 ```
 
-<center> 
-
 [Back to the top](#table-of-content)
 
-</center>
