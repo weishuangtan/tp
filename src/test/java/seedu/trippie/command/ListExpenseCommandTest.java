@@ -6,7 +6,6 @@ import seedu.trippie.Ui;
 import seedu.trippie.data.Trip;
 import seedu.trippie.data.TrippieData;
 import seedu.trippie.exception.TrippieException;
-import seedu.trippie.exception.TrippieInvalidArgumentException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -22,10 +21,10 @@ class ListExpenseCommandTest {
     private static final String NO_BUDGET_LEFT = "You have spent finish your budget.";
     private static final String EXCEED_BUDGET = "WARNING! You have exceeded your initial budget.\n"
             + "Recommended action: Increase budget limit.";
-    private final String[] validAddUserInputs = {"buy /i ice-cream /c 3.00 /d 2", "buy /i chicken rice /c 5.00 /d 1",
-        "buy /i pants /c $30.00 /d 3"};
-    private final String[] validAddEnoughUserInputs = {"buy /i right price product /c 100000 /d 1"};
-    private final String[] invalidAddUserInputs = {"buy /i priceless product /c 100001 /d 2"};
+    private final String[] validAddUserInputs = {"buy /n ice-cream /d 2 /c 3.00", "buy /n chicken rice /d 1 /c 5.00",
+        "buy /n pants /d 3 /c $30.00"};
+    private final String[] validAddEnoughUserInputs = {"buy /n right price product /d 1 /c 100000"};
+    private final String[] invalidAddUserInputs = {"buy /n priceless product /d 2 /c 100001"};
 
     @Test
     void listExpenseCommand_emptyList_printListIsEmpty() throws TrippieException, ParseException {

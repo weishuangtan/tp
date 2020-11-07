@@ -18,12 +18,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class AddExpenseCommandTest {
 
-    private final String[] validUserInputs = {"buy /i ice-cream /c 3.00 /d 2", "buy /i chicken rice /c 5.00 /d 1",
-        "buy /i pants /c $30.00 /d 3"};
+    private final String[] validUserInputs = {"buy /n ice-cream /d 2 /c 3.00", "buy /n chicken rice /d 1 /c 5.00",
+        "buy /n pants /d 3 /c $30.00"};
 
-    private final String[] badUserInputs = {"buy /i /c /d", "buy /i ice-cream /c three dollars /d 2",
-        "buy /i ice-cream /c 3.00 /d two", "buy /i ice-cream /c /d", "buy /i /c /d 2",
-        "buys /i ice-cream /c 3.00 /d 2"};
+    private final String[] badUserInputs = {"buy /n /d /c", "buy /n ice-cream /d 2 /c three dollars",
+        "buy /n ice-cream /d two /c 3.00", "buy /n ice-cream /d /c", "buy /n /d 2 /c",
+        "buys /n ice-cream /d 2 /c 3.00"};
 
     @Test
     void addExpenseCommand_invalidUserInput_throwsTrippieInvalidArgumentException() {
