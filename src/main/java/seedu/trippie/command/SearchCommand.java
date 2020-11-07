@@ -10,7 +10,7 @@ import java.util.List;
 public class SearchCommand extends Command {
 
     private static final String FORMAT_ERROR_MESSAGE = "You typed in the incorrect format for [search KEYWORD] command!"
-            + "Please try the following:\nFormat: search KEYWORD\nExample: search disneyland";
+            + " Please try the following:\nFormat: search KEYWORD\nExample: search disneyland";
 
     private final String keyword;
 
