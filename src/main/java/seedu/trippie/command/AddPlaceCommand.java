@@ -18,7 +18,7 @@ public class AddPlaceCommand extends Command {
     private static final String TIME_ERROR_MESSAGE = "Please check that your TIME parameters are in the correct "
             + "24-hours format";
     private static final String TIME_TRAVELLER_ERROR_MESSAGE = "Are you a time traveller? Your END TIME should "
-            + "end before START TIME";
+            + "end after START TIME";
     private static final String NEGATIVE_DAY_MESSAGE = "Trippie doesn't know how to deal with negative days.";
 
     private final String name;
