@@ -278,6 +278,7 @@ Forex Rate: 3.0
 ```
 ### 4.6 Addition Class Diagrams [Confirm if we still need them]:
 
+
 ![UML Diagram Main](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Main.jpg?raw=true)
 <center><i>Figure 9: Overall Architecture</i></center>
 
