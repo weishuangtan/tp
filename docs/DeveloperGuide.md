@@ -4,33 +4,32 @@
 
 ## Table of Content
 Below is a list of contents that is included in this document.
-* [1.0 Introduction](#10-Introduction)
-* [2.0 Setting up the project in your computer](#20-Setting-up-the-project-in-your-computer)
-* [3.0 Design](#30-Design)
-    * [3.1 Architecture](#31-Architecture-Felix)
-    * [3.2 Ui](#32-Ui-Felix)
-    * [3.3 Parser](#33-Parser-Wei-Shuang)
-    * [3.4 TrippieData](#34-TrippieData-Ivander)
-    * [3.5 Storage](#35-Storage-Ivander)
-    * [3.6 Command](#36-Command-Wei-Shuang)
-    * [3.7 Exceptions](#37-Exceptions-Wei-Shuang)
-* [4.0 Implementation](#40-Implementation-DG-to-complete-by-Wed-28-Oct-soft)
-    * [4.1 Multiple Trips Structure](#41-Multiple-Trips-Structure-Ivander)
-    * [4.2 Sorting Place List](#42-Sorting-Place-List-Kian-En)
-    * [4.3 Budget and Expenses](#43-Budget-and-Expenses-Shawn)
-    * [4.4 Foreign Exchange Converter](#Foreign-Exchange-Converter-Shawn)
-    * [4.5 Import and Export Files](#45-Import-and-Export-Files-Wei-Shuang)
-    * [4.6 [Proposed] Colors](#46-Proposed-Colors)
-* [5.0 Appendix: Requirements](#50-Appendix-Requirements)
-    * [5.1 Product Scope](#51-Product-scope)
-        * [5.1.0 Target user profile](#510-Target-user-profile)
-        * [5.1.1 Value proposition](#511-Value-proposition)
-    * [5.2 User Stories](#52-User-Stories)
-    * [5.3 Use Cases](#53-Use-Cases)
-    * [5.4 Non-Functional Requirements](#54-Non-Functional-Requirements)
-    * [5.5 Glossary](#55-Glossary)
-* [6.0 Appendix: Instructions for Manual Testing](#60-Appendix-Instructions-for-Manual-Testing)
-    * [6.1 Launch and Shutdown](#61-Launch-and-Shutdown-Felix)
+* [1.0 Introduction](#10-introduction)
+* [2.0 Setting up the project in your computer](#20-setting-up-the-project-in-your-computer)
+* [3.0 Design](#30-design)
+    * [3.1 Architecture](#31-architecture-felix)
+    * [3.2 Ui](#32-ui-felix)
+    * [3.3 Parser](#33-parser-wei-shuang)
+    * [3.4 TrippieData](#34-trippiedata-ivander)
+    * [3.5 Storage](#35-storage-ivander)
+    * [3.6 Command](#36-command-wei-shuang)
+    * [3.7 Exceptions](#37-exceptions-wei-shuang)
+* [4.0 Implementation](#40-implementation-dg-to-complete-by-wed-28-oct-soft)
+    * [4.1 Multiple Trips Structure](#41-multiple-trips-structure-ivander)
+    * [4.2 Sorting Place List](#42-sorting-place-list-kian-en)
+    * [4.3 Budget and Expenses](#43-budget-and-expenses-shawn)
+    * [4.4 Foreign Exchange Converter](#44-foreign-exchange-converter-shawn)
+    * [4.5 Import and Export Files](#45-import-and-export-files-wei-shuang)
+* [5.0 Appendix: Requirements](#50-appendix-requirements)
+    * [5.1 Product Scope](#51-product-scope-kian-en)
+        * [5.1.0 Target user profile](#510-target-user-profile)
+        * [5.1.1 Value proposition](#511-value-proposition)
+    * [5.2 User Stories](#52-user-stories-kian-en)
+    * [5.3 Use Cases](#53-use-cases)
+    * [5.4 Non-Functional Requirements](#54-non-functional-requirements-kian-en)
+    * [5.5 Glossary](#55-glossary)
+* [6.0 Appendix: Instructions for Manual Testing](#60-appendix-instructions-for-manual-testing-shawn)
+    * [6.1 Launch and Shutdown](#61-launch-and-shutdown-felix)
 
 
 ## 1.0 Introduction
@@ -160,7 +159,7 @@ Below shows the architecture for `TrippieException`:
 
 ![Exception UML Diagram](https://i.imgur.com/ps7ZxEQ.jpg)
 
-<center><i>Figure 6: Exception Classes</i> </center></kbd>
+<center><i>Figure 6: Exception Classes</i> </center>
 
 * `TrippieIllegalCommandException` is thrown when `Parser` class is unable to parse the command successfully.
 * `TrippieInvalidArgumentException` is thrown when the individual commands inherited from `Command` class meets an error.
@@ -251,7 +250,7 @@ Trippie provide travellers with a quicker alternative to convert any amount into
 <center><i>Figure 8: Currency Classes</i></center>
 </kbd>
 
-Similar to [4.3 Budget and Expense](#Budget-and-Expenses-Shawn), `currencyAbbreviation`, `budgetValue` and `forExValue` are retrivable from `Trip` object.
+Similar to [4.3 Budget and Expenses](#43-budget-and-expenses-shawn), `currencyAbbreviation`, `budgetValue` and `forExValue` are retrivable from `Trip` object.
 `Currency` object composes of an **enummeration** `CurrencyType` object. This provides **clarity** since it consists of only `LOCAL` and `FOREIGN` contants.
 `CalculateCurrencyCommand` retrive data and convert the input amount according to the input choice.
 
@@ -291,14 +290,9 @@ Forex Abbreviation: MYR
 Forex Rate: 3.0
 ```
 
-### 4.6 [Proposed] Colors
-Who doesn't like colors? 
-
----
-
 ## 5.0 Appendix: Requirements
 
-### 5.1 Product scope
+### 5.1 Product scope (Kian En)
 
 The following sections displays Trippie's potential target user profile, its value proposition.
 
@@ -315,7 +309,7 @@ Here are 4 factors for our targetted user profile
 
 It allows users to plan multiple trips in a one-stop platform before and during the trip. It provides user with a convenient method of tracking expenditure while not spending past their budget. It also allows user to quickly convert any amount from local to foreign currency, vice versa. 
 
-### 5.2 User Stories
+### 5.2 User Stories (Kian En)
 
 This table demostrates a list of user stories relevant to Trippie.
 
@@ -346,7 +340,7 @@ Here are the list of use cases for Trippie.
 4. Share the trip files to others.
 5. Be a happy student.
 
-### 5.4 Non-Functional Requirements
+### 5.4 Non-Functional Requirements (Kian En)
 
 | Requirement Type | Description |
 |------------------|-------------|
@@ -367,7 +361,7 @@ Here are the list of use cases for Trippie.
 * *JUnit* - Java Unit Testing Framework
 * *Java* - A programming language
 
-## 6.0 Appendix: Instructions for Manual Testing
+## 6.0 Appendix: Instructions for Manual Testing (Shawn)
 
 <kbd>
 
