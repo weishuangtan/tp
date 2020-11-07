@@ -38,7 +38,7 @@ class ParserTest {
 
     @Test
     public void parse_buyCommand_parsedCorrectly() {
-        final String input = "buy /i ice-cream /c 3.00 /d 2";
+        final String input = "buy /n ice-cream /d 2 /c 3.00";
         parseAndAssertCommandType(input, AddExpenseCommand.class);
     }
 

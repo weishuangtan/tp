@@ -481,8 +481,8 @@ _________________________________________________________________________
 
 #### Adding an expense
 
-* Test case: Key in `buy /i item test /c 300 /d 2` into the CLI.
-* Espected:
+* Test case: Key in `buy /n item test /d 2 /c 300` into the CLI.
+* Expected:
 ```
 Got it! I've added the following item: Day 2: item test - $300.00
 Now you have 1 item in the list.

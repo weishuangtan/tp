@@ -338,13 +338,13 @@ Successfully set your total budget to 100.00
 ### 5.10 Adding an expense: `buy` (Shawn Tan)
 Adds an item and its final cost in foreign currency into the current trip's expense list. In the example below, we are adding an expense "R&B Brown Sugar" as `ITEM_NAME`, which has the `FINAL_COST` of $3.00, on `DAY` 2.
 
-Format: **`buy`**`/i ITEM_NAME /c FINAL_COST /d DAY`
+Format: **`buy`**`/n ITEM_NAME /d DAY /c FINAL_COST`
 
 * `ITEM_NAME` is the label of the item.
 * `FINAL_COST` indicates the cost of the item you purchased.
 * `DAY` indicates the specific day when you bought the item.
 
-Example: **`buy`**`/i R&B Brown Sugar /c 3.00 /d 2`
+Example: **`buy`**`/n R&B Brown Sugar /d 2 /c 3.00`
 
 <br/>
 
@@ -507,7 +507,7 @@ Below is a summary of all trippie commands. You can check this section if you ne
 **`search`**|`search KEYWORD` <br>e.g., `search Dinner`
 **`delete /p`**|`delete /p PLACE_INDEX` <br>e.g., `delete 1`
 **`budget`**|`budget AMOUNT`<br>e.g., `budget 100`
-**`buy`**|`buy /i ITEM_NAME /c FINAL_COST /d DAY` <br>e.g., `buy /i R&B Brown Sugar /c 3.00 /d 2`
+**`buy`**|`buy /n ITEM_NAME /d DAY /c FINAL_COST` <br>e.g., `buy /n R&B Brown Sugar /d 2 /c 3.00`
 **`list /e`**|`list /e`
 **`delete /e`**|`delete /p EXPENSE_INDEX` <br>e.g., `delete 1`
 **`convert /to`**|`convert /toCURRENCY AMOUNT` <br>e.g., `convert /toSGD 500`<br>`convert /toFOR 500`
