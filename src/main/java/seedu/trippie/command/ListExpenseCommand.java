@@ -27,6 +27,13 @@ public class ListExpenseCommand extends Command {
         return false;
     }
 
+    /**
+     * Prints out expense list summary which includes total budget, list of items bought, total spending, remaining
+     * budget and percentage spent bar.
+     *
+     * @param ui User Interface of the program
+     * @param trippieData The current trip expenseList that would updated.
+     */
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         List<Expense> expenses = trippieData.getCurrentTrip().getExpenseListObject().getExpenseList();
@@ -59,6 +66,13 @@ public class ListExpenseCommand extends Command {
         }
     }
 
+    /**
+     * Displays remaining budget in both foreign and local currency if there are any left.
+     *
+     * @param remainingBudget Remaining amount leftover from budget after spending.
+     * @param exchangeRate Exchange rate for foreign currency.
+     * @param currencyAbbreviation Foreign currency abbreviation.
+     */
     private void displayRemainingBudget(float remainingBudget, float exchangeRate, String currencyAbbreviation) {
         if (remainingBudget < 0) {
             System.out.print("");
@@ -69,6 +83,14 @@ public class ListExpenseCommand extends Command {
         }
     }
 
+    /**
+     * Compares spending with budget to print respectively messages
+     * Prints a budget percentage bar that put spending with reference to initial budget.
+     *
+     * @param spent The amount spent by user.
+     * @param budget The budget initially set by user.
+     * @throws TrippieExceedBudgetException If amount spent is more than the budget set.
+     */
     public static void createBudgetPercentageBar(float spent, float budget) throws TrippieExceedBudgetException {
         if (spent == budget) {
             System.out.println("You have spent finish your budget.");
