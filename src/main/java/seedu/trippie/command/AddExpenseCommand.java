@@ -39,25 +39,24 @@ public class AddExpenseCommand extends Command {
     }
 
     public String extractExpenseName(String userInput) {
-        String inputWithoutCost = userInput.split(" /c ")[0];
-        return inputWithoutCost.split(" /i ")[1];
+        String inputWithoutCostAndDay = userInput.split(" /d ")[0];
+        return inputWithoutCostAndDay.split(" /n ")[1];
     }
 
     public Float extractExpenseCost(String userInput) throws TrippieInvalidArgumentException {
-        String inputWithoutDay = userInput.split(" /d ")[0];
-        String expenseCost = inputWithoutDay.split(" /c ")[1];
-        if (expenseCost.contains("$")) {
-            expenseCost = expenseCost.replace("$", "");
+        String onlyCost = userInput.split(" /c ")[1];
+        if (onlyCost.contains("$")) {
+            onlyCost = onlyCost.replace("$", "");
         }
-        if (Float.parseFloat(expenseCost) < 0) {
+        if (Float.parseFloat(onlyCost) < 0) {
             throw new TrippieInvalidArgumentException(NEGATIVE_COST_MESSAGE);
         }
-        return Float.parseFloat(expenseCost);
-
+        return Float.parseFloat(onlyCost);
     }
 
     public int extractDayBought(String userInput) throws TrippieInvalidArgumentException {
-        String onlyDay = userInput.split(" /d ")[1];
+        String inputWithoutCost = userInput.split(" /c ")[0];
+        String onlyDay = inputWithoutCost.split(" /d ")[1];
         if (Integer.parseInt(onlyDay) <= 0) {
             throw new TrippieInvalidArgumentException(NEGATIVE_DAY_MESSAGE);
         }
