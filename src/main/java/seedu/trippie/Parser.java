@@ -23,13 +23,13 @@ public class Parser {
 
     public static Command parse(String userInput) {
         try {
-            if (userInput.equals("exit")) {
+            if (userInput.trim().equals("exit")) {
                 return new ExitCommand();
             } else if (userInput.startsWith("buy")) {
                 return new AddExpenseCommand(userInput);
             } else if (userInput.startsWith("delete /e")) {
                 return new DeleteExpenseCommand(userInput);
-            } else if (userInput.equals("list /e")) {
+            } else if (userInput.trim().equals("list /e")) {
                 return new ListExpenseCommand();
             } else if (userInput.startsWith("budget")) {
                 return new BudgetCommand(userInput);
@@ -39,15 +39,15 @@ public class Parser {
                 return new AddPlaceCommand(userInput);
             } else if (userInput.startsWith("delete /p")) {
                 return new DeletePlaceCommand(userInput);
-            } else if (userInput.equals("help")) {
+            } else if (userInput.trim().equals("help")) {
                 return new HelpCommand();
             } else if (userInput.startsWith("list /p")) {
                 return new ListPlacesCommand(userInput);
             } else if (userInput.startsWith("search")) {
                 return new SearchCommand(userInput);
-            } else if (userInput.equals("new trip")) {
+            } else if (userInput.trim().equals("new trip")) {
                 return new NewTripCommand();
-            } else if (userInput.equals("load trip")) {
+            } else if (userInput.trim().equals("load trip")) {
                 return new LoadTripCommand();
             } else {
                 throw new TrippieIllegalCommandException(ERROR_MESSAGE);
