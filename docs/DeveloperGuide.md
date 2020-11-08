@@ -132,7 +132,7 @@ To get the name of a `Place` of index 5 in `PlaceList` and from Trip of index 4 
 
 
 
-![Getting_Name_Of_Place_Sequence_Diagram](https://i.imgur.com/6xMMhDI.png)
+![Getting_Name_Of_Place_Sequence_Diagram](https://i.imgur.com/7d8Ci50.png)
 <center><i>Figure 4: Getting a name of a Place object.</i></center>
 
 
