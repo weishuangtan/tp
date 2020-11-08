@@ -50,7 +50,7 @@ public class TrippieData {
     }
 
     /**
-     * Adds a trip to tripList
+     * Adds a trip to tripList.
      * @param trip a trip to be added. The index of inputted trip does not matter.
      */
     public void addTrip(Trip trip) {

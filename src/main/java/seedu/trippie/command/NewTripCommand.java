@@ -19,7 +19,7 @@ public class NewTripCommand extends Command {
     }
 
     /**
-     * Does not exit
+     * Does not exit.
      * @return false
      */
     public boolean isExit() {
