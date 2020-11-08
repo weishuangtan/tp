@@ -12,6 +12,12 @@ public class LoadTripCommand extends Command {
         return false;
     }
 
+    /**
+     * Executes the LoadTripCommand. Will prompt the user for input from Scanner.in.
+     *
+     * @param ui Ui to read user input
+     * @param trippieData TrippieData object to store user data in runtime
+     */
     public void execute(Ui ui, TrippieData trippieData) {
         System.out.println("Here are your existing trips.");
         System.out.println(trippieData.list());

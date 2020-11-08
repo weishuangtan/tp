@@ -19,6 +19,12 @@ public class EditTripCommand extends Command {
         return false;
     }
 
+    /**
+     * Executes the EditTripCommand. Will prompt the user for input from Scanner.in.
+     *
+     * @param ui Ui to read user input
+     * @param trippieData TrippieData object to store user data in runtime
+     */
     public void execute(Ui ui, TrippieData trippieData) {
         System.out.println("Here are your existing trips.");
         System.out.println(trippieData.list());
@@ -177,7 +183,13 @@ public class EditTripCommand extends Command {
 
     }
 
-    public boolean isCurrencyAbbreviationFormat(String input) {
+    /**
+     * Checks the currency abbreviation format, whether or not it complies with the standard format.
+     * Standard format consists of 3 letter max and is all caps without digits.
+     * @param input the string to be checked.
+     * @return false if currency format is not valid.
+     */
+    private boolean isCurrencyAbbreviationFormat(String input) {
         if (input.length() > 3 | input.length() == 0) {
             return false;
         }
@@ -191,12 +203,17 @@ public class EditTripCommand extends Command {
         return true;
     }
 
-    // Implemented with reference to
-    // https://www.rgagnon.com/javadetails/java-check-if-a-filename-is-valid.html
-    private boolean isFilenameValid(String file) {
+    /**
+     * Checks if a fileName is valid.
+     * @param fileName the filename to be checked
+     * @return true if file name is valid, else false
+     */
+    private boolean isFilenameValid(String fileName) {
+        // Implemented with reference to
+        // https://www.rgagnon.com/javadetails/java-check-if-a-filename-is-valid.html
         Pattern p = Pattern.compile("[<>:\"/\\\\|?*]");
 
-        return !p.matcher(file).find();
+        return !p.matcher(fileName).find();
     }
 
 
