@@ -30,6 +30,7 @@ Below is a list of contents that is included in this document.
     * [5.5 Glossary](#55-glossary)
 * [6.0 Appendix: Instructions for Manual Testing](#60-appendix-instructions-for-manual-testing-shawn)
     * [6.1 Launch and Shutdown](#61-launch-and-shutdown-felix)
+    * [6.2 Step by Step Guide](#62-step-by-step-guide-shawn)
 
 
 ## 1.0 Introduction
@@ -37,7 +38,7 @@ Below is a list of contents that is included in this document.
 Trippie is a command-line app to plan any of your upcoming trips. It is tailored to match the needs of student travellers. Trippie lets users plan multiple trips through timetabling and also allows users to track their expenses overseas. Trippie is designed for users to enter their input quickly and efficiently.
 
 ## 2.0 Setting up the project in your computer
-This sections gives an overview on how to set up the project in your computer.
+This section gives an overview on how to set up the project in your computer.
 
 **Prerequisites:**
 * JDK 11
@@ -385,7 +386,7 @@ Given below are the instructions to test the app manually.
    1. `exit` to exit Trippie.
    2. Your Trippie files will be automatically saved in ./trippie_data!
 
-### 6.2 Step by Step Guide
+### 6.2 Step by Step Guide (Shawn)
 
 #### Creating a new trip
 
