@@ -1,5 +1,5 @@
 .box {
-    width: 80vw;
+    width: 100%;
     border: 2px solid #000;
     margin: 0 auto 15px;
     padding: 20px;
@@ -7,7 +7,7 @@
 }
 
 .info {
-    background-color: #42C0FB;
+    background-color: #BFEFFF;
     border-color: #0198E1;
 }
 
