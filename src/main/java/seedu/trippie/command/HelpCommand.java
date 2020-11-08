@@ -19,6 +19,12 @@ public class HelpCommand extends Command {
         System.out.println("[load trip]|   Loads a specific trip from the saved list");
         System.out.println("           |   Format: load trip");
         printBorder();
+        System.out.println("[edit trip]|   Edits a specific trip from the saved list");
+        System.out.println("           |   Format: edit trip");
+        printBorder();
+        System.out.println("[delete    |   Deletes a specific trip from the saved list");
+        System.out.println("trip]      |   Format: delete trip");
+        printBorder();
         System.out.println("[help]     |   Shows a concise list of commands available");
         System.out.println("           |   Format: help");
         printBorder();
@@ -43,8 +49,8 @@ public class HelpCommand extends Command {
         System.out.println("           |   Example: budget 100");
         printBorder();
         System.out.println("[buy]      |   Adds an item with its final cost into an expenditure list");
-        System.out.println("           |   Format: buy /i ITEM_NAME /c FINAL_COST /d DAY_NUMBER");
-        System.out.println("           |   Example: buy /i R&B Brown Sugar /c 3.00 /d 2");
+        System.out.println("           |   Format: buy /n ITEM_NAME /d DAY_NUMBER /c FINAL_COST");
+        System.out.println("           |   Example: buy /n R&B Brown Sugar /d 2 /c 3.00");
         printBorder();
         System.out.println("[list]     |   Displays all the items bought in the expenditure list");
         System.out.println("(expenses) |   Format: list /e");

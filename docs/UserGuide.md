@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="trippie.css">
+
 # User Guide
 
 ![Trippie Logo](https://i.imgur.com/jSwGL7O.png)
@@ -11,21 +13,22 @@ Below is a list of contents that is included in this document.
 * [5.0 Features](#50-features-shawn-tan)
     * [5.1 Creating a new trip: **`new trip`**](#51-creating-a-new-trip-new-trip-ivander)
     * [5.2 Loading an existing trip: **`load trip`**](#52-loading-an-existing-trip-load-trip-ivander)
-    * [5.3 Deleting a trip: **`delete trip`**](#53-deleting-a-trip-delete-trip-proposed-ivander)
-    * [5.4 Viewing help: **`help`**](#54-viewing-help-help-felix)
-    * [5.5 Adding a place: **`add`**](#55-adding-a-place-add-felix)
-    * [5.6 Listing all places: **`list /p`**](#56-listing-all-places-list-p-felix)
-    * [5.7 Searching for place: **`search`**](#57-searching-for-place-search-wei-shuang)
-    * [5.8 Deleting place: **`delete /p`**](#58-deleting-place-delete-p-wei-shuang)
-    * [5.9 Editing budget: **`budget`**](#59-editing-budget-budget-wei-shuang)
-    * [5.10 Adding an expense: **`buy`**](#510-adding-an-expense-buy-shawn-tan)
-    * [5.11 Listing all expenses: **`list /e`**](#511-listing-all-expenses-list-e-shawn-tan)
-    * [5.12 Deleting an expense: **`delete /e`**](#512-deleting-an-expense-delete-e-shawn-tan)
-    * [5.13 Converting Currency: **`convert /to`**](#513-convert-currency-convert-to-kian-en)
-        * [5.13.1 Convert to Local Currency (SGD): **`convert /toSGD`**](#5131-convert-to-local-currency-sgd)
-        * [5.13.2 Convert to Foreign Currency (FOR): **`convert /toFROM`**](#5132-convert-to-foreign-currency-for)
-    * [5.14 Exiting the Trippie: **`exit`**](#514-exiting-the-trippie-exit-kian-en)
-    * [5.15 Saving the data](#515-saving-the-data-kian-en)
+    * [5.3 Editing a trip: **`edit trip`**](#53-editing-a-trip-edit-trip-ivander)
+    * [5.4 Deleting a trip: **`delete trip`**](#54-deleting-a-trip-delete-trip-ivander)
+    * [5.5 Viewing help: **`help`**](#55-viewing-help-help-felix)
+    * [5.6 Adding a place: **`add`**](#56-adding-a-place-add-felix)
+    * [5.7 Listing all places: **`list /p`**](#57-listing-all-places-list-p-felix)
+    * [5.8 Searching for place: **`search`**](#58-searching-for-place-search-wei-shuang)
+    * [5.9 Deleting place: **`delete /p`**](#59-deleting-place-delete-p-wei-shuang)
+    * [5.10 Editing budget: **`budget`**](#510-editing-budget-budget-wei-shuang)
+    * [5.11 Adding an expense: **`buy`**](#511-adding-an-expense-buy-shawn-tan)
+    * [5.12 Listing all expenses: **`list /e`**](#512-listing-all-expenses-list-e-shawn-tan)
+    * [5.13 Deleting an expense: **`delete /e`**](#513-deleting-an-expense-delete-e-shawn-tan)
+    * [5.14 Converting Currency: **`convert /to`**](#514-convert-currency-convert-to-kian-en)
+        * [5.14.1 Convert to Local Currency (SGD): **`convert /toSGD`**](#5141-convert-to-local-currency-sgd)
+        * [5.14.2 Convert to Foreign Currency (FOR): **`convert /toFROM`**](#5142-convert-to-foreign-currency-for)
+    * [5.15 Exiting the Trippie: **`exit`**](#515-exiting-the-trippie-exit-kian-en)
+    * [5.16 Saving the data](#516-saving-the-data-kian-en)
 * [6.0 FAQ](#60-faq-kian-en)
 * [7.0 Command Summary](#70-command-summary-wei-shuang)
 
@@ -40,10 +43,14 @@ _A screenshot of Trippie's command line interface_
 This section helps you in using the various features available in Trippie.
 
 Note the following symbols and formatting used in this document:
-<div markdown="span" class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i>
+
+<div markdown="span" class="info box">
+> :information_source:
 This box indicates important information for you to take note of.
 </div>
-<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i>
+
+<div markdown="span" class="warning box">
+> :warning:
 This box indicates notable warnings that you should be aware of.
 </div>
 
@@ -59,7 +66,7 @@ Begin with the [Quick Start](#40-quick-start-ivander) section if it is your firs
 ## 4.0 Quick Start (Ivander)
 Written below are the steps to be taken to set up the application:
 1. Verify that you have Java 11 or above installed in your computer by running `java --version`.
-2. Download the latest `trippie.jar` from [here](https://github.com/AY2021S1-CS2113T-W11-2/tp/releases/tag/v2.0).
+2. Download the latest `trippie.jar` from [here](https://github.com/AY2021S1-CS2113T-W11-2/tp/releases/tag/v2.1).
 3. Copy the file to a folder where you want to run it from.
 4. Using a command line tool, navigate to the path of `trippie.jar`, by entering `cd path/to/file`
     * If your operating system is Windows, use Command Prompt.
@@ -67,15 +74,15 @@ Written below are the steps to be taken to set up the application:
 6. Enter `java -jar trippie.jar` in your command line tool and press enter.
 7. If the setup is correct, you should see a welcome message. Then, it is now ready to go.
 8. Create your first trip by entering [`new trip`](#51-creating-a-new-trip-new-trip-ivander) to the command line. Then, enter your trip name, start date, exchange rate, currency, and budget.
-9. Add your first place using [`add`](#55-adding-a-place-add-felix). Then buy your first item with [`buy`](#510-adding-an-expense-buy-shawn-tan).
+9. Add your first place using [`add`](#56-adding-a-place-add-felix). Then buy your first item with [`buy`](#511-adding-an-expense-buy-shawn-tan).
 10. Try listing your places by entering `list /p` and your expenses with `list /e`.
 11. `exit` and check your folder to check your Trippie files!
 
 
 ## 5.0 Features (Shawn Tan)
 Written below are the various features available in Trippie.
-<div markdown="span" class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Notes on command format:</b> 
-
+<div markdown="span" class="info box">
+> :information_source: **Notes on command format:** 
 * The **`bolded syntax`** represents the key command.
 * Words in `CAPITAL LETTERS` are arguments that you need to supply. 
     * e.g. **`add`**`/n PLACE_NAME /d DAY /t TIME`
@@ -104,13 +111,12 @@ Enter your budget for the trip (in SGD):500
 Added the trip 4  Summer Exchange Peru 12-12-2020
 ```
 
-<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning</b> 
-
+<div markdown="span" class="warning box">
+> :warning: **Warning** 
 * Enter your trip name without slashes i.e. "\\" or "/".
 * Input your start date with the given format.
 * Currency abbreviation should only be 3 characters.
 * Budget is accurate only to 2 decimal places.
-
 </div>
 
 ---
@@ -138,17 +144,18 @@ I found a file in your directory!
 Setting up the file now...
 ```
 
-
-
-<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning</b> 
-
+<div markdown="span" class="warning box">
+> :warning: **Warning** 
 * You need to enter a valid trip index!
-
 </div>
 
 ---
 
-### 5.3 Deleting a trip: `delete trip` [Proposed in v2.1] (Ivander)
+### 5.3 Editing a trip: `edit trip` (Ivander)
+
+
+
+### 5.4 Deleting a trip: `delete trip` (Ivander)
 
 Deletes a specific trip from the list of saved trip in `trippie_data`. Trippie will prompt you to enter the index of your preferred trip.
 
@@ -172,7 +179,7 @@ Are you sure you want to permanently remove "Wonderful Singapore"? Enter [Y/N]:Y
 ```
 ---
 
-### 5.4 Viewing help: `help` (Felix)
+### 5.5 Viewing help: `help` (Felix)
 Shows a concise list of commands available. Think of this as a cheatsheet. If you are new to Trippie, you can take a look of what and how you can utilize each commands via `help`.
 
 Format: **`help`**
@@ -189,8 +196,8 @@ ___________|______________________________________________________________
 [load trip]|   Loads a specific trip from the saved list
            |   Format: load trip
 ___________|______________________________________________________________
-[delete    |   Deletes a specific trip from the saved list
-trip]      |   Format: delete trip
+[edit trip]|   Edits a specific trip from the saved list
+           |   Format: edit trip
 ___________|______________________________________________________________
 ...        |   ...
 ...        |   ...
@@ -198,7 +205,7 @@ ___________|______________________________________________________________
 ```
 
 ---
-### 5.5 Adding a place: `add` (Felix)
+### 5.6 Adding a place: `add` (Felix)
 Adds a place to your trip. In the example below, we're adding "Dinner at Marina Bay Sands" as the `PLACE_NAME`, for `DAY` 2, from 1800 to 2000 as the `TIME`.
 
 Format: **`add`**`/n PLACE_NAME /d DAY /t TIME`
@@ -217,18 +224,15 @@ Got it. I've added this place:
 1800 - 2000 Dinner at Marina Bay 
 Now you have 1 place in the list.
 ```
-
-<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning</b> 
-
+<div markdown="span" class="warning box">
+> :warning: **Warning** 
 * The tags should be in the correct order.
-* Use 24-hour format for time.
-
+* Use a 24-hour format for time.
 </div>
-
 
 ---
 
-### 5.6 Listing all places: `list /p` (Felix)
+### 5.7 Listing all places: `list /p` (Felix)
 Displays all places in a timetable format. If you specify a `DAY`, only places on the specified day will be displayed. In the example below, we are viewing the full timetable for the trip.
 
 Format: **`list /p`**`[/d DAY]`
@@ -258,7 +262,7 @@ DAY 2: (2020-10-21)
 
 ---
 
-### 5.7 Searching for place: `search` (Wei Shuang)
+### 5.8 Searching for place: `search` (Wei Shuang)
 Displays all places that includes the search keyword. In the example below, we are searching for the `KEYWORD` 'Dinner'.
 
 Format: **`search`**`KEYWORD`
@@ -275,7 +279,7 @@ Here is your search result:
 
 ---
 
-### 5.8 Deleting place: `delete /p` (Wei Shuang)
+### 5.9 Deleting place: `delete /p` (Wei Shuang)
 Deletes the specified place from the list. In the example below, we are deleting "Dinner at Marina Bay Sands" which has the `PLACE_INDEX` of 1.
 
 Format: **`delete /p`**`PLACE_INDEX`
@@ -293,15 +297,14 @@ Noted. I've removed this place from the place list.
 Now you have 0 place in the list.
 ```
 
-<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning</b> 
-
+<div markdown="span" class="warning box">
+> :warning: **Warning** 
 * Refer to the index from `list /p` to delete. Enter a valid place index.
-
 </div>
 
 ---
 
-### 5.9 Editing budget: `budget` (Wei Shuang)
+### 5.10 Editing budget: `budget` (Wei Shuang)
 Edits a budget to keep track of in expenditure list. The budget is stored in the local currency SGD. In the example below, we are setting the total budget to SGD100.
 
 Format: **`budget`**`AMOUNT`
@@ -317,16 +320,14 @@ Expected output:
 Successfully set your total budget to 100.00
 ```
 
-<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning</b> 
-
+<div markdown="span" class="warning box">
+> :warning: **Warning** 
 * Watch out when shrinking your budget.
-
 </div>
-
 
 ---
 
-### 5.10 Adding an expense: `buy` (Shawn Tan)
+### 5.11 Adding an expense: `buy` (Shawn Tan)
 Adds an item and its final cost in foreign currency into the current trip's expense list. In the example below, we are adding an expense "R&B Brown Sugar" as `ITEM_NAME`, which has the `FINAL_COST` of $3.00, on `DAY` 2.
 
 Format: **`buy`**`/n ITEM_NAME /d DAY /c FINAL_COST`
@@ -347,7 +348,7 @@ Now you have 1 item in the list.
 
 ---
 
-### 5.11 Listing all expenses: `list /e` (Shawn Tan)
+### 5.12 Listing all expenses: `list /e` (Shawn Tan)
 Displays all the items bought in the expenditure list and reminds you on your budget limit.
 
 Format: **`list /e`**
@@ -366,11 +367,11 @@ Your current remaining budget is 1322.00 SOL (498.87 SGD)
 You are still spending within your budget.
 [=---------] 0.2%
 ```
-<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning!</b> 
-
+<div markdown="span" class="warning box">
+> :warning: **Warning** 
 * If you were to buy an item which exceeds the total budget, Trippie will send a warning message and recommend you to increase your budget limit.
-
 </div>
+
 
 
 Expected output:
@@ -390,7 +391,7 @@ Recommended action: Increase budget limit.
 
 ---
 
-### 5.12 Deleting an expense: `delete /e` (Shawn Tan)
+### 5.13 Deleting an expense: `delete /e` (Shawn Tan)
 Deletes the specified place from the list. In the example below, we are removing "R&B Brown Sugar", which has the `PLACE_INDEX` of 1.
 
 Format: **`delete /e`**`EXPENSE_INDEX`
@@ -410,10 +411,10 @@ Now you have 0 item in the list.
 
 ---
 
-### 5.13 Convert currency: `convert /to` (Kian En)
-Converts an amount to the requested currency. The requested currency can either be in SGD or the foreign currency specified when creating the trip.
+### 5.14 Convert currency: `convert /to` (Kian En)
+Converts an amount to the requested currency. The requested currency can either be in SGD, or the foreign currency specified when creating the trip.
 
-#### 5.13.1 Convert to Local Currency (SGD)
+#### 5.14.1 Convert to Local Currency (SGD)
 Converts an amount from foreign currency (FOR) to local currency (SGD).
 
 Format: **`convert /toSGD`**`AMOUNT`
@@ -430,7 +431,7 @@ Processing... Please Wait.
 That amount in your local currency is 188.68 SGD.
 ```
 
-#### 5.13.2 Convert to Foreign Currency (FOR)
+#### 5.14.2 Convert to Foreign Currency (FOR)
 Converts an amount from local currency (SGD) to foreign currency (FOR).
 
 Format: **`convert /toFOR`**`AMOUNT`
@@ -449,7 +450,7 @@ That amount in your foreign currency is 1325.00 SOL.
 
 ---
 
-### 5.14 Exiting the Trippie: `exit` (Kian En)
+### 5.15 Exiting the Trippie: `exit` (Kian En)
 Exits the program and auto-saves.
 
 Format: **`exit`**
@@ -465,7 +466,7 @@ Bye. Hope to see you again soon!
 
 ---
 
-### 5.15 Saving the data: (Kian En)
+### 5.16 Saving the data: (Kian En)
 Saves Trippie's data in a folder named `trippie_data` automatically. This folder will be created in the same location as your `trippie.jar`.
 
 ---
@@ -491,6 +492,7 @@ Below is a summary of all trippie commands. You can check this section if you ne
 ------------ | -------------
 **`new trip`**|`new trip`
 **`load trip`**|`load trip`
+**`edit trip`**|`edit trip`
 **`delete trip`**|`delete trip`
 **`help`**|`help`
 **`add`**|`add /n PLACE_NAME /d DAY /t TIME`<br>e.g., `add /n Dinner at Marina Bay Sands /d 2 /t 1800 to 2000`
