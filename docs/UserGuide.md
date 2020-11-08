@@ -83,9 +83,10 @@ Written below are the steps to be taken to set up the application:
 
 ## 5.0 Features (Shawn Tan)
 Written below are the various features available in Trippie.
-<div markdown="span" class="info box">
 
-> :information_source: **Notes on command format:** 
+<div class="info box" markdown="1">
+
+ℹ️ **Notes on command format:**
 * The **`bolded syntax`** represents the key command.
 * Words in `CAPITAL LETTERS` are arguments that you need to supply. 
     * e.g. **`add`**`/n PLACE_NAME /d DAY /t TIME`
@@ -115,12 +116,14 @@ Enter your budget for the trip (in SGD):500
 Added the trip 4  Summer Exchange Peru 12-12-2020
 ```
 
-<div markdown="span" class="warning box">
-> :warning: **Warning** 
+<div class="warning box" markdown="1">
+
+⚠️ **Warning** 
 * Enter your trip name without slashes i.e. "\\" or "/".
 * Input your start date with the given format.
 * Currency abbreviation should only be 3 characters.
 * Budget is accurate only to 2 decimal places.
+
 </div>
 
 ---
@@ -148,9 +151,11 @@ I found a file in your directory!
 Setting up the file now...
 ```
 
-<div markdown="span" class="warning box">
-> :warning: **Warning** 
+<div class="warning box" markdown="1">
+
+⚠️ **Warning** 
 * You need to enter a valid trip index!
+
 </div>
 
 ---
@@ -228,10 +233,12 @@ Got it. I've added this place:
 1800 - 2000 Dinner at Marina Bay 
 Now you have 1 place in the list.
 ```
-<div markdown="span" class="warning box">
-> :warning: **Warning** 
+<div class="warning box" markdown="1">
+
+⚠️ **Warning** 
 * The tags should be in the correct order.
 * Use a 24-hour format for time.
+
 </div>
 
 ---
@@ -301,9 +308,11 @@ Noted. I've removed this place from the place list.
 Now you have 0 place in the list.
 ```
 
-<div markdown="span" class="warning box">
-> :warning: **Warning** 
+<div class="warning box" markdown="1">
+
+⚠️ **Warning** 
 * Refer to the index from `list /p` to delete. Enter a valid place index.
+
 </div>
 
 ---
@@ -324,9 +333,11 @@ Expected output:
 Successfully set your total budget to 100.00
 ```
 
-<div markdown="span" class="warning box">
-> :warning: **Warning** 
+<div class="warning box" markdown="1">
+
+⚠️ **Warning** 
 * Watch out when shrinking your budget.
+
 </div>
 
 ---
@@ -371,9 +382,11 @@ Your current remaining budget is 1322.00 SOL (498.87 SGD)
 You are still spending within your budget.
 [=---------] 0.2%
 ```
-<div markdown="span" class="warning box">
-> :warning: **Warning** 
+<div class="warning box" markdown="1">
+
+⚠️ **Warning** 
 * If you were to buy an item which exceeds the total budget, Trippie will send a warning message and recommend you to increase your budget limit.
+
 </div>
 
 
