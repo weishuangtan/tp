@@ -11,6 +11,7 @@ import seedu.trippie.exception.TrippieException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -346,9 +347,16 @@ public class Storage {
 
     public void deleteTripFile(String tripName) {
         String tripFilePath = MASTER_DIRECTORY + File.separator + tripName + FILE_EXTENSION;
-
         boolean success = true;
+
         try {
+            // Retrieved from stackoverflow
+            // https://stackoverflow.com/questions/13685592/java-cannot-delete-file-on-windows
+
+            File tripFile = new File(tripFilePath);
+            RandomAccessFile raf = new RandomAccessFile(tripFile, "rw");
+
+            raf.close();
             Files.delete(Paths.get(tripFilePath));
         } catch (IOException e) {
             success = false;
