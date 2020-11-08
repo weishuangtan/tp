@@ -211,5 +211,59 @@ _________________________________________________________________________
 Successfully set your total budget to 300.00
 _________________________________________________________________________
 >> _________________________________________________________________________
+Here are your existing trips.
+1. Wonderful Singapore [5 Days]
+2. Amazing Bali [3 Days]
+
+Which one do you want to edit? Enter the index:Current trip is set to 'Wonderful Singapore'.
+Reading the Trippie files now...
+Leave the field empty if you do not want to change the specified detail.
+Enter edited name, [old: Wonderful Singapore]:Enter your new trip's start date (dd-mm-yyyy) [old:01-01-2023]:Enter the foreign exchange rate [old:1.409]:Enter the foreign currency abbreviation (eg. MYR) [old: USD]:Enter your budget for the trip (in SGD) [old:999.0]:Edited the trip 1 changed trip 01-01-2023
+_________________________________________________________________________
+>> _________________________________________________________________________
+Here are your existing trips.
+1. changed trip [5 Days]
+2. Amazing Bali [3 Days]
+
+Which one do you want to load? Enter the index:Current trip is set to 'changed trip'.
+Reading the Trippie files now...
+_________________________________________________________________________
+>> _________________________________________________________________________
+DAY 2: (2023-01-02)
+[1] 0700 - 0800 ntu
+[2] 1000 - 1200 clementi
+DAY 3: (2023-01-03)
+[3] 1200 - 1400 Apple MBS
+[4] 1200 - 1400 nus and ntu
+DAY 5: (2023-01-05)
+[5] 1200 - 1400 nus Soc
+_________________________________________________________________________
+>> _________________________________________________________________________
+Here are your existing trips.
+1. changed trip [5 Days]
+2. Amazing Bali [3 Days]
+
+Which one do you want to edit? Enter the index:Current trip is set to 'changed trip'.
+Reading the Trippie files now...
+Are you sure you want to permanently delete 'changed trip'? [Y/N]:Deleted trip changed trip.
+_________________________________________________________________________
+>> _________________________________________________________________________
+Here are your existing trips.
+1. Amazing Bali [3 Days]
+
+Which one do you want to load? Enter the index:Current trip is set to 'Amazing Bali'.
+Reading the Trippie files now...
+_________________________________________________________________________
+>> _________________________________________________________________________
+Total budget: 0.37 IDR (300.00 SGD)
+Expense List:
+[1] Day 1: ice cream - 8.21 IDR
+[2] Day 2: coconut - 5.00 IDR
+[3] Day 3: bag - 50.30 IDR
+Your current total spending is 63.51 IDR (51634.14 SGD)
+WARNING! You have exceeded your initial budget.
+Recommended action: Increase budget limit.
+_________________________________________________________________________
+>> _________________________________________________________________________
 Bye. Hope to see you again soon!
 _________________________________________________________________________
