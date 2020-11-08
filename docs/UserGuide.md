@@ -44,9 +44,11 @@ This section helps you in using the various features available in Trippie.
 
 Note the following symbols and formatting used in this document:
 
-<div markdown="span" class="info box">
-> :information_source:
-This box indicates important information for you to take note of.
+<div class="info box">
+    <div markdown="span">
+    > :information_source:
+    This box indicates important information for you to take note of.
+    </div>
 </div>
 
 <div markdown="span" class="warning box">
