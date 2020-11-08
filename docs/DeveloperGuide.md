@@ -66,7 +66,7 @@ This section explains the high-level design of the application. Given below is a
 
 ### 3.1 Architecture (Felix)
 
-![UML Diagram Main](https://i.imgur.com/V3vUpoo.jpg)
+![UML Diagram Main](https://i.imgur.com/N235vC0.jpg)
 <center><i>Figure 1: Overall Architecture</i></center>
 
 
@@ -101,7 +101,7 @@ When the `Parser` class is unable to successfully parse the user's input, `Tripp
 The `TrippieData` class is implemented to store all of your data during Trippie's runtime. Below is its class diagram.
 
 
-![TrippieData UML Diagram](https://i.imgur.com/3eAMiob.jpg)
+![TrippieData UML Diagram](https://i.imgur.com/OqhzWSZ.jpg)
 <center><i>Figure 3: Class Architecture</i></center>
 
 
@@ -136,7 +136,7 @@ Refer to Multiple Trips Implementation to find out more about the file structure
 ### 3.6 Command (Wei Shuang)
 The `Command` class is designed as the parent class for other command classes (e.g. `NewTripCommand`, `AddExpenseCommand`, `ExitCommand` etc). Below shows its class diagram:
 
-![Command UML Diagram](https://i.imgur.com/2puXxO7.jpg)
+![Command UML Diagram](https://i.imgur.com/tVi0gab.jpg)
 
 <center><i>Figure 5: Commands Classes</i></center>
 
@@ -148,7 +148,7 @@ The `TrippieException` class is designed as the parent class for the other excep
 Below shows its class diagram:
 
 
-![Exception UML Diagram](https://i.imgur.com/ps7ZxEQ.jpg)
+![Exception UML Diagram](https://i.imgur.com/wq0wsHU.jpg)
 
 <center><i>Figure 6: Exception Classes</i> </center>
 
@@ -208,7 +208,7 @@ Likewise when sorting expenses, Trippie will sort them based on *Day*.
 Trippie provides travellers an easy and convenient way to track expenses while constantly ensuring that the budget has not been exceeded. Below is the class diagram.
 
 
-![Expenses UML Diagram](https://i.imgur.com/xuZNMxG.jpg)
+![Expenses UML Diagram](https://i.imgur.com/ucVE3RP.jpg)
 
 <center><i>Figure 7: Expenses Classes</i></center>
 
@@ -233,13 +233,13 @@ You are still spending within your budget.
 
 Trippie provide travellers with a quicker alternative to convert any amount into local or foreign currency. Below is its class diagram.
 
-![Currency UML Diagram](https://i.imgur.com/wxM71AO.jpg)
+![Currency UML Diagram](https://i.imgur.com/9nvieTj.jpg)
 <center><i>Figure 8: Currency Classes</i></center>
 
 
 Similar to [4.3 Budget and Expenses](#43-budget-and-expenses-shawn), `currencyAbbreviation`, `budgetValue` and `forExValue` are retrivable from `Trip` object.
-`Currency` object composes of an **enummeration** `CurrencyType` object. This provides **clarity** since it consists of only `LOCAL` and `FOREIGN` contants.
-`CalculateCurrencyCommand` retrive data and convert the input amount according to the input choice.
+`Currency` object composes of an **enumeration** `CurrencyType` object. This provides **clarity** since it consists of only `LOCAL` and `FOREIGN` contants.
+`CalculateCurrencyCommand` retrieve data and convert the input amount according to the input choice.
 
 Here's an example of the conversion based on the relevant data and inputs.
 ```
