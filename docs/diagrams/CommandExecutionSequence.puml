@@ -1,54 +1,74 @@
 @startuml
-activate Trippie
+activate ":Trippie"
 
-loop not isExit
-    Trippie -> UI: in
-    activate UI
+":Trippie" -> ":Ui" : greetUser()
+activate ":Ui"
+":Ui" --> ":Trippie"
+deactivate ":Ui"
 
-    UI --> Trippie: fullCommand
-    deactivate UI
+":Trippie" -> ":Storage" : setupMasterFile(trippieData)
+activate ":Storage"
+":Storage" --> ":Trippie"
+deactivate ":Storage"
 
+loop !isExit
 
-    Trippie -> Parser: parse
-    activate Parser
+    |||
+    ref over ":Trippie", ":TrippieData", ":Parser", ":Ui" : parse and check command
 
-    create Command
-    Parser -> Command: new
-    activate Command
-    Command -> Parser: command
-    deactivate Command
-
-    Parser -> Trippie: command
-    deactivate Parser
+    |||
+    ":Trippie" -> ":Trippie":executeCommand(c)
+    activate ":Trippie"
 
     opt c is not null
 
-        Trippie -> Command: execute
-        activate Command
+        ":Trippie" -> ":HelpCommand": execute
+        activate ":HelpCommand"
 
-        Command -> TrippieData:setTripList
-        activate TrippieData
-        TrippieData --> Command
-        deactivate TrippieData
+        ":HelpCommand" -> ":System.out":print
+        activate ":System.out"
+        ":System.out" --> ":HelpCommand"
+        deactivate ":System.out"
 
-        Command -> UI: print/getline
-        activate UI
-        UI --> Command
-        deactivate UI
+        ":HelpCommand" --> ":Trippie"
+        deactivate ":HelpCommand"
 
-        Command --> Trippie
-        deactivate Command
+        ":Trippie" -> ":HelpCommand": isExit()
+        activate ":HelpCommand"
+        ":HelpCommand" --> ":Trippie": boolean isExit
+        deactivate ":HelpCommand"
 
     end
 
-    Trippie -> Storage:saveMasterFile/saveTrip
-    activate Storage
-
-    Storage --> Trippie
-    deactivate Storage
+    ":Trippie" --> ":Trippie": isExit
+    deactivate ":Trippie"
 
 
-    deactivate Trippie
+    ":Trippie" -> ":TrippieData" : getCurrentTrip()
+    activate ":TrippieData"
+    ":TrippieData" --> ":Trippie" : currentTrip
+    deactivate ":TrippieData"
+
+    opt currentTrip != null
+
+
+
+    deactivate ":TrippieData"
+    ":Trippie" -> ":Storage":saveTrip(currentTrip)
+    activate ":Storage"
+
+    ":Storage" --> ":Trippie"
+    deactivate ":Storage"
+    end
+
+    deactivate ":TrippieData"
+    ":Trippie" -> ":Storage":saveMasterFile(trippieData)
+    activate ":Storage"
+
+    ":Storage" --> ":Trippie"
+    deactivate ":Storage"
+
 end
+deactivate ":Trippie"
 
 @enduml

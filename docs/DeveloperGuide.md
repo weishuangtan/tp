@@ -83,10 +83,27 @@ The rest of the App consists of three components.
 - **Storage** : Reads data from, and write data to, the text file.
 - **Command** : Executes each command respectively.
 
-The Sequence diagram below shows how the program flows across the different classes when parsing or executing user commands.
+The Sequence diagram below (*Figure 2*) shows how the program flows across the different classes when parsing or executing user commands.
+The example below is shown for `HelpCommand`. Further references are shown in *Figure 2.1* and *Figure 2.2*
 
-![UML Sequence Diagram](https://i.imgur.com/hHq7ltY.png)
+
+![UML-Command Execution](https://i.imgur.com/aSDvn4T.png)
 <center><i>Figure 2: Sequence Diagram during Command execution</i></center>
+
+
+<br/>
+
+
+![UML-Parse and Check Command](https://i.imgur.com/ioxLX19.png)
+<center><i>Figure 2.1: Reference of Parse and Check Command</i></center>
+
+
+<br/>
+
+
+![UML-Parse Command](https://i.imgur.com/w8bAV6A.png)
+<center><i>Figure 2.2: Reference of Parse Command</i></center>
+
 
 ### 3.2 Ui (Felix)
 
@@ -116,7 +133,7 @@ To get the name of a `Place` of index 5 in `PlaceList` and from Trip of index 4 
 
 
 
-![Getting_Name_Of_Place_Sequence_Diagram](https://i.imgur.com/6xMMhDI.png)
+![Getting_Name_Of_Place_Sequence_Diagram](https://i.imgur.com/7d8Ci50.png)
 <center><i>Figure 4: Getting a name of a Place object.</i></center>
 
 
