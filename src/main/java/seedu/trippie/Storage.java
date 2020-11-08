@@ -42,6 +42,8 @@ public class Storage {
                 trippieData.setCurrentTripFromIndex(trippieData.getCurrentTrip().getIndex());
                 trippieData.loadCurrentTripFromFile();
             }
+
+            readFile.close();
         } catch (TrippieException e) {
             System.out.println(e.getMessage());
             System.out.println("Could not load master file");
@@ -287,6 +289,8 @@ public class Storage {
         newTrip.getExpenseListObject().setExpenseList(expenses);
         newTrip.getPlaceListObject().setPlaceList(places);
 
+        fileScanner.close();
+
         return newTrip;
     }
 
@@ -343,6 +347,8 @@ public class Storage {
         if (trippieData.getTripListSize() > 0) {
             System.out.println("Found these trips in your computer \n" + trippieData.list());
         }
+
+        readFile.close();
     }
 
     public void deleteTripFile(String tripName) {
