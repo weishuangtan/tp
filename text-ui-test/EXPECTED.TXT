@@ -142,6 +142,12 @@ ___________|______________________________________________________________
 [load trip]|   Loads a specific trip from the saved list
            |   Format: load trip
 ___________|______________________________________________________________
+[edit trip]|   Edits a specific trip from the saved list
+           |   Format: edit trip
+___________|______________________________________________________________
+[delete    |   Deletes a specific trip from the saved list
+trip]      |   Format: delete trip
+___________|______________________________________________________________
 [help]     |   Shows a concise list of commands available
            |   Format: help
 ___________|______________________________________________________________
@@ -166,8 +172,8 @@ ___________|______________________________________________________________
            |   Example: budget 100
 ___________|______________________________________________________________
 [buy]      |   Adds an item with its final cost into an expenditure list
-           |   Format: buy /i ITEM_NAME /c FINAL_COST /d DAY_NUMBER
-           |   Example: buy /i R&B Brown Sugar /c 3.00 /d 2
+           |   Format: buy /n ITEM_NAME /d DAY_NUMBER /c FINAL_COST
+           |   Example: buy /n R&B Brown Sugar /d 2 /c 3.00
 ___________|______________________________________________________________
 [list]     |   Displays all the items bought in the expenditure list
 (expenses) |   Format: list /e
