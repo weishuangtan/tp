@@ -44,16 +44,30 @@ This section helps you in using the various features available in Trippie.
 
 Note the following symbols and formatting used in this document:
 
-<div class="info box">
+<div class="info box" markdown="1">
 
 > :information_source:
+This box indicates important information for you to take note of.
+
+:information_source:
+This box indicates important information for you to take note of.
+
+> :information_source:
+
+This box indicates important information for you to take note of.
+
+
+:information_source:
+
 This box indicates important information for you to take note of.
 
 </div>
 
 <div markdown="span" class="warning box">
+
 > :warning:
 This box indicates notable warnings that you should be aware of.
+
 </div>
 
 `command` : This grey highlight shows command line input or output
@@ -84,6 +98,7 @@ Written below are the steps to be taken to set up the application:
 ## 5.0 Features (Shawn Tan)
 Written below are the various features available in Trippie.
 <div markdown="span" class="info box">
+
 > :information_source: **Notes on command format:** 
 * The **`bolded syntax`** represents the key command.
 * Words in `CAPITAL LETTERS` are arguments that you need to supply. 
@@ -91,6 +106,7 @@ Written below are the various features available in Trippie.
     * `PLACE_NAME`, `DAY`, `TIME` are arguments needed accordingly.
 * Items in `[square brackets]` are optional. 
     * e.g. **`list`**`/p [/d DAY]`
+
 </div>
 
 
