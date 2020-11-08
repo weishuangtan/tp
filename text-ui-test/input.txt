@@ -38,4 +38,20 @@ buy /n bag /d 3 /c 50.30
 load trip
 2
 budget 300
+edit trip
+1
+changed trip
+
+
+
+
+load trip
+1
+list /p
+delete trip
+1
+y
+load trip
+1
+list /e
 exit
