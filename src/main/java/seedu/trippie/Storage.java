@@ -13,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -344,12 +345,17 @@ public class Storage {
     }
 
     public void deleteTripFile(String tripName) {
-        File tripFile = new File(MASTER_DIRECTORY + File.separator + tripName + FILE_EXTENSION);
+        String tripFilePath = MASTER_DIRECTORY + File.separator + tripName + FILE_EXTENSION;
 
-        boolean success = tripFile.delete();
+        boolean success = true;
+        try {
+            Files.delete(Paths.get(tripFilePath));
+        } catch (IOException e) {
+            success = false;
+        }
 
         if (!success) {
-            System.out.println("An error occured while deleting the trip.");
+            System.out.println("An error occurred while deleting the trip.");
         }
     }
 }
