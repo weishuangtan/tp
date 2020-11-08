@@ -162,11 +162,43 @@ Setting up the file now...
 
 ### 5.3 Editing a trip: `edit trip` (Ivander)
 
+Want to change the name of your trip? Or maybe you want to update your trip start date. We got you covered with this `edit trip` command. 
 
+Enter the command then specify which trip you want to edit by index. Then fill in the new values of the trip attributes, or leave it blank to not change it.
+
+Trip attributes are: trip name, trip start date, foreign exchange rate, foreign currency abbreviation, budget.
+
+Format: **`edit trip`**
+
+Example: **`edit trip`**
+
+<br/>
+
+Expected output:
+```
+Here are your existing trips.
+Here are your existing trips.
+1. Once too you [2 Days]
+2. Vibrant Singapore [No places or expenses added yet]
+
+Which one do you want to edit? Enter the index:2
+Current trip is set to 'Vibrant Singapore'.
+Reading the Trippie files now...
+Leave the field empty if you do not want to change the specified detail.
+Enter edited name, [old: Vibrant Singapore]:
+Enter your new trip's start date (dd-mm-yyyy) [old:30-12-2020]:28-12-2020
+Enter the foreign exchange rate [old:1.0]:1.01
+Enter the foreign currency abbreviation (eg. MYR) [old: SGD]:
+Enter your budget for the trip (in SGD) [old:900.0]:1000
+Edited the trip 2 Vibrant Singapore 28-12-2020
+```
+---
 
 ### 5.4 Deleting a trip: `delete trip` (Ivander)
 
 Deletes a specific trip from the list of saved trip in `trippie_data`. Trippie will prompt you to enter the index of your preferred trip.
+
+Prompts user confirmation by entering *Y* (Yes) or *N* (No) before deleting the trip. If yes, then the trip will be permanently deleted (including the txt file).
 
 Format: **`delete trip`**
 
@@ -177,14 +209,15 @@ Example: **`delete trip`**
 Expected output:
 ```
 Here are your existing trips.
-1. 1 Day - Chigago Trip
-2. 3 Days - Jakarta Festival
-3. 5 Days - Wonderful Singapore
-4. 6 Days - Malaysia KL
+1. Once too you [2 Days]
+2. Vibrant Singapore [6 Days]
+3. Unused trip [1 Day]
 
-Which one do you want to delete? Enter the index:3
-Are you sure you want to permanently remove "Wonderful Singapore"? Enter [Y/N]:Y
-"Wonderful Singapore" has been deleted.
+Which one do you want to edit? Enter the index:3
+Current trip is set to 'Some test'.
+Reading the Trippie files now...
+Are you sure you want to permanently delete 'Unused trip'? [Y/N]:y
+Deleted trip Unused trip.
 ```
 ---
 

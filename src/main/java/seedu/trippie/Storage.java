@@ -11,8 +11,10 @@ import seedu.trippie.exception.TrippieException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,6 +42,8 @@ public class Storage {
                 trippieData.setCurrentTripFromIndex(trippieData.getCurrentTrip().getIndex());
                 trippieData.loadCurrentTripFromFile();
             }
+
+            readFile.close();
         } catch (TrippieException e) {
             System.out.println(e.getMessage());
             System.out.println("Could not load master file");
@@ -285,6 +289,8 @@ public class Storage {
         newTrip.getExpenseListObject().setExpenseList(expenses);
         newTrip.getPlaceListObject().setPlaceList(places);
 
+        fileScanner.close();
+
         return newTrip;
     }
 
@@ -341,15 +347,29 @@ public class Storage {
         if (trippieData.getTripListSize() > 0) {
             System.out.println("Found these trips in your computer \n" + trippieData.list());
         }
+
+        readFile.close();
     }
 
     public void deleteTripFile(String tripName) {
-        File tripFile = new File(MASTER_DIRECTORY + File.separator + tripName + FILE_EXTENSION);
+        String tripFilePath = MASTER_DIRECTORY + File.separator + tripName + FILE_EXTENSION;
+        boolean success = true;
 
-        boolean success = tripFile.delete();
+        try {
+            // Retrieved from stackoverflow
+            // https://stackoverflow.com/questions/13685592/java-cannot-delete-file-on-windows
+
+            File tripFile = new File(tripFilePath);
+            RandomAccessFile raf = new RandomAccessFile(tripFile, "rw");
+
+            raf.close();
+            Files.delete(Paths.get(tripFilePath));
+        } catch (IOException e) {
+            success = false;
+        }
 
         if (!success) {
-            System.out.println("An error occured while deleting the trip.");
+            System.out.println("An error occurred while deleting the trip.");
         }
     }
 }
