@@ -19,10 +19,10 @@ public class ListPlacesCommand extends Command {
     private final int specifiedDay;
 
     /**
-     * Takes in list command from the user
-     * Initializes the specified day to be used in execute() method
+     * Takes in list command from the user.
+     * Initializes the specified day to be used in execute() method.
      *
-     * @param userInput Command input by the user
+     * @param userInput Command input by the user.
      * @throws TrippieInvalidArgumentException if input has formatting error, or specified day has incorrect parameters.
      */
     public ListPlacesCommand(String userInput) throws TrippieInvalidArgumentException {
