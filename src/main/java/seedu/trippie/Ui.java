@@ -6,14 +6,21 @@ public class Ui {
 
     Scanner in = new Scanner(System.in);
 
+    /**
+     * Prints message when startup.
+     */
     public void greetUser() {
         printLogo();
         printLine();
     }
 
+    /**
+     * Prints message when program is closed.
+     */
     public void showFarewells() {
         System.out.println("Bye. Hope to see you again soon!");
     }
+
 
     private void printLogo() {
         String logo = "  _            _   ____   ____   _            __T___T__   \n"
@@ -30,6 +37,11 @@ public class Ui {
         System.out.println("_________________________________________________________________________");
     }
 
+    /**
+     * Takes in user input for parsing.
+     *
+     * @return String for parsing.
+     */
     public String readCommand() {
         System.out.print(">> ");
         return in.nextLine();

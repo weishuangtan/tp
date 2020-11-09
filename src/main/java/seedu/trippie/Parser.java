@@ -23,6 +23,12 @@ public class Parser {
 
     private static final String ERROR_MESSAGE = "Invalid Command! Type \"help\" to view the commands available!";
 
+    /**
+     * Parses user input before calling specified command.
+     *
+     * @param userInput Command input by the user.
+     * @return different methods depending on command input by user.
+     */
     public static Command parse(String userInput) {
         try {
             if (userInput.trim().equals("exit")) {

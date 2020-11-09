@@ -14,6 +14,12 @@ public class SearchCommand extends Command {
 
     private final String keyword;
 
+    /**
+     * Parses user input to initialize specified keyword.
+     *
+     * @param command Command input by the user.
+     * @throws TrippieInvalidArgumentException if user inputs command with formatting issues.
+     */
     public SearchCommand(String command) throws TrippieInvalidArgumentException {
         String parsedResponse;
         try {
@@ -29,6 +35,12 @@ public class SearchCommand extends Command {
         return false;
     }
 
+    /**
+     * Prints out search result.
+     *
+     * @param ui User interface of the program.
+     * @param trippieData The current trip placeList to fetch data from.
+     */
     public void execute(Ui ui, TrippieData trippieData) {
         List<Place> list = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
         int size = list.size();

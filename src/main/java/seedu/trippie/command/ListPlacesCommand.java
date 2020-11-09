@@ -18,10 +18,24 @@ public class ListPlacesCommand extends Command {
 
     private final int specifiedDay;
 
+    /**
+     * Takes in list command from the user
+     * Initializes the specified day to be used in execute() method
+     *
+     * @param userInput Command input by the user
+     * @throws TrippieInvalidArgumentException if input has formatting error, or specified day has incorrect parameters.
+     */
     public ListPlacesCommand(String userInput) throws TrippieInvalidArgumentException {
         specifiedDay = getSpecifiedDay(userInput);
     }
 
+    /**
+     * Parses specified day to display in the list, if any.
+     *
+     * @param userInput Command input by user.
+     * @return Specific day that user request to display, if any.
+     * @throws TrippieInvalidArgumentException if input has formatting error, or specified day has incorrect parameters.
+     */
     public int getSpecifiedDay(String userInput) throws TrippieInvalidArgumentException {
         try {
             String[] specificDay = userInput.split("/p");
@@ -43,6 +57,12 @@ public class ListPlacesCommand extends Command {
         return false;
     }
 
+    /**
+     * Prints out list of place added by user for all days, unless specified otherwise.
+     *
+     * @param ui User interface of the program.
+     * @param trippieData The current trip placeList to fetch data from.
+     */
     public void execute(Ui ui, TrippieData trippieData) {
         List<Place> places = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
         Date date = trippieData.getCurrentTrip().getStartDate();
@@ -75,6 +95,13 @@ public class ListPlacesCommand extends Command {
         trippieData.getCurrentTrip().getPlaceListObject().setPlaceList(places);
     }
 
+    /**
+     * Add days to start of trip date.
+     *
+     * @param date Initial start date.
+     * @param day Number of days to add.
+     * @return Final date after addition.
+     */
     public String addDays(Date date, int day) {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
