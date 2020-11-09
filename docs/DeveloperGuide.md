@@ -25,9 +25,8 @@ Below is a list of contents that is included in this document.
         * [5.1.0 Target user profile](#510-target-user-profile)
         * [5.1.1 Value proposition](#511-value-proposition)
     * [5.2 User Stories](#52-user-stories-kian-en)
-    * [5.3 Use Cases](#53-use-cases)
-    * [5.4 Non-Functional Requirements](#54-non-functional-requirements-kian-en)
-    * [5.5 Glossary](#55-glossary)
+    * [5.3 Non-Functional Requirements](#53-non-functional-requirements-kian-en)
+    * [5.4 Glossary](#54-glossary)
 * [6.0 Appendix: Instructions for Manual Testing](#60-appendix-instructions-for-manual-testing-shawn)
     * [6.1 Launch and Shutdown](#61-launch-and-shutdown-felix)
     * [6.2 Step by Step Guide](#62-step-by-step-guide-shawn)
@@ -340,17 +339,7 @@ This table demonstrates a list of user stories relevant to Trippie.
 |v2.0|Student who plans trip ahead of time|To be able to edit whatever has been planned easily|Improve my itinerary easily|
 |v2.0|Student who is interested in many overseas opportunities|To create ane edit multiple trips simultaneously|Plan multiple trips ahead at a time|
 
-### 5.3 Use Cases
-
-Here are the list of use cases for Trippie.
-
-1. Don't have a tool to plan trips.
-2. Use Trippie to plan trips.
-3. Able to create trips easily.
-4. Share the trip files to others.
-5. Be a happy student.
-
-### 5.4 Non-Functional Requirements (Kian En)
+### 5.3 Non-Functional Requirements (Kian En)
 
 | Requirement Type | Description |
 |------------------|-------------|
@@ -364,7 +353,7 @@ Here are the list of use cases for Trippie.
 |Technical|Programme should be platform independent|
 |Technical|Programme should work without an installer|
 
-### 5.5 Glossary
+### 5.4 Glossary
 
 * *CLI* - Command Line Interface
 * *IntelliJ* - A Java IDE developed by Jetbrains
