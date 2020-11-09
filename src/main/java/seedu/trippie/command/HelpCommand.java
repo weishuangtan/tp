@@ -10,7 +10,7 @@ public class HelpCommand extends Command {
     }
 
     /**
-     * Prints a list of commands available in Trippie
+     * Prints a list of commands available in Trippie.
      *
      * @param ui User interface of the program.
      * @param trippieData The current trip to fetch data from.

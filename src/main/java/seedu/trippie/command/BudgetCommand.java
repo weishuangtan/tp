@@ -14,7 +14,7 @@ public class BudgetCommand extends Command {
     private Float budgetValue;
 
     /**
-     * Edits the budget allocated to the trip
+     * Edits the budget allocated to the trip.
      *
      * @param userInput Command input by the user.
      * @throws TrippieInvalidArgumentException if input has formatting error, or budget is not a numerical value
@@ -36,7 +36,7 @@ public class BudgetCommand extends Command {
     }
 
     /**
-     * Extracts budget value from user's input
+     * Extracts budget value from user's input.
      *
      * @param userInput Command input by the user.
      * @return Budget value input by the user.
