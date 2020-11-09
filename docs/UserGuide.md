@@ -148,10 +148,10 @@ Expected output:
 
 ```
 Here are your existing trips.
-1. 1 Day - Chigago Trip
-2. 3 Days - Jakarta Festival
-3. 5 Days - Wonderful Singapore
-4. 6 Days - Malaysia KL
+1. Chigago Trip [1 Day]
+2. Jakarta Festival [3 Days]
+3. Wonderful Singapore [5 Days]
+4. Malaysia KL [6 Days]
 
 Which one do you want to load? Enter the index:3
 I found a file in your directory!

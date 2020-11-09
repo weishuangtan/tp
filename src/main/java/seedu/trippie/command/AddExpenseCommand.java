@@ -14,7 +14,7 @@ public class AddExpenseCommand extends Command {
             + "Format: buy /n ITEM_NAME /d DAY_NUMBER /c FINAL_COST\n"
             + "Example: buy /n R&B Brown Sugar  /d 2 /c 3.00";
     private static final String PARAMETER_ERROR_MESSAGE = "Please check that your FINAL_COST and DAY_NUMBER parameters"
-            + "are in \nnumerical form.";
+            + " are in \nnumerical form.";
     private static final String NEGATIVE_COST_MESSAGE = "Trippie doesn't know how to deal with negative cost.";
     private static final String NEGATIVE_DAY_MESSAGE = "Trippie doesn't know how to deal with negative days.";
 
