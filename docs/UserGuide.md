@@ -4,6 +4,7 @@
 
 ![Trippie Logo](https://i.imgur.com/jSwGL7O.png)
 
+<!-- @@author felixhalim -->
 ## Table of Contents (Felix)
 Below is a list of contents that is included in this document.
 * [1.0 Introduction](#10-introduction-shawn-tan)
@@ -32,6 +33,8 @@ Below is a list of contents that is included in this document.
 * [6.0 FAQ](#60-faq-kian-en)
 * [7.0 Command Summary](#70-command-summary-wei-shuang)
 
+<!-- @@author-->
+<!-- @@author ShawnTanzc -->
 ## 1.0 Introduction (Shawn Tan)
 Trippie is a command-line app to plan any of your upcoming trips. It is tailored to match the needs of student travellers. Whether you are planning for your summer holiday, or a leisure trip on your student exchange program, Trippie got you covered!
 
@@ -39,6 +42,8 @@ Trippie is a command-line app to plan any of your upcoming trips. It is tailored
 
 _A screenshot of Trippie's command line interface_
 
+<!-- @@author-->
+<!-- @@author felixhalim -->
 ## 2.0 About this document (Felix)
 This section helps you in using the various features available in Trippie.
 
@@ -60,7 +65,8 @@ Note the following symbols and formatting used in this document:
 ```
 This block style shows the command line output of Trippie
 ```
-
+<!-- @@author-->
+<!-- @@author ivanderjmw -->
 ## 3.0 How to use (Ivander)
 Begin with the [Quick Start](#40-quick-start-ivander) section if it is your first time using Trippie. All the commands are listed out in the table of contents. To find out the details on each command, just click and follow the links. Please check the [FAQ](#60-faq-kian-en) section for frequently encountered problems.
 
@@ -80,7 +86,8 @@ Written below are the steps to be taken to set up the application:
 10. Try listing your places by entering `list /p` and your expenses with `list /e`.
 11. `exit` and check your folder to check your Trippie files!
 
-
+<!-- @@author-->
+<!-- @@author ShawnTanzc -->
 ## 5.0 Features (Shawn Tan)
 Written below are the various features available in Trippie.
 
@@ -95,8 +102,8 @@ Written below are the various features available in Trippie.
     * e.g. **`list`**`/p [/d DAY]`
 
 </div>
-
-
+<!-- @@author-->
+<!-- @@author ivanderjmw -->
 ### 5.1 Creating a new trip: `new trip` (Ivander)
 Creates a new trip. You will be prompted to enter some details (i.e. name, start date, exchange rate, and budget) after entering this command. Trippie allows you to organize multiple trips, thus you can use this command to create many trips conveniently.
 
@@ -221,6 +228,8 @@ Deleted trip Unused trip.
 ```
 ---
 
+<!-- @@author-->
+<!-- @@author felixhalim -->
 ### 5.5 Viewing help: `help` (Felix)
 Shows a concise list of commands available. Think of this as a cheatsheet. If you are new to Trippie, you can take a look of what and how you can utilize each commands via `help`.
 
@@ -303,8 +312,9 @@ Expected output:
 DAY 2: (2020-10-21)
 1800 - 2000 Dinner at Marina Bay Sands
 ```
-
+<!-- @@author-->
 ---
+<!-- @@author weishuangtan -->
 
 ### 5.8 Searching for place: `search` (Wei Shuang)
 Displays all places that includes the search keyword. In the example below, we are searching for the `KEYWORD` 'Dinner'.
@@ -372,9 +382,9 @@ Successfully set your total budget to 100.00
 * Watch out when shrinking your budget.
 
 </div>
-
+<!-- @@author-->
 ---
-
+<!-- @@author ShawnTanzc -->
 ### 5.11 Adding an expense: `buy` (Shawn Tan)
 Adds an item and its final cost in foreign currency into the current trip's expense list. In the example below, we are adding an expense "R&B Brown Sugar" as `ITEM_NAME`, which has the `FINAL_COST` of $3.00, on `DAY` 2.
 
@@ -458,9 +468,9 @@ Noted. I've removed this item from the expenditure list.
 Day 2: R&B Brown Sugar - 3.00 SOL
 Now you have 0 item in the list.
 ```
-
+<!-- @@author-->
 ---
-
+<!-- @@author tengkianen -->
 ### 5.14 Convert currency: `convert /to` (Kian En)
 Converts an amount to the requested currency. The requested currency can either be in SGD, or the foreign currency specified when creating the trip.
 
@@ -535,6 +545,8 @@ Below are some Frequently Asked Questions you might have:
 
 **A:** No, Trippie is fully offline.
 
+<!-- @@author-->
+<!-- @@author weishuangtan -->
 ## 7.0 Command Summary (Wei Shuang)
 Below is a summary of all trippie commands. You can check this section if you need a quick reference.
 
@@ -555,3 +567,4 @@ Below is a summary of all trippie commands. You can check this section if you ne
 **`delete /e`**|`delete /p EXPENSE_INDEX` <br>e.g., `delete 1`
 **`convert /to`**|`convert /toCURRENCY AMOUNT` <br>e.g., `convert /toSGD 500`<br>`convert /toFOR 500`
 **`exit`**|`exit`
+<!-- @@author-->

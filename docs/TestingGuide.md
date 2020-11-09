@@ -5,7 +5,7 @@
 ![Trippie Logo](https://i.imgur.com/jSwGL7O.png)
 
 </center>
-
+<!-- @@author ShawnTanzc -->
 ## Table of Content
 * [1.0 Introduction](#10-Introduction)
 * [2.0 Running tests](#20-Running-tests)
@@ -34,3 +34,4 @@ eg. `src.test.java.seedu.trippie.command.CalculateCurrencyCommandTest`.
 eg. `src.test.java.seedu.trippie.command.ListExpenseCommandTest`.
 3. Hybrids of unit and integration tests. These test are checking multiple code units as well as how they are connected together.
 eg. `src.test.java.seedu.trippie.command.DeleteExpenseCommandTest`.
+<!-- @@author-->
