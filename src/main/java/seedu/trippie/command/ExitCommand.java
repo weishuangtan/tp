@@ -13,6 +13,12 @@ public class ExitCommand extends Command {
         return true;
     }
 
+    /**
+     * Shows the farewell message.
+     *
+     * @param ui          Ui to read user input
+     * @param trippieData TrippieData object to store user data in runtime
+     */
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         ui.showFarewells();

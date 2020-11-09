@@ -26,6 +26,12 @@ public class AddPlaceCommand extends Command {
     private final int start;
     private final int end;
 
+    /**
+     * Adds the place to the list of places to be visited.
+     *
+     * @param userInput Command inputted by the user.
+     * @throws TrippieInvalidArgumentException If index is not found and if input has incorrect format.
+     */
     public AddPlaceCommand(String userInput) throws TrippieInvalidArgumentException {
         try {
             this.name = extractName(userInput);
@@ -43,11 +49,24 @@ public class AddPlaceCommand extends Command {
         }
     }
 
+    /**
+     * Extracts the name of the place.
+     *
+     * @param userInput Command input by the user.
+     * @return String of the place name.
+     */
     public String extractName(String userInput) {
         String inputWithoutDay = userInput.split(" /d ")[0];
         return inputWithoutDay.split(" /n ")[1];
     }
 
+    /**
+     * Extracts the day the place is going to be visited.
+     *
+     * @param userInput Command input by the user.
+     * @return Integer of the day.
+     * @throws TrippieInvalidArgumentException if negative day is inputted in the command.
+     */
     public int extractDay(String userInput) throws TrippieInvalidArgumentException {
         String inputWithoutTime = userInput.split(" /t ")[0];
         String day = inputWithoutTime.split(" /d ")[1];
@@ -57,10 +76,25 @@ public class AddPlaceCommand extends Command {
         return Integer.parseInt(day.trim());
     }
 
+    /**
+     * Extracts the starting time of the place visit.
+     *
+     * @param userInput Command input by the user.
+     * @return Integer of the starting time.
+     * @throws TrippieInvalidArgumentException if the time format is wrong.
+     */
     public int extractStartTime(String userInput) throws TrippieInvalidArgumentException {
         return extractTime(userInput, true);
     }
 
+    /**
+     * Extracts the starting/ending time of the place visit.
+     *
+     * @param userInput Command input by the user.
+     * @param isStart   Boolean to determine whether to return start/end time
+     * @return Integer of the starting/ending time.
+     * @throws TrippieInvalidArgumentException if the time format is wrong.
+     */
     private int extractTime(String userInput, boolean isStart) throws TrippieInvalidArgumentException {
         String time = userInput.split(" /t ")[1];
         String start = time.split("to")[0];
@@ -79,6 +113,13 @@ public class AddPlaceCommand extends Command {
         return parsedTime;
     }
 
+    /**
+     * Extracts the ending time of the place visit.
+     *
+     * @param userInput Command input by the user.
+     * @return Integer of the starting time.
+     * @throws TrippieInvalidArgumentException if ending time is before start time or the time format is wrong.
+     */
     public int extractEndTime(String userInput) throws TrippieInvalidArgumentException {
         int endTime = extractTime(userInput, false);
         if (endTime < this.start) {
@@ -92,6 +133,12 @@ public class AddPlaceCommand extends Command {
         return false;
     }
 
+    /**
+     * Prints out successful add place message and add place to the placeList.
+     *
+     * @param ui          User Interface of the program.
+     * @param trippieData The current trip placeList that would updated.
+     */
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         List<Place> places = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
@@ -108,6 +155,11 @@ public class AddPlaceCommand extends Command {
         trippieData.getCurrentTrip().getPlaceListObject().setPlaceList(places);
     }
 
+    /**
+     * Sorts the placeList everytime new place is added.
+     *
+     * @param sortedPlaces List of place to be sorted.
+     */
     public void sortPlaceList(List<Place> sortedPlaces) {
         boolean isSwapped = false;
         for (int i = (sortedPlaces.size() - 1); i >= 0; i--) {
