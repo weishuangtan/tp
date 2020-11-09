@@ -184,7 +184,6 @@ Example: **`edit trip`**
 Expected output:
 ```
 Here are your existing trips.
-Here are your existing trips.
 1. Once too you [2 Days]
 2. Vibrant Singapore [No places or expenses added yet]
 
@@ -423,7 +422,7 @@ Expense List:
 Your current total spending is 3.00 SOL (1.13 SGD)
 Your current remaining budget is 1322.00 SOL (498.87 SGD)
 You are still spending within your budget.
-[=---------] 0.2%
+[----------] 0.2%
 ```
 <div class="warning box" markdown="1">
 
@@ -550,6 +549,7 @@ Below are some Frequently Asked Questions you might have:
 ## 7.0 Command Summary (Wei Shuang)
 Below is a summary of all trippie commands. You can check this section if you need a quick reference.
 
+
 **Action** | **Format, Examples**
 ------------ | -------------
 **`new trip`**|`new trip`
@@ -567,4 +567,5 @@ Below is a summary of all trippie commands. You can check this section if you ne
 **`delete /e`**|`delete /p EXPENSE_INDEX` <br>e.g., `delete 1`
 **`convert /to`**|`convert /toCURRENCY AMOUNT` <br>e.g., `convert /toSGD 500`<br>`convert /toFOR 500`
 **`exit`**|`exit`
+
 <!-- @@author-->
