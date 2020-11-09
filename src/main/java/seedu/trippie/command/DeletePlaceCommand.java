@@ -16,6 +16,12 @@ public class DeletePlaceCommand extends Command {
 
     private final int placeIndex;
 
+    /**
+     * Deletes the place based on user input.
+     *
+     * @param userInput Command inputted by the user.
+     * @throws TrippieInvalidArgumentException If index is not found and if input has incorrect format.
+     */
     public DeletePlaceCommand(String userInput) throws TrippieInvalidArgumentException {
         try {
             String index = userInput.split(" /p ")[1];
@@ -32,6 +38,12 @@ public class DeletePlaceCommand extends Command {
         return false;
     }
 
+    /**
+     * Prints out successful delete place message and removes place from the placeList.
+     *
+     * @param ui          User Interface of the program.
+     * @param trippieData The current trip placeList that would updated.
+     */
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         List<Place> places = trippieData.getCurrentTrip().getPlaceListObject().getPlaceList();
