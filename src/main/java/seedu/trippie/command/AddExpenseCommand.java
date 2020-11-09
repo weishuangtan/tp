@@ -117,6 +117,11 @@ public class AddExpenseCommand extends Command {
         trippieData.getCurrentTrip().getExpenseListObject().setExpenseList(expenses);
     }
 
+    /**
+     * Sorts the expenseList everytime new expense is added.
+     *
+     * @param expenseList list of expenses to be sorted.
+     */
     public void sortExpenseList(List<Expense> expenseList) {
         expenseList.sort(new ExpenseComparator());
     }
