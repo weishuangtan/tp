@@ -27,7 +27,7 @@ public class AddPlaceCommand extends Command {
     private final int end;
 
     /**
-     * Adds the place to the lsit of places to be visited.
+     * Adds the place to the list of places to be visited.
      *
      * @param userInput Command inputted by the user.
      * @throws TrippieInvalidArgumentException If index is not found and if input has incorrect format.
