@@ -35,14 +35,16 @@ Below is a list of contents that is included in this document.
 
 ## 1.0 Introduction
 
-Trippie is a command-line app to plan any of your upcoming trips. It is tailored to match the needs of student travellers. Trippie lets users plan multiple trips through timetabling and also allows users to track their expenses overseas. Trippie is designed for users to enter their input quickly and efficiently.
+Trippie is a command-line app to plan any of your upcoming trips. It is tailored to match the needs of student
+travellers. Trippie lets users plan multiple trips through timetabling and allows users to track their expenses overseas.
+Trippie is designed for users to enter their input quickly and efficiently.
 
 ## 2.0 Setting up the project in your computer
 This section gives an overview on how to set up the project in your computer.
 
 **Prerequisites:**
 * JDK 11
-* IntelliJ IDE
+* IntelliJ IDEA
 
 <div markdown="span" class="alert alert-warning">
 
@@ -52,11 +54,12 @@ Follow the steps in the following guide precisely. Things will not work out if y
 
 First, **fork** this repo, and **clone** the fork into your computer.
 
-If you plan to use Intellij IDEA (highly recommended):
-1. **Configure the JDK**: Follow the guide [_[se-edu/guides] IDEA: Configuring the JDK_](https://se-education.org/guides/tutorials/intellijJdk.html) to to ensure Intellij is configured to use **JDK 11**.
-1. **Import the project as a Gradle project**: Follow the guide [_[se-edu/guides] IDEA: Importing a Gradle project_](https://se-education.org/guides/tutorials/intellijImportGradleProject.html) to import the project into IDEA.
-:exclamation: Note: Importing a Gradle project is slightly different from importing a normal Java project.
-1. **Verify the setup**:
+If you plan to use IntelliJ IDEA (highly recommended):
+1. **Configure the JDK**: Follow the guide [_[se-edu/guides] IDEA: Configuring the JDK_](https://se-education.org/guides/tutorials/intellijJdk.html) to ensure IntelliJ is configured to use **JDK 11**.
+2. **Import the project as a Gradle project**: Follow the guide [_[se-edu/guides] IDEA: Importing a Gradle project_](https://se-education.org/guides/tutorials/intellijImportGradleProject.html) to import the project into IDEA.
+Importing a Gradle project is slightly different from importing a normal Java project.
+
+3. **Verify the setup**:
    1. Run the `seedu.trippie.Trippie` and try a few commands.
    2. [Run the tests](TestingGuide.md) to ensure they all pass. 
 
@@ -112,11 +115,11 @@ The UI class is in charge of the user's input, from the `readCommand` or `getLin
 ### 3.3 Parser (Wei Shuang)
 The `Parser` class is implemented to parse the user's input, and returns a `Command` object. The `Trippie` class will read in this object and call the `execute` method under the object.
 
-When the `Parser` class is unable to successfully parse the user's input, `TrippieIllegalCommandException` will be thrown. (Refer to 3.7 Exceptions)
+When the `Parser` class is unable to successfully parse the user's input, `TrippieIllegalCommandException` will be thrown. (Refer to [3.7 Exceptions](#37-exceptions-wei-shuang))
 
 ### 3.4 TrippieData (Ivander)
 
-The `TrippieData` class is implemented to store all of your data during Trippie's runtime. Below is its class diagram.
+The `TrippieData` class is being implemented to store all of your data during Trippie's runtime. Below is its class diagram.
 
 
 ![TrippieData UML Diagram](https://i.imgur.com/OqhzWSZ.jpg)
@@ -187,9 +190,9 @@ Trippie is built for travelers, those who most probably has more than a single t
 All your `Trip` objects are stored in a java ArrayList object called tripList inside the `TrippieData` object. In this `TrippieData` object, an attribute called `currentTrip` is used to point to `Trip` object inside the ArrayList that is currently being worked on.
 
 Multiple trips feature is designed to **minimize program startup time** and **minimize memory usage**. These aims are achieved by:
-1. Reading only one Master File `trippie.txt` that will be loaded on startup.
+1. Reading only one Master File `trippie.txt` that will be loaded on start-up.
 2. Saving each trip in separate files.
-3. Loading only the user's most recently edited trip on startup. This is set as the *default trip* which will be set as the *current trip* during runtime.
+3. Loading only the user's most recently edited trip on start-up. This is set as the *default trip* which will be set as the *current trip* during runtime.
 4. It is only possible to work on one `Trip` at a single point in time.
 5. The commands `new trip` and `load trip` will change the *current trip*.
 6. Current trips are automatically saved after each command execution.
@@ -202,7 +205,7 @@ DEFAULT <trip_index>
 2,Australia,01-01-2021,8
 3,Wonderful Singapore,02-01-2021,9
 ```
-Here the `trip_name` serves both as the Trip's name and the file name, hence it should not contain invalid characters for file names, i.e. `<>:"/\|?*.` A sample directory structure containing 3 trips is as the following:
+Here the `trip_name` serves both as the Trip's name, and the file name, hence it should not contain invalid characters for file names, i.e. `<>:"/\|?*.` A sample directory structure containing 3 trips is as the following:
 ```
 trippie_data
     ├── Amazing Bali.txt
@@ -219,19 +222,19 @@ The way Trippie sorts its place list, regardless of the order the places are add
 
 When listing either places, Trippie will sort them based on both *Day* and *Time*. Hence, there is a need to use a **stable** sorting algorithm. Bubble sort is used for its simplicity and easy implementation. Furthermore, since this sorting algorithm is called every time a new place is added, the list will always be sorted, allowing the time complexity of the sorting algorithm to be **O(n)**.
 
-Likewise when sorting expenses, Trippie will sort them based on *Day*.
+Likewise, when sorting expenses, Trippie will sort them based on *Day*.
 
 ### 4.3 Budget and Expenses (Shawn)
 
 Trippie provides travellers an easy and convenient way to track expenses while constantly ensuring that the budget has not been exceeded. Below is the class diagram.
 
 
-![Expenses UML Diagram](https://i.imgur.com/ucVE3RP.jpg)
+![Expenses UML Diagram](https://i.imgur.com/z8EE8CS.jpg)
 
 <center><i>Figure 7: Expenses Classes</i></center>
 
 
-The `NewTripCommand` receives `currencyAbbreviation`, `budgetValue` and `ForExValue` from the inputs and stores it within the current `Trip` object. `ExpenseList` array object which consists of `Expense` object uitilized the relevant objects stored in `Trip`. This allows `AddExpenseCommand`, `DeleteExpenseCommand` and `ListExpenseCommand` to access the data and edit or list them respectively.
+The `NewTripCommand` receives `currencyAbbreviation`, `budgetValue` and `ForExValue` from the inputs and stores it within the current `Trip` object. `ExpenseList` array object which consists of `Expense` object utilized the relevant objects stored in `Trip`. This allows `AddExpenseCommand`, `DeleteExpenseCommand` and `ListExpenseCommand` to access the data and edit or list them respectively.
 `AddExpenseCommand` consist of `ExpenseComparator` which implements `Comparator<Expense>`. The `ExpenseComparator` sorts the variables in a blackbox by <b>comparing</b> two objects at a time.
 `ListExpenseCommand` further access the `currencyAbbreviation` and `ForExValue` objects to print out both local and foreign currency based on the input provided.
 
@@ -251,12 +254,12 @@ You are still spending within your budget.
 
 Trippie provide travellers with a quicker alternative to convert any amount into local or foreign currency. Below is its class diagram.
 
-![Currency UML Diagram](https://i.imgur.com/9nvieTj.jpg)
+![Currency UML Diagram](https://i.imgur.com/BSe802j.jpg)
 <center><i>Figure 8: Currency Classes</i></center>
 
 
-Similar to [4.3 Budget and Expenses](#43-budget-and-expenses-shawn), `currencyAbbreviation`, `budgetValue` and `forExValue` are retrivable from `Trip` object.
-`Currency` object composes of an **enumeration** `CurrencyType` object. This provides **clarity** since it consists of only `LOCAL` and `FOREIGN` contants.
+Similar to [4.3 Budget and Expenses](#43-budget-and-expenses-shawn), `currencyAbbreviation`, `budgetValue` and `forExValue` are retrievable from `Trip` object.
+`Currency` object composes of an **enumeration** `CurrencyType` object. This provides **clarity** since it consists of only `LOCAL` and `FOREIGN` constants.
 `CalculateCurrencyCommand` retrieve data and convert the input amount according to the input choice.
 
 Here's an example of the conversion based on the relevant data and inputs.
@@ -269,7 +272,7 @@ That amount in your local currency is 13.33 SGD.
 ### 4.5 Import and Export Files (Wei Shuang)
 Trippie aims to let its users save and view their files in a reader-friendly format, which is why the import and export files feature is implemented. This feature is designed for users to view their trips via a **text file** anywhere and anytime during their trip conveniently.
 
-Each trip will be saved individually into their respective text files, and each file will contain the trip's `ExpenseList` and `PlaceList`. These information are portrayed in a **reader-friendly format** for users to read the text files easily during their trip.
+Each trip will be saved individually into their respective text files, and each file will contain the trip's `ExpenseList` and `PlaceList`. This information is portrayed in a **reader-friendly format** for users to read the text files easily during their trip.
 
 Here is an example of a saved trip in text file:
 ```
@@ -294,44 +297,31 @@ Forex Abbreviation: MYR
 
 Forex Rate: 3.0
 ```
-### 4.6 Addition Class Diagrams [Confirm if we still need them]:
-
-
-![UML Diagram Main](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Main.jpg?raw=true)
-<center><i>Figure 9: Overall Architecture</i></center>
-
-
-![UML Diagram](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Class%20Diagram.jpg?raw=true)
-<center><i>Figure 10: Class Types and Parameters</i></center>
-
-![UML Diagram Command](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Command.jpg?raw=true)
-<center><i>Figure 11: Commands Classes</i></center>
-
-![UML Diagram Exception](https://github.com/AY2021S1-CS2113T-W11-2/tp/blob/master/docs/diagrams/Trippie%20UML-Exception.jpg?raw=true)
-<center><i>Figure 12: Exception Classes</i></center>
 
 ## 5.0 Appendix: Requirements
 
 ### 5.1 Product scope (Kian En)
 
-The following sections displays Trippie's potential target user profile, its value proposition.
+The following sections display Trippie's potential target user profile and its value proposition.
 
 #### 5.1.0 Target user profile
 
-Here are 4 factors for our targetted user profile
+Here are 4 factors for our targeted user profile
 
-- Students who loves to travel.
+- Students who love to travel.
 - Students going on exchange trips e.g. Student Exchange Program (SEP), NUS Overseas College (NOC).
 - Students who like to challenge themselves to plan for their own trips.
 - Students who seek convenience in tracking their expenses under the same planning application.
 
 #### 5.1.1 Value proposition
 
-It allows users to plan multiple trips in a one-stop platform before and during the trip. It provides user with a convenient method of tracking expenditure while not spending past their budget. It also allows user to quickly convert any amount from local to foreign currency, vice versa. 
+It allows users to plan multiple trips in a one-stop platform before and during the trip. It provides user with a 
+convenient method of tracking expenditure while not spending past their budget. Lastly, it also allows user to quickly convert 
+any amount from local to foreign currency, vice versa. 
 
 ### 5.2 User Stories (Kian En)
 
-This table demostrates a list of user stories relevant to Trippie.
+This table demonstrates a list of user stories relevant to Trippie.
 
 |Version| As a ... | I want ... | So that I can ...|
 |--------|----------|---------------|------------------|
@@ -340,13 +330,13 @@ This table demostrates a list of user stories relevant to Trippie.
 |v1.0|Student who is unfamiliar with complex travel planners|To have a simple platform that is easy to use|Efficiently plan out my itinerary|
 |v1.0|Studious student|To have my trips automatically saved|Not worry about my trips getting lost if I focus on something else|
 |v1.0|Student who likes to plan as I travel|To update my trips daily|use them again in the future|
-|v1.0|Student who wants to plan trips online|To take note of any links and/or online references to certain accomodations, places, or restaurants|Open them later|
+|v1.0|Student who wants to plan trips online|To take note of any links and/or online references to certain accommodations, places, or restaurants|Open them later|
 |v1.0|Student in a student exchange planning committee|To note down some tourist attraction places in Singapore|Bring the exchange students around during orientation|
 |v1.0|Student who likes to keep notes on places I travel before|To note down my fresh experiences while on travel trips|Open and look back at it anytime|
-|v1.0|Student who is always on-the-go|To input my spendings in a very quick manner|Input my spendings without a hassle|
+|v1.0|Student who is always on-the-go|To input my spending in a very quick manner|Input my spending without a hassle|
 |v2.0|Student traveling to a foreign country for the first time|To record cultural differences and some other travel notes before traveling there|Access them quickly in that country to avoid any misunderstandings|
 |v2.0|Student unsure on which country to visit for exchange | To plan various trips before looking at them individually | Make an informed decision which country I'm most interested in for exchange|
-|v2.0|Student who is not very good at managing expenses|To be reminded when my spendings are going to exceed my initial budget|Reduce my spendings if required|
+|v2.0|Student who is not very good at managing expenses|To be reminded when my spending are going to exceed my initial budget|Reduce my spending if required|
 |v2.0|Student who plans trip ahead of time|To be able to edit whatever has been planned easily|Improve my itinerary easily|
 |v2.0|Student who is interested in many overseas opportunities|To create ane edit multiple trips simultaneously|Plan multiple trips ahead at a time|
 
@@ -396,7 +386,7 @@ Given below are the instructions to test the app manually.
        * If your operating system is MacOS, use Terminal.
    6. Enter `java -jar trippie.jar` in your command line tool and press enter.
    7. If the setup is correct, you should see a welcome message. Then, it is now ready to go.
-   8. Create your first trip by entering `new trip` to the command line. Then, enter your trip name, start date, exhange rate, currency, and budget.
+   8. Create your first trip by entering `new trip` to the command line. Then, enter your trip name, start date, exchange rate, currency, and budget.
    9. Add your first place using `add`. Then buy your first item with `buy`.
    10. Try listing your places by entering `list /p` and your expenses with `list /e`.
 2. Shutdown
@@ -404,6 +394,8 @@ Given below are the instructions to test the app manually.
    2. Your Trippie files will be automatically saved in ./trippie_data!
 
 ### 6.2 Step by Step Guide (Shawn)
+
+Given below are the Step by Step Guide to use Trippie.
 
 #### Creating a new trip
 
@@ -504,7 +496,7 @@ DAY 3: (2011-01-03)
 [1] 0000 - 0100 test place
 ```
 
-#### Searching all places
+#### Searching places with keyword
 
 * Test case: Enter the command `search test` to find places that consist of the `test` keyword.
 * Expected: 
