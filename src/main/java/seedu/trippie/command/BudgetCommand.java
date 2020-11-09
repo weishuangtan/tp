@@ -13,6 +13,12 @@ public class BudgetCommand extends Command {
 
     private Float budgetValue;
 
+    /**
+     * Edits the budget allocated to the trip
+     *
+     * @param userInput Command input by the user.
+     * @throws TrippieInvalidArgumentException if input has formatting error, or budget is not a numerical value
+     */
     public BudgetCommand(String userInput) throws TrippieInvalidArgumentException {
         this.budgetValue = null;
         try {
@@ -29,6 +35,13 @@ public class BudgetCommand extends Command {
         }
     }
 
+    /**
+     * Extracts budget value from user's input
+     *
+     * @param userInput Command input by the user.
+     * @return Budget value input by the user.
+     * @throws TrippieInvalidArgumentException if the budget value is a negative value
+     */
     private Float extractBudgetValue(String userInput) throws TrippieInvalidArgumentException {
         String budgetValueString = userInput.substring(7);
         if (Float.parseFloat(budgetValueString) < 0) {
@@ -42,6 +55,12 @@ public class BudgetCommand extends Command {
         return false;
     }
 
+    /**
+     * Changes the budget parameter attached to the expense list.
+     *
+     * @param ui User Interface of the program.
+     * @param trippieData The current trip expenseList that will be updated.
+     */
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         trippieData.getCurrentTrip().getExpenseListObject().setBudgetValue(budgetValue);

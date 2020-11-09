@@ -9,6 +9,12 @@ public class HelpCommand extends Command {
         return false;
     }
 
+    /**
+     * Prints a list of commands available in Trippie
+     *
+     * @param ui User interface of the program.
+     * @param trippieData The current trip to fetch data from.
+     */
     @Override
     public void execute(Ui ui, TrippieData trippieData) {
         System.out.println("Welcome to Trippie! A one-stop app to plan any of your upcoming trips!");
@@ -69,6 +75,9 @@ public class HelpCommand extends Command {
         System.out.println("           |   Format: exit");
     }
 
+    /**
+     * Prints a border between each row when printing list of commands.
+     */
     public void printBorder() {
         System.out.println("___________|______________________________________________________________");
     }
