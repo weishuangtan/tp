@@ -66,7 +66,7 @@ Importing a Gradle project is slightly different from importing a normal Java pr
 
 This section explains the high-level design of the application. Given below is an overview of each component and a more detailed explanation of the architecture. Trippie is the main class which manages the initialization of the relevant classes and their execution.
 
-
+<!-- @@author felixhalim -->
 ### 3.1 Architecture (Felix)
 
 ![UML Diagram Main](https://i.imgur.com/N235vC0.jpg)
@@ -111,11 +111,16 @@ The example below is shown for `HelpCommand`. Further references are shown in *F
 
 The UI class is in charge of the user's input, from the `readCommand` or `getLine` methods. Other functions of the Ui is to provide shorthands of Trippie's outputs, such as `greetUser` or `showFarewells`.
 
+<!-- @@author-->
+
+<!-- @@author weishuangtan -->
 ### 3.3 Parser (Wei Shuang)
 The `Parser` class is implemented to parse the user's input, and returns a `Command` object. The `Trippie` class will read in this object and call the `execute` method under the object.
 
 When the `Parser` class is unable to successfully parse the user's input, `TrippieIllegalCommandException` will be thrown. (Refer to [3.7 Exceptions](#37-exceptions-wei-shuang))
 
+<!-- @@author-->
+<!-- @@author ivanderjmw -->
 ### 3.4 TrippieData (Ivander)
 
 The `TrippieData` class is being implemented to store all of your data during Trippie's runtime. Below is its class diagram.
@@ -153,6 +158,8 @@ Important methods inside this class are:
 
 Refer to Multiple Trips Implementation to find out more about the file structure.
 
+<!-- @@author-->
+<!-- @@author weishuangtan -->
 ### 3.6 Command (Wei Shuang)
 The `Command` class is designed as the parent class for other command classes (e.g. `NewTripCommand`, `AddExpenseCommand`, `ExitCommand` etc). Below shows its class diagram:
 
@@ -177,11 +184,12 @@ Below shows its class diagram:
 * `TrippieInvalidArgumentException` is thrown when the individual commands inherited from `Command` class meets an error.
 * `TrippieExceedBudgetException` is thrown when expenses in the saved trip exceeds the budget given by user.
 
-
+<!-- @@author-->
 ## 4.0 Implementation
 
 This section elaborates on some unique details about how certain features are implemented.
 
+<!-- @@author ivanderjmw -->
 ### 4.1 Multiple Trips Structure (Ivander)
 
 Trippie is built for travelers, those who most probably has more than a single trip in mind. Therefore, the multiple trips feature is designed so that someone can easily work and switch between many trips.
@@ -213,8 +221,9 @@ trippie_data
     └── trippie.txt
 ```
 
+<!-- @@author-->
 
-
+<!-- @@author tengkianen -->
 ### 4.2 Sorting Place List (Kian En)
 
 The way Trippie sorts its place list, regardless of the order the places are added by the user, is through **bubble sort**. The sorting algorithm is called every time a new place is added by the user. 
@@ -223,6 +232,8 @@ When listing either places, Trippie will sort them based on both *Day* and *Time
 
 Likewise, when sorting expenses, Trippie will sort them based on *Day*.
 
+<!-- @@author-->
+<!-- @@author ShawnTanzc -->
 ### 4.3 Budget and Expenses (Shawn)
 
 Trippie provides travellers an easy and convenient way to track expenses while constantly ensuring that the budget has not been exceeded. Below is the class diagram.
@@ -266,8 +277,8 @@ Here's an example of the conversion based on the relevant data and inputs.
 Processing... Please Wait.
 That amount in your local currency is 13.33 SGD.
 ```
-
-
+<!-- @@author-->
+<!-- @@author weishuangtan -->
 ### 4.5 Import and Export Files (Wei Shuang)
 Trippie aims to let its users save and view their files in a reader-friendly format, which is why the import and export files feature is implemented. This feature is designed for users to view their trips via a **text file** anywhere and anytime during their trip conveniently.
 
@@ -296,9 +307,10 @@ Forex Abbreviation: MYR
 
 Forex Rate: 3.0
 ```
-
+<!-- @@author-->
 ## 5.0 Appendix: Requirements
 
+<!-- @@author tengkianen -->
 ### 5.1 Product scope (Kian En)
 
 The following sections display Trippie's potential target user profile and its value proposition.
@@ -353,6 +365,7 @@ This table demonstrates a list of user stories relevant to Trippie.
 |Technical|Programme should be platform independent|
 |Technical|Programme should work without an installer|
 
+<!-- @@author-->
 ### 5.4 Glossary
 
 * *CLI* - Command Line Interface
@@ -364,6 +377,7 @@ This table demonstrates a list of user stories relevant to Trippie.
 
 Given below are the instructions to test the app manually.
 
+<!-- @@author felixhalim -->
 ### 6.1 Launch and Shutdown (Felix)
 
 1. Initial Launch
@@ -382,6 +396,8 @@ Given below are the instructions to test the app manually.
    1. `exit` to exit Trippie.
    2. Your Trippie files will be automatically saved in ./trippie_data!
 
+<!-- @@author-->
+<!-- @@author ShawnTanzc -->
 ### 6.2 Step by Step Guide (Shawn)
 
 Given below are the Step by Step Guide to use Trippie.
@@ -573,4 +589,4 @@ Bye. Hope to see you again soon!
 ```
 
 [Back to the top](#table-of-content)
-
+<!-- @@author-->
