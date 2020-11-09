@@ -112,7 +112,7 @@ public class EditTripCommand extends Command {
 
                     forEx = Float.parseFloat(input);
 
-                    if (forEx < 0) {
+                    if (forEx <= 0) {
                         System.out.println("Foreign exchange rate should be positive!");
                         forEx = null;
                     }
@@ -157,7 +157,7 @@ public class EditTripCommand extends Command {
                 } else {
                     budget = Float.parseFloat(input);
 
-                    if (budget < 0) {
+                    if (budget <= 0) {
                         System.out.println("Budget should be positive!");
                         budget = null;
                     }
