@@ -253,7 +253,7 @@ You are still spending within your budget.
 
 Trippie provide travellers with a quicker alternative to convert any amount into local or foreign currency. Below is its class diagram.
 
-![Currency UML Diagram](https://i.imgur.com/BSe802j.jpg)
+![Currency UML Diagram](https://i.imgur.com/CIvc6nq.jpg)
 <center><i>Figure 8: Currency Classes</i></center>
 
 
