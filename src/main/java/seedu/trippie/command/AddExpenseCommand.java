@@ -11,8 +11,8 @@ import java.util.List;
 public class AddExpenseCommand extends Command {
 
     private static final String FORMAT_ERROR_MESSAGE = "Incorrect format for [buy] command! Please try the following:\n"
-            + "Format: buy /i ITEM_NAME /c FINAL_COST /d DAY_NUMBER\n"
-            + "Example: buy /i R&B Brown Sugar /c 3.00 /d 2";
+            + "Format: buy /n ITEM_NAME /d DAY_NUMBER /c FINAL_COST\n"
+            + "Example: buy /n R&B Brown Sugar  /d 2 /c 3.00";
     private static final String PARAMETER_ERROR_MESSAGE = "Please check that your FINAL_COST and DAY_NUMBER parameters"
             + "are in \nnumerical form.";
     private static final String NEGATIVE_COST_MESSAGE = "Trippie doesn't know how to deal with negative cost.";

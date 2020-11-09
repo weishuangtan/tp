@@ -57,9 +57,9 @@ public class Parser {
                 return new NewTripCommand();
             } else if (userInput.trim().equals("load trip")) {
                 return new LoadTripCommand();
-            } else if (userInput.equals("edit trip")) {
+            } else if (userInput.trim().equals("edit trip")) {
                 return new EditTripCommand();
-            } else if (userInput.equals("delete trip")) {
+            } else if (userInput.trim().equals("delete trip")) {
                 return new DeleteTripCommand();
             } else {
                 throw new TrippieIllegalCommandException(ERROR_MESSAGE);
