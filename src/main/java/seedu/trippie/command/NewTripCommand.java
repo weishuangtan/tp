@@ -77,7 +77,7 @@ public class NewTripCommand extends Command {
                 try {
                     forEx = Float.parseFloat(ui.getLine());
 
-                    if (forEx < 0) {
+                    if (forEx <= 0) {
                         System.out.println("Foreign exchange rate should be positive!");
                         forEx = null;
                     }
@@ -106,7 +106,7 @@ public class NewTripCommand extends Command {
                     System.out.print("Enter your budget for the trip (in SGD):");
                     budget = Float.parseFloat(ui.getLine());
 
-                    if (budget < 0) {
+                    if (budget <= 0) {
                         System.out.println("Budget should be positive!");
                         budget = null;
                     }
